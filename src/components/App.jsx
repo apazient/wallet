@@ -1,10 +1,9 @@
-// import LoginPage from 'pages/LoginPage/LoginPage';
-import Navigation from './Navigation/Navigation';
+import LoginPage from 'pages/LoginPage/LoginPage';
 
 export const App = () => {
   return (
     <div>
-      <Navigation></Navigation>
+      <LoginPage />
     </div>
   );
 };
