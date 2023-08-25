@@ -9,6 +9,7 @@ import LoginPage from 'pages/LoginPage/LoginPage';
 
 export const App = () => {
   return (
+
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomeTab />} />
@@ -32,5 +33,6 @@ export const App = () => {
         <Route path="*" element={<div>NotFound</div>} />
       </Route>
     </Routes>
+
   );
 };
