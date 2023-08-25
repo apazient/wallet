@@ -23,12 +23,12 @@ const Navigation = () => {
         </NavIconStyled>
         <NavLinkStyled href="/">Statistics</NavLinkStyled>
       </NavLinkWrapperStyled>
-      <NavLinkWrapperStyled>
+      {/* <NavLinkWrapperStyled>
       <NavIconStyled>
         <SpriteSVG name={'currency'} />
       </NavIconStyled>
         <NavLinkStyled href="/">Currency</NavLinkStyled>
-      </NavLinkWrapperStyled>
+      </NavLinkWrapperStyled> */}
     </NavWrapperStyled>
   );
 };
