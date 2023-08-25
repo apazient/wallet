@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik } from 'formik';
 import {
   StyledInputWrapper,
@@ -19,6 +19,8 @@ import { SpriteSVG } from 'pictures/SpriteSVG';
 import { Switcher } from './Switcher';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
+import { useDispatch } from 'react-redux';
+import { feachCategories } from 'redux/TransactionCategories/operations';
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
@@ -29,6 +31,11 @@ const ModalAddTransaction = () => {
   const [number, setNumber] = useState('');
   const [text, setText] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(feachCategories());
+  }, [dispatch]);
 
   const handleSubmit = values => {
     console.log(values);
