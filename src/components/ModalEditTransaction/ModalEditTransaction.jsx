@@ -22,22 +22,6 @@ const dateNow = () => {
   return formattedDate;
 };
 
-// const initialValues = {
-//   number: '',
-//   date: `${dateNow()}`,
-//   text: '',
-// };
-
-// const validationSchema = Yup.object().shape({
-//   number: Yup.number()
-//     .required('Requited')
-//     .positive('The number must be positive'),
-//   date: Yup.date()
-//     .required('Requited')
-//     .max(new Date(), 'Date must be in the past'),
-//   text: Yup.string(),
-// });
-// ! START COMPONENTS
 export const ModalEditTransaction = () => {
   // if (!isOpen) {
   //   return null;
@@ -54,22 +38,16 @@ export const ModalEditTransaction = () => {
     },
     validationSchema: Yup.object().shape({
       number: Yup.number()
-        .required('Requited')
-        .positive('The number must be positive'),
+        .required('Required field!')
+        .positive('The number must be positive!'),
       date: Yup.date()
-        .required('Requited')
-        .max(new Date(), 'Date must be in the past'),
+        .required('Required field!')
+        .max(new Date(), 'Date must be in the past!'),
       text: Yup.string(),
     }),
   });
 
   return (
-    // <Formik
-    //   validationSchema={formik.validationSchema}
-    //   onSubmit={formik.handleSubmit}
-    //   initialValues={formik.initialValues}
-    // >
-    //   {() => (
     <FormikForm onSubmit={formik.handleSubmit}>
       <StyledTransaction>Edit transaction (income)</StyledTransaction>
       <StyledIncomeExpences>
@@ -119,7 +97,5 @@ export const ModalEditTransaction = () => {
         Cancel
       </StyledButtonWhite>
     </FormikForm>
-    // )}
-    // </Formik>
   );
 };

@@ -1,5 +1,4 @@
 import Datetime from 'react-datetime';
-import { Form } from 'formik';
 import { styled } from 'styled-components';
 
 export const FormikForm = styled.form`
@@ -24,7 +23,6 @@ export const StyledButtonPerple = styled.button`
   letter-spacing: 1.8px;
   text-transform: uppercase;
   text-align: center;
-  font-family: PoppinsRegular, sans-serif;
   font-size: 18px;
   font-style: normal;
   border: none;
