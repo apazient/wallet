@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-
 import {
   persistStore,
   persistReducer,
@@ -12,7 +11,9 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { userReducer } from './Auth/authSlice';
+import { globalReducer } from './Global/globalSlice';
 import { categoriesReducer } from './TransactionCategories/categoriesSlice';
+
 
 const persistConfigUser = {
   key: 'root',
@@ -23,6 +24,7 @@ const persistConfigUser = {
 
 export const store = configureStore({
   reducer: {
+    global: globalReducer,
     user: persistReducer(persistConfigUser, userReducer),
     tranzCategories: categoriesReducer,
   },
