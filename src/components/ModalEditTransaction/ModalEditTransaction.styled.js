@@ -8,7 +8,7 @@ export const FormikForm = styled(Form)`
   justify-content: center;
   row-gap: 40px;
   padding: 32px 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 60px 0px;
+  box-shadow: 0 0 50px 50px gray;
   background: radial-gradient(rgb(63, 46, 150), rgb(95, 71, 140));
 `;
 
