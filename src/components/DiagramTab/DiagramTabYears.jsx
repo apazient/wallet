@@ -5,7 +5,7 @@ import { useState } from 'react';
 export const DiagramTabYears = () => {
   const [selectedYear, setSelectedYear] = useState(null);
 
-  // Временая функция генерации годов
+  // Временая функция генерации годjd
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 100 }, (_, index) => ({
     value: currentYear - 50 + index,
