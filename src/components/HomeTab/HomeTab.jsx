@@ -1,7 +1,24 @@
+import ButtonAddTransactions from 'components/ButtonAddTransactions/ButtonAddTransactions';
+import Modal from 'components/Modal/Modal';
+import ModalAddTransaction from 'components/ModalAddTransaction/ModalAddTransaction';
 import React from 'react';
 
+import { useSelector } from 'react-redux';
+import { isAddTransaction } from 'redux/Global/selectors';
+
 const HomeTab = () => {
-  return <div>HomeTab HomeTab</div>;
+  const isAddTrans = useSelector(isAddTransaction);
+
+  return (
+    <div>
+      <ButtonAddTransactions />
+      {isAddTrans && (
+        <Modal>
+          <ModalAddTransaction />
+        </Modal>
+      )}
+    </div>
+  );
 };
 
 export default HomeTab;
