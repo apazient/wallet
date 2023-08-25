@@ -20,6 +20,7 @@ export const Overlay = styled.div`
 
 export const OverlayGradient1 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 595px;
   height: 595px;
   border-radius: 595px;
@@ -31,6 +32,7 @@ export const OverlayGradient1 = styled.div`
 `;
 export const OverlayGradient2 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 713px;
   height: 713px;
   border-radius: 713px;
@@ -45,6 +47,7 @@ export const OverlayGradient2 = styled.div`
 `;
 export const OverlayGradient3 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 284px;
   height: 284px;
   border-radius: 284px;
@@ -55,28 +58,27 @@ export const OverlayGradient3 = styled.div`
     rgba(142, 46, 121, 0.68) 0%,
     rgba(171, 51, 173, 0.68) 100%
   );
-
   filter: blur(100px);
 `;
 export const OverlayGradient4 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 284px;
   height: 284px;
   border-radius: 284px;
   top: 196px;
   right: 0;
   background-color: #302e8e;
-
   filter: blur(150px);
 `;
 export const OverlayGradient5 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 220px;
   height: 220px;
   border-radius: 220px;
   bottom: -71px;
   right: 310px;
   background-color: #6d1c77;
-
   filter: blur(150px);
 `;
