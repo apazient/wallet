@@ -1,3 +1,5 @@
+import TransactionsList from './TransactionsList/TransactionsList';
+
 export const App = () => {
-  return <div>Wallet</div>;
+  return <TransactionsList />;
 };
