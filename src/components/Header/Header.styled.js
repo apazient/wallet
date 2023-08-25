@@ -59,7 +59,7 @@ export const StyledUserWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: ${({ theme }) => theme.spacing(2)};
 
   @media screen and (min-width: 768px) {
     border-left: 1px solid ${({ theme }) => theme.colors.navLink};

@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router';
 import Layout from './Layout/Layout';
 import HomeTab from './HomeTab/HomeTab';
@@ -6,10 +5,10 @@ import SummaryPage from 'pages/SummaryPage/SummaryPage';
 import RegistrationPage from 'pages/RegistrationPage/RegistrationPage';
 import { PublicRoute } from 'HOC/PublicRoute/PublicRoute';
 import LoginPage from 'pages/LoginPage/LoginPage';
+import NotFound from 'pages/NotFound/NotFound';
 
 export const App = () => {
   return (
-
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomeTab />} />
@@ -30,9 +29,8 @@ export const App = () => {
             </PublicRoute>
           }
         />
-        <Route path="*" element={<div>NotFound</div>} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
-
   );
 };
