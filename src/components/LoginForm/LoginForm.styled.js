@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 export const StyledSectionForm = styled.section`
   width: 320px;
@@ -17,6 +17,21 @@ export const FormikLoginForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const StyledInput = styled(Field)`
+  border: none;
+  outline: none;
+  background-color: inherit;
+  color: ${({ theme }) => theme.colors.navLink};
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+`;
+
+export const StyledErrorMessage = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
 `;
 
 export const StyledDiv = styled.div`
@@ -99,16 +114,6 @@ export const StyledLabels = styled.label`
   display: flex;
   gap: 10px;
   align-items: center;
-`;
-
-export const StyledInput = styled.input`
-  border: none;
-  outline: none;
-  background-color: inherit;
-  color: ${({ theme }) => theme.colors.navLink};
-  font-family: Poppins;
-  font-size: 18px;
-  font-weight: 400;
 `;
 
 export const StyledDivSpriteSvgLogo = styled.div`
