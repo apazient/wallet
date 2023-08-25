@@ -7,11 +7,12 @@ import {
   OverlayGradient4,
   OverlayGradient5,
 } from './LoginPage.styled';
+import { LoginForm } from 'components/LoginForm/LoginForm';
 
-const LoginPage = ({ children }) => {
+const LoginPage = () => {
   return (
     <Overlay>
-      {children}
+      <LoginForm />
       <OverlayGradient1></OverlayGradient1>
       <OverlayGradient2></OverlayGradient2>
       <OverlayGradient3></OverlayGradient3>

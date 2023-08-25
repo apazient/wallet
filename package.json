@@ -9,6 +9,8 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "chart.js": "^3.9.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "formik": "^2.4.3",
     "modern-normalize": "^2.0.0",
     "prop-types": "^15.8.1",
