@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // AlexeyW
 // AlexeyW@mail.com
@@ -13,7 +13,7 @@ import {
   StyledDivItems,
   StyledDivSpriteSvgIcons,
   StyledDivSpriteSvgLogo,
-  StyledErrorMessage,
+  StyledErrorMessages,
   StyledH2,
   StyledInput,
   StyledLabels,
@@ -21,7 +21,7 @@ import {
 } from './LoginForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import { loginThunk } from 'redux/Auth/operations';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import * as Yup from 'yup';
@@ -49,7 +49,8 @@ export const LoginForm = () => {
   //     });
   // };
 
-  const renderError = message => <p className="help is-danger">{message}</p>;
+  // const renderError = message => <p className="help is-danger">{message}</p>;
+
   return (
     <StyledSectionForm>
       <StyledDiv>
@@ -75,7 +76,7 @@ export const LoginForm = () => {
                 <StyledInput name="email" placeholder="E-email" type="email" />{' '}
               </StyledLabels>
             </StyledDivInputs>
-            <StyledErrorMessage
+            <StyledErrorMessages
               name="email"
               className="text-red-500"
               component="h1"
@@ -93,7 +94,7 @@ export const LoginForm = () => {
               </StyledLabels>
               {/* <ErrorMessage name="password" render={renderError} /> */}
             </StyledDivInputs>
-            <StyledErrorMessage
+            <StyledErrorMessages
               name="password"
               className="text-red-500"
               component="h1"
