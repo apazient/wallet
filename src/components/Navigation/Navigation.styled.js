@@ -1,3 +1,4 @@
+import { SpriteSVG } from 'pictures/SpriteSVG';
 import styled from 'styled-components';
 
 export const NavWrapperStyled = styled.div`
@@ -14,12 +15,15 @@ export const NavWrapperStyled = styled.div`
 `;
 
 export const NavIconStyled = styled.div`
-  /* зашлушка иконки*/
-  width: 24px;
-  height: 24px;
-  background: purple;
-  margin-right: 20px;
-`;
+width: 24px;
+height: 24px;`
+// export const NavIconStyled = styled.div`
+//   /* зашлушка иконки*/
+//   width: 24px;
+//   height: 24px;
+//   background: purple;
+//   margin-right: 20px;
+// `;
 
 export const NavLinkWrapperStyled = styled.div`
   display: flex;
