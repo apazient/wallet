@@ -77,6 +77,7 @@ export const StyledHeaderBtn = styled.button`
   font-size: 16px;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.navLink};
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     display: block;
   }
@@ -86,4 +87,20 @@ export const StyledExitSvg = styled.div`
   width: 18px;
   height: 18px;
   fill: ${({ theme }) => theme.colors.navLink};
+  cursor: pointer;
+`;
+export const StyledLogoLink = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: ‘Poppins-Regular’;
+  font-size: 12.84px;
+  line-height: 1.58;
+  color: ${({ theme }) => theme.colors.colorText};
+
+  @media screen and (min-width: 768px) {
+    font-size: 17.1px;
+    line-height: 1.53;
+  }
 `;
