@@ -1,6 +1,6 @@
 // Modal.js
-import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import React, { useState } from 'react';
+import { Formik } from 'formik';
 import {
   ButtonStyle,
   FormikForm,
@@ -10,64 +10,89 @@ import {
   StyledIncomeExpences,
   StyledTransaction,
 } from './ModalEditTransaction.styled';
+import * as yup from 'yup';
 
-const initialValues = {
-  firstName: '',
-  lastName: '',
-  email: '',
+const dateNow = () => {
+  const time = Date.now();
+  const date = new Date(time);
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const formattedDate = `${year}-${month}-${day}`;
+  return formattedDate;
 };
 
-// const onSubmit = values => {
-//   console.log('Form submitted with values:', values);
+// const initialValues = {
+//   number: '',
+//   date: `${dateNow()}`,
+//   text: '',
 // };
 
-// const validate = values => {
-//   const errors = {};
-
-//   if (!values.firstName) {
-//     errors.firstName = 'Required';
-//   }
-
-//   if (!values.lastName) {
-//     errors.lastName = 'Required';
-//   }
-
-//   if (!values.email) {
-//     errors.email = 'Required';
-//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-//     errors.email = 'Invalid email address';
-//   }
-
-//   return errors;
-// };
+const validationSchema = yup.object().shape({
+  number: yup.number().required('Requited'),
+  date: yup.date().required('Requited'),
+  text: yup.string(),
+});
 
 export const ModalEditTransaction = () => {
   // if (!isOpen) {
   //   return null;
   // }
 
-  const time = Date.now();
-  console.log(time);
+  const [date, setDate] = useState(dateNow());
+  const [number, setNumber] = useState('');
+  const [text, setText] = useState('');
+
+  const handleSubmit = values => {
+    console.log(values);
+  };
 
   return (
-    <Formik initialValues={initialValues}>
+    <Formik validationSchema={validationSchema}>
       {() => (
-        <FormikForm>
-          <StyledTransaction>Edit transaction</StyledTransaction>
+        <FormikForm onSubmit={() => handleSubmit()}>
+          <StyledTransaction>Edit transaction (income)</StyledTransaction>
           <StyledIncomeExpences>
             <p>Income</p>
             <p>/</p>
             <p>Expense</p>
           </StyledIncomeExpences>
           <InputWrapper>
-            <Input placeholder="Number" type="number"></Input>
-            <Input placeholder="Date" type="date"></Input>
+            <Input
+              name="number"
+              placeholder="0.00"
+              type="number"
+              value={number}
+              onChange={e => {
+                setNumber(e.target.value);
+              }}
+            />
+            <Input
+              name="date"
+              placeholder="2025-08-23"
+              type="date"
+              onChange={e => {
+                setDate(e.target.value);
+                console.dir(e.target.value);
+              }}
+              value={date}
+            />
           </InputWrapper>
           <InputWrapper>
-            <Input placeholder="Comment" type="text"></Input>
+            <Input
+              name="text"
+              placeholder="Comment"
+              type="text"
+              value={text}
+              onChange={e => {
+                setText(e.target.value);
+              }}
+            />
           </InputWrapper>
-          <StyledButton>Save</StyledButton>
-          <ButtonStyle onClick={console.log('_')}>Cancel</ButtonStyle>
+          <StyledButton type="submit">Save</StyledButton>
+          <ButtonStyle onClick={() => console.log(dateNow())}>
+            Cancel
+          </ButtonStyle>
         </FormikForm>
       )}
     </Formik>
