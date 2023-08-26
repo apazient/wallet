@@ -68,7 +68,7 @@ const TransactionsList = () => {
                       <SpriteSVG name={`edit`} />
                     </EditIconStyled>
                   </EditTabBtn>
-                  <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
+                  <DeleteTabBtn onClick={() => handleDeleteClick()}>
                     Delete
                   </DeleteTabBtn>
                 </IconBtnWrapperStyled>
