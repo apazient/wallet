@@ -6,12 +6,19 @@ import {
   fetchTransactions,
 } from 'redux/TransactionsList/operations';
 
+import {
+  selectToken,
+  selectTransaction,
+} from 'redux/TransactionsList/selectors';
+
+
 import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
 import Modal from 'components/Modal/Modal';
 import { isEditTransaction } from 'redux/Global/selectors';
 import ButtonEditTransactions from 'components/ButtonEditTransactions/ButtonEditTransactions';
 
 import { selectTransaction } from 'redux/TransactionsList/selectors';
+
 
 import {
   DeleteTabBtn,
@@ -33,12 +40,14 @@ import {
 
 const TransactionsList = () => {
   const dispatch = useDispatch();
-
+  const token = useSelector(selectToken);
   const dataList = useSelector(selectTransaction);
   useEffect(() => {
-    dispatch(fetchTransactions());
+    dispatch(fetchTransactions(token));
+
   }, [dispatch]);
 
+  console.log(dataList);
   const handleDeleteClick = transactionId => {
     console.log(transactionId);
     dispatch(deleteTransaction(transactionId));
