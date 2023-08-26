@@ -6,13 +6,28 @@ import RegistrationPage from 'pages/RegistrationPage/RegistrationPage';
 import { PublicRoute } from 'HOC/PublicRoute/PublicRoute';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import NotFound from 'pages/NotFound/NotFound';
+import { PrivateRoute } from 'HOC/PrivateRoute/PrivateRoute';
 
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomeTab />} />
-        <Route path="summary" element={<SummaryPage />} />
+        <Route
+          index
+          element={
+            <PrivateRoute>
+              <HomeTab />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="summary"
+          element={
+            <PrivateRoute>
+              <SummaryPage />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="logup"
           element={
