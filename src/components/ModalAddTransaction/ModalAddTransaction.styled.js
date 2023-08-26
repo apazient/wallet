@@ -62,6 +62,15 @@ export const StyledInputWrapper = styled.div`
   gap: 2px;
   align-items: center;
 `;
+
+export const StyledInputWrapTab = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing(10)};
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    gap: ${({ theme }) => theme.spacing(8)};
+  }
+`;
 export const StyledInput = styled(Field)`
   padding-bottom: ${({ theme }) => theme.spacing(2)};
   padding-left: ${({ theme }) => theme.spacing(5)};
@@ -79,10 +88,17 @@ export const StyledInput = styled(Field)`
 `;
 export const StyledInputValue = styled(StyledInput)`
   font-weight: 600;
+  @media screen and (min-width: 768px) {
+    min-width: 181px;
+    text-align: center;
+    padding-left: 0px;
+  }
 `;
-export const StyledInputCalendar = styled(StyledInput)``;
 export const StyledInputComment = styled(StyledInput)`
   padding-bottom: 52px;
+  @media screen and (min-width: 768px) {
+    min-width: 394px;
+  }
 `;
 //Styled SVG
 export const StyledCalendarSvg = styled.div`
@@ -129,6 +145,10 @@ export const StyledDatetime = styled(Datetime)`
     background-color: transparent;
     &:focus {
       outline: none;
+    }
+    @media screen and (min-width: 768px) {
+      min-width: 181px;
+      padding-left: 0px;
     }
   }
 `;
