@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router';
 import Layout from './Layout/Layout';
 import HomeTab from './HomeTab/HomeTab';
@@ -34,5 +33,4 @@ export const App = () => {
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
-
 };
