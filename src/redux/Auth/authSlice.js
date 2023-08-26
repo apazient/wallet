@@ -34,7 +34,6 @@ export const authSlice = createSlice({
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.isLoading = false;
-        state.isAuth = false;
       })
       .addCase(logoutThunk.fulfilled, (state, action) => {
         state.user = {
