@@ -5,32 +5,50 @@ import {
   StyledHeaderBtn,
   StyledExitSvg,
   StyledHeaderText,
-  StyledLogoText,
   StyledLogoThumb,
   StyledUserThumb,
   StyledLogoSvg,
   StyledUserWrapper,
+  StyledLogoLink,
 } from './Header.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { getUser } from 'redux/Auth/selectors';
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { name } = useSelector(getUser);
+
+  const handleLogout = () => {
+    dispatch()
+      .unwrap()
+      .then(() => navigate(location.state?.location || '/'));
+    toast.success(`See you soon ${name}!`);
+  };
   return (
     <StyledHeader>
       <StyledLogoThumb>
-        <a href="/">
+        <StyledLogoLink href="/">
           <StyledLogoSvg>
             <SpriteSVG name={'logo'} />
           </StyledLogoSvg>
-        </a>
-        <StyledLogoText>Money Guard</StyledLogoText>
+          Money Guard
+        </StyledLogoLink>
       </StyledLogoThumb>
 
       <StyledUserThumb>
         <StyledHeaderText>Name</StyledHeaderText>
         <StyledUserWrapper>
-          <StyledExitSvg>
+          <StyledExitSvg onClick={handleLogout}>
             <SpriteSVG name={'exit'} />
           </StyledExitSvg>
-          <StyledHeaderBtn type="button">Exit</StyledHeaderBtn>
+          <StyledHeaderBtn type="button" onClick={handleLogout}>
+            Exit
+          </StyledHeaderBtn>
         </StyledUserWrapper>
       </StyledUserThumb>
     </StyledHeader>
