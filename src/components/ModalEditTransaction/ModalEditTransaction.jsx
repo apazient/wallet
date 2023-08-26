@@ -22,10 +22,11 @@ const dateNow = () => {
   return formattedDate;
 };
 
-export const ModalEditTransaction = () => {
+export const ModalEditTransaction = dataItem => {
   // if (!isOpen) {
   //   return null;
   // }
+
   const formik = useFormik({
     initialValues: {
       date: '',

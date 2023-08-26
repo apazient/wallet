@@ -34,6 +34,7 @@ import {
 } from './TransactionsList.styled';
 
 const TransactionsList = () => {
+  const isEditTrans = useSelector(isEditTransaction);
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const dataList = useSelector(selectTransaction);
@@ -43,10 +44,14 @@ const TransactionsList = () => {
     dispatch(fetchTransactions(token));
   }, [dispatch]);
 
-  console.log(dataList);
   const handleDeleteClick = transactionId => {
     console.log(transactionId);
     dispatch(deleteTransaction(transactionId));
+  };
+  const filteredItem = id => {
+    const newData = dataList.find(el => el.id === id);
+    console.log(newData);
+    return newData;
   };
   return (
     <TableStyled>
@@ -76,7 +81,7 @@ const TransactionsList = () => {
                       <SpriteSVG name={`edit`} />
                       {isEditTrans && (
                         <Modal>
-                          <ModalEditTransaction />
+                          <ModalEditTransaction dataItem={filteredItem(id)} />
                         </Modal>
                       )}
                       <ButtonEditTransactions />
