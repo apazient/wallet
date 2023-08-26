@@ -1,4 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+
 import axios from 'axios';
 
 export const API = axios.create({
@@ -9,11 +11,9 @@ export const fetchTransactions = createAsyncThunk(
   'transactions/fetchAll',
   async (token, { rejectWithValue }) => {
     try {
-      const { data } = await API.get('/api/transactions', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+
+      const { data } = await API.get('/api/transactions');
+
       console.log(data);
       return data;
     } catch (error) {

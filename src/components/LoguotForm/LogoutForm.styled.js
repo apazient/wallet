@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { StyledButton, StyledButtonWhite } from 'styles/Button';
 
-export const StyledSectionLogoutForm = styled.section`
+export const StyledSectionLogout = styled.section`
   width: 320px;
   height: 691px;
   background: rgba(255, 255, 255, 0.1);
@@ -17,7 +17,7 @@ export const StyledSectionLogoutForm = styled.section`
 export const StyledLogoutP = styled.p`
   color: #fff;
   text-align: center;
-  font-family: Poppins;
+  font-family: Poppins-Regular;
   font-size: 18px;
   font-weight: 400;
   width: 214px;

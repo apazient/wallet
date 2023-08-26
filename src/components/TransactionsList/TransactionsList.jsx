@@ -5,10 +5,21 @@ import {
   deleteTransaction,
   fetchTransactions,
 } from 'redux/TransactionsList/operations';
+
 import {
   selectToken,
   selectTransaction,
 } from 'redux/TransactionsList/selectors';
+
+
+import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
+import Modal from 'components/Modal/Modal';
+import { isEditTransaction } from 'redux/Global/selectors';
+import ButtonEditTransactions from 'components/ButtonEditTransactions/ButtonEditTransactions';
+
+import { selectTransaction } from 'redux/TransactionsList/selectors';
+
+
 import {
   DeleteTabBtn,
   EditIconStyled,
@@ -26,13 +37,14 @@ import {
   EditTabBtn,
 } from './TransactionsList.styled';
 
+
 const TransactionsList = () => {
   const dispatch = useDispatch();
-  const dataList = useSelector(selectTransaction);
   const token = useSelector(selectToken);
-
+  const dataList = useSelector(selectTransaction);
   useEffect(() => {
     dispatch(fetchTransactions(token));
+
   }, [dispatch]);
 
   console.log(dataList);
@@ -63,12 +75,21 @@ const TransactionsList = () => {
               <TdSumStyled>{amount}</TdSumStyled>
               <TdActionStyled>
                 <IconBtnWrapperStyled>
-                  <EditTabBtn>
+
+                  <div>
                     <EditIconStyled>
                       <SpriteSVG name={`edit`} />
+                      {isEditTransaction && (
+                        <Modal>
+                          <ModalEditTransaction />
+                        </Modal>
+                      )}
+                      <ButtonEditTransactions />
                     </EditIconStyled>
-                  </EditTabBtn>
-                  <DeleteTabBtn onClick={() => handleDeleteClick()}>
+                  </div>
+
+
+                  <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
                     Delete
                   </DeleteTabBtn>
                 </IconBtnWrapperStyled>
