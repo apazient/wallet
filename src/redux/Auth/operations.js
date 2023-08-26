@@ -10,8 +10,9 @@ const setToken = token => {
 };
 
 const clearToken = () => {
-  API.defaults.headers.common.Authorization = ``;
+ API.defaults.headers.common.Authorization = ``;
 };
+
 
 export const register = createAsyncThunk(
   'auth/reg',
