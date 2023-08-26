@@ -7,6 +7,7 @@ import RegistrationPage from 'pages/RegistrationPage/RegistrationPage';
 import { PublicRoute } from 'HOC/PublicRoute/PublicRoute';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import NotFound from 'pages/NotFound/NotFound';
+import { Currency } from './Currency/Currency';
 
 export const App = () => {
   return (
@@ -29,7 +30,7 @@ export const App = () => {
               <LoginPage />
             </PublicRoute>
           }
-        />
+        />  
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
