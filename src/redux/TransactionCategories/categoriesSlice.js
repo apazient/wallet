@@ -1,5 +1,6 @@
-const { createSlice } = require('@reduxjs/toolkit');
-const { feachCategories } = require('./operations');
+import { createSlice } from '@reduxjs/toolkit';
+import { feachCategories } from './operations';
+
 const initialState = {
   categories: [],
 };

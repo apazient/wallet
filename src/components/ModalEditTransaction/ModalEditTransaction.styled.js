@@ -1,7 +1,7 @@
-import { Form } from 'formik';
+import Datetime from 'react-datetime';
 import { styled } from 'styled-components';
 
-export const FormikForm = styled(Form)`
+export const FormikForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ export const FormikForm = styled(Form)`
   background: radial-gradient(rgb(63, 46, 150), rgb(95, 71, 140));
 `;
 
-export const StyledButton = styled.button`
+export const StyledButtonPerple = styled.button`
   width: 300px;
   height: 50px;
   border-radius: 20px;
@@ -23,7 +23,6 @@ export const StyledButton = styled.button`
   letter-spacing: 1.8px;
   text-transform: uppercase;
   text-align: center;
-  font-family: PoppinsRegular, sans-serif;
   font-size: 18px;
   font-style: normal;
   border: none;
@@ -37,7 +36,7 @@ export const StyledButton = styled.button`
   );
 `;
 
-export const ButtonStyle = styled.button`
+export const StyledButtonWhite = styled.button`
   width: 300px;
   height: 50px;
   display: flex;
@@ -104,4 +103,11 @@ export const StyledIncomeExpences = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+`;
+
+export const StyledDatetime = styled(Datetime)`
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
 `;

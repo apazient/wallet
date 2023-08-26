@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-// AlexeyWERT
-// AlexeyWERT@mail.com
-// AlexeyWERT@mail.com
+// AlexeyW
+// AlexeyW@mail.com
+// AlexW.com
 
 import {
   FormikLoginForm,
@@ -13,22 +13,21 @@ import {
   StyledDivItems,
   StyledDivSpriteSvgIcons,
   StyledDivSpriteSvgLogo,
+  StyledErrorMessages,
   StyledH2,
   StyledInput,
   StyledLabels,
   StyledSectionForm,
 } from './LoginForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { Formik, ErrorMessage, Form } from 'formik';
+
+import { Formik } from 'formik';
 import { loginThunk } from 'redux/Auth/operations';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import * as Yup from 'yup';
 import { getIsLoading } from 'redux/Auth/selectors';
 
 export const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
 
@@ -37,45 +36,51 @@ export const LoginForm = () => {
     password: Yup.string().min(6).max(12).required('Required'),
   });
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const credentials = { email, password };
-    dispatch(loginThunk(credentials))
-      .unwrap()
-      .then(res => {
-        toast.success(`Hello, ${res.user.name}`);
-      })
-      .catch(err => {
-        toast.error('Try another data!!');
-      });
-  };
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   const credentials = { email, password };
+  //   dispatch(loginThunk(credentials))
+  //     .unwrap()
+  //     .then(res => {
+  //       toast.success(`Hello, ${res.user.name}`);
+  //     })
+  //     .catch(err => {
+  //       toast.error('Try another data!!');
+  //     });
+  // };
 
-  const renderError = message => <p className="help is-danger">{message}</p>;
+  // const renderError = message => <p className="help is-danger">{message}</p>;
+
   return (
-    <Formik validationSchema={validationSchema}>
-      <StyledSectionForm>
-        <StyledDiv>
-          <StyledDivItems>
-            <StyledDivSpriteSvgLogo>
-              <SpriteSVG name="logo" />
-            </StyledDivSpriteSvgLogo>
-            <StyledH2>Money Guard</StyledH2>
-          </StyledDivItems>
-          <FormikLoginForm as={Form} onSubmit={handleSubmit}>
+    <StyledSectionForm>
+      <StyledDiv>
+        <StyledDivItems>
+          <StyledDivSpriteSvgLogo>
+            <SpriteSVG name="logo" />
+          </StyledDivSpriteSvgLogo>
+          <StyledH2>Money Guard</StyledH2>
+        </StyledDivItems>
+        <Formik
+          onSubmit={values => {
+            dispatch(loginThunk(values));
+          }}
+          initialValues={{ password: '', email: '' }}
+          validationSchema={validationSchema}
+        >
+          <FormikLoginForm>
             <StyledDivInputs>
               <StyledLabels>
                 <StyledDivSpriteSvgIcons>
                   <SpriteSVG name="email" />
                 </StyledDivSpriteSvgIcons>
-                <StyledInput
-                  name="email"
-                  placeholder="E-email"
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                />
+                <StyledInput name="email" placeholder="E-email" type="email" />{' '}
               </StyledLabels>
             </StyledDivInputs>
+            <StyledErrorMessages
+              name="email"
+              className="text-red-500"
+              component="h1"
+            />
             <StyledDivInputs>
               <StyledLabels>
                 <StyledDivSpriteSvgIcons>
@@ -85,19 +90,22 @@ export const LoginForm = () => {
                   name="password"
                   placeholder="Password"
                   type="password"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
                 />
               </StyledLabels>
-              <ErrorMessage name="password" render={renderError} />
+              {/* <ErrorMessage name="password" render={renderError} /> */}
             </StyledDivInputs>
+            <StyledErrorMessages
+              name="password"
+              className="text-red-500"
+              component="h1"
+            />
             <StyledButtonLog type="submit" disabled={isLoading}>
               Log In
             </StyledButtonLog>
             <StyledButtonReg type="submit">Register</StyledButtonReg>
           </FormikLoginForm>
-        </StyledDiv>
-      </StyledSectionForm>
-    </Formik>
+        </Formik>
+      </StyledDiv>
+    </StyledSectionForm>
   );
 };

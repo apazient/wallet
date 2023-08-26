@@ -18,6 +18,10 @@ export const globalSlice = createSlice({
     setIsLoading: (state, { payload }) => {
       state.isLoading = payload;
     },
+    closeModal: (state, { payload }) => {
+      state.isModalAddTransactionOpen = false;
+      state.isModalLogoutOpen = false;
+    },
   },
 });
 
@@ -25,5 +29,6 @@ export const {
   setIsModalAddTransactionOpen,
   setIsModalLogoutOpen,
   setIsLoading,
+  closeModal,
 } = globalSlice.actions;
 export const globalReducer = globalSlice.reducer;
