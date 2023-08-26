@@ -2,12 +2,16 @@ import React, { useEffect } from 'react';
 import {
   CurrencyContainerStyled,
   CurrencyImgStyled,
+  EllipseImgStyled,
+  EllipseImgStyled2,
+  LineImgStyled,
   TableCurrencyStyled,
   TbodyCurrencyStyled,
   TdCurrencyStyled,
   ThCurrencyStyled,
   TheadCurrencyStyled,
   TrCurrencyStyled,
+  WaveImgStyled,
 } from './Currency.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCurrencyData } from 'redux/Currentcy/operations';
@@ -53,10 +57,18 @@ export const Currency = () => {
         </TbodyCurrencyStyled>
       </TableCurrencyStyled>
       <CurrencyImgStyled>
-        <SpriteSVG name={'currencyEllipse'} />
-        <SpriteSVG name={'currencyEllipse'} />
-        <SpriteSVG name={'currencyLine'} />
-        <SpriteSVG name={'currencyWave'} />
+        <EllipseImgStyled>
+          <SpriteSVG name={'currencyEllipse'} />
+        </EllipseImgStyled>
+        <EllipseImgStyled2>
+          <SpriteSVG name={'currencyEllipse'} />
+        </EllipseImgStyled2>
+        <LineImgStyled>
+          <SpriteSVG name={'currencyLine'} />
+        </LineImgStyled>
+        <WaveImgStyled>
+          <SpriteSVG name={'currencyWave'} />
+        </WaveImgStyled>
       </CurrencyImgStyled>
     </CurrencyContainerStyled>
   );

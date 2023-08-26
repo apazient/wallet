@@ -38,6 +38,11 @@ export const TdCurrencyStyled = styled.td`
 `;
 export const CurrencyImgStyled = styled.div``;
 
-export const ImgStyled = styled.img``;
-export const ImgStyled2 = styled.img``;
-// const CurrencyImage = styled(currencyEllipse)``;
+export const EllipseImgStyled = styled.div``;
+export const EllipseImgStyled2 = styled.div``;
+export const LineImgStyled = styled.div`
+  position: relative;
+  top: 70px;
+`;
+export const WaveImgStyled = styled.div`
+`;
