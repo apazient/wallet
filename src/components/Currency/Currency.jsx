@@ -14,11 +14,8 @@ import { fetchCurrencyData } from 'redux/Currentcy/operations';
 import {
   selectCurrency,
   selectCurrencyLoading,
-
-} from 'redux/currentcy/selectors';
+} from '../../redux/Currentcy/selectors';
 import { SpriteSVG } from 'pictures/SpriteSVG';
-
-
 
 export const Currency = () => {
   const dispatch = useDispatch();
