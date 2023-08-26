@@ -7,7 +7,6 @@ import React from 'react';
 import {
   FormikLoginForm,
   StyledButtonLog,
-  StyledButtonReg,
   StyledDiv,
   StyledDivInputs,
   StyledDivItems,
@@ -17,6 +16,7 @@ import {
   StyledH2,
   StyledInput,
   StyledLabels,
+  StyledLinkReg,
   StyledSectionForm,
 } from './LoginForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -96,9 +96,7 @@ export const LoginForm = () => {
             <StyledButtonLog type="submit" disabled={isLoading}>
               Log In
             </StyledButtonLog>
-            <StyledButtonReg type="submit" onClick={() => navigate('/logup')}>
-              Register
-            </StyledButtonReg>
+            <StyledLinkReg to="/logup">Register</StyledLinkReg>
           </FormikLoginForm>
         </Formik>
       </StyledDiv>
