@@ -1,20 +1,37 @@
 import { styled } from 'styled-components';
+import { Field, Form, ErrorMessage } from 'formik';
 
-export const StyledModalSection = styled.section`
+export const StyledSectionForm = styled.section`
   width: 320px;
   height: 568px;
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
+  z-index: 100;
 `;
 
-export const StyledForm = styled.form`
+export const FormikLoginForm = styled(Form)`
   width: 100%;
   height: 50px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const StyledInput = styled(Field)`
+  border: none;
+  outline: none;
+  background-color: inherit;
+  color: ${({ theme }) => theme.colors.navLink};
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+`;
+
+export const StyledErrorMessages = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
 `;
 
 export const StyledDiv = styled.div`
@@ -99,11 +116,13 @@ export const StyledLabels = styled.label`
   align-items: center;
 `;
 
-export const StyledInput = styled.input`
-  border: none;
-  background-color: inherit;
-  color: ${({ theme }) => theme.colors.navLink};
-  font-family: Poppins;
-  font-size: 18px;
-  font-weight: 400;
+export const StyledDivSpriteSvgLogo = styled.div`
+  width: 25.5px;
+  height: 25.5px;
+`;
+
+export const StyledDivSpriteSvgIcons = styled.div`
+  width: 24px;
+  height: 24px;
+  fill: rgba(255, 255, 255, 0.4);
 `;

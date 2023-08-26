@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-export const NavWrapperStyled = styled.div`
+export const NavWrapperStyled = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 42px 0 30px;
+  list-style: none;
+  padding: 0;
+  padding-left: 19px;
+  padding-top: 42px;
+  padding-bottom: 28px;
 
   background: linear-gradient(
     220deg,
@@ -14,16 +18,17 @@ export const NavWrapperStyled = styled.div`
 `;
 
 export const NavIconStyled = styled.div`
-  /* зашлушка иконки*/
+  display: flex;
+  fill: rgba(255, 255, 255, 0.4);
+  flex-direction: column;
   width: 24px;
   height: 24px;
-  background: purple;
-  margin-right: 20px;
 `;
 
 export const NavLinkWrapperStyled = styled.div`
   display: flex;
   align-items: center;
+  gap: 20px;
 `;
 
 export const NavLinkStyled = styled.a`
@@ -35,6 +40,9 @@ export const NavLinkStyled = styled.a`
   line-height: normal;
   cursor: pointer;
   text-decoration: none; /*  нужно убрать стили для тега а */
+  &.hover {
+    font-weight: 700px;
+  }
   &.active {
     font-weight: 700;
   }
