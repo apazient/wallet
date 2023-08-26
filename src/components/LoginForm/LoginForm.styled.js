@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 import { Field, Form, ErrorMessage } from 'formik';
-import { StyledButton, StyledButtonWhite } from 'styles/Button';
+import { StyledButton, StyledLink } from 'styles/Button';
 
 export const StyledSectionForm = styled.section`
   width: 320px;
@@ -78,7 +78,7 @@ export const StyledButtonLog = styled(StyledButton)`
   margin-top: 40px;
 `;
 
-export const StyledButtonReg = styled(StyledButtonWhite)`
+export const StyledLinkReg = styled(StyledLink)`
   margin-top: 20px;
 `;
 
