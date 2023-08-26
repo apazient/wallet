@@ -16,9 +16,8 @@ import { transactionsSliceReducer } from './TransactionsList/TransactionsListSli
 
 import { globalReducer } from './Global/globalSlice';
 import { categoriesReducer } from './TransactionCategories/categoriesSlice';
-import { currencyReducer } from './currentcy/slice';
+import { currencyReducer } from './Currentcy/currentcySlice';
 import { summaryReducer } from './SummaryPage/summarySlice';
-
 
 const persistConfigUser = {
   key: 'root',
@@ -35,7 +34,6 @@ export const store = configureStore({
     tranzCategories: categoriesReducer,
     currency: currencyReducer,
     summary: summaryReducer,
-
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

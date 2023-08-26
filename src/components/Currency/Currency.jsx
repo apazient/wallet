@@ -8,13 +8,13 @@ import {
   TdCurrencyStyled,
   ThCurrencyStyled,
   TrCurrencyStyled,
-} from './currency.styled';
+} from './Currency.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCurrencyData } from 'redux/currentcy/operations';
+import { fetchCurrencyData } from 'redux/Currentcy/operations';
 import {
   selectCurrency,
   selectCurrencyLoading,
-} from 'redux/currentcy/selectors';
+} from 'redux/Currentcy/selectors';
 
 import currentImg1 from '../../pictures/currentImage/Vector 8.svg';
 import currentImg2 from '../../pictures/currentImage/Vector 7.svg';
