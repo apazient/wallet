@@ -9,12 +9,19 @@ import {
 } from './Switcher.styled';
 
 import { SpriteSVG } from 'pictures/SpriteSVG';
+import { useDispatch } from 'react-redux';
+import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
 
 export const Switcher = () => {
+  const dispatch = useDispatch();
+
   return (
     <SwitcherWrapper>
       <SwitcherLabel>
-        <SwitcherInput type="checkbox" />
+        <SwitcherInput
+          type="checkbox"
+          onChange={e => dispatch(showSelect(e.target.checked))}
+        />
         <SwitcherSpan>
           <StyledPlusSvg>
             <SpriteSVG name={'plus'} />
