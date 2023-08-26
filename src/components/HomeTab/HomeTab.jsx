@@ -11,6 +11,7 @@ const HomeTab = () => {
 
   return (
     <div>
+      <h1>HomeTab</h1>
       <ButtonAddTransactions />
       {isAddTrans && (
         <Modal>
