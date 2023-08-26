@@ -7,11 +7,16 @@ import { PublicRoute } from 'HOC/PublicRoute/PublicRoute';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import NotFound from 'pages/NotFound/NotFound';
 
-
 import { PrivateRoute } from 'HOC/PrivateRoute/PrivateRoute';
-
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { currentUser } from 'redux/Auth/operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -26,9 +31,9 @@ export const App = () => {
         <Route
           path="summary"
           element={
-            // <PrivateRoute>
-            <SummaryPage />
-            // </PrivateRoute>
+            <PrivateRoute>
+              <SummaryPage />
+            </PrivateRoute>
           }
         />
         <Route
