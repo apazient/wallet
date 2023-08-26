@@ -1,11 +1,13 @@
 import React from 'react';
 import {
+  StyledMinusSvg,
+  StyledPlusSvg,
   SwitcherInput,
   SwitcherLabel,
   SwitcherSpan,
   SwitcherWrapper,
 } from './Switcher.styled';
-import { StyledPlusSvg } from './ModalAddTransaction.styled';
+
 import { SpriteSVG } from 'pictures/SpriteSVG';
 
 export const Switcher = () => {
@@ -15,8 +17,11 @@ export const Switcher = () => {
         <SwitcherInput type="checkbox" />
         <SwitcherSpan>
           <StyledPlusSvg>
-            <SpriteSVG name={'close'} />
+            <SpriteSVG name={'plus'} />
           </StyledPlusSvg>
+          <StyledMinusSvg>
+            <SpriteSVG name={'minus'} />
+          </StyledMinusSvg>
         </SwitcherSpan>
       </SwitcherLabel>
     </SwitcherWrapper>

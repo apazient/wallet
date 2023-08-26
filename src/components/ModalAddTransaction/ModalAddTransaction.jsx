@@ -18,12 +18,9 @@ import {
 import * as yup from 'yup';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import { Switcher } from './Switcher';
-
-import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import { useDispatch } from 'react-redux';
 import { feachCategories } from 'redux/TransactionCategories/operations';
-
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
@@ -61,25 +58,27 @@ const ModalAddTransaction = () => {
             <Switcher />
             <StyledToggleTextExp>Expense</StyledToggleTextExp>
           </StyledToggleWrapper>
-          <StyledInputWrapper>
-            <StyledInputValue
-              name="number"
-              placeholder="0.00"
-              type="number"
-              value={number}
-              onChange={e => {
-                setNumber(e.target.value);
-              }}
-            />
-          </StyledInputWrapper>
-          <StyledDatetime
-            value={selectedDate}
-            dateFormat="DD.MM.YYYY"
-            timeFormat={false}
-            onChange={date => setSelectedDate(date)}
-            isValidDate={isValidDate}
-            closeOnSelect={true}
-          ></StyledDatetime>
+          <div>
+            <StyledInputWrapper>
+              <StyledInputValue
+                name="number"
+                placeholder="0.00"
+                type="number"
+                value={number}
+                onChange={e => {
+                  setNumber(e.target.value);
+                }}
+              />
+            </StyledInputWrapper>
+            <StyledDatetime
+              value={selectedDate}
+              dateFormat="DD.MM.YYYY"
+              timeFormat={false}
+              onChange={date => setSelectedDate(date)}
+              isValidDate={isValidDate}
+              closeOnSelect={true}
+            ></StyledDatetime>
+          </div>
           <StyledCalendarSvg>
             <SpriteSVG name={'calendar'} />
           </StyledCalendarSvg>
