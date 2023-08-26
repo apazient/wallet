@@ -44,6 +44,12 @@ export const authSlice = createSlice({
         state.token = '';
         state.isLoading = false;
         state.isAuth = false;
+      })
+      .addCase(logoutThunk.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(logoutThunk.rejected, (state, action) => {
+        state.isLoading = false;
       });
   },
 });

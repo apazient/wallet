@@ -9,13 +9,15 @@ import {
 } from './LogoutForm.styled';
 import { logoutThunk } from 'redux/Auth/operations';
 import { toast } from 'react-toastify';
-import { getUser } from 'redux/Auth/selectors';
+import { getIsLoading, getUser } from 'redux/Auth/selectors';
 import { useNavigate } from 'react-router-dom';
 
 export const LogoutForm = () => {
   const dispatch = useDispatch();
   const { username } = useSelector(getUser);
   const navigate = useNavigate();
+
+  const isLoading = useSelector(getIsLoading);
 
   const handleLogout = () => {
     dispatch(logoutThunk())
@@ -30,7 +32,9 @@ export const LogoutForm = () => {
   return (
     <StyledSectionLogout>
       <StyledLogoutP>Are you sure you want to log out?</StyledLogoutP>
-      <StyledButtonLogout onClick={handleLogout}>Logout</StyledButtonLogout>
+      <StyledButtonLogout onClick={handleLogout} disabled={isLoading}>
+        Logout
+      </StyledButtonLogout>
       <StyledButtonCancel onClick={e => dispatch(closeModal())}>
         Cancel
       </StyledButtonCancel>
