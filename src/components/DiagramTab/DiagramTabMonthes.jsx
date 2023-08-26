@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyledSelect } from './DiagramTab.styled';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMonth } from 'redux/SummaryPage/summarySlice';
-import { selectMonth, selectYear } from 'redux/SummaryPage/selectors';
+import { selectMonth } from 'redux/SummaryPage/selectors';
 
 export const DiagramTabMonthes = () => {
   const months = [
@@ -24,8 +23,11 @@ export const DiagramTabMonthes = () => {
   const dispatch = useDispatch();
   const month = useSelector(selectMonth);
 
+  const newMonth = months => {
+    const newMonth = months.find(el => el.value === month);
+    return newMonth;
+  };
   const handleMonthChange = selectedOption => {
-    console.log(selectedOption);
     dispatch(setMonth(selectedOption.value));
   };
 
@@ -33,7 +35,7 @@ export const DiagramTabMonthes = () => {
     <div>
       <StyledSelect
         options={months}
-        // value={month}
+        value={newMonth(months)}
         onChange={handleMonthChange}
         placeholder="Choose month"
         classNamePrefix="react-select"
