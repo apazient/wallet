@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 export const StyledButton = styled.button`
   padding: 13px 0 13px 0;
   min-width: 280px;
-  font-family: ‘Poppins-Regular’;
+  font-family: Poppins-Regular;
   font-size: 18px;
   letter-spacing: 1.8px;
   text-transform: uppercase;
