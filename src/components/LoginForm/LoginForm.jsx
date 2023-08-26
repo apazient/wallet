@@ -48,8 +48,6 @@ export const LoginForm = () => {
       });
   };
 
-  // const renderError = message => <p className="help is-danger">{message}</p>;
-
   return (
     <StyledSectionForm>
       <StyledDiv>
@@ -89,7 +87,6 @@ export const LoginForm = () => {
                   type="password"
                 />
               </StyledLabels>
-              {/* <ErrorMessage name="password" render={renderError} /> */}
             </StyledDivInputs>
             <StyledErrorMessages
               name="password"
@@ -99,7 +96,9 @@ export const LoginForm = () => {
             <StyledButtonLog type="submit" disabled={isLoading}>
               Log In
             </StyledButtonLog>
-            <StyledButtonReg type="submit">Register</StyledButtonReg>
+            <StyledButtonReg type="submit" onClick={() => navigate('/logup')}>
+              Register
+            </StyledButtonReg>
           </FormikLoginForm>
         </Formik>
       </StyledDiv>

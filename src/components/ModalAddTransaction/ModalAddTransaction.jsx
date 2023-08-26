@@ -15,6 +15,7 @@ import {
   StyledButtonWrapper,
   StyledDatetime,
   StyledInputWrapTab,
+  StyledDatatimeWrapper,
 } from './ModalAddTransaction.styled';
 import * as yup from 'yup';
 import { SpriteSVG } from 'pictures/SpriteSVG';
@@ -24,6 +25,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { feachCategories } from 'redux/TransactionCategories/operations';
 import { SelectExpenses } from './Select';
 import { selectIsSelect } from 'redux/TransactionCategories/selectors';
+import { addTransaction } from 'redux/TransactionsList/operations';
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
@@ -75,18 +77,21 @@ const ModalAddTransaction = () => {
                 }}
               />
             </StyledInputWrapper>
-            <StyledDatetime
-              value={selectedDate}
-              dateFormat="DD.MM.YYYY"
-              timeFormat={false}
-              onChange={date => setSelectedDate(date)}
-              isValidDate={isValidDate}
-              closeOnSelect={true}
-            ></StyledDatetime>
+            <StyledDatatimeWrapper>
+              <StyledDatetime
+                value={selectedDate}
+                dateFormat="DD.MM.YYYY"
+                timeFormat={false}
+                onChange={date => setSelectedDate(date)}
+                isValidDate={isValidDate}
+                closeOnSelect={true}
+              ></StyledDatetime>
+              <StyledCalendarSvg>
+                <SpriteSVG name={'calendar'} />
+              </StyledCalendarSvg>
+            </StyledDatatimeWrapper>
           </StyledInputWrapTab>
-          <StyledCalendarSvg>
-            <SpriteSVG name={'calendar'} />
-          </StyledCalendarSvg>
+
           <StyledInputWrapper>
             <StyledInputComment
               name="text"
@@ -99,7 +104,12 @@ const ModalAddTransaction = () => {
             />
           </StyledInputWrapper>
           <StyledButtonWrapper>
-            <StyledButtonAdd type="submit">Add</StyledButtonAdd>
+            <StyledButtonAdd
+              type="submit"
+              onClick={() => dispatch(addTransaction())}
+            >
+              Add
+            </StyledButtonAdd>
             <StyledButtonCancel onClick={() => console.log('Hello')}>
               Cancel
             </StyledButtonCancel>

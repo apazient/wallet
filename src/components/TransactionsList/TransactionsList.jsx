@@ -5,11 +5,14 @@ import {
   deleteTransaction,
   fetchTransactions,
 } from 'redux/TransactionsList/operations';
-import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
 
+import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
 import Modal from 'components/Modal/Modal';
 import { isEditTransaction } from 'redux/Global/selectors';
 import ButtonEditTransactions from 'components/ButtonEditTransactions/ButtonEditTransactions';
+
+import { selectTransaction } from 'redux/TransactionsList/selectors';
+
 import {
   DeleteTabBtn,
   EditIconStyled,
@@ -26,7 +29,7 @@ import {
   TrInfoStyled,
   EditTabBtn,
 } from './TransactionsList.styled';
-import { selectTransaction } from 'redux/TransactionsList/selectors';
+
 
 const TransactionsList = () => {
   const dispatch = useDispatch();
@@ -63,6 +66,7 @@ const TransactionsList = () => {
               <TdSumStyled>{amount}</TdSumStyled>
               <TdActionStyled>
                 <IconBtnWrapperStyled>
+
                   <div>
                     <EditIconStyled>
                       <SpriteSVG name={`edit`} />
@@ -74,6 +78,8 @@ const TransactionsList = () => {
                       <ButtonEditTransactions />
                     </EditIconStyled>
                   </div>
+
+
                   <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
                     Delete
                   </DeleteTabBtn>
