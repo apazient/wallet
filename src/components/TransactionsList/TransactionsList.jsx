@@ -37,6 +37,8 @@ const TransactionsList = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const dataList = useSelector(selectTransaction);
+  const isEditTrans = useSelector(isEditTransaction);
+
   useEffect(() => {
     dispatch(fetchTransactions(token));
   }, [dispatch]);
@@ -72,7 +74,7 @@ const TransactionsList = () => {
                   <div>
                     <EditIconStyled>
                       <SpriteSVG name={`edit`} />
-                      {isEditTransaction && (
+                      {isEditTrans && (
                         <Modal>
                           <ModalEditTransaction />
                         </Modal>
@@ -80,7 +82,6 @@ const TransactionsList = () => {
                       <ButtonEditTransactions />
                     </EditIconStyled>
                   </div>
-
                   <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
                     Delete
                   </DeleteTabBtn>
