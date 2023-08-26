@@ -1,4 +1,7 @@
 import { styled } from 'styled-components';
+import { StyledButton } from 'styles/Button';
+import Datetime from 'react-datetime';
+import 'react-datetime/css/react-datetime.css';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -15,7 +18,6 @@ export const StyledForm = styled.form`
   }
 `;
 export const StyledTitle = styled.h2`
-  margin: 0;
   text-align: center;
   font-family: ‘Poppins-Regular’;
   font-size: 24px;
@@ -36,7 +38,6 @@ export const StyledToggleWrapper = styled.div`
   gap: ${({ theme }) => theme.spacing(5)};
 `;
 export const StyledToggleText = styled.p`
-  margin: 0;
   font-family: ‘Poppins-SemiBold’;
   font-size: 16px;
   line-height: 1.5;
@@ -58,12 +59,12 @@ export const StyledInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
-  width: 100%;
   align-items: center;
 `;
 export const StyledInput = styled.input`
-  padding-bottom: 8px;
-  width: 280px;
+  padding-bottom: ${({ theme }) => theme.spacing(2)};
+  padding-left: ${({ theme }) => theme.spacing(5)};
+  min-width: 280px;
   font-family: ‘Poppins-Regular’;
   font-size: 18px;
   line-height: 1.5;
@@ -71,6 +72,9 @@ export const StyledInput = styled.input`
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   color: ${({ theme }) => theme.colors.colorText};
   background-color: transparent;
+  &:focus {
+    outline: none;
+  }
 `;
 export const StyledInputValue = styled(StyledInput)`
   font-weight: 600;
@@ -81,8 +85,13 @@ export const StyledInputComment = styled(StyledInput)`
 `;
 //Styled SVG
 export const StyledCalendarSvg = styled.div`
-  width: 18px;
-  height: 20px;
+  position: absolute;
+  right: 10%;
+  top: 45%;
+  pointer-events: none;
+  transform: translate(-10%, -45%);
+  width: 24px;
+  height: 24px;
   fill: rgba(115, 74, 239, 1);
 `;
 export const StyledPlusSvg = styled.div`
@@ -99,30 +108,30 @@ export const StyledButtonWrapper = styled.div`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing(5)};
 `;
-export const StyledButton = styled.button`
-  padding: 13px 0 13px 0;
-  width: 280px;
-  font-family: ‘Poppins-Regular’;
-  font-size: 18px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  text-align: center;
 
-  border: none;
-  border-radius: 20px;
-  outline: none;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.colorText};
-  background: ${({ theme }) => theme.colors.coloredBtn};
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
-  @media screen and (min-width: 768px) {
-    width: 300px;
-  }
-`;
 export const StyledButtonAdd = styled(StyledButton)`
   background: ${({ theme }) => theme.colors.coloredBtn};
 `;
 export const StyledButtonCancel = styled(StyledButton)`
   color: #623f8b;
   background: ${({ theme }) => theme.colors.colorText};
+`;
+
+//Datetime
+export const StyledDatetime = styled(Datetime)`
+  input {
+    padding-bottom: ${({ theme }) => theme.spacing(2)};
+    padding-left: ${({ theme }) => theme.spacing(5)};
+    min-width: 280px;
+    font-family: ‘Poppins-Regular’;
+    font-size: 18px;
+    line-height: 1.5;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    color: ${({ theme }) => theme.colors.colorText};
+    background-color: transparent;
+    &:focus {
+      outline: none;
+    }
+  }
 `;

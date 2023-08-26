@@ -13,14 +13,17 @@ import {
   StyledToggleTextIncome,
   StyledCalendarSvg,
   StyledButtonWrapper,
+  StyledDatetime,
 } from './ModalAddTransaction.styled';
 import * as yup from 'yup';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import { Switcher } from './Switcher';
+
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import { useDispatch } from 'react-redux';
 import { feachCategories } from 'redux/TransactionCategories/operations';
+
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
@@ -40,16 +43,11 @@ const ModalAddTransaction = () => {
   const handleSubmit = values => {
     console.log(values);
   };
-  const handleDateChange = newDate => {
-    setSelectedDate(newDate);
-    if (new Date()) {
-      setSelectedDate(newDate);
-    }
-  };
-  const isValidDate = (currentDate, selectedDate) => {
+
+  const isValidDate = currentDate => {
     return (
-      currentDate.isBefore(Datetime.moment()) ||
-      currentDate.isSame(Datetime.moment(), 'minute')
+      currentDate.isBefore(StyledDatetime.moment()) ||
+      currentDate.isSame(StyledDatetime.moment(), 'minute')
     );
   };
 
@@ -73,18 +71,18 @@ const ModalAddTransaction = () => {
                 setNumber(e.target.value);
               }}
             />
-            <Datetime
-              value={selectedDate}
-              dateFormat="DD.MM.YYYY"
-              timeFormat={false}
-              onChange={handleDateChange}
-              isValidDate={isValidDate}
-            >
-              <StyledCalendarSvg>
-                <SpriteSVG name={'calendar'} />
-              </StyledCalendarSvg>
-            </Datetime>
           </StyledInputWrapper>
+          <StyledDatetime
+            value={selectedDate}
+            dateFormat="DD.MM.YYYY"
+            timeFormat={false}
+            onChange={date => setSelectedDate(date)}
+            isValidDate={isValidDate}
+            closeOnSelect={true}
+          ></StyledDatetime>
+          <StyledCalendarSvg>
+            <SpriteSVG name={'calendar'} />
+          </StyledCalendarSvg>
           <StyledInputWrapper>
             <StyledInputComment
               name="text"

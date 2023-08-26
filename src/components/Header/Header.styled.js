@@ -27,7 +27,6 @@ export const StyledLogoSvg = styled.div`
   }
 `;
 export const StyledLogoText = styled.p`
-  margin: 0;
   font-family: ‘Poppins-Regular’;
   font-size: 12.84px;
   line-height: 1.58;
@@ -49,7 +48,6 @@ export const StyledUserThumb = styled.div`
 `;
 
 export const StyledHeaderText = styled.p`
-  margin: 0;
   font-family: ‘Poppins-Regular’;
   font-size: 16px;
   line-height: 1.5;
@@ -59,7 +57,7 @@ export const StyledUserWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: ${({ theme }) => theme.spacing(2)};
 
   @media screen and (min-width: 768px) {
     border-left: 1px solid ${({ theme }) => theme.colors.navLink};
@@ -71,12 +69,12 @@ export const StyledHeaderBtn = styled.button`
   display: none;
   border: none;
   background-color: transparent;
-  margin: 0;
-  padding: 0;
+
   font-family: ‘Poppins-Regular’;
   font-size: 16px;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.navLink};
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     display: block;
   }
@@ -86,4 +84,20 @@ export const StyledExitSvg = styled.div`
   width: 18px;
   height: 18px;
   fill: ${({ theme }) => theme.colors.navLink};
+  cursor: pointer;
+`;
+export const StyledLogoLink = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: ‘Poppins-Regular’;
+  font-size: 12.84px;
+  line-height: 1.58;
+  color: ${({ theme }) => theme.colors.colorText};
+
+  @media screen and (min-width: 768px) {
+    font-size: 17.1px;
+    line-height: 1.53;
+  }
 `;
