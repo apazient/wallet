@@ -1,6 +1,7 @@
 import ButtonAddTransactions from 'components/ButtonAddTransactions/ButtonAddTransactions';
 import Modal from 'components/Modal/Modal';
 import ModalAddTransaction from 'components/ModalAddTransaction/ModalAddTransaction';
+import TransactionsList from 'components/TransactionsList/TransactionsList';
 import React from 'react';
 
 import { useSelector } from 'react-redux';
@@ -12,6 +13,7 @@ const HomeTab = () => {
   return (
     <div>
       <h1>HomeTab</h1>
+      <TransactionsList />
       <ButtonAddTransactions />
       {isAddTrans && (
         <Modal>
