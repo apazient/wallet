@@ -1,4 +1,3 @@
-import { SpriteSVG } from 'pictures/SpriteSVG';
 import styled from 'styled-components';
 
 export const NavWrapperStyled = styled.ul`
@@ -19,12 +18,12 @@ export const NavWrapperStyled = styled.ul`
 `;
 
 export const NavIconStyled = styled.div`
-display: flex;
-fill: rgba(255, 255, 255, 0.4);
-flex-direction: column;
-width: 24px;
-height: 24px;`
-
+  display: flex;
+  fill: rgba(255, 255, 255, 0.4);
+  flex-direction: column;
+  width: 24px;
+  height: 24px;
+`;
 
 export const NavLinkWrapperStyled = styled.div`
   display: flex;
