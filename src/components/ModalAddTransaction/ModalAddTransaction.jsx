@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Formik } from 'formik';
+import moment from 'moment';
 import {
   StyledInputWrapper,
   StyledButtonAdd,
@@ -32,14 +33,34 @@ const validationSchema = yup.object().shape({
 });
 
 const ModalAddTransaction = () => {
-  const [number, setNumber] = useState('');
-  const [text, setText] = useState('');
   const isExpense = useSelector(selectIsSelect);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const dispatch = useDispatch();
+  let type = 'INCOME';
+  const cathegoryID = '063f1132-ba5d-42b4-951d-44011ca46262';
 
+  // const [selectedDate, setSelectedDate] = useState(new Date());
+  const dispatch = useDispatch();
+  // {
+  //   "transactionDate": "string",
+  //   "type": "INCOME",
+  //   "categoryId": "string",
+  //   "comment": "string",
+  //   "amount": 0
+  // }
   const handleSubmit = values => {
     console.log(values);
+    const body = {
+      transactionDate: values.date,
+      type,
+      categoryId: cathegoryID,
+      comment: values.text,
+      amount: values.number,
+    };
+    console.log(body);
+    if (isExpense) {
+      type = 'EXPENSE';
+    }
+    console.log(values);
+    dispatch(addTransaction(body));
   };
 
   const isValidDate = currentDate => {
@@ -53,62 +74,69 @@ const ModalAddTransaction = () => {
     <Formik
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
-      initialValues={{ text: '', number: '', date: '' }}
+      initialValues={{
+        text: '',
+        number: '',
+        date: new Date(),
+      }}
     >
-      <StyledForm>
-        <StyledTitle>Add transaction</StyledTitle>
-        <StyledToggleWrapper>
-          <StyledToggleTextIncome>Income</StyledToggleTextIncome>
-          <Switcher />
-          <StyledToggleTextExp>Expense</StyledToggleTextExp>
-        </StyledToggleWrapper>
-        {isExpense && <SelectExpenses />}
-        <StyledInputWrapTab>
-          <StyledInputWrapper>
-            <StyledInputValue
-              name="number"
-              placeholder="0.00"
-              type="number"
-              value={number}
-              onChange={e => {
-                setNumber(e.target.value);
-              }}
-            />
-          </StyledInputWrapper>
-          <StyledDatatimeWrapper>
-            <StyledDatetime
-              name="data"
-              value={selectedDate}
-              dateFormat="DD.MM.YYYY"
-              timeFormat={false}
-              onChange={date => setSelectedDate(date)}
-              isValidDate={isValidDate}
-              closeOnSelect={true}
-            ></StyledDatetime>
-            <StyledCalendarSvg>
-              <SpriteSVG name={'calendar'} />
-            </StyledCalendarSvg>
-          </StyledDatatimeWrapper>
-        </StyledInputWrapTab>
+      {({
+        handleSubmit,
+        handleChange,
+        handleBlur,
+        values,
+        touched,
+        isValid,
+        errors,
+        setFieldValue,
+      }) => (
+        <StyledForm>
+          <StyledTitle>Add transaction</StyledTitle>
+          <StyledToggleWrapper>
+            <StyledToggleTextIncome>Income</StyledToggleTextIncome>
+            <Switcher />
+            <StyledToggleTextExp>Expense</StyledToggleTextExp>
+          </StyledToggleWrapper>
+          {isExpense && <SelectExpenses />}
+          <StyledInputWrapTab>
+            <StyledInputWrapper>
+              <StyledInputValue
+                name="number"
+                placeholder="0.00"
+                type="number"
+              />
+            </StyledInputWrapper>
+            <StyledDatatimeWrapper>
+              <StyledDatetime
+                name="date"
+                type="date"
+                value={values.date}
+                dateFormat="DD.MM.YYYY"
+                timeFormat={false}
+                // onChange={dateFromValue => {
+                //   console.log(dateFromValue);
+                //   setFieldValue('date', dateFromValue);
+                // }}
+                // isValidDate={isValidDate}
+                closeOnSelect={true}
+              ></StyledDatetime>
+              <StyledCalendarSvg>
+                <SpriteSVG name={'calendar'} />
+              </StyledCalendarSvg>
+            </StyledDatatimeWrapper>
+          </StyledInputWrapTab>
 
-        <StyledInputWrapper>
-          <StyledInputComment
-            name="text"
-            placeholder="Comment"
-            type="text"
-            value={text}
-            onChange={e => {
-              setText(e.target.value);
-            }}
-          />
-        </StyledInputWrapper>
-        <StyledButtonWrapper>
-          <StyledButtonAdd type="submit">Add</StyledButtonAdd>
-          <StyledButtonCancel onClick={() => console.log('Hello')}>
-            Cancel
-          </StyledButtonCancel>
-        </StyledButtonWrapper>
-      </StyledForm>
+          <StyledInputWrapper>
+            <StyledInputComment name="text" placeholder="Comment" type="text" />
+          </StyledInputWrapper>
+          <StyledButtonWrapper>
+            <StyledButtonAdd type="submit">Add</StyledButtonAdd>
+            <StyledButtonCancel onClick={() => console.log('Hello')}>
+              Cancel
+            </StyledButtonCancel>
+          </StyledButtonWrapper>
+        </StyledForm>
+      )}
     </Formik>
   );
 };
