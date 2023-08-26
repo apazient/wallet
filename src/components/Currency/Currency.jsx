@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import {
   CurrencyContainerStyled,
   CurrencyImgStyled,
-  ImgStyled,
-  ImgStyled2,
   TableCurrencyStyled,
+  TbodyCurrencyStyled,
   TdCurrencyStyled,
   ThCurrencyStyled,
+  TheadCurrencyStyled,
   TrCurrencyStyled,
 } from './Currency.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,10 +14,11 @@ import { fetchCurrencyData } from 'redux/Currentcy/operations';
 import {
   selectCurrency,
   selectCurrencyLoading,
-} from 'redux/Currentcy/selectors';
 
-import currentImg1 from '../../pictures/currentImage/Vector 8.svg';
-import currentImg2 from '../../pictures/currentImage/Vector 7.svg';
+} from 'redux/currentcy/selectors';
+import { SpriteSVG } from 'pictures/SpriteSVG';
+
+
 
 export const Currency = () => {
   const dispatch = useDispatch();
@@ -31,14 +32,14 @@ export const Currency = () => {
   return (
     <CurrencyContainerStyled>
       <TableCurrencyStyled>
-        <thead>
+        <TheadCurrencyStyled>
           <TrCurrencyStyled>
             <ThCurrencyStyled>Currency</ThCurrencyStyled>
             <ThCurrencyStyled>Purchase</ThCurrencyStyled>
             <ThCurrencyStyled>Sale</ThCurrencyStyled>
           </TrCurrencyStyled>
-        </thead>
-        <tbody>
+        </TheadCurrencyStyled>
+        <TbodyCurrencyStyled>
           {isLoading ? (
             <tr>
               <TdCurrencyStyled>Loading...</TdCurrencyStyled>
@@ -52,11 +53,13 @@ export const Currency = () => {
               </tr>
             ))
           )}
-        </tbody>
+        </TbodyCurrencyStyled>
       </TableCurrencyStyled>
       <CurrencyImgStyled>
-        <ImgStyled src={currentImg1} alt="Image1" />
-        <ImgStyled2 src={currentImg2} alt="Image2" />
+        <SpriteSVG name={'currencyEllipse'} />
+        <SpriteSVG name={'currencyEllipse'} />
+        <SpriteSVG name={'currencyLine'} />
+        <SpriteSVG name={'currencyWave'} />
       </CurrencyImgStyled>
     </CurrencyContainerStyled>
   );
