@@ -16,7 +16,7 @@ import { transactionsSliceReducer } from './TransactionsList/TransactionsListSli
 
 import { globalReducer } from './Global/globalSlice';
 import { categoriesReducer } from './TransactionCategories/categoriesSlice';
-import { currencyReducer } from './Currentcy/currentcySlice';
+import { currencyReducer } from './Currency/currencySlice';
 import { summaryReducer } from './SummaryPage/summarySlice';
 
 const persistConfigUser = {

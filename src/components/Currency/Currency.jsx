@@ -2,19 +2,23 @@ import React, { useEffect } from 'react';
 import {
   CurrencyContainerStyled,
   CurrencyImgStyled,
+  EllipseImgStyled,
+  EllipseImgStyled2,
+  LineImgStyled,
   TableCurrencyStyled,
   TbodyCurrencyStyled,
   TdCurrencyStyled,
   ThCurrencyStyled,
   TheadCurrencyStyled,
   TrCurrencyStyled,
+  WaveImgStyled,
 } from './Currency.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCurrencyData } from 'redux/Currentcy/operations';
+import { fetchCurrencyData } from 'redux/Currency/operations';
 import {
   selectCurrency,
   selectCurrencyLoading,
-} from '../../redux/Currentcy/selectors';
+} from '../../redux/Currency/selectors';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 
 export const Currency = () => {
@@ -25,6 +29,14 @@ export const Currency = () => {
   useEffect(() => {
     dispatch(fetchCurrencyData());
   }, [dispatch]);
+
+  let usdPurchase = null;
+  let euroPurchase = null;
+
+  if (!isLoading && currencyData.length > 0) {
+    usdPurchase = currencyData.find(data => data.currency === 'USD')?.buy;
+    euroPurchase = currencyData.find(data => data.currency === 'EURO')?.buy;
+  }
 
   return (
     <CurrencyContainerStyled>
@@ -53,10 +65,20 @@ export const Currency = () => {
         </TbodyCurrencyStyled>
       </TableCurrencyStyled>
       <CurrencyImgStyled>
-        <SpriteSVG name={'currencyEllipse'} />
-        <SpriteSVG name={'currencyEllipse'} />
-        <SpriteSVG name={'currencyLine'} />
-        <SpriteSVG name={'currencyWave'} />
+        <EllipseImgStyled>
+          <SpriteSVG name={'currencyEllipse'} />
+          <span>{usdPurchase}</span>
+        </EllipseImgStyled>
+        <EllipseImgStyled2>
+          <SpriteSVG name={'currencyEllipse'} />
+          <span>{euroPurchase}</span>
+        </EllipseImgStyled2>
+        <LineImgStyled>
+          <SpriteSVG name={'currencyLine'} />
+        </LineImgStyled>
+        <WaveImgStyled>
+          <SpriteSVG name={'currencyWave'} />
+        </WaveImgStyled>
       </CurrencyImgStyled>
     </CurrencyContainerStyled>
   );
