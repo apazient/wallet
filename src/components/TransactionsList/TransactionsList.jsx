@@ -17,10 +17,14 @@ import {
 } from './TransactionsList.styled';
 import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
 import { setIsModalEditTransaction } from 'redux/Global/globalSlice';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import ModalAddTransaction from 'components/ModalAddTransaction/ModalAddTransaction';
+import Modal from 'components/Modal/Modal';
+import { isEditTransaction } from 'redux/Global/selectors';
+import ButtonEditTransactions from 'components/ButtonEditTransactions/ButtonEditTransactions';
 const TransactionsList = () => {
-  const isEditTrans = useSelector(setIsModalEditTransaction);
-
+  const isEditTrans = useSelector(isEditTransaction);
+  const dispatch = useDispatch();
   return (
     <TableStyled>
       <MainTrStyled>
@@ -56,6 +60,7 @@ const TransactionsList = () => {
           <IconBtnWrapperStyled>
             <EditIconStyled>
               <SpriteSVG name={`edit`} />
+              <ButtonEditTransactions />
             </EditIconStyled>
             <DeleteTabBtn>Delete</DeleteTabBtn>
           </IconBtnWrapperStyled>
@@ -101,7 +106,12 @@ const TransactionsList = () => {
           <IconBtnWrapperStyled>
             <EditIconStyled>
               <SpriteSVG name={`edit`} />
-              {isEditTrans && <ModalEditTransaction />}
+              {isEditTrans && (
+                <Modal>
+                  <ModalEditTransaction />
+                </Modal>
+              )}
+              <ButtonEditTransactions />
             </EditIconStyled>
             <DeleteTabBtn>Delete</DeleteTabBtn>
           </IconBtnWrapperStyled>
