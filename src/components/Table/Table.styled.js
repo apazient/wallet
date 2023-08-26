@@ -1,112 +1,150 @@
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
-export const TableStyled = styled.table`
-  width: 100%;
-  border-radius: 8px;
-  background-color: #000;
-  border-collapse: collapse;
+export const StyledStatisticsTable = styled.div`
+  margin-bottom: 46px;
+
+  .statistics-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 280px;
+    height: 56px;
+    padding: 16px;
+    margin-top: 20px;
+
+    border-radius: 8px;
+    background-color: rgba(82, 59, 126, 0.6);
+    box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(50px);
+    & p {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      padding: 16px;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .statistics-header {
+      width: 336px;
+    }
+  }
+  @media only screen and (min-width: 1280px) {
+    .statistics-header {
+      width: 395px;
+    }
+  }
 `;
 
-export const MainTrStyled = styled.tr`
-  background-image: linear-gradient(
-    219.62deg,
-    rgba(109, 84, 235, 0.6) 28.31%,
-    rgba(101, 35, 146, 0.6) 66.76%
-  );
-  height: 56px;
-  padding: 16px 20px;
-  border-radius: 8px;
-`;
+export const StyledStatisticsList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  & li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    width: 280px;
+    padding: 16px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .category-color {
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+  }
+  .category-sum {
+    margin-left: auto;
+  }
+  .category-item {
+    padding-left: 16px;
+  }
 
-export const TrInfoStyled = styled.tr`
-  height: 53px;
-  position: relative;
-  font-family: Poppins-Regular;
-  color: ${({ theme }) => theme.colors.colorText};
-
-  &:after {
-    position: absolute;
-    content: '';
-    left: 20px;
-    bottom: 0;
-    width: calc(100% - 20px);
-    height: 1px;
+  .gradient {
+    height: 2px;
+    width: 280px;
     background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.082) 0%,
-      rgba(255, 255, 255, 0.2) 100%
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.41)
     );
   }
+
+  @media only screen and (min-width: 768px) {
+    & li {
+      width: 336px;
+    }
+    .gradient {
+      width: 336px;
+    }
+  }
+  @media only screen and (min-width: 1280px) {
+    & li {
+      width: 395px;
+    }
+    .gradient {
+      width: 395px;
+    }
+  }
 `;
 
-export const IconBtnWrapperStyled = styled.td`
+export const StyledStatisticsTotal = styled.ul`
   display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-`;
+  flex-direction: column;
+  & li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    width: 280px;
+    padding: 16px 16px 0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .total-sum-exp {
+    margin-left: auto;
 
-export const EditIconStyled = styled.div`
-  width: 14px;
-  height: 14px;
-  fill: rgba(255, 255, 255, 0.6);
-`;
+    color: #ff868d;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .total-sum-inc {
+    margin-left: auto;
 
-export const DeleteTabBtn = styled.button`
-  background: linear-gradient(
-    96.76deg,
-    #ffc727 -16.42%,
-    #9e40ba 97.04%,
-    #7000ff 150.71%
-  );
-  border: none;
-  font-family: Poppins-Regular;
-  color: ${({ theme }) => theme.colors.colorText};
-  border-radius: 20px;
-  cursor: pointer;
-  line-height: 1.5;
-  padding: 4px 12px;
-`;
-
-export const ThStyled = styled.th`
-  font-family: Poppins-SemiBold;
-  color: ${({ theme }) => theme.colors.colorText};
-
-  &:first-child {
-    border-radius: 8px 0 0 8px;
+    color: #ffb627;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .total-item {
+    color: #fbfbfb;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  @media only screen and (min-width: 768px) {
+    & li {
+      width: 336px;
+    }
   }
 
-  &:last-child {
-    border-radius: 0 8px 8px 0;
+  @media only screen and (min-width: 1280px) {
+    & li {
+      width: 395px;
+    }
   }
-`;
-
-export const TdCommentStyled = styled.td`
-  text-align: center;
-  max-width: 118px;
-`;
-
-export const TdDateStyled = styled.td`
-  text-align: left;
-  max-width: 52px;
-`;
-
-export const TdTypeStyled = styled.td`
-  text-align: center;
-  max-width: 40px;
-`;
-export const TdCatagoryStyled = styled.td`
-  text-align: center;
-  max-width: 106px;
-`;
-
-export const TdSumStyled = styled.td`
-  text-align: center;
-  max-width: 70px;
-  font-family: Poppins-SemiBold;
-`;
-
-export const TdActionStyled = styled.td`
-  text-align: right;
-  max-width: 52px;
 `;
