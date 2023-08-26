@@ -4,6 +4,8 @@ import {
   StyledStatisticsList,
   StyledStatisticsTotal,
 } from './Table.styled';
+import { useSelector } from 'react-redux';
+import { selectCategory } from 'redux/SummaryPage/selectors';
 
 const colors = [
   'rgba(254, 208, 87, 1)',
@@ -19,7 +21,14 @@ const colors = [
   'rgba(200, 191, 255, 1)',
 ];
 
-export const Table = ({ items }) => {
+export const Table = () => {
+  const category = useSelector(selectCategory);
+
+  console.log(category);
+  if (!category) {
+    return <div>No category</div>;
+  }
+
   return (
     <StyledStatisticsTable>
       <div className="statistics-header">
@@ -28,16 +37,16 @@ export const Table = ({ items }) => {
       </div>
 
       <StyledStatisticsList>
-        {items.map(({ category, sum, id }) => {
+        {category.map(({ name, type, total }, index) => {
           return (
-            <div key={id}>
+            <div key={index}>
               <li>
                 <div
-                  style={{ backgroundColor: colors[id] }}
+                  style={{ backgroundColor: colors[index] }}
                   className="category-color"
                 ></div>
-                <p className="category-item">{category}</p>
-                <p className="category-sum">{sum}</p>
+                <p className="category-item">{name}</p>
+                <p className="category-sum">{total}</p>
               </li>
               <div className="gradient"></div>
             </div>

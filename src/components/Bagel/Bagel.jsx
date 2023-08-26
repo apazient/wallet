@@ -39,10 +39,7 @@ export const Bagel = () => {
   const textCenter = {
     id: 'textCenter',
     beforeDatasetsDraw(chart, args, pluginOptions) {
-      const { ctx, data } = chart;
-
-      console.log(data);
-
+      const { ctx } = chart;
       ctx.save();
       ctx.font = '600 18px Poppins, sans-serif';
       ctx.fillStyle = '#FBFBFB';
