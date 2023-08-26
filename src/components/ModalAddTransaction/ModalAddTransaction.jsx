@@ -19,11 +19,9 @@ import * as yup from 'yup';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import { Switcher } from './Switcher';
 
-import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import { useDispatch } from 'react-redux';
 import { feachCategories } from 'redux/TransactionCategories/operations';
-
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
