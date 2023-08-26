@@ -23,9 +23,9 @@ export const App = () => {
         <Route
           path="summary"
           element={
-            <PrivateRoute>
-              <SummaryPage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <SummaryPage />
+            // </PrivateRoute>
           }
         />
         <Route
