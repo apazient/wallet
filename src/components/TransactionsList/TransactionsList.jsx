@@ -15,7 +15,12 @@ import {
   ThStyled,
   TrInfoStyled,
 } from './TransactionsList.styled';
+import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
+import { setIsModalEditTransaction } from 'redux/Global/globalSlice';
+import { useSelector } from 'react-redux';
 const TransactionsList = () => {
+  const isEditTrans = useSelector(setIsModalEditTransaction);
+
   return (
     <TableStyled>
       <MainTrStyled>
@@ -96,6 +101,7 @@ const TransactionsList = () => {
           <IconBtnWrapperStyled>
             <EditIconStyled>
               <SpriteSVG name={`edit`} />
+              {isEditTrans && <ModalEditTransaction />}
             </EditIconStyled>
             <DeleteTabBtn>Delete</DeleteTabBtn>
           </IconBtnWrapperStyled>
