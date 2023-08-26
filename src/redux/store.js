@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { userReducer } from './Auth/authSlice';
 import { globalReducer } from './Global/globalSlice';
 import { categoriesReducer } from './TransactionCategories/categoriesSlice';
-
+import { currencyReducer } from './currentcy/slice';
 
 const persistConfigUser = {
   key: 'root',
@@ -27,6 +27,7 @@ export const store = configureStore({
     global: globalReducer,
     user: persistReducer(persistConfigUser, userReducer),
     tranzCategories: categoriesReducer,
+    currency: currencyReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
