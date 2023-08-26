@@ -11,9 +11,13 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { userReducer } from './Auth/authSlice';
+
+import { transactionsSliceReducer } from './TransactionsList/TransactionsListSlice';
+
 import { globalReducer } from './Global/globalSlice';
 import { categoriesReducer } from './TransactionCategories/categoriesSlice';
 import { summaryReducer } from './SummaryPage/summarySlice';
+
 
 const persistConfigUser = {
   key: 'root',
@@ -26,6 +30,7 @@ export const store = configureStore({
   reducer: {
     global: globalReducer,
     user: persistReducer(persistConfigUser, userReducer),
+    transactions: transactionsSliceReducer,
     tranzCategories: categoriesReducer,
     summary: summaryReducer,
   },
