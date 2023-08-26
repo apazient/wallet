@@ -29,8 +29,8 @@ export const App = () => {
             </PublicRoute>
           }
         />
-        <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
