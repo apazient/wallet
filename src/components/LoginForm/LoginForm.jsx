@@ -7,7 +7,6 @@ import React from 'react';
 import {
   FormikLoginForm,
   StyledButtonLog,
-  StyledButtonReg,
   StyledDiv,
   StyledDivInputs,
   StyledDivItems,
@@ -17,6 +16,7 @@ import {
   StyledH2,
   StyledInput,
   StyledLabels,
+  StyledLinkReg,
   StyledSectionForm,
 } from './LoginForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -47,8 +47,6 @@ export const LoginForm = () => {
         //  toast.error('Try another data!!');
       });
   };
-
-  // const renderError = message => <p className="help is-danger">{message}</p>;
 
   return (
     <StyledSectionForm>
@@ -89,7 +87,6 @@ export const LoginForm = () => {
                   type="password"
                 />
               </StyledLabels>
-              {/* <ErrorMessage name="password" render={renderError} /> */}
             </StyledDivInputs>
             <StyledErrorMessages
               name="password"
@@ -99,7 +96,7 @@ export const LoginForm = () => {
             <StyledButtonLog type="submit" disabled={isLoading}>
               Log In
             </StyledButtonLog>
-            <StyledButtonReg type="submit">Register</StyledButtonReg>
+            <StyledLinkReg to="/logup">Register</StyledLinkReg>
           </FormikLoginForm>
         </Formik>
       </StyledDiv>

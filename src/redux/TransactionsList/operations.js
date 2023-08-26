@@ -1,4 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+
 import axios from 'axios';
 
 export const API = axios.create({
@@ -7,9 +9,12 @@ export const API = axios.create({
 
 export const fetchTransactions = createAsyncThunk(
   'transactions/fetchAll',
-  async (_, { rejectWithValue }) => {
+  async (token, { rejectWithValue }) => {
     try {
+
       const { data } = await API.get('/api/transactions');
+
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

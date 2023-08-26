@@ -2,7 +2,11 @@ import { styled } from 'styled-components';
 export const TableStyled = styled.table`
   width: 100%;
   border-radius: 8px;
-  background-color: #000;
+  background: linear-gradient(
+    219.62deg,
+    rgba(109, 84, 235, 0.6) 28.31%,
+    rgba(101, 35, 146, 0.6) 66.76%
+  );
   border-collapse: collapse;
 `;
 export const MainTrStyled = styled.tr`
@@ -34,7 +38,7 @@ export const TrInfoStyled = styled.tr`
     );
   }
 `;
-export const IconBtnWrapperStyled = styled.td`
+export const IconBtnWrapperStyled = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
@@ -44,6 +48,18 @@ export const EditIconStyled = styled.div`
   width: 14px;
   height: 14px;
   fill: rgba(255, 255, 255, 0.6);
+`;
+
+export const EditTabBtn = styled.button`
+  width: 14px;
+  height: 14px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 `;
 export const DeleteTabBtn = styled.button`
   background: linear-gradient(

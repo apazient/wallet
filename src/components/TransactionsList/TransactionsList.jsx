@@ -1,5 +1,25 @@
 import { SpriteSVG } from 'pictures/SpriteSVG';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  deleteTransaction,
+  fetchTransactions,
+} from 'redux/TransactionsList/operations';
+
+import {
+  selectToken,
+  selectTransaction,
+} from 'redux/TransactionsList/selectors';
+
+
+import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
+import Modal from 'components/Modal/Modal';
+import { isEditTransaction } from 'redux/Global/selectors';
+import ButtonEditTransactions from 'components/ButtonEditTransactions/ButtonEditTransactions';
+
+import { selectTransaction } from 'redux/TransactionsList/selectors';
+
+
 import {
   DeleteTabBtn,
   EditIconStyled,
@@ -14,93 +34,70 @@ import {
   TdTypeStyled,
   ThStyled,
   TrInfoStyled,
+  EditTabBtn,
 } from './TransactionsList.styled';
+
+
 const TransactionsList = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+  const dataList = useSelector(selectTransaction);
+  useEffect(() => {
+    dispatch(fetchTransactions(token));
+
+  }, [dispatch]);
+
+  console.log(dataList);
+  const handleDeleteClick = transactionId => {
+    console.log(transactionId);
+    dispatch(deleteTransaction(transactionId));
+  };
   return (
     <TableStyled>
-      <MainTrStyled>
-        <ThStyled>Date</ThStyled>
-        <ThStyled>Type</ThStyled>
-        <ThStyled>Category</ThStyled>
-        <ThStyled>Comment</ThStyled>
-        <ThStyled>Sum</ThStyled>
-        <ThStyled></ThStyled>
-      </MainTrStyled>
-      <TrInfoStyled>
-        <TdDateStyled>04. 01. 19</TdDateStyled>
-        <TdTypeStyled>-</TdTypeStyled>
-        <TdCatagoryStyled>Other</TdCatagoryStyled>
-        <TdCommentStyled>Gift for your wife</TdCommentStyled>
-        <TdSumStyled>300.00</TdSumStyled>
-        <TdActionStyled>
-          <IconBtnWrapperStyled>
-            <EditIconStyled>
-              <SpriteSVG name={`edit`} />
-            </EditIconStyled>
-            <DeleteTabBtn>Delete</DeleteTabBtn>
-          </IconBtnWrapperStyled>
-        </TdActionStyled>
-      </TrInfoStyled>
-      <TrInfoStyled>
-        <TdDateStyled>05.01.19</TdDateStyled>
-        <TdTypeStyled>+</TdTypeStyled>
-        <TdCatagoryStyled>Income</TdCatagoryStyled>
-        <TdCommentStyled>January bonus</TdCommentStyled>
-        <TdSumStyled>8 000.00</TdSumStyled>
-        <TdActionStyled>
-          <IconBtnWrapperStyled>
-            <EditIconStyled>
-              <SpriteSVG name={`edit`} />
-            </EditIconStyled>
-            <DeleteTabBtn>Delete</DeleteTabBtn>
-          </IconBtnWrapperStyled>
-        </TdActionStyled>
-      </TrInfoStyled>
-      <TrInfoStyled>
-        <TdDateStyled>07. 01. 19</TdDateStyled>
-        <TdTypeStyled>-</TdTypeStyled>
-        <TdCatagoryStyled>Car</TdCatagoryStyled>
-        <TdCommentStyled>Oil</TdCommentStyled>
-        <TdSumStyled>1000.00</TdSumStyled>
-        <TdActionStyled>
-          <IconBtnWrapperStyled>
-            <EditIconStyled>
-              <SpriteSVG name={`edit`} />
-            </EditIconStyled>
-            <DeleteTabBtn>Delete</DeleteTabBtn>
-          </IconBtnWrapperStyled>
-        </TdActionStyled>
-      </TrInfoStyled>
-      <TrInfoStyled>
-        <TdDateStyled>07. 01. 19</TdDateStyled>
-        <TdTypeStyled>-</TdTypeStyled>
-        <TdCatagoryStyled>Products</TdCatagoryStyled>
-        <TdCommentStyled>Vegetables for the week</TdCommentStyled>
-        <TdSumStyled>280.00</TdSumStyled>
-        <TdActionStyled>
-          <IconBtnWrapperStyled>
-            <EditIconStyled>
-              <SpriteSVG name={`edit`} />
-            </EditIconStyled>
-            <DeleteTabBtn>Delete</DeleteTabBtn>
-          </IconBtnWrapperStyled>
-        </TdActionStyled>
-      </TrInfoStyled>
-      <TrInfoStyled>
-        <TdDateStyled>07. 01. 19</TdDateStyled>
-        <TdTypeStyled>+</TdTypeStyled>
-        <TdCatagoryStyled>Income</TdCatagoryStyled>
-        <TdCommentStyled>Gift</TdCommentStyled>
-        <TdSumStyled>1000.00</TdSumStyled>
-        <TdActionStyled>
-          <IconBtnWrapperStyled>
-            <EditIconStyled>
-              <SpriteSVG name={`edit`} />
-            </EditIconStyled>
-            <DeleteTabBtn>Delete</DeleteTabBtn>
-          </IconBtnWrapperStyled>
-        </TdActionStyled>
-      </TrInfoStyled>
+      <thead>
+        <MainTrStyled>
+          <ThStyled>Date</ThStyled>
+          <ThStyled>Type</ThStyled>
+          <ThStyled>Category</ThStyled>
+          <ThStyled>Comment</ThStyled>
+          <ThStyled>Sum</ThStyled>
+          <ThStyled>&nbsp;</ThStyled>
+        </MainTrStyled>
+      </thead>
+      <tbody>
+        {dataList.map(
+          ({ id, transactionDate, type, categoryId, comment, amount }) => (
+            <TrInfoStyled key={id}>
+              <TdDateStyled>{transactionDate}</TdDateStyled>
+              <TdTypeStyled>{type}</TdTypeStyled>
+              <TdCatagoryStyled>{categoryId}</TdCatagoryStyled>
+              <TdCommentStyled>{comment}</TdCommentStyled>
+              <TdSumStyled>{amount}</TdSumStyled>
+              <TdActionStyled>
+                <IconBtnWrapperStyled>
+
+                  <div>
+                    <EditIconStyled>
+                      <SpriteSVG name={`edit`} />
+                      {isEditTransaction && (
+                        <Modal>
+                          <ModalEditTransaction />
+                        </Modal>
+                      )}
+                      <ButtonEditTransactions />
+                    </EditIconStyled>
+                  </div>
+
+
+                  <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
+                    Delete
+                  </DeleteTabBtn>
+                </IconBtnWrapperStyled>
+              </TdActionStyled>
+            </TrInfoStyled>
+          )
+        )}
+      </tbody>
     </TableStyled>
   );
 };

@@ -9,6 +9,11 @@ const setToken = token => {
   API.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+const clearToken = () => {
+ API.defaults.headers.common.Authorization = ``;
+};
+
+
 export const register = createAsyncThunk(
   'auth/reg',
   async (credentials, thunkAPI) => {
@@ -31,6 +36,19 @@ export const loginThunk = createAsyncThunk(
       setToken(res.data.token);
       console.log(res.data);
       return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logoutThunk = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await API.delete('/api/auth/sign-out');
+      clearToken();
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

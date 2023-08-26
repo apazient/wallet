@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { Field, Form, ErrorMessage } from 'formik';
+import { StyledButton, StyledLink } from 'styles/Button';
 
 export const StyledSectionForm = styled.section`
   width: 320px;
@@ -13,7 +14,7 @@ export const StyledSectionForm = styled.section`
 export const FormikLoginForm = styled(Form)`
   width: 100%;
   height: 50px;
-  margin: 0 auto;
+  margin: 52px auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,9 +25,8 @@ export const StyledInput = styled(Field)`
   outline: none;
   background-color: inherit;
   color: ${({ theme }) => theme.colors.navLink};
-  font-family: Poppins;
+  font-family: Poppins-Regular;
   font-size: 18px;
-  font-weight: 400;
 `;
 
 export const StyledErrorMessages = styled(ErrorMessage)`
@@ -50,11 +50,9 @@ export const StyledDivItems = styled.div`
 
 export const StyledH2 = styled.h2`
   color: var(--white, #fbfbfb);
-  font-family: Poppins;
-  font-size: 19px;
-  font-style: normal;
+  font-family: Poppins-Regular;
   font-weight: 400;
-  line-height: normal;
+  font-size: 19px;
 `;
 
 export const StyledDivInputs = styled.div`
@@ -76,38 +74,12 @@ export const StyledDivInputs = styled.div`
   }
 `;
 
-export const StyledButtonLog = styled.button`
-  border-radius: 20px;
-  background: ${({ theme }) => theme.colors.coloredBtn};
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
-  width: 280px;
-  height: 50px;
+export const StyledButtonLog = styled(StyledButton)`
   margin-top: 40px;
-  padding: 13px 0;
-  color: ${({ theme }) => theme.colors.colorText};
-  text-align: center;
-  font-family: Poppins;
-  font-size: 18px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  border: none;
 `;
 
-export const StyledButtonReg = styled.button`
-  border-radius: 20px;
-  background: ${({ theme }) => theme.colors.whiteBtn};
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
-  width: 280px;
-  height: 50px;
+export const StyledLinkReg = styled(StyledLink)`
   margin-top: 20px;
-  padding: 13px 0;
-  color: #623f8b;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 18px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  border: none;
 `;
 
 export const StyledLabels = styled.label`
