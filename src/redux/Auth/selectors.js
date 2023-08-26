@@ -6,3 +6,7 @@ export const getUser = state => {
 export const getIsLoading = state => {
   return state.user.isLoading;
 };
+
+export const getIsAuth = state => {
+  return state.user.isAuth;
+};

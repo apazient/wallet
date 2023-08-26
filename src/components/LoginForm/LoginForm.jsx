@@ -26,28 +26,27 @@ import { loginThunk } from 'redux/Auth/operations';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import * as Yup from 'yup';
 import { getIsLoading } from 'redux/Auth/selectors';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object({
     email: Yup.string().email('Invalid email address').required('Required'),
     password: Yup.string().min(6).max(12).required('Required'),
   });
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   const credentials = { email, password };
-  //   dispatch(loginThunk(credentials))
-  //     .unwrap()
-  //     .then(res => {
-  //       toast.success(`Hello, ${res.user.name}`);
-  //     })
-  //     .catch(err => {
-  //       toast.error('Try another data!!');
-  //     });
-  // };
+  const handleSubmit = value => {
+    dispatch(loginThunk(value))
+      .unwrap()
+      .then(() => navigate(location.state?.from || '/'))
+      .catch(err => {
+        //  toast.error('Try another data!!');
+      });
+  };
 
   // const renderError = message => <p className="help is-danger">{message}</p>;
 
@@ -61,9 +60,7 @@ export const LoginForm = () => {
           <StyledH2>Money Guard</StyledH2>
         </StyledDivItems>
         <Formik
-          onSubmit={values => {
-            dispatch(loginThunk(values));
-          }}
+          onSubmit={handleSubmit}
           initialValues={{ password: '', email: '' }}
           validationSchema={validationSchema}
         >

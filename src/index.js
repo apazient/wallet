@@ -13,7 +13,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/wallet">
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <React.StrictMode>
