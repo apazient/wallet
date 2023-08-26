@@ -25,7 +25,7 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { name } = useSelector(getUser);
+  const { username } = useSelector(getUser);
   const isLogoutOpen = useSelector(isModalLogoutOpen);
 
   const handleLogout = () => {
@@ -44,7 +44,7 @@ const Header = () => {
         </StyledLogoThumb>
 
         <StyledUserThumb>
-          <StyledHeaderText>Name</StyledHeaderText>
+          <StyledHeaderText>{username}</StyledHeaderText>
           <StyledUserWrapper>
             <StyledExitSvg onClick={handleLogout}>
               <SpriteSVG name={'exit'} />
