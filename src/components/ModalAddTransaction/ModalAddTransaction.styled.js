@@ -67,14 +67,16 @@ export const StyledInputWrapTab = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacing(10)};
   align-items: center;
+  flex-direction: column;
   @media screen and (min-width: 768px) {
     gap: ${({ theme }) => theme.spacing(8)};
+    flex-direction: row;
   }
 `;
 export const StyledInput = styled(Field)`
   padding-bottom: ${({ theme }) => theme.spacing(2)};
   padding-left: ${({ theme }) => theme.spacing(5)};
-  min-width: 280px;
+  width: 280px;
   font-family: ‘Poppins-Regular’;
   font-size: 18px;
   line-height: 1.5;
@@ -89,7 +91,7 @@ export const StyledInput = styled(Field)`
 export const StyledInputValue = styled(StyledInput)`
   font-weight: 600;
   @media screen and (min-width: 768px) {
-    min-width: 181px;
+    width: 181px;
     text-align: center;
     padding-left: 0px;
   }
@@ -99,17 +101,9 @@ export const StyledInputComment = styled(StyledInput)`
   @media screen and (min-width: 768px) {
     min-width: 394px;
   }
-`;
-//Styled SVG
-export const StyledCalendarSvg = styled.div`
-  position: absolute;
-  right: 10%;
-  top: 45%;
-  pointer-events: none;
-  transform: translate(-10%, -45%);
-  width: 24px;
-  height: 24px;
-  fill: rgba(115, 74, 239, 1);
+  &::placeholder {
+    background-color: transparent;
+  }
 `;
 
 //---------//
@@ -131,24 +125,43 @@ export const StyledButtonCancel = styled(StyledButton)`
 `;
 
 //Datetime
+export const StyledDatatimeWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 export const StyledDatetime = styled(Datetime)`
   input {
     padding-bottom: ${({ theme }) => theme.spacing(2)};
     padding-left: ${({ theme }) => theme.spacing(5)};
-    min-width: 280px;
+    width: 280px;
     font-family: ‘Poppins-Regular’;
     font-size: 18px;
     line-height: 1.5;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     color: ${({ theme }) => theme.colors.colorText};
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     background-color: transparent;
+    @media screen and (min-width: 768px) {
+      padding-left: ${({ theme }) => theme.spacing(3)};
+      width: 181px;
+    }
     &:focus {
       outline: none;
     }
-    @media screen and (min-width: 768px) {
-      min-width: 181px;
-      padding-left: 0px;
-    }
+  }
+`;
+//Styled SVG
+export const StyledCalendarSvg = styled.div`
+  position: absolute;
+  right: 10%;
+  transform: translateX(-10%);
+
+  pointer-events: none;
+  width: 24px;
+  height: 24px;
+  fill: rgba(115, 74, 239, 1);
+  @media screen and (min-width: 768px) {
+    right: 15%;
+    transform: translateX(-15%);
   }
 `;
