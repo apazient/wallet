@@ -7,6 +7,7 @@ const initialState = {
     password: '',
     name: '',
   },
+  isAuth: false,
   isLoading: false,
   error: '',
   token: '',
@@ -25,6 +26,7 @@ export const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLoading = false;
+        state.isAuth = true;
       })
       .addCase(loginThunk.pending, (state, action) => {
         state.isLoading = true;

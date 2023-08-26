@@ -20,3 +20,8 @@ export const StyledButton = styled.button`
     min-width: 300px;
   }
 `;
+
+export const StyledButtonWhite = styled(StyledButton)`
+  color: #623f8b;
+  background: ${({ theme }) => theme.colors.whiteBtn};
+`;
