@@ -2,8 +2,9 @@ import { styled } from 'styled-components';
 import { StyledButton } from 'styles/Button';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
+import { Field, Form } from 'formik';
 
-export const StyledForm = styled.form`
+export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +62,7 @@ export const StyledInputWrapper = styled.div`
   gap: 2px;
   align-items: center;
 `;
-export const StyledInput = styled.input`
+export const StyledInput = styled(Field)`
   padding-bottom: ${({ theme }) => theme.spacing(2)};
   padding-left: ${({ theme }) => theme.spacing(5)};
   min-width: 280px;
@@ -94,11 +95,7 @@ export const StyledCalendarSvg = styled.div`
   height: 24px;
   fill: rgba(115, 74, 239, 1);
 `;
-export const StyledPlusSvg = styled.div`
-  width: 20px;
-  height: 20px;
-  fill: #ffffff;
-`;
+
 //---------//
 
 // styles for buttons

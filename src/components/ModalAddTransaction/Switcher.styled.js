@@ -14,6 +14,11 @@ export const SwitcherInput = styled.input`
   opacity: 0;
   width: 0;
   height: 0;
+  &:checked + span::before {
+    transform: translateX(100%);
+    background-color: #ff868d;
+    box-shadow: 0px 6px 15px 0px rgba(255, 134, 141, 0.5);
+  }
 `;
 export const SwitcherSpan = styled.span`
   background-color: #ffffff;
@@ -42,6 +47,27 @@ export const SwitcherSpan = styled.span`
     box-shadow: 0px 6px 15px 0px rgba(255, 199, 39, 0.5);
     -webkit-transition: 0.4s;
     transition: 0.4s;
-    border-radius: 50%;
+    border-radius: 44px;
   }
+`;
+
+export const StyledPlusSvg = styled.div`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  stroke: #ffffff;
+`;
+export const StyledMinusSvg = styled.div`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0%;
+  bottom: 10%;
+  transform: translate(-25%, -50%);
+  z-index: 10;
+  stroke: #ffffff;
 `;
