@@ -5,8 +5,10 @@ import {
   deleteTransaction,
   fetchTransactions,
 } from 'redux/TransactionsList/operations';
-import { selectTransaction } from 'redux/TransactionsList/selectors';
-
+import {
+  selectToken,
+  selectTransaction,
+} from 'redux/TransactionsList/selectors';
 import {
   DeleteTabBtn,
   EditIconStyled,
@@ -23,48 +25,19 @@ import {
   TrInfoStyled,
   EditTabBtn,
 } from './TransactionsList.styled';
-const transactions = [
-  {
-    id: 1,
-    date: '04. 01. 19',
-    type: '-',
-    category: 'Other',
-    comment: 'Gift for your wife',
-    sum: '300.00',
-  },
-  {
-    id: 6,
-    date: '05.01.19',
-    type: '+',
-    category: 'Income',
-    comment: 'January bonus',
-    sum: '8 000.00',
-  },
-  {
-    id: 8,
-    date: '05.01.19',
-    type: '+',
-    category: 'Income',
-    comment: 'January bonus',
-    sum: '8 000.00',
-  },
-  {
-    id: 5,
-    date: '05.01.19',
-    type: '+',
-    category: 'Income',
-    comment: 'January bonus',
-    sum: '8 000.00',
-  },
-];
+
 const TransactionsList = () => {
   const dispatch = useDispatch();
-  // const transactions = useSelector(selectTransaction);
-  // useEffect(() => {
-  //   dispatch(fetchTransactions());
-  // }, [dispatch]);
+  const dataList = useSelector(selectTransaction);
+  const token = useSelector(selectToken);
 
+  useEffect(() => {
+    dispatch(fetchTransactions(token));
+  }, [dispatch]);
+
+  console.log(dataList);
   const handleDeleteClick = transactionId => {
+    console.log(transactionId);
     dispatch(deleteTransaction(transactionId));
   };
   return (
@@ -80,27 +53,29 @@ const TransactionsList = () => {
         </MainTrStyled>
       </thead>
       <tbody>
-        {transactions.map(transaction => (
-          <TrInfoStyled key={transaction.id}>
-            <TdDateStyled>{transaction.date}</TdDateStyled>
-            <TdTypeStyled>{transaction.type}</TdTypeStyled>
-            <TdCatagoryStyled>{transaction.category}</TdCatagoryStyled>
-            <TdCommentStyled>{transaction.comment}</TdCommentStyled>
-            <TdSumStyled>{transaction.sum}</TdSumStyled>
-            <TdActionStyled>
-              <IconBtnWrapperStyled>
-                <EditTabBtn>
-                  <EditIconStyled>
-                    <SpriteSVG name={`edit`} />
-                  </EditIconStyled>
-                </EditTabBtn>
-                <DeleteTabBtn onClick={() => handleDeleteClick(transaction.id)}>
-                  Delete
-                </DeleteTabBtn>
-              </IconBtnWrapperStyled>
-            </TdActionStyled>
-          </TrInfoStyled>
-        ))}
+        {dataList.map(
+          ({ id, transactionDate, type, categoryId, comment, amount }) => (
+            <TrInfoStyled key={id}>
+              <TdDateStyled>{transactionDate}</TdDateStyled>
+              <TdTypeStyled>{type}</TdTypeStyled>
+              <TdCatagoryStyled>{categoryId}</TdCatagoryStyled>
+              <TdCommentStyled>{comment}</TdCommentStyled>
+              <TdSumStyled>{amount}</TdSumStyled>
+              <TdActionStyled>
+                <IconBtnWrapperStyled>
+                  <EditTabBtn>
+                    <EditIconStyled>
+                      <SpriteSVG name={`edit`} />
+                    </EditIconStyled>
+                  </EditTabBtn>
+                  <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
+                    Delete
+                  </DeleteTabBtn>
+                </IconBtnWrapperStyled>
+              </TdActionStyled>
+            </TrInfoStyled>
+          )
+        )}
       </tbody>
     </TableStyled>
   );
