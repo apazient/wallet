@@ -20,6 +20,7 @@ export const RegistrOverlay = styled.div`
 
 export const OverlayGradient11 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 707px;
   height: 707px;
   border-radius: 707px;
@@ -30,6 +31,7 @@ export const OverlayGradient11 = styled.div`
 `;
 export const OverlayGradient12 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 515px;
   height: 515px;
   border-radius: 515px;
@@ -40,6 +42,7 @@ export const OverlayGradient12 = styled.div`
 `;
 export const OverlayGradient13 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 454px;
   height: 454px;
   border-radius: 454px;
@@ -50,6 +53,7 @@ export const OverlayGradient13 = styled.div`
 `;
 export const OverlayGradient14 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 654px;
   height: 654px;
   border-radius: 654px;
@@ -64,6 +68,7 @@ export const OverlayGradient14 = styled.div`
 `;
 export const OverlayGradient15 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 251px;
   height: 251px;
   border-radius: 251px;
@@ -78,6 +83,7 @@ export const OverlayGradient15 = styled.div`
 `;
 export const OverlayGradient16 = styled.div`
   position: fixed;
+  pointer-events: none;
   width: 369px;
   height: 369px;
   border-radius: 369px;

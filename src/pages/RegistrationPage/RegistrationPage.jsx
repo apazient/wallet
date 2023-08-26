@@ -11,7 +11,7 @@ import {
 
 const RegistrationPage = ({ children }) => {
   return (
-    <RegistrOverlay RegistrOverlay>
+    <RegistrOverlay>
       {children}
       <OverlayGradient11></OverlayGradient11>
       <OverlayGradient12></OverlayGradient12>
