@@ -32,14 +32,13 @@ const validationSchema = yup.object().shape({
 });
 
 const ModalAddTransaction = () => {
-  const [number, setNumber] = useState('');
-  const [text, setText] = useState('');
   const isExpense = useSelector(selectIsSelect);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const dispatch = useDispatch();
 
   const handleSubmit = values => {
     console.log(values);
+    dispatch(addTransaction());
   };
 
   const isValidDate = currentDate => {
@@ -65,15 +64,7 @@ const ModalAddTransaction = () => {
         {isExpense && <SelectExpenses />}
         <StyledInputWrapTab>
           <StyledInputWrapper>
-            <StyledInputValue
-              name="number"
-              placeholder="0.00"
-              type="number"
-              value={number}
-              onChange={e => {
-                setNumber(e.target.value);
-              }}
-            />
+            <StyledInputValue name="number" placeholder="0.00" type="number" />
           </StyledInputWrapper>
           <StyledDatatimeWrapper>
             <StyledDatetime
@@ -92,15 +83,7 @@ const ModalAddTransaction = () => {
         </StyledInputWrapTab>
 
         <StyledInputWrapper>
-          <StyledInputComment
-            name="text"
-            placeholder="Comment"
-            type="text"
-            value={text}
-            onChange={e => {
-              setText(e.target.value);
-            }}
-          />
+          <StyledInputComment name="text" placeholder="Comment" type="text" />
         </StyledInputWrapper>
         <StyledButtonWrapper>
           <StyledButtonAdd type="submit">Add</StyledButtonAdd>
