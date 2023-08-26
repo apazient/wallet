@@ -8,14 +8,17 @@ import {
   ThCurrencyStyled,
   TheadCurrencyStyled,
   TrCurrencyStyled,
-} from './currency.styled';
+} from './Currency.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCurrencyData } from 'redux/currentcy/operations';
+import { fetchCurrencyData } from 'redux/Currentcy/operations';
 import {
   selectCurrency,
   selectCurrencyLoading,
+
 } from 'redux/currentcy/selectors';
 import { SpriteSVG } from 'pictures/SpriteSVG';
+
+
 
 export const Currency = () => {
   const dispatch = useDispatch();

@@ -2,58 +2,49 @@ import React from 'react';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { register } from 'redux/Auth/operations';
+// import { useDispatch } from 'react-redux';
+// import { register } from 'redux/Auth/operations';
+import {
+  FormContainer,
+  DivLogoContainer,
+  DivLogoIcon,
+  LogoName,
+  Label,
+  DivInputIcon,
+  ButtonReg,
+  ButtonLog,
+  FormOfAllInputs,
+  StyledErrorMessages,
+  StyledField,
+  StyledDivInputs,
+} from './RegisrationForm.styled';
 
 const RegisrationForm = () => {
-  const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [pwd, setPwd] = useState('');
-  const [firstName, setFirstName] = useState('');
-
-  const handleChange = ({ target }) => {
-    const { name, value } = target;
-    switch (name) {
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      case 'pwd':
-        setPwd(value);
-        break;
-      case 'firstName':
-        setFirstName(value);
-        break;
-      default:
-        console.log('Value not found');
-        return;
-    }
-  };
+  // const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(register({ email, password, pwd, firstName }));
-    reset();
+    // dispatch(register({ email, password, pwd, firstName }));
+    // reset();
   };
 
-  const reset = () => {
-    setEmail('');
-    setPassword('');
-    setPwd('');
-    setFirstName('');
-  };
+  // const reset = () => {
+  //   setEmail('');
+  //   setPassword('');
+  //   setPwd('');
+  //   setFirstName('');
+  // };
 
   return (
     <FormContainer>
-      <StyledDivItems>
-        <SpriteSVG name={'logo'} />
-        <StyledH2>Money Guard</StyledH2>
-      </StyledDivItems>
+      <DivLogoContainer>
+        <DivLogoIcon>
+          <SpriteSVG name={'logo'} />
+        </DivLogoIcon>
+        <LogoName>Money Guard</LogoName>
+      </DivLogoContainer>
       <Formik
+        initialValues={{ email: '', password: '', pwd: '', firstName: '' }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
@@ -65,12 +56,15 @@ const RegisrationForm = () => {
             .email('Invalid email address')
             .required('Required'),
           password: Yup.string()
-            .min(6)
+            .min(6, 'Password is too short')
             .max(12, 'Must be 12 characters or less')
+            // .matches(
+            //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$/,
+            //   'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character'
+            // )
             .required('Required'),
           pwd: Yup.string()
-            .min(6)
-            .max(12, 'Must be 12 characters or less')
+            .oneOf([Yup.ref('password'), null], 'Passwords must match')
             .required('Required'),
           firstName: Yup.string()
             .min(2)
@@ -78,59 +72,74 @@ const RegisrationForm = () => {
             .required('Required'),
         })}
       >
-        <Form onSubmit={handleSubmit}>
-          <label>
-            <SpriteSVG name={'email'} />
-            <Field
-              onChange={handleChange}
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              value={email}
-              autofocus
-            />
-            <ErrorMessage name="email" />
-          </label>
+        <FormOfAllInputs onSubmit={handleSubmit}>
+          <StyledDivInputs>
+            <Label>
+              <DivInputIcon>
+                <SpriteSVG name={'email'} />
+              </DivInputIcon>
+              <StyledField
+                // onChange={handleChange}
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                autofocus
+              />
 
-          <label>
-            <SpriteSVG name={'password'} />
-            <Field
-              onChange={handleChange}
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-            />
-            <ErrorMessage name="password" />
-          </label>
+              <StyledErrorMessages name="email" />
+            </Label>
+          </StyledDivInputs>
 
-          <label>
-            <SpriteSVG name={'password'} />
-            <Field
-              onChange={handleChange}
-              type="password"
-              name="pwd"
-              placeholder="Confirm password"
-              value={pwd}
-            />
-            <ErrorMessage name="pwd" />
-          </label>
+          <StyledDivInputs>
+            <Label>
+              <DivInputIcon>
+                <SpriteSVG name={'password'} />
+              </DivInputIcon>
+              <StyledField
+                // onChange={handleChange}
+                type="password"
+                name="password"
+                placeholder="Password"
+              />
+              <StyledErrorMessages name="password" />
+            </Label>
+          </StyledDivInputs>
 
-          <label>
-            <SpriteSVG name={'name'} />
-            <Field
-              onChange={handleChange}
-              type="text"
-              name="firstName"
-              placeholder="First name"
-              value={firstName}
-            />
-            <ErrorMessage name="firstName" />
-          </label>
+          <StyledDivInputs>
+            <Label>
+              <DivInputIcon>
+                <SpriteSVG name={'password'} />
+              </DivInputIcon>
+              <StyledField
+                // onChange={handleChange}
+                type="password"
+                name="pwd"
+                placeholder="Confirm password"
+              />
+              <StyledErrorMessages name="pwd" />
+            </Label>
+          </StyledDivInputs>
 
-          <button type="submit">Register</button>
-          <button type="submit">Log in</button>
-        </Form>
+          <StyledDivInputs>
+            <Label>
+              <DivInputIcon>
+                <SpriteSVG name={'home-page'} />
+              </DivInputIcon>
+              <StyledField
+                // onChange={handleChange}
+                type="text"
+                name="firstName"
+                placeholder="First name"
+              />
+              <StyledErrorMessages name="firstName" />
+            </Label>
+          </StyledDivInputs>
+
+          <ButtonReg type="submit">Register</ButtonReg>
+          <ButtonLog type="button" onClick>
+            Log in
+          </ButtonLog>
+        </FormOfAllInputs>
       </Formik>
     </FormContainer>
   );

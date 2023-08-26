@@ -5,13 +5,12 @@ export const StyledSelect = styled(Select)`
   height: 50px;
   background: rgba(74, 86, 226, 0.1);
 
-
   /* Стили для выбранного значения */
   .react-select__single-value {
     color: var(--white, #fbfbfb);
     font-size: 16px;
     font-weight: 400;
-    padding: 12px 20px 14px 20px
+    padding: 12px 20px 14px 20px;
     line-height: normal;
     font-family: Poppins;
   }
@@ -26,30 +25,27 @@ export const StyledSelect = styled(Select)`
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
- box-shadow: none ;
+    box-shadow: none;
   }
-    /* Убираем обводку при фокусе */
+  /* Убираем обводку при фокусе */
   .react-select__control:focus {
     outline: none;
     border: 1px solid transparent;
   }
   /*Убираем синий ховер  */
   .react-select__control:hover {
-    border-color: rgba(255, 255, 255, 0.60);
-    box-shadow: none ;
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: none;
   }
-
-  
 
   .react-select__input {
-   
   }
-    .react-select__input-container {
+  .react-select__input-container {
     padding: 0;
     margin: 0;
   }
 
-    .react-select__indicator-separator {
+  .react-select__indicator-separator {
     display: none; /* Скрываем разделитель индикаторов */
   }
   /* Стили для опций (вариантов) */
@@ -86,18 +82,17 @@ export const StyledSelect = styled(Select)`
     );
     max-height: 182px;
     overflow: hidden;
-    margin:0;
+    margin: 0;
   }
   .react-select__menu-list {
     overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
     overflow-x: hidden; /* Скрываем горизонтальную полосу прокрутки */
   }
-    .react-select__placeholder {
-      color: var(--white, #fbfbfb);
+  .react-select__placeholder {
+    color: var(--white, #fbfbfb);
     font-size: 16px;
     font-weight: 400;
     font-family: Poppins;
-   ]
   }
 `;
 

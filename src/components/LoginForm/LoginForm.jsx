@@ -7,7 +7,6 @@ import React from 'react';
 import {
   FormikLoginForm,
   StyledButtonLog,
-  StyledButtonReg,
   StyledDiv,
   StyledDivInputs,
   StyledDivItems,
@@ -17,6 +16,7 @@ import {
   StyledH2,
   StyledInput,
   StyledLabels,
+  StyledLinkReg,
   StyledSectionForm,
 } from './LoginForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,30 +26,27 @@ import { loginThunk } from 'redux/Auth/operations';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import * as Yup from 'yup';
 import { getIsLoading } from 'redux/Auth/selectors';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object({
     email: Yup.string().email('Invalid email address').required('Required'),
     password: Yup.string().min(6).max(12).required('Required'),
   });
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   const credentials = { email, password };
-  //   dispatch(loginThunk(credentials))
-  //     .unwrap()
-  //     .then(res => {
-  //       toast.success(`Hello, ${res.user.name}`);
-  //     })
-  //     .catch(err => {
-  //       toast.error('Try another data!!');
-  //     });
-  // };
-
-  // const renderError = message => <p className="help is-danger">{message}</p>;
+  const handleSubmit = value => {
+    dispatch(loginThunk(value))
+      .unwrap()
+      .then(() => navigate(location.state?.from || '/'))
+      .catch(err => {
+        //  toast.error('Try another data!!');
+      });
+  };
 
   return (
     <StyledSectionForm>
@@ -61,9 +58,7 @@ export const LoginForm = () => {
           <StyledH2>Money Guard</StyledH2>
         </StyledDivItems>
         <Formik
-          onSubmit={values => {
-            dispatch(loginThunk(values));
-          }}
+          onSubmit={handleSubmit}
           initialValues={{ password: '', email: '' }}
           validationSchema={validationSchema}
         >
@@ -92,7 +87,6 @@ export const LoginForm = () => {
                   type="password"
                 />
               </StyledLabels>
-              {/* <ErrorMessage name="password" render={renderError} /> */}
             </StyledDivInputs>
             <StyledErrorMessages
               name="password"
@@ -102,7 +96,7 @@ export const LoginForm = () => {
             <StyledButtonLog type="submit" disabled={isLoading}>
               Log In
             </StyledButtonLog>
-            <StyledButtonReg type="submit">Register</StyledButtonReg>
+            <StyledLinkReg to="/logup">Register</StyledLinkReg>
           </FormikLoginForm>
         </Formik>
       </StyledDiv>

@@ -5,6 +5,7 @@ export const feachTransactionSummary = createAsyncThunk(
   'summary/feachTransactionSummary',
   async (credentials, thunkAPI) => {
     try {
+      console.log(credentials);
       const res = await API.get('/api/transactions-summary', {
         params: credentials,
       });

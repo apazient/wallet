@@ -14,16 +14,17 @@ import {
   StyledCalendarSvg,
   StyledButtonWrapper,
   StyledDatetime,
+  StyledInputWrapTab,
+  StyledDatatimeWrapper,
 } from './ModalAddTransaction.styled';
 import * as yup from 'yup';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import { Switcher } from './Switcher';
-
-import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
-import { useDispatch } from 'react-redux';
-import { feachCategories } from 'redux/TransactionCategories/operations';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { SelectExpenses } from './Select';
+import { selectIsSelect } from 'redux/TransactionCategories/selectors';
+import { addTransaction } from 'redux/TransactionsList/operations';
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
@@ -33,12 +34,9 @@ const validationSchema = yup.object().shape({
 const ModalAddTransaction = () => {
   const [number, setNumber] = useState('');
   const [text, setText] = useState('');
+  const isExpense = useSelector(selectIsSelect);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(feachCategories());
-  }, [dispatch]);
 
   const handleSubmit = values => {
     console.log(values);
@@ -52,15 +50,20 @@ const ModalAddTransaction = () => {
   };
 
   return (
-    <Formik validationSchema={validationSchema}>
-      {() => (
-        <StyledForm onSubmit={() => handleSubmit()}>
-          <StyledTitle>Add transaction</StyledTitle>
-          <StyledToggleWrapper>
-            <StyledToggleTextIncome>Income</StyledToggleTextIncome>
-            <Switcher />
-            <StyledToggleTextExp>Expense</StyledToggleTextExp>
-          </StyledToggleWrapper>
+    <Formik
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+      initialValues={{ text: '', number: '', date: '' }}
+    >
+      <StyledForm>
+        <StyledTitle>Add transaction</StyledTitle>
+        <StyledToggleWrapper>
+          <StyledToggleTextIncome>Income</StyledToggleTextIncome>
+          <Switcher />
+          <StyledToggleTextExp>Expense</StyledToggleTextExp>
+        </StyledToggleWrapper>
+        {isExpense && <SelectExpenses />}
+        <StyledInputWrapTab>
           <StyledInputWrapper>
             <StyledInputValue
               name="number"
@@ -72,36 +75,40 @@ const ModalAddTransaction = () => {
               }}
             />
           </StyledInputWrapper>
-          <StyledDatetime
-            value={selectedDate}
-            dateFormat="DD.MM.YYYY"
-            timeFormat={false}
-            onChange={date => setSelectedDate(date)}
-            isValidDate={isValidDate}
-            closeOnSelect={true}
-          ></StyledDatetime>
-          <StyledCalendarSvg>
-            <SpriteSVG name={'calendar'} />
-          </StyledCalendarSvg>
-          <StyledInputWrapper>
-            <StyledInputComment
-              name="text"
-              placeholder="Comment"
-              type="text"
-              value={text}
-              onChange={e => {
-                setText(e.target.value);
-              }}
-            />
-          </StyledInputWrapper>
-          <StyledButtonWrapper>
-            <StyledButtonAdd type="submit">Add</StyledButtonAdd>
-            <StyledButtonCancel onClick={() => console.log('Hello')}>
-              Cancel
-            </StyledButtonCancel>
-          </StyledButtonWrapper>
-        </StyledForm>
-      )}
+          <StyledDatatimeWrapper>
+            <StyledDatetime
+              name="data"
+              value={selectedDate}
+              dateFormat="DD.MM.YYYY"
+              timeFormat={false}
+              onChange={date => setSelectedDate(date)}
+              isValidDate={isValidDate}
+              closeOnSelect={true}
+            ></StyledDatetime>
+            <StyledCalendarSvg>
+              <SpriteSVG name={'calendar'} />
+            </StyledCalendarSvg>
+          </StyledDatatimeWrapper>
+        </StyledInputWrapTab>
+
+        <StyledInputWrapper>
+          <StyledInputComment
+            name="text"
+            placeholder="Comment"
+            type="text"
+            value={text}
+            onChange={e => {
+              setText(e.target.value);
+            }}
+          />
+        </StyledInputWrapper>
+        <StyledButtonWrapper>
+          <StyledButtonAdd type="submit">Add</StyledButtonAdd>
+          <StyledButtonCancel onClick={() => console.log('Hello')}>
+            Cancel
+          </StyledButtonCancel>
+        </StyledButtonWrapper>
+      </StyledForm>
     </Formik>
   );
 };
