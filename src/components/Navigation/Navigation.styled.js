@@ -1,6 +1,5 @@
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import styled from 'styled-components';
-
 export const NavWrapperStyled = styled.ul`
   display: flex;
   flex-direction: column;
@@ -22,8 +21,11 @@ export const NavIconStyled = styled.div`
 display: flex;
 fill: rgba(255, 255, 255, 0.4);
 flex-direction: column;
-width: 24px;
-height: 24px;`
+width: 44px;
+height: 44px;
+margin: 0;
+border: none;
+`
 
 
 export const NavLinkWrapperStyled = styled.div`
@@ -34,17 +36,15 @@ export const NavLinkWrapperStyled = styled.div`
 
 export const NavLinkStyled = styled.a`
   color: ${({ theme }) => theme.colors.colorText};
-  font-family: Poppins; /*  нужно поменять шрифт */
+  font-family: Poppins-Regular;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
-  text-decoration: none; /*  нужно убрать стили для тега а */
-  &.hover {
-    font-weight: 700px;
-  }
-  &.active {
+  text-decoration: none; 
+  &:hover {
     font-weight: 700;
+    font-family: 'Poppins Bold';
   }
 `;
