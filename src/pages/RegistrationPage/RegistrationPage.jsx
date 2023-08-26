@@ -8,11 +8,12 @@ import {
   OverlayGradient16,
   RegistrOverlay,
 } from './RegistrationPage.styled';
+import RegistrationForm from '../../components/RegisrationForm/RegisrationForm';
 
-const RegistrationPage = ({ children }) => {
+const RegistrationPage = () => {
   return (
     <RegistrOverlay>
-      {children}
+      <RegistrationForm />
       <OverlayGradient11></OverlayGradient11>
       <OverlayGradient12></OverlayGradient12>
       <OverlayGradient13></OverlayGradient13>
