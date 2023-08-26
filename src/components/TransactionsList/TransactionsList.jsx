@@ -59,7 +59,7 @@ const TransactionsList = () => {
         </MainTrStyled>
       </thead>
       <tbody>
-        {dataList.map(
+        {dataList?.map(
           ({ id, transactionDate, type, categoryId, comment, amount }) => (
             <TrInfoStyled key={id}>
               <TdDateStyled>{transactionDate}</TdDateStyled>
