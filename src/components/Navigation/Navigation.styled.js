@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const NavWrapperStyled = styled.ul`
@@ -31,7 +32,7 @@ export const NavLinkWrapperStyled = styled.div`
   gap: 20px;
 `;
 
-export const NavLinkStyled = styled.a`
+export const NavLinkStyled = styled(NavLink)`
   color: ${({ theme }) => theme.colors.colorText};
   font-family: Poppins; /*  нужно поменять шрифт */
   font-size: 18px;
