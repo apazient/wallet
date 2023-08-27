@@ -7,6 +7,7 @@ import {
   BalanceTitleStyled,
 } from './Balance.styled';
 import { feachTransactionSummary } from 'redux/SummaryPage/operations';
+import { selectPeriodTotal } from 'redux/SummaryPage/selectors';
 
 export const Balance = () => {
   const dispatch = useDispatch();
@@ -15,12 +16,14 @@ export const Balance = () => {
     dispatch(feachTransactionSummary());
   }, [dispatch]);
 
-  const periodTotal = useSelector(state => state.summary.periodTotal);
+  const balanseTotal = useSelector(selectPeriodTotal);
 
   return (
     <BalanceContainerStyled>
       <BalanceTitleStyled>Your balance</BalanceTitleStyled>
-      <BalanceStyled>{` ${periodTotal}`}</BalanceStyled>
+      <BalanceStyled>
+        <span>&#8372;</span> {balanseTotal}
+      </BalanceStyled>
     </BalanceContainerStyled>
   );
 };
