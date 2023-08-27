@@ -53,7 +53,7 @@ const Navigation = () => {
             <NavIconStyled>
               <SpriteSVG name={'statistic'} />
             </NavIconStyled>
-            <NavLinkStyled to="/statistic">Statistics</NavLinkStyled>
+            <NavLinkStyled to="/summary">Statistics</NavLinkStyled>
           </NavLinkWrapperStyled>
         </NavWrapperStyled>
       )}
@@ -69,7 +69,7 @@ const Navigation = () => {
             <NavIconStyled>
               <SpriteSVG name={'statistic'} />
             </NavIconStyled>
-            <NavLinkStyled to="/statistic">Statistics</NavLinkStyled>
+            <NavLinkStyled to="/summary">Statistics</NavLinkStyled>
           </NavLinkWrapperStyled>
         </NavWrapperStyled>
       )}
