@@ -25,6 +25,12 @@ const persistConfigUser = {
   storage,
   whitelist: ['token'],
 };
+const persistCurrency = {
+  key: 'currency',
+  version: 1,
+  storage,
+  whitelist: ['data'],
+};
 
 export const store = configureStore({
   reducer: {
@@ -32,7 +38,7 @@ export const store = configureStore({
     user: persistReducer(persistConfigUser, userReducer),
     transactions: transactionsSliceReducer,
     tranzCategories: categoriesReducer,
-    currency: currencyReducer,
+    currency: persistReducer(persistCurrency, currencyReducer),
     summary: summaryReducer,
   },
   middleware: getDefaultMiddleware =>
