@@ -9,7 +9,7 @@ const Layout = () => {
     <>
       <Header />
       <Navigation />
-      <DashboardPage />
+      {/* <DashboardPage /> */}
       <Outlet />
     </>
   );

@@ -1,6 +1,5 @@
-import Datetime from 'react-datetime';
-import React, { useState } from 'react';
-import { Formik, useFormik } from 'formik';
+import React, { useEffect, useState } from 'react';
+import { useFormik } from 'formik';
 import {
   FormikForm,
   Input,
@@ -11,39 +10,70 @@ import {
   StyledTransaction,
 } from './ModalEditTransaction.styled';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectEditItem } from 'redux/Global/selectors';
+import { closeModal } from 'redux/Global/globalSlice';
+import { updateTransaction } from 'redux/TransactionsList/operations';
+import {
+  selectChoosenCategorie,
+  selectIsSelect,
+} from 'redux/TransactionCategories/selectors';
+import { feachCategories } from 'redux/TransactionCategories/operations';
+import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
 
-const dateNow = () => {
-  const time = Date.now();
-  const date = new Date(time);
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
-  const formattedDate = `${year}-${month}-${day}`;
-  return formattedDate;
-};
+export const ModalEditTransaction = () => {
+  const isExpense = useSelector(selectIsSelect);
+  const dispatch = useDispatch();
+  const dataItem = useSelector(selectEditItem);
+  const categories = useSelector(selectChoosenCategorie);
 
-export const ModalEditTransaction = dataItem => {
-  // if (!isOpen) {
-  //   return null;
-  // }
+  const [category] = useState({
+    value: dataItem.categoryId,
+    label: '',
+  });
+
+  useEffect(() => {
+    dispatch(feachCategories());
+  }, [dispatch]);
+  const getCategoriName = () => {
+    if (isExpense) {
+      const categ = categories.find(e => e.id === dataItem.categoryId);
+      return categ.name;
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
-      date: '',
-      number: '',
-      text: '',
+      transactionDate: dataItem.transactionDate,
+      amount: dataItem.amount,
+      comment: dataItem.comment,
+      categoryId: category.value,
+      type: dataItem.type,
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      if (isExpense) {
+        values.amount = 0 - values.amount;
+        values.categoryId = category.value;
+      }
+      if (!isExpense) {
+        values.categoryId = categories.id;
+      }
+      const transactionData = {
+        updateData: values,
+        transactionId: dataItem.id,
+      };
+      dispatch(updateTransaction(transactionData));
+      dispatch(closeModal());
+      dispatch(showSelect(false));
     },
     validationSchema: Yup.object().shape({
-      number: Yup.number()
+      amount: Yup.number()
         .required('Required field!')
         .positive('The number must be positive!'),
-      date: Yup.date()
+      transactionDate: Yup.date()
         .required('Required field!')
         .max(new Date(), 'Date must be in the past!'),
-      text: Yup.string(),
+      comment: Yup.string(),
     }),
   });
 
@@ -51,49 +81,77 @@ export const ModalEditTransaction = dataItem => {
     <FormikForm onSubmit={formik.handleSubmit}>
       <StyledTransaction>Edit transaction (income)</StyledTransaction>
       <StyledIncomeExpences>
-        <p>Income</p>
-        <p>/</p>
-        <p>Expense</p>
+        <label>
+          <input
+            type="radio"
+            name="type"
+            value="INCOME"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            onClick={() => {
+              dispatch(showSelect(false));
+            }}
+
+            // {isExpense?null:checked}
+          />
+          Income
+        </label>
+        <span> / </span>
+        <label>
+          <input
+            type="radio"
+            name="type"
+            value="EXPENSE"
+            onChange={formik.handleChange}
+            onClick={() => dispatch(showSelect(true))}
+            onBlur={formik.handleBlur}
+          />
+          Expense
+        </label>
       </StyledIncomeExpences>
+      {isExpense && <div>{getCategoriName()}</div>}
       <InputWrapper>
         <Input
-          name="number"
+          name="amount"
           placeholder="0.00"
           type="number"
-          value={formik.values.email}
+          value={formik.values.amount}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        {formik.touched.number && formik.errors.number ? (
-          <div>{formik.errors.number}</div>
+        {formik.touched.amount && formik.errors.amount ? (
+          <div>{formik.errors.amount}</div>
         ) : null}
         <Input
-          name="date"
+          name="transactionDate"
           placeholder="2025-08-23"
           type="date"
-          value={formik.values.date}
+          value={formik.values.transactionDate}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        {formik.touched.date && formik.errors.date ? (
-          <div>{formik.errors.date}</div>
+        {formik.touched.transactionDate && formik.errors.transactionDate ? (
+          <div>{formik.errors.transactionDate}</div>
         ) : null}
       </InputWrapper>
       <InputWrapper>
         <Input
-          name="text"
+          name="comment"
           placeholder="Comment"
           type="text"
-          // value={text}
-          onChange={e => {
-            // setText(e.target.value);
-          }}
+          value={formik.values.comment}
+          onChange={formik.handleChange}
         />
       </InputWrapper>
-      <StyledButtonPerple type="submit" onClick={() => {}}>
-        Save
-      </StyledButtonPerple>
-      <StyledButtonWhite onClick={() => {}}>Cancel</StyledButtonWhite>
+      <StyledButtonPerple type="submit">Save</StyledButtonPerple>
+      <StyledButtonWhite
+        onClick={() => {
+          dispatch(showSelect(false));
+          dispatch(closeModal());
+        }}
+      >
+        Cancel
+      </StyledButtonWhite>
     </FormikForm>
   );
 };

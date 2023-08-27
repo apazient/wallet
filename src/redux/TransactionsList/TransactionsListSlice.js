@@ -31,7 +31,7 @@ const transactionsSlice = createSlice({
       })
       .addCase(addTransaction.fulfilled, (state, action) => {
         state.transactions.push(action.payload);
-        setIsModalAddTransactionOpen = false;
+        setIsModalAddTransactionOpen(state, { payload: false });
       })
       .addCase(addTransaction.rejected, (state, action) => {
         state.isLoading = false;

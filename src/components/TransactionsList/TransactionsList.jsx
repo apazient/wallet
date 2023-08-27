@@ -5,17 +5,13 @@ import {
   deleteTransaction,
   fetchTransactions,
 } from 'redux/TransactionsList/operations';
-
 import {
   selectToken,
   selectTransaction,
 } from 'redux/TransactionsList/selectors';
-
 import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
 import Modal from 'components/Modal/Modal';
 import { isEditTransaction } from 'redux/Global/selectors';
-import ButtonEditTransactions from 'components/ButtonEditTransactions/ButtonEditTransactions';
-
 import {
   DeleteTabBtn,
   EditIconStyled,
@@ -30,35 +26,29 @@ import {
   TdTypeStyled,
   ThStyled,
   TrInfoStyled,
-  EditTabBtn,
 } from './TransactionsList.styled';
 import { selectAllCategories } from 'redux/TransactionCategories/selectors';
 import { getCategoriName } from 'helpers/helpers';
 import { feachCategories } from 'redux/TransactionCategories/operations';
+import { setIsModalEditTransaction } from 'redux/Global/globalSlice';
 
 const TransactionsList = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const dataList = useSelector(selectTransaction);
-
   const allCategories = useSelector(selectAllCategories);
 
   const isEditTrans = useSelector(isEditTransaction);
 
   useEffect(() => {
     dispatch(fetchTransactions(token));
-  }, [dispatch]);
+  }, [dispatch, token]);
   useEffect(() => {
     dispatch(feachCategories());
   }, [dispatch]);
 
   const handleDeleteClick = transactionId => {
     dispatch(deleteTransaction(transactionId));
-  };
-  const filteredItem = id => {
-    const newData = dataList.find(el => el.id === id);
-
-    return newData;
   };
 
   return (
@@ -80,23 +70,21 @@ const TransactionsList = () => {
               <TdDateStyled>{transactionDate}</TdDateStyled>
               <TdTypeStyled>{type === 'INCOME' ? '+' : '-'}</TdTypeStyled>
               <TdCatagoryStyled>
-                {/* {dataList.length !== 0
+                {dataList.length !== 0
                   ? getCategoriName(allCategories, categoryId)
-                  : 'notNull'} */}
+                  : 'notNull'}
               </TdCatagoryStyled>
               <TdCommentStyled>{comment}</TdCommentStyled>
-              <TdSumStyled>{amount}</TdSumStyled>
+              <TdSumStyled>{Math.abs(amount)}</TdSumStyled>
               <TdActionStyled>
                 <IconBtnWrapperStyled>
-                  <div>
+                  <div
+                    onClick={() => {
+                      dispatch(setIsModalEditTransaction({ id, flag: true }));
+                    }}
+                  >
                     <EditIconStyled>
                       <SpriteSVG name={`edit`} />
-                      {isEditTrans && (
-                        <Modal>
-                          <ModalEditTransaction dataItem={filteredItem(id)} />
-                        </Modal>
-                      )}
-                      <ButtonEditTransactions />
                     </EditIconStyled>
                   </div>
                   <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
@@ -108,6 +96,11 @@ const TransactionsList = () => {
           )
         )}
       </tbody>
+      {isEditTrans && (
+        <Modal>
+          <ModalEditTransaction />
+        </Modal>
+      )}
     </TableStyled>
   );
 };
