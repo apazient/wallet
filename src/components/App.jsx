@@ -37,7 +37,7 @@ export const App = () => {
           }
         />
         <Route
-          path="logup"
+          path="register"
           element={
             <PublicRoute>
               <RegistrationPage />
