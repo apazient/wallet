@@ -2,16 +2,6 @@ import { styled } from 'styled-components';
 import { Field, Form, ErrorMessage } from 'formik';
 import { StyledButton, StyledLink } from 'styles/Button';
 
-// @media screen and (min-width: 768px) {
-//   flex-direction: row;
-//   gap: 16px;
-//   margin-top: 20px;
-// }
-// @media screen and (min-width: 1280px) {
-//   gap: 32px;
-//   margin-top: 65px;
-// }
-
 export const StyledSectionForm = styled.section`
   width: 320px;
   background: rgba(255, 255, 255, 0.1);
@@ -148,7 +138,7 @@ export const StyledLinkReg = styled(StyledLink)`
 
 export const StyledLabels = styled.label`
   display: flex;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 `;
 
