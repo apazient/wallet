@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const StyledHeader = styled.div`
@@ -86,7 +87,7 @@ export const StyledExitSvg = styled.div`
   fill: ${({ theme }) => theme.colors.navLink};
   cursor: pointer;
 `;
-export const StyledLogoLink = styled.a`
+export const StyledLogoLink = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
