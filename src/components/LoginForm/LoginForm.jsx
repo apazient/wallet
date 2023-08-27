@@ -96,7 +96,7 @@ export const LoginForm = () => {
             <StyledButtonLog type="submit" disabled={isLoading}>
               Log In
             </StyledButtonLog>
-            <StyledLinkReg to="/logup">Register</StyledLinkReg>
+            <StyledLinkReg to="/register">Register</StyledLinkReg>
           </FormikLoginForm>
         </Formik>
       </StyledDiv>

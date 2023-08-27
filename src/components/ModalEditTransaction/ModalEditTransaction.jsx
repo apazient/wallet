@@ -22,10 +22,11 @@ const dateNow = () => {
   return formattedDate;
 };
 
-export const ModalEditTransaction = () => {
+export const ModalEditTransaction = dataItem => {
   // if (!isOpen) {
   //   return null;
   // }
+
   const formik = useFormik({
     initialValues: {
       date: '',
@@ -33,7 +34,6 @@ export const ModalEditTransaction = () => {
       text: '',
     },
     onSubmit: values => {
-      console.log('submit', values);
       alert(JSON.stringify(values, null, 2));
     },
     validationSchema: Yup.object().shape({
@@ -90,12 +90,10 @@ export const ModalEditTransaction = () => {
           }}
         />
       </InputWrapper>
-      <StyledButtonPerple type="submit" onClick={() => console.log('Submit')}>
+      <StyledButtonPerple type="submit" onClick={() => {}}>
         Save
       </StyledButtonPerple>
-      <StyledButtonWhite onClick={() => console.log(dateNow())}>
-        Cancel
-      </StyledButtonWhite>
+      <StyledButtonWhite onClick={() => {}}>Cancel</StyledButtonWhite>
     </FormikForm>
   );
 };

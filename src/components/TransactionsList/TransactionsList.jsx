@@ -32,22 +32,35 @@ import {
   TrInfoStyled,
   EditTabBtn,
 } from './TransactionsList.styled';
+import { selectAllCategories } from 'redux/TransactionCategories/selectors';
+import { getCategoriName } from 'helpers/helpers';
+import { feachCategories } from 'redux/TransactionCategories/operations';
 
 const TransactionsList = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const dataList = useSelector(selectTransaction);
+
+  const allCategories = useSelector(selectAllCategories);
+
   const isEditTrans = useSelector(isEditTransaction);
 
   useEffect(() => {
     dispatch(fetchTransactions(token));
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(feachCategories());
+  }, [dispatch]);
 
-  console.log(dataList);
   const handleDeleteClick = transactionId => {
-    console.log(transactionId);
     dispatch(deleteTransaction(transactionId));
   };
+  const filteredItem = id => {
+    const newData = dataList.find(el => el.id === id);
+
+    return newData;
+  };
+
   return (
     <TableStyled>
       <thead>
@@ -65,8 +78,12 @@ const TransactionsList = () => {
           ({ id, transactionDate, type, categoryId, comment, amount }) => (
             <TrInfoStyled key={id}>
               <TdDateStyled>{transactionDate}</TdDateStyled>
-              <TdTypeStyled>{type}</TdTypeStyled>
-              <TdCatagoryStyled>{categoryId}</TdCatagoryStyled>
+              <TdTypeStyled>{type === 'INCOME' ? '+' : '-'}</TdTypeStyled>
+              <TdCatagoryStyled>
+                {/* {dataList.length !== 0
+                  ? getCategoriName(allCategories, categoryId)
+                  : 'notNull'} */}
+              </TdCatagoryStyled>
               <TdCommentStyled>{comment}</TdCommentStyled>
               <TdSumStyled>{amount}</TdSumStyled>
               <TdActionStyled>
@@ -76,7 +93,7 @@ const TransactionsList = () => {
                       <SpriteSVG name={`edit`} />
                       {isEditTrans && (
                         <Modal>
-                          <ModalEditTransaction />
+                          <ModalEditTransaction dataItem={filteredItem(id)} />
                         </Modal>
                       )}
                       <ButtonEditTransactions />
