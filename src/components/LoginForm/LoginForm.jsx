@@ -69,14 +69,10 @@ export const LoginForm = () => {
                 <StyledDivSpriteSvgIcons>
                   <SpriteSVG name="email" />
                 </StyledDivSpriteSvgIcons>
-                <StyledInput name="email" placeholder="E-email" type="email" />{' '}
+                <StyledInput name="email" placeholder="E-email" type="email" />
               </StyledLabels>
             </StyledDivInputEmail>
-            <StyledErrorMessages
-              name="email"
-              className="text-red-500"
-              component="h1"
-            />
+            <StyledErrorMessages name="email" component="h1" />
             <StyledDivInputPassword>
               <StyledLabels>
                 <StyledDivSpriteSvgIcons>
@@ -89,11 +85,7 @@ export const LoginForm = () => {
                 />
               </StyledLabels>
             </StyledDivInputPassword>
-            <StyledErrorMessages
-              name="password"
-              className="text-red-500"
-              component="h1"
-            />
+            <StyledErrorMessages name="password" component="h1" />
             <StyledButtonLog type="submit" disabled={isLoading}>
               Log In
             </StyledButtonLog>
