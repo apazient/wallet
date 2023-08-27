@@ -6,7 +6,6 @@ import RegistrationPage from 'pages/RegistrationPage/RegistrationPage';
 import { PublicRoute } from 'HOC/PublicRoute/PublicRoute';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import NotFound from 'pages/NotFound/NotFound';
-
 import { PrivateRoute } from 'HOC/PrivateRoute/PrivateRoute';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -56,4 +55,5 @@ export const App = () => {
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
+
 };

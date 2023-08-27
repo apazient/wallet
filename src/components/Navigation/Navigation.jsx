@@ -10,7 +10,34 @@ import { SpriteSVG } from 'pictures/SpriteSVG';
 
 const Navigation = () => {
   return (
+    {isMobile && (
     <NavWrapperStyled>
+      <NavLinkWrapperStyled>
+        <NavIconStyled>
+          <SpriteSVG name={'home-page'} />
+        </NavIconStyled>
+
+        <NavLinkStyled to="/">Home</NavLinkStyled>
+
+      </NavLinkWrapperStyled>
+      <NavLinkWrapperStyled>
+        <NavIconStyled>
+          <SpriteSVG name={'statistic'} />
+        </NavIconStyled>
+
+        <NavLinkStyled to="/summary">Statistics</NavLinkStyled>
+
+      </NavLinkWrapperStyled>
+      <NavLinkWrapperStyled>
+      <NavIconStyled>
+        <SpriteSVG name={'currency'} />
+      </NavIconStyled>
+        <NavLinkStyled to="/currency">Currency</NavLinkStyled>
+      </NavLinkWrapperStyled>
+    </NavWrapperStyled>
+    )}
+    {isTablet && (
+      <NavWrapperStyled>
       <NavLinkWrapperStyled>
         <NavIconStyled>
           <SpriteSVG name={'home-page'} />
@@ -21,16 +48,27 @@ const Navigation = () => {
         <NavIconStyled>
           <SpriteSVG name={'statistic'} />
         </NavIconStyled>
-        <NavLinkStyled to="/summary">Statistics</NavLinkStyled>
+        <NavLinkStyled to="/statistic">Statistics</NavLinkStyled>
       </NavLinkWrapperStyled>
-      {/* <NavLinkWrapperStyled>
-      <NavIconStyled>
-        <SpriteSVG name={'currency'} />
-      </NavIconStyled>
-        <NavLinkStyled href="/">Currency</NavLinkStyled>
-      </NavLinkWrapperStyled> */}
-    </NavWrapperStyled>
+      </NavWrapperStyled>
+    )}
+    {isDesctop && (
+      <NavWrapperStyled>
+        <NavLinkWrapperStyled>
+          <NavIconStyled>
+            <SpriteSVG name={'home-page'} />
+          </NavIconStyled>
+          <NavLinkStyled to="/">Home</NavLinkStyled>
+        </NavLinkWrapperStyled>
+        <NavLinkWrapperStyled>
+          <NavIconStyled>
+            <SpriteSVG name={'statistic'} />
+          </NavIconStyled>
+          <NavLinkStyled to="/statistic">Statistics</NavLinkStyled>
+        </NavLinkWrapperStyled>
+      </NavWrapperStyled>
+    )}
   );
-};
+}
 
 export default Navigation;
