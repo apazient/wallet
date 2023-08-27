@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { ModalOverlay } from './Modal.styled';
 import { useDispatch } from 'react-redux';
 import { closeModal } from 'redux/Global/globalSlice';
+import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -12,6 +13,7 @@ const Modal = ({ children }) => {
     const handleEscape = e => {
       if (e.code === 'Escape') {
         dispatch(closeModal());
+        dispatch(showSelect(false));
       }
     };
     window.addEventListener('keydown', handleEscape);
@@ -22,9 +24,12 @@ const Modal = ({ children }) => {
 
   return createPortal(
     <ModalOverlay
-      onClick={e =>
-        e.target === e.currentTarget ? dispatch(closeModal()) : null
-      }
+      onClick={e => {
+        if (e.target === e.currentTarget) {
+          dispatch(showSelect(false));
+          dispatch(closeModal());
+        }
+      }}
     >
       {children}
     </ModalOverlay>,

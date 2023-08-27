@@ -5,6 +5,7 @@ const initialState = {
   isModalLogoutOpen: false,
   isLoading: false,
   isModalEditTransaction: false,
+  selected: null,
 };
 export const globalSlice = createSlice({
   name: 'global',
@@ -25,7 +26,8 @@ export const globalSlice = createSlice({
       state.isModalEditTransaction = false;
     },
     setIsModalEditTransaction: (state, { payload }) => {
-      state.isModalEditTransaction = payload;
+      state.isModalEditTransaction = payload.flag;
+      state.selected = payload.id;
     },
   },
 });

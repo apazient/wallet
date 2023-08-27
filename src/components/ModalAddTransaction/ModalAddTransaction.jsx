@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Formik } from 'formik';
-import moment from 'moment';
 import {
   StyledInputWrapper,
   StyledButtonAdd,
@@ -25,12 +24,13 @@ import 'react-datetime/css/react-datetime.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { SelectExpenses } from './Select';
 import {
-  selectAllCategories,
   selectChoosenCategorie,
   selectIsSelect,
 } from 'redux/TransactionCategories/selectors';
 import { addTransaction } from 'redux/TransactionsList/operations';
 import { feachCategories } from 'redux/TransactionCategories/operations';
+import { closeModal } from 'redux/Global/globalSlice';
+import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
@@ -39,34 +39,31 @@ const validationSchema = yup.object().shape({
 
 const ModalAddTransaction = () => {
   const isExpense = useSelector(selectIsSelect);
-
   const dispatch = useDispatch();
+  const categories = useSelector(selectChoosenCategorie);
 
-  const chosenCategoriList = useSelector(selectChoosenCategorie);
+  const [userData, setDate] = useState(new Date());
+  const [category, setCategory] = useState({
+    value: 'c9d9e447-1b83-4238-8712-edc77b18b739',
+    label: '',
+  });
 
   useEffect(() => {
     dispatch(feachCategories());
   }, [dispatch]);
 
   const handleSubmit = values => {
-    const { id, name, type } = chosenCategoriList;
-
     const newTransaction = {
-      transactionDate: values.date,
-      type,
-      categoryId: id,
+      transactionDate: userData,
+      type: isExpense ? 'EXPENSE' : 'INCOME',
+      categoryId: isExpense ? category.value : categories.id,
       comment: values.text,
-      amount: values.number,
+      amount: isExpense ? 0 - values.number : values.number,
     };
 
     dispatch(addTransaction(newTransaction));
-  };
-
-  const isValidDate = currentDate => {
-    return (
-      currentDate.isBefore(StyledDatetime.moment()) ||
-      currentDate.isSame(StyledDatetime.moment(), 'minute')
-    );
+    dispatch(closeModal());
+    dispatch(showSelect(false));
   };
 
   return (
@@ -76,7 +73,7 @@ const ModalAddTransaction = () => {
       initialValues={{
         text: '',
         number: '',
-        date: new Date(),
+        date: userData,
       }}
     >
       {({
@@ -96,7 +93,9 @@ const ModalAddTransaction = () => {
             <Switcher />
             <StyledToggleTextExp>Expense</StyledToggleTextExp>
           </StyledToggleWrapper>
-          {isExpense && <SelectExpenses />}
+          {isExpense && (
+            <SelectExpenses handleCategoriId={setCategory} values={category} />
+          )}
           <StyledInputWrapTab>
             <StyledInputWrapper>
               <StyledInputValue
@@ -109,14 +108,12 @@ const ModalAddTransaction = () => {
               <StyledDatetime
                 name="date"
                 type="date"
-                value={values.date}
+                value={userData}
                 dateFormat="DD.MM.YYYY"
                 timeFormat={false}
-                // onChange={dateFromValue => {
-                //   console.log(dateFromValue);
-                //   setFieldValue('date', dateFromValue);
-                // }}
-                // isValidDate={isValidDate}
+                onChange={e => {
+                  setDate(e);
+                }}
                 closeOnSelect={true}
               ></StyledDatetime>
               <StyledCalendarSvg>
@@ -130,7 +127,14 @@ const ModalAddTransaction = () => {
           </StyledInputWrapper>
           <StyledButtonWrapper>
             <StyledButtonAdd type="submit">Add</StyledButtonAdd>
-            <StyledButtonCancel onClick={() => {}}>Cancel</StyledButtonCancel>
+            <StyledButtonCancel
+              onClick={() => {
+                dispatch(closeModal());
+                dispatch(showSelect(false));
+              }}
+            >
+              Cancel
+            </StyledButtonCancel>
           </StyledButtonWrapper>
         </StyledForm>
       )}
