@@ -214,7 +214,18 @@ export const SpriteSVG = ({ name }) => {
           </defs>
         </svg>
       );
-
+    case 'select': //для зміни кольору використовувати stroke
+      return (
+        <svg id="icon-select" viewBox="0 0 58 32">
+          <path
+            strokeLinejoin="miter"
+            strokeLinecap="butt"
+            strokeMiterlimit="4"
+            strokeWidth="2.9091"
+            d="M2.909 2.909l26.182 26.182 26.182-26.182"
+          ></path>
+        </svg>
+      );
     default:
       return 'SVG not found';
   }
