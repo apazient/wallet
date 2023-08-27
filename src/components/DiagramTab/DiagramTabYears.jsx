@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyledSelect } from './DiagramTab.styled';
+import { StyledIconDiagram, StyledSelect } from './DiagramTab.styled';
 // import { useState } from 'react';
 import { selectYear } from 'redux/SummaryPage/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { setYear } from 'redux/SummaryPage/summarySlice';
+import { SpriteSVG } from 'pictures/SpriteSVG';
 
 export const DiagramTabYears = () => {
   // const [selectedYear, setSelectedYear] = useState(null);
@@ -30,8 +31,15 @@ export const DiagramTabYears = () => {
         value={newValue}
         onChange={handleYearChange}
         placeholder="Choose year"
-        isSearchable
+        isSearchable={false}
         classNamePrefix="react-select"
+        components={{
+          DropdownIndicator: props => (
+            <StyledIconDiagram {...props}>
+              <SpriteSVG name={'select'} />
+            </StyledIconDiagram>
+          ),
+        }}
       />
     </div>
   );

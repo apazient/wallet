@@ -1,18 +1,18 @@
 import Select from 'react-select';
 import styled from 'styled-components';
 export const StyledSelect = styled(Select)`
-  width: 182px;
+  width: 100%;
   height: 50px;
   background: rgba(74, 86, 226, 0.1);
-
   /* Стили для выбранного значения */
   .react-select__single-value {
     color: var(--white, #fbfbfb);
     font-size: 16px;
     font-weight: 400;
     padding: 12px 20px 14px 20px;
-    line-height: normal;
-    font-family: Poppins;
+    line-height: 1.5;
+    font-family: Poppins-Regular;
+    margin: 0;
   }
 
   .react-select__control {
@@ -24,8 +24,11 @@ export const StyledSelect = styled(Select)`
     color: var(--white, #fbfbfb);
     font-size: 16px;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.5;
     box-shadow: none;
+  }
+  .react-select__value-container {
+    padding: 0;
   }
   /* Убираем обводку при фокусе */
   .react-select__control:focus {
@@ -38,11 +41,16 @@ export const StyledSelect = styled(Select)`
     box-shadow: none;
   }
 
-  .react-select__input {
-  }
   .react-select__input-container {
     padding: 0;
     margin: 0;
+  }
+
+  .react-select__indicators {
+    // падинг для иконки
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
   }
 
   .react-select__indicator-separator {
@@ -51,20 +59,20 @@ export const StyledSelect = styled(Select)`
   /* Стили для опций (вариантов) */
   .react-select__option {
     color: var(--white, #fbfbfb);
-    font-family: Poppins;
+    font-family: Poppins-Regular;
     font-size: 16px;
-    font-style: normal;
     transition: background-color 0.3s, color 0.3s;
     margin-top: 0;
+    cursor: pointer;
     &:hover,
     &.react-select__option--is-focused,
     &.react-select__option--is-selected {
-      background: var(--form-color, rgba(255, 255, 255, 0.1));
+      background: rgba(255, 255, 255, 0.1);
       color: var(--dashboard-text, #ff868d);
-      font-family: Poppins;
+      font-family: Poppins-Regular;
       font-size: 16px;
       font-weight: 400;
-      line-height: normal;
+      line-height: 1.5;
     }
   }
 
@@ -74,10 +82,10 @@ export const StyledSelect = styled(Select)`
       --small-form-color,
       linear-gradient(
         360deg,
-        rgba(83, 61, 186, 0.7) 0%,
-        rgba(80, 48, 154, 0.7) 35.94%,
-        rgba(106, 70, 165, 0.52) 61.04%,
-        rgba(133, 93, 175, 0.13) 100%
+        rgba(83, 61, 186, 1) 0%,
+        rgba(80, 48, 154, 1) 35.94%,
+        rgba(106, 70, 165, 1) 61.04%,
+        rgba(133, 93, 175, 1) 100%
       )
     );
     max-height: 182px;
@@ -92,21 +100,49 @@ export const StyledSelect = styled(Select)`
     color: var(--white, #fbfbfb);
     font-size: 16px;
     font-weight: 400;
-    font-family: Poppins;
+    font-family: Poppins-Regular;
+  }
+  .react-select__dropdown-indicator {
+    background-image: url('../../pictures/SpriteSVG.jsx={'select'}'); /* замените на путь к вашей SVG иконке */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  @media screen and (min-width: 768px) {
+    width: 160px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 180px;
+  }
+`;
+
+export const StyledIconDiagram = styled.div`
+  width: 18px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+
+  svg {
+    transform: ${props =>
+      props.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
   }
 `;
 
 export const StyledDiagramTab = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 20px;
+  flex-direction: column;
+  margin-top: 32px; // отступ от бублика
+  margin-bottom: 20px; // отступ от catagory
   @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: 40px; // отступ от баланса
+    margin-bottom: 20px; // отступ от catagory
   }
   @media screen and (min-width: 1280px) {
     gap: 32px;
-    margin-top: 65px;
   }
 `;

@@ -1,8 +1,13 @@
 import React from 'react';
-import { StyledSelect } from './DiagramTab.styled';
+import {
+  StyledDropdownIndicator,
+  StyledIconDiagram,
+  StyledSelect,
+} from './DiagramTab.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMonth } from 'redux/SummaryPage/summarySlice';
 import { selectMonth } from 'redux/SummaryPage/selectors';
+import { SpriteSVG } from 'pictures/SpriteSVG';
 
 export const DiagramTabMonthes = () => {
   const months = [
@@ -38,7 +43,15 @@ export const DiagramTabMonthes = () => {
         value={newMonth(months)}
         onChange={handleMonthChange}
         placeholder="Choose month"
+        isSearchable={false}
         classNamePrefix="react-select"
+        components={{
+          DropdownIndicator: props => (
+            <StyledIconDiagram {...props}>
+              <SpriteSVG name={'select'} />
+            </StyledIconDiagram>
+          ),
+        }}
       />
     </div>
   );
