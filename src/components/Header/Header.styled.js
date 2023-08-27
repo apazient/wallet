@@ -28,7 +28,7 @@ export const StyledLogoSvg = styled.div`
   }
 `;
 export const StyledLogoText = styled.p`
-  font-family: ‘Poppins-Regular’;
+  font-family: Poppins-Regular;
   font-size: 12.84px;
   line-height: 1.58;
   color: ${({ theme }) => theme.colors.colorText};
@@ -49,7 +49,7 @@ export const StyledUserThumb = styled.div`
 `;
 
 export const StyledHeaderText = styled.p`
-  font-family: ‘Poppins-Regular’;
+  font-family: Poppins-Regular;
   font-size: 16px;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.navLink};
@@ -71,7 +71,7 @@ export const StyledHeaderBtn = styled.button`
   border: none;
   background-color: transparent;
 
-  font-family: ‘Poppins-Regular’;
+  font-family: Poppins-Regular;
   font-size: 16px;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.navLink};
@@ -92,7 +92,7 @@ export const StyledLogoLink = styled(Link)`
   flex-direction: column;
   align-items: center;
   margin: 0;
-  font-family: ‘Poppins-Regular’;
+  font-family: Poppins-Regular;
   font-size: 12.84px;
   line-height: 1.58;
   color: ${({ theme }) => theme.colors.colorText};
