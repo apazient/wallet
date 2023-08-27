@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   CurrencyContainerStyled,
   CurrencyImgStyled,
@@ -51,10 +51,11 @@ export const Currency = () => {
     }
   }, [dispatch, shouldFetchNewData]);
 
-  const usdBuy = useSelector(selectUsdBuy);
-  const euroBuy = useSelector(selectEuroBuy);
-  console.log('USD Buy:', usdBuy);
-  console.log('Euro Buy:', euroBuy);
+  const usdBuy = storedCurrencyData[0]?.buy;
+  const euroBuy = storedCurrencyData[1]?.buy;
+
+  // const usdBuy = useSelector(selectUsdBuy);
+  // const euroBuy = useSelector(selectEuroBuy);
 
   return (
     <CurrencyContainerStyled>
