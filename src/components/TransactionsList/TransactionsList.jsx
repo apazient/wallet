@@ -37,14 +37,17 @@ import { getCategoriName } from 'helpers/helpers';
 import { feachCategories } from 'redux/TransactionCategories/operations';
 
 const TransactionsList = () => {
-  const isEditTrans = useSelector(isEditTransaction);
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const dataList = useSelector(selectTransaction);
+
   console.log(dataList.length);
 
   const allCategories = useSelector(selectAllCategories);
   console.log(allCategories);
+
+  const isEditTrans = useSelector(isEditTransaction);
+
 
   useEffect(() => {
     dispatch(fetchTransactions(token));
@@ -101,7 +104,6 @@ const TransactionsList = () => {
                       <ButtonEditTransactions />
                     </EditIconStyled>
                   </div>
-
                   <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
                     Delete
                   </DeleteTabBtn>

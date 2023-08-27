@@ -5,7 +5,7 @@ import {
   StyledStatisticsTotal,
 } from './Table.styled';
 import { useSelector } from 'react-redux';
-import { selectCategory } from 'redux/SummaryPage/selectors';
+import { selectCategory, selectSummaryAll } from 'redux/SummaryPage/selectors';
 
 const colors = [
   'rgba(254, 208, 87, 1)',
@@ -23,10 +23,10 @@ const colors = [
 
 export const Table = () => {
   const category = useSelector(selectCategory);
+  const { expenseSummary, incomeSummary } = useSelector(selectSummaryAll);
 
-  console.log(category);
-  if (!category) {
-    return <div>No category</div>;
+  if (!category.length) {
+    return <h1>Ssory you do not have transactions on this time!</h1>;
   }
 
   return (
@@ -55,12 +55,12 @@ export const Table = () => {
         <StyledStatisticsTotal>
           <li>
             <p className="total-item">Expenses:</p>
-            <p className="total-sum-exp">#</p>
+            <p className="total-sum-exp">{expenseSummary}</p>
           </li>
 
           <li>
             <p className="total-item">Income:</p>
-            <p className="total-sum-inc">#</p>
+            <p className="total-sum-inc">{incomeSummary}</p>
           </li>
         </StyledStatisticsTotal>
       </StyledStatisticsList>

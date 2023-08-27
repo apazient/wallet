@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyledSelect } from './DiagramTab.styled';
 // import { useState } from 'react';
 import { selectYear } from 'redux/SummaryPage/selectors';
@@ -6,35 +6,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setYear } from 'redux/SummaryPage/summarySlice';
 
 export const DiagramTabYears = () => {
-  // const years = [
-  //   { value: 1, label: 'January' },
-  //   { value: 2, label: 'February' },
-  //   { value: 3, label: 'March' },
-  //   { value: 4, label: 'April' },
-  //   { value: 5, label: 'May' },
-  //   { value: 6, label: 'June' },
-  //   { value: 7, label: 'July' },
-  //   { value: 8, label: 'August' },
-  //   { value: 9, label: 'September' },
-  //   { value: 10, label: 'October' },
-  //   { value: 11, label: 'November' },
-  //   { value: 12, label: 'December' },
-  // ];
-
   // const [selectedYear, setSelectedYear] = useState(null);
 
   // Временая функция генерации годjd
   const currentYear = new Date().getFullYear();
-  const years = Array.from({ length: 100 }, (_, index) => ({
-    value: currentYear - 50 + index,
-    label: (currentYear - 50 + index).toString(),
+  const years = Array.from({ length: 20 }, (_, index) => ({
+    value: currentYear - 20 + index + 1,
+    label: (currentYear - 20 + index + 1).toString(),
   }));
 
   const dispatch = useDispatch();
   const year = useSelector(selectYear);
 
+  const newValue = { value: year, label: `${year}` };
   const handleYearChange = selectedOption => {
-    console.log(selectedOption.value);
     dispatch(setYear(selectedOption.value));
   };
 
@@ -42,7 +27,7 @@ export const DiagramTabYears = () => {
     <div>
       <StyledSelect
         options={years}
-        // value={selectedYear}
+        value={newValue}
         onChange={handleYearChange}
         placeholder="Choose year"
         isSearchable

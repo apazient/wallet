@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
 export const CurrencyContainerStyled = styled.div``;
+export const TheadCurrencyStyled = styled.thead`
+  background-color: #523b7e;
+  background: rgba(255, 255, 255, 0.2);
+  width: 480px;
+  height: 56px;
+  flex-shrink: 0;
+`;
 
 export const TableCurrencyStyled = styled.table`
   width: 100%;
@@ -8,30 +15,29 @@ export const TableCurrencyStyled = styled.table`
 `;
 
 export const TrCurrencyStyled = styled.tr`
-  padding: 8px;
-  text-align: center;
+  color: var(--white, #fbfbfb);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 `;
-export const ThCurrencyStyled = styled.th`
-  padding: 10px 20px;
-  background-color: #523b7e;
-  font-weight: bold;
-  color: #fff;
-`;
+export const ThCurrencyStyled = styled.th``;
+export const TbodyCurrencyStyled = styled.tbody``;
 
 export const TdCurrencyStyled = styled.td`
-  padding: 8px;
+  color: var(--white, #fbfbfb);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   text-align: center;
-  font-size: 14px;
-  color: #fff;
+  padding-top: 24px;
+  text-transform: uppercase;
 `;
 export const CurrencyImgStyled = styled.div``;
 
-export const ImgStyled = styled.img`
-  position: fixed;
-  top: 340px;
-  width: 160px;
-`;
-export const ImgStyled2 = styled.img`
-  padding-top: 160px;
-  padding-bottom: 20px;
-`;
+export const ImgStyled = styled.img``;
+export const ImgStyled2 = styled.img``;
+// const CurrencyImage = styled(currencyEllipse)``;
