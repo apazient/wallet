@@ -30,15 +30,35 @@ export const Currency = () => {
   const currencyData = useSelector(selectCurrency);
   const isLoading = useSelector(selectCurrencyLoading);
 
-  const dataNow = new Date();
-  console.log(dataNow);
+  const lastRequestDate = localStorage.getItem('lastCurrencyRequestDate');
+  const storedCurrencyData = JSON.parse(localStorage.getItem('currencyData'));
+
+  const currentTime = new Date().getTime();
+  const shouldFetchNewData =
+    !lastRequestDate ||
+    currentTime - new Date(lastRequestDate).getTime() > 3600000;
 
   useEffect(() => {
-    dispatch(fetchCurrencyData());
-  }, [dispatch]);
+    if (currencyData.length > 0) {
+      localStorage.setItem('lastCurrencyRequestDate', new Date().toString());
+      localStorage.setItem('currencyData', JSON.stringify(currencyData));
+    }
+  }, [currencyData]);
+
+  useEffect(() => {
+    if (shouldFetchNewData) {
+      dispatch(fetchCurrencyData());
+    }
+  }, [dispatch, shouldFetchNewData]);
+
+  //   useEffect(() => {
+  //   dispatch(fetchCurrencyData());
+  //   }, [dispatch]);
 
   const usdBuy = useSelector(selectUsdBuy);
   const euroBuy = useSelector(selectEuroBuy);
+  console.log('USD Buy:', usdBuy);
+  console.log('Euro Buy:', euroBuy);
 
   return (
     <CurrencyContainerStyled>
@@ -56,13 +76,15 @@ export const Currency = () => {
               <TdCurrencyStyled>Loading...</TdCurrencyStyled>
             </tr>
           ) : (
-            currencyData.map((data, index) => (
-              <tr key={index}>
-                <TdCurrencyStyled>{data.currency}</TdCurrencyStyled>
-                <TdCurrencyStyled>{data.buy}</TdCurrencyStyled>
-                <TdCurrencyStyled>{data.sell}</TdCurrencyStyled>
-              </tr>
-            ))
+            (shouldFetchNewData ? currencyData : storedCurrencyData).map(
+              (data, index) => (
+                <tr key={index}>
+                  <TdCurrencyStyled>{data.currency}</TdCurrencyStyled>
+                  <TdCurrencyStyled>{data.buy}</TdCurrencyStyled>
+                  <TdCurrencyStyled>{data.sell}</TdCurrencyStyled>
+                </tr>
+              )
+            )
           )}
         </TbodyCurrencyStyled>
       </TableCurrencyStyled>
