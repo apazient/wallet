@@ -11,13 +11,17 @@ import {
   ThCurrencyStyled,
   TheadCurrencyStyled,
   TrCurrencyStyled,
+  EuroImgStyled,
   WaveImgStyled,
+  UsdImgStyled,
 } from './Currency.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCurrencyData } from 'redux/Currency/operations';
 import {
   selectCurrency,
   selectCurrencyLoading,
+  selectEuroBuy,
+  selectUsdBuy,
 } from '../../redux/Currency/selectors';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 
@@ -30,13 +34,8 @@ export const Currency = () => {
     dispatch(fetchCurrencyData());
   }, [dispatch]);
 
-  let usdPurchase = null;
-  let euroPurchase = null;
-
-  if (!isLoading && currencyData.length > 0) {
-    usdPurchase = currencyData.find(data => data.currency === 'USD')?.buy;
-    euroPurchase = currencyData.find(data => data.currency === 'EURO')?.buy;
-  }
+  const usdBuy = useSelector(selectUsdBuy);
+  const euroBuy = useSelector(selectEuroBuy);
 
   return (
     <CurrencyContainerStyled>
@@ -66,12 +65,12 @@ export const Currency = () => {
       </TableCurrencyStyled>
       <CurrencyImgStyled>
         <EllipseImgStyled>
+          <EuroImgStyled>{euroBuy}</EuroImgStyled>
           <SpriteSVG name={'currencyEllipse'} />
-          <span>{usdPurchase}</span>
         </EllipseImgStyled>
         <EllipseImgStyled2>
+          <UsdImgStyled>{usdBuy}</UsdImgStyled>
           <SpriteSVG name={'currencyEllipse'} />
-          <span>{euroPurchase}</span>
         </EllipseImgStyled2>
         <LineImgStyled>
           <SpriteSVG name={'currencyLine'} />

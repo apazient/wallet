@@ -37,12 +37,33 @@ export const TdCurrencyStyled = styled.td`
   text-transform: uppercase;
 `;
 export const CurrencyImgStyled = styled.div``;
+export const EuroImgStyled = styled.span`
+  color: var(--dashboard-text, #ff868d);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  bottom: 20px;
+`;
 
 export const EllipseImgStyled = styled.div`
   position: relative;
-  left: 362px;
+  left: 364px;
   top: 47px;
   z-index: 1;
+`;
+
+export const UsdImgStyled = styled.span`
+  color: var(--dashboard-text, #ff868d);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  bottom: 20px;
 `;
 export const EllipseImgStyled2 = styled.div`
   position: relative;
