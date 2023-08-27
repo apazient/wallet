@@ -34,7 +34,6 @@ import {
 } from './TransactionsList.styled';
 
 const TransactionsList = () => {
-  const isEditTrans = useSelector(isEditTransaction);
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const dataList = useSelector(selectTransaction);
