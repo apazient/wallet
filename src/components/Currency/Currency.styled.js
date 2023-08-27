@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-export const CurrencyContainerStyled = styled.div``;
+export const CurrencyContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
 export const TheadCurrencyStyled = styled.thead`
   background-color: #523b7e;
   background: rgba(255, 255, 255, 0.2);
-  width: 480px;
+  max-width: 480px;
   height: 56px;
   flex-shrink: 0;
 `;

@@ -11,6 +11,8 @@ export const fetchCurrencyData = createAsyncThunk(
       const filteredData = data.filter(
         item => item.currencyCodeA === 840 || item.currencyCodeA === 978
       );
+      localStorage.setItem('cachedCurrencyData', JSON.stringify(filteredData));
+      localStorage.setItem('lastCurrencyRequest', new Date());
       return filteredData;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   CurrencyContainerStyled,
   CurrencyImgStyled,
@@ -29,6 +29,25 @@ export const Currency = () => {
   const dispatch = useDispatch();
   const currencyData = useSelector(selectCurrency);
   const isLoading = useSelector(selectCurrencyLoading);
+  const [cachedData, setCachedData] = useState(null);
+  const lastRequest = localStorage.getItem('lastCurrencyRequest');
+
+  // useEffect(() => {
+  //   if (lastRequest) {
+  //     const lastRequestDate = new Date(lastRequest);
+  //     const currentTime = new Date();
+  //     const timeDiff = currentTime - lastRequestDate;
+
+  //     if (timeDiff < 3600000) {
+  //       const cachedData = JSON.parse(
+  //         localStorage.getItem('cachedCurrencyData')
+  //       );
+  //       setCachedData(cachedData);
+  //     } else {
+  //       dispatch(fetchCurrencyData());
+  //     }
+  //   }
+  // }, [dispatch, lastRequest]);
 
   useEffect(() => {
     dispatch(fetchCurrencyData());
