@@ -216,12 +216,17 @@ export const SpriteSVG = ({ name }) => {
       );
     case 'select': //для зміни кольору використовувати stroke
       return (
-        <svg id="icon-select" viewBox="0 0 58 32">
+        <svg
+          id="icon-select"
+          viewBox="0 0 58 32"
+          style={{ stroke: 'white', strokeWidth: '2.9091' }}
+        >
           <path
             strokeLinejoin="miter"
             strokeLinecap="butt"
             strokeMiterlimit="4"
             strokeWidth="2.9091"
+            fill="transparent"
             d="M2.909 2.909l26.182 26.182 26.182-26.182"
           ></path>
         </svg>
