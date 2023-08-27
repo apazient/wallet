@@ -6,12 +6,15 @@ import styled from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
 
 body{
-    height: 100vh;
-   
-    background: radial-gradient(220deg, #6D54EB 3.47%, #652392 90.06%);
-
-    
+  height: 100vh;
+  color: ${({ theme }) => theme.colors.colorText};
+  background: radialGradient(220deg, #6D54EB 3.47%, #652392 90.06%);
+  font-family: Poppins-Regular, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.5;  
 }
+
 p,
 h1,
 h2,
