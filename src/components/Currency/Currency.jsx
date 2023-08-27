@@ -39,7 +39,7 @@ export const Currency = () => {
     currentTime - new Date(lastRequestDate).getTime() > 3600000;
 
   useEffect(() => {
-    if (currencyData.length > 0) {
+    if (currencyData[0].buy) {
       localStorage.setItem('lastCurrencyRequestDate', new Date().toString());
       localStorage.setItem('currencyData', JSON.stringify(currencyData));
     }
@@ -50,10 +50,6 @@ export const Currency = () => {
       dispatch(fetchCurrencyData());
     }
   }, [dispatch, shouldFetchNewData]);
-
-  //   useEffect(() => {
-  //   dispatch(fetchCurrencyData());
-  //   }, [dispatch]);
 
   const usdBuy = useSelector(selectUsdBuy);
   const euroBuy = useSelector(selectEuroBuy);
