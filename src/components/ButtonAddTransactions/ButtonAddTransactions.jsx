@@ -1,17 +1,21 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setIsModalAddTransactionOpen } from '../../redux/Global/globalSlice';
+import { SpriteSVG } from 'pictures/SpriteSVG';
+import { StyledAdd, StyledPlusAddSvg } from './ButtonAddTransactions.styled';
 
 const ButtonAddTransactions = () => {
   const dispatch = useDispatch();
   return (
-    <button
+    <StyledAdd
       onClick={() => {
         dispatch(setIsModalAddTransactionOpen(true));
       }}
     >
-      +
-    </button>
+      <StyledPlusAddSvg>
+        <SpriteSVG name={'plus'} />
+      </StyledPlusAddSvg>
+    </StyledAdd>
   );
 };
 
