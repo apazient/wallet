@@ -79,7 +79,7 @@ export const StyledButtonLog = styled(StyledButton)`
 `;
 
 export const StyledLinkReg = styled(StyledLink)`
-  margin-top: 20px;
+  margin-top: 182px;
 `;
 
 export const StyledLabels = styled.label`
