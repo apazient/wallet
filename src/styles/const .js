@@ -1,4 +1,6 @@
+const { useMediaQuery } = require("react-responsive");
+
 //brackpoints
-export const LG = '1280px';
-export const MD = '768px';
-export const XS = '320px';
+export const isMobile = useMediaQuery({ minWidth: 220, maxWidth: 767})
+export const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1200 })
+export const isDesctop = useMediaQuery({ minWidth: 1200 })

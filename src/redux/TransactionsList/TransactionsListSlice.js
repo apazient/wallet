@@ -5,7 +5,7 @@ import {
   fetchTransactions,
   updateTransaction,
 } from './operations';
-
+import { setIsModalAddTransactionOpen } from 'redux/Global/globalSlice';
 const pending = (state, action) => {
   state.loading = true;
   state.error = '';
@@ -31,6 +31,7 @@ const transactionsSlice = createSlice({
       })
       .addCase(addTransaction.fulfilled, (state, action) => {
         state.transactions.push(action.payload);
+        setIsModalAddTransactionOpen = false;
       })
       .addCase(addTransaction.rejected, (state, action) => {
         state.isLoading = false;

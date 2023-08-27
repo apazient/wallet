@@ -35,7 +35,7 @@ const Header = () => {
     <>
       <StyledHeader>
         <StyledLogoThumb>
-          <StyledLogoLink href="/">
+          <StyledLogoLink to="/">
             <StyledLogoSvg>
               <SpriteSVG name={'logo'} />
             </StyledLogoSvg>

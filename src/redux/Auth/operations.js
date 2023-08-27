@@ -10,9 +10,8 @@ const setToken = token => {
 };
 
 const clearToken = () => {
- API.defaults.headers.common.Authorization = ``;
+  API.defaults.headers.common.Authorization = ``;
 };
-
 
 export const register = createAsyncThunk(
   'auth/reg',
@@ -20,7 +19,7 @@ export const register = createAsyncThunk(
     try {
       const res = await API.post('/api/auth/sign-up', credentials);
       setToken(res.data.token);
-      console.log(res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -34,7 +33,7 @@ export const loginThunk = createAsyncThunk(
     try {
       const res = await API.post('/api/auth/sign-in', credentials);
       setToken(res.data.token);
-      console.log(res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -48,6 +47,24 @@ export const logoutThunk = createAsyncThunk(
     try {
       const { data } = await API.delete('/api/auth/sign-out');
       clearToken();
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const currentUser = createAsyncThunk(
+  'auth/currentUser',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const newToken = state.user.token;
+    if (!newToken) {
+      return thunkAPI.rejectWithValue('NO autorization!!!');
+    }
+    setToken(newToken);
+    try {
+      const { data } = await API.get('/api/users/current');
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

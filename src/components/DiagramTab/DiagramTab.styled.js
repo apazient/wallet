@@ -98,5 +98,15 @@ export const StyledSelect = styled(Select)`
 
 export const StyledDiagramTab = styled.div`
   display: flex;
-  gap: 32px;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    gap: 32px;
+    margin-top: 65px;
+  }
 `;

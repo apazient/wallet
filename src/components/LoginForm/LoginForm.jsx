@@ -8,7 +8,8 @@ import {
   FormikLoginForm,
   StyledButtonLog,
   StyledDiv,
-  StyledDivInputs,
+  StyledDivInputEmail,
+  StyledDivInputPassword,
   StyledDivItems,
   StyledDivSpriteSvgIcons,
   StyledDivSpriteSvgLogo,
@@ -63,20 +64,20 @@ export const LoginForm = () => {
           validationSchema={validationSchema}
         >
           <FormikLoginForm>
-            <StyledDivInputs>
+            <StyledDivInputEmail>
               <StyledLabels>
                 <StyledDivSpriteSvgIcons>
                   <SpriteSVG name="email" />
                 </StyledDivSpriteSvgIcons>
                 <StyledInput name="email" placeholder="E-email" type="email" />{' '}
               </StyledLabels>
-            </StyledDivInputs>
+            </StyledDivInputEmail>
             <StyledErrorMessages
               name="email"
               className="text-red-500"
               component="h1"
             />
-            <StyledDivInputs>
+            <StyledDivInputPassword>
               <StyledLabels>
                 <StyledDivSpriteSvgIcons>
                   <SpriteSVG name="password" />
@@ -87,7 +88,7 @@ export const LoginForm = () => {
                   type="password"
                 />
               </StyledLabels>
-            </StyledDivInputs>
+            </StyledDivInputPassword>
             <StyledErrorMessages
               name="password"
               className="text-red-500"
@@ -96,9 +97,9 @@ export const LoginForm = () => {
             <StyledButtonLog type="submit" disabled={isLoading}>
               Log In
             </StyledButtonLog>
-            <StyledLinkReg to="/logup">Register</StyledLinkReg>
           </FormikLoginForm>
         </Formik>
+        <StyledLinkReg to="/register">Register</StyledLinkReg>
       </StyledDiv>
     </StyledSectionForm>
   );

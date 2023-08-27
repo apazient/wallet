@@ -6,7 +6,7 @@ export const fetchTransactions = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await API.get('/api/transactions');
-      console.log(data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -16,10 +16,10 @@ export const fetchTransactions = createAsyncThunk(
 
 export const addTransaction = createAsyncThunk(
   'transaction/addTransaction',
-  async (_, { rejectWithValue }) => {
+  async (body, { rejectWithValue }) => {
     try {
-      const { data } = await API.post('/api/transactions');
-      console.log(data);
+      const { data } = await API.post('/api/transactions', body);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

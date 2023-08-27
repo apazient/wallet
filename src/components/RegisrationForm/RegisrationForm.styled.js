@@ -1,120 +1,43 @@
 import { styled } from 'styled-components';
-import { ErrorMessage, Field, Form } from 'formik';
+import { StyledButton, StyledLink } from 'styles/Button';
 
-export const FormContainer = styled.section`
-  width: 320px;
-  height: 568px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(50px);
-  z-index: 1;
-  padding: 23px 20px;
+export const ButtonReg = styled(StyledButton)`
+  margin-top: 40px;
 `;
 
-export const DivLogoContainer = styled.div`
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+export const LinkLog = styled(StyledLink)`
+  margin-top: 20px;
 `;
 
-export const DivLogoIcon = styled.div`
-  width: 25.5px;
-  height: 25.5px;
-  margin-bottom: 8px;
-`;
-
-export const LogoName = styled.h2`
-  color: var(--white, #fbfbfb);
-  font-family: Poppins;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-`;
-
-export const FormOfAllInputs = styled(Form)`
-  width: 100%;
-  height: 50px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const StyledDivInputs = styled.div`
-  width: 260px;
-  display: flex;
-  gap: 20px;
+// Полоса надёжности пароля
+export const SpanStrengthMeter = styled.span`
   position: relative;
-  margin-bottom: 40px;
-  background-color: inherit;
-  height: 100%;
   &::before {
     content: '';
     position: absolute;
-    width: 280px;
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.4);
-    left: -10px;
-    bottom: -8px;
+    width: ${props => {
+      if (props.$size <= 12) {
+        return `${props.$size * 8}%`;
+      } else return '280px';
+    }};
+    transition: all 0.5s ease;
+    border-radius: 2px;
+    height: 4px;
+    background-color: ${props => {
+      if (props.$size < 6) return 'darkred';
+      else if (props.$size >= 6 && props.$size < 9) return 'yellow';
+      else if (props.$size >= 9 && props.$size < 13) return 'green';
+      else if (props.$size >= 13) return 'red';
+    }};
+    filter: drop-shadow(0px 1px 8px rgba(255, 182, 39, 0.5));
+    left: -54px;
+    bottom: -17px;
+    @media screen and (min-width: 768px) {
+      width: ${props => {
+        if (props.$size <= 12) {
+          return `${props.$size * 8}%`;
+        } else return '409px';
+      }};
+    }
   }
-`;
-
-export const Label = styled.label`
-  display: flex;
-  gap: 20px;
-  align-items: center;
-`;
-
-export const DivInputIcon = styled.div`
-  width: 24px;
-  height: 24px;
-  fill: rgba(255, 255, 255, 0.4);
-`;
-
-export const StyledField = styled(Field)`
-  border: none;
-  outline: none;
-  background-color: inherit;
-  color: ${({ theme }) => theme.colors.navLink};
-  font-family: Poppins;
-  font-size: 18px;
-  font-weight: 400;
-`;
-
-export const StyledErrorMessages = styled(ErrorMessage)``;
-
-export const ButtonReg = styled.button`
-  border-radius: 20px;
-  background: ${({ theme }) => theme.colors.coloredBtn};
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
-  width: 280px;
-  height: 50px;
-  margin-top: 40px;
-  padding: 13px 0;
-  color: ${({ theme }) => theme.colors.colorText};
-  text-align: center;
-  font-family: Poppins;
-  font-size: 18px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  border: none;
-`;
-
-export const ButtonLog = styled.button`
-  border-radius: 20px;
-  background: ${({ theme }) => theme.colors.whiteBtn};
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
-  width: 280px;
-  height: 50px;
-  margin-top: 20px;
-  padding: 13px 0;
-  color: #623f8b;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 18px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  border: none;
 `;

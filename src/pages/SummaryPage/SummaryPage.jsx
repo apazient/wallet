@@ -5,6 +5,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { feachTransactionSummary } from 'redux/SummaryPage/operations';
 import { selectMonth, selectYear } from 'redux/SummaryPage/selectors';
+import {
+  SummaryPageContStyled,
+  SummaryPageStyled,
+  SummaryTitleStyled,
+} from './SummaryPage.styled';
 
 const SummaryPage = () => {
   const dispatch = useDispatch();
@@ -17,9 +22,18 @@ const SummaryPage = () => {
 
   return (
     <>
-      <Bagel />
-      <DiagramTab />
-      <Table />
+      <SummaryPageStyled>
+        <SummaryPageContStyled>
+          <div>
+            <SummaryTitleStyled>Statistics</SummaryTitleStyled>
+            <Bagel />
+          </div>
+          <div>
+            <DiagramTab />
+            <Table />
+          </div>
+        </SummaryPageContStyled>
+      </SummaryPageStyled>
     </>
   );
 };

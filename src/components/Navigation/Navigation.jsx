@@ -16,13 +16,17 @@ const Navigation = () => {
         <NavIconStyled>
           <SpriteSVG name={'home-page'} />
         </NavIconStyled>
-        <NavLinkStyled to="/home">Home</NavLinkStyled>
+
+        <NavLinkStyled to="/">Home</NavLinkStyled>
+
       </NavLinkWrapperStyled>
       <NavLinkWrapperStyled>
         <NavIconStyled>
           <SpriteSVG name={'statistic'} />
         </NavIconStyled>
-        <NavLinkStyled to="/statistic">Statistics</NavLinkStyled>
+
+        <NavLinkStyled to="/summary">Statistics</NavLinkStyled>
+
       </NavLinkWrapperStyled>
       <NavLinkWrapperStyled>
       <NavIconStyled>

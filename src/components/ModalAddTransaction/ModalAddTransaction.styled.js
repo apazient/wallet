@@ -11,6 +11,7 @@ export const StyledForm = styled(Form)`
   justify-content: center;
   gap: ${({ theme }) => theme.spacing(10)};
   padding: 28px 20px;
+  border-radius: ${({ theme }) => theme.spacing(2)};
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
   background: radial-gradient(rgb(63, 46, 150), rgb(95, 71, 140));
@@ -20,7 +21,7 @@ export const StyledForm = styled(Form)`
 `;
 export const StyledTitle = styled.h2`
   text-align: center;
-  font-family: ‘Poppins-Regular’;
+  font-family: Poppins-Regular;
   font-size: 24px;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.colorText};
@@ -77,7 +78,7 @@ export const StyledInput = styled(Field)`
   padding-bottom: ${({ theme }) => theme.spacing(2)};
   padding-left: ${({ theme }) => theme.spacing(5)};
   width: 280px;
-  font-family: ‘Poppins-Regular’;
+  font-family: Poppins-Regular;
   font-size: 18px;
   line-height: 1.5;
   border: none;
@@ -134,7 +135,7 @@ export const StyledDatetime = styled(Datetime)`
     padding-bottom: ${({ theme }) => theme.spacing(2)};
     padding-left: ${({ theme }) => theme.spacing(5)};
     width: 280px;
-    font-family: ‘Poppins-Regular’;
+    font-family: Poppins-Regular;
     font-size: 18px;
     line-height: 1.5;
     border: none;

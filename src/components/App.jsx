@@ -7,49 +7,53 @@ import { PublicRoute } from 'HOC/PublicRoute/PublicRoute';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import NotFound from 'pages/NotFound/NotFound';
 import { PrivateRoute } from 'HOC/PrivateRoute/PrivateRoute';
-import Loader from '../components/Loader/Loader';
-import { useSelector } from 'react-redux';
-import { getIsLoading } from 'redux/Auth/selectors';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { currentUser } from 'redux/Auth/operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route
+          index
+          element={
+            <PrivateRoute>
+              <HomeTab />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="summary"
+          element={
+            <PrivateRoute>
+              <SummaryPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="register"
+          element={
+            <PublicRoute>
+              <RegistrationPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
 
-  return     <Routes>
-       <Route path="/" element={<Layout />}>
-         <Route
-           index
-           element={
-             <PrivateRoute>
-               <HomeTab />
-             </PrivateRoute>
-           }
-         />
-         <Route
-           path="summary"
-           element={
-             // <PrivateRoute>
-             <SummaryPage />
-             // </PrivateRoute>
-           }
-         />
-         <Route
-           path="logup"
-           element={
-             <PublicRoute>
-               <RegistrationPage />
-             </PublicRoute>
-           }
-         />
-         <Route
-           path="login"
-           element={
-             <PublicRoute>
-               <LoginPage />
-             </PublicRoute>
-           }
-         />
-       </Route>
-       <Route path="*" element={<NotFound />} />
-     </Routes>
-  
-  
 };

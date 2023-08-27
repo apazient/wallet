@@ -1,6 +1,8 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { BagelStyled } from './Bagel.styled';
+import { useSelector } from 'react-redux';
+import { selectSummaryAll } from 'redux/SummaryPage/selectors';
 
 // npm install --save chart.js@^3.9.1 react-chartjs-2@^4.3.1
 // npm install --save chart.js react-chartjs-2
@@ -9,11 +11,18 @@ import { BagelStyled } from './Bagel.styled';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const Bagel = () => {
+  const { categoriesSummary, periodTotal } = useSelector(selectSummaryAll);
+  if (!categoriesSummary.length || !periodTotal) {
+    return;
+  }
+  const categoriesSum = categoriesSummary.length
+    ? categoriesSummary.map(el => Math.abs(el.total))
+    : [0];
   const data = {
     datasets: [
       {
-        label: 'Poll',
-        data: [3, 6, 4, 8, 4, 6, 2, 3, 5],
+        label: 'Summary',
+        data: categoriesSum,
         backgroundColor: [
           '#FED057',
           '#FFD8D0',
@@ -46,7 +55,7 @@ export const Bagel = () => {
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(
-        '₴ 24 000.00',
+        `₴ ${periodTotal}`,
         chart.getDatasetMeta(0).data[0].x,
         chart.getDatasetMeta(0).data[0].y
       );
