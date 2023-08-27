@@ -32,14 +32,25 @@ import {
   TrInfoStyled,
   EditTabBtn,
 } from './TransactionsList.styled';
+import { selectAllCategories } from 'redux/TransactionCategories/selectors';
+import { getCategoriName } from 'helpers/helpers';
+import { feachCategories } from 'redux/TransactionCategories/operations';
 
 const TransactionsList = () => {
   const isEditTrans = useSelector(isEditTransaction);
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const dataList = useSelector(selectTransaction);
+  console.log(dataList.length);
+
+  const allCategories = useSelector(selectAllCategories);
+  console.log(allCategories);
+
   useEffect(() => {
     dispatch(fetchTransactions(token));
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(feachCategories());
   }, [dispatch]);
 
   const handleDeleteClick = transactionId => {
@@ -51,6 +62,7 @@ const TransactionsList = () => {
     console.log(newData);
     return newData;
   };
+
   return (
     <TableStyled>
       <thead>
@@ -68,8 +80,12 @@ const TransactionsList = () => {
           ({ id, transactionDate, type, categoryId, comment, amount }) => (
             <TrInfoStyled key={id}>
               <TdDateStyled>{transactionDate}</TdDateStyled>
-              <TdTypeStyled>{type}</TdTypeStyled>
-              <TdCatagoryStyled>{categoryId}</TdCatagoryStyled>
+              <TdTypeStyled>{type === 'INCOME' ? '+' : '-'}</TdTypeStyled>
+              <TdCatagoryStyled>
+                {/* {dataList.length !== 0
+                  ? getCategoriName(allCategories, categoryId)
+                  : 'notNull'} */}
+              </TdCatagoryStyled>
               <TdCommentStyled>{comment}</TdCommentStyled>
               <TdSumStyled>{amount}</TdSumStyled>
               <TdActionStyled>

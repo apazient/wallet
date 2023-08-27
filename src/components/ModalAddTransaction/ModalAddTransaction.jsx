@@ -24,8 +24,13 @@ import { Switcher } from './Switcher';
 import 'react-datetime/css/react-datetime.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { SelectExpenses } from './Select';
-import { selectIsSelect } from 'redux/TransactionCategories/selectors';
+import {
+  selectAllCategories,
+  selectChoosenCategorie,
+  selectIsSelect,
+} from 'redux/TransactionCategories/selectors';
 import { addTransaction } from 'redux/TransactionsList/operations';
+import { feachCategories } from 'redux/TransactionCategories/operations';
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
@@ -34,33 +39,29 @@ const validationSchema = yup.object().shape({
 
 const ModalAddTransaction = () => {
   const isExpense = useSelector(selectIsSelect);
-  let type = 'INCOME';
-  const cathegoryID = '063f1132-ba5d-42b4-951d-44011ca46262';
 
-  // const [selectedDate, setSelectedDate] = useState(new Date());
   const dispatch = useDispatch();
-  // {
-  //   "transactionDate": "string",
-  //   "type": "INCOME",
-  //   "categoryId": "string",
-  //   "comment": "string",
-  //   "amount": 0
-  // }
+
+  const chosenCategoriList = useSelector(selectChoosenCategorie);
+
+  useEffect(() => {
+    dispatch(feachCategories());
+  }, [dispatch]);
+
   const handleSubmit = values => {
+    const { id, name, type } = chosenCategoriList;
     console.log(values);
-    const body = {
+
+    const newTransaction = {
       transactionDate: values.date,
       type,
-      categoryId: cathegoryID,
+      categoryId: id,
       comment: values.text,
       amount: values.number,
     };
-    console.log(body);
-    if (isExpense) {
-      type = 'EXPENSE';
-    }
-    console.log(values);
-    dispatch(addTransaction(body));
+    console.log(newTransaction);
+
+    dispatch(addTransaction(newTransaction));
   };
 
   const isValidDate = currentDate => {
