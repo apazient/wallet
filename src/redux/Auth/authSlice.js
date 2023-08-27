@@ -22,6 +22,13 @@ export const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isAuth = true;
+        state.isLoading = false;
+      })
+      .addCase(register.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(register.rejected, (state, action) => {
+        state.isLoading = false;
       })
       .addCase(loginThunk.fulfilled, (state, { payload }) => {
         state.user = payload.user;

@@ -1,10 +1,12 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { register } from 'redux/Auth/operations';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useSelector } from 'react-redux';
 import { getIsLoading } from 'redux/Auth/selectors';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { register } from 'redux/Auth/operations';
 
 import { styled } from 'styled-components';
@@ -31,12 +33,18 @@ import {
 
 const RegisrationForm = () => {
   const isLoading = useSelector(getIsLoading);
-  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    // dispatch(register({ email, password, pwd, firstName }));
-    // reset();
+  const handleSubmit = ({ email, firstName: username, password }) => {
+    const credentials = { username, email, password };
+    dispatch(register(credentials))
+      .unwrap()
+      .then(() => navigate(location.state?.from || '/'))
+      .catch(err => {
+        //  toast.error('Try another data!!');
+      });
   };
 
   // const reset = () => {
@@ -57,14 +65,13 @@ const RegisrationForm = () => {
         </StyledDivItems>
 
         <Formik
-          initialValues={{ email: '', password: '', pwd: '', firstName: '' }}
-          onSubmit={(values, { setSubmitting, errors }) => {
-            console.log(errors);
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+          initialValues={{
+            email: '',
+            password: '',
+            pwd: '',
+            firstName: '',
           }}
+          onSubmit={handleSubmit}
           validationSchema={Yup.object({
             email: Yup.string()
               .email('Invalid email address')
@@ -87,10 +94,9 @@ const RegisrationForm = () => {
           })}
         >
           {formik => {
-            console.log(formik.errors.password);
             // console.log(Object.keys(formik.values.email.errors).length);
             return (
-              <FormikLoginForm onSubmit={handleSubmit}>
+              <FormikLoginForm>
                 <StyledDivInputEmail>
                   <StyledLabels>
                     <StyledDivSpriteSvgIcons>
@@ -164,9 +170,7 @@ const RegisrationForm = () => {
             );
           }}
         </Formik>
-        <LinkLog to="/login" onClick>
-          Log in
-        </LinkLog>
+        <LinkLog to="/login">Log in</LinkLog>
       </StyledDiv>
     </StyledSectionForm>
   );
