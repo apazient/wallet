@@ -50,7 +50,6 @@ const ModalAddTransaction = () => {
 
   const handleSubmit = values => {
     const { id, name, type } = chosenCategoriList;
-    console.log(values);
 
     const newTransaction = {
       transactionDate: values.date,
@@ -59,7 +58,6 @@ const ModalAddTransaction = () => {
       comment: values.text,
       amount: values.number,
     };
-    console.log(newTransaction);
 
     dispatch(addTransaction(newTransaction));
   };
@@ -132,9 +130,7 @@ const ModalAddTransaction = () => {
           </StyledInputWrapper>
           <StyledButtonWrapper>
             <StyledButtonAdd type="submit">Add</StyledButtonAdd>
-            <StyledButtonCancel onClick={() => console.log('Hello')}>
-              Cancel
-            </StyledButtonCancel>
+            <StyledButtonCancel onClick={() => {}}>Cancel</StyledButtonCancel>
           </StyledButtonWrapper>
         </StyledForm>
       )}

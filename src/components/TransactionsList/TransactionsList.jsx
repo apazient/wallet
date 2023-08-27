@@ -41,13 +41,9 @@ const TransactionsList = () => {
   const token = useSelector(selectToken);
   const dataList = useSelector(selectTransaction);
 
-  console.log(dataList.length);
-
   const allCategories = useSelector(selectAllCategories);
-  console.log(allCategories);
 
   const isEditTrans = useSelector(isEditTransaction);
-
 
   useEffect(() => {
     dispatch(fetchTransactions(token));
@@ -57,12 +53,11 @@ const TransactionsList = () => {
   }, [dispatch]);
 
   const handleDeleteClick = transactionId => {
-    console.log(transactionId);
     dispatch(deleteTransaction(transactionId));
   };
   const filteredItem = id => {
     const newData = dataList.find(el => el.id === id);
-    console.log(newData);
+
     return newData;
   };
 

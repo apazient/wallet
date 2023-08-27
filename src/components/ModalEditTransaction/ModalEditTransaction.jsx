@@ -34,7 +34,6 @@ export const ModalEditTransaction = dataItem => {
       text: '',
     },
     onSubmit: values => {
-      console.log('submit', values);
       alert(JSON.stringify(values, null, 2));
     },
     validationSchema: Yup.object().shape({
@@ -91,12 +90,10 @@ export const ModalEditTransaction = dataItem => {
           }}
         />
       </InputWrapper>
-      <StyledButtonPerple type="submit" onClick={() => console.log('Submit')}>
+      <StyledButtonPerple type="submit" onClick={() => {}}>
         Save
       </StyledButtonPerple>
-      <StyledButtonWhite onClick={() => console.log(dateNow())}>
-        Cancel
-      </StyledButtonWhite>
+      <StyledButtonWhite onClick={() => {}}>Cancel</StyledButtonWhite>
     </FormikForm>
   );
 };
