@@ -9,8 +9,6 @@ export const StyledAdd = styled.button`
   border: none;
   border-radius: 50%;
   margin-left: auto;
-  margin-right: ${({ theme }) => theme.spacing(10)};
-  margin-bottom: ${({ theme }) => theme.spacing(10)};
   padding: 12px;
   outline: none;
   cursor: pointer;
