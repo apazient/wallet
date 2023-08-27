@@ -7,9 +7,7 @@ const Loader = () => {
   const isLoading = useSelector(getIsLoading)
   console.log(isLoading);
   
-  if (!isLoading) { 
-    return null
-  }
+ 
 
   return (
     <LoaderOverlay>
