@@ -43,6 +43,7 @@ export const StyledToggleWrapper = styled.div`
 export const StyledToggleText = styled.p`
   font-family: Poppins-SemiBold;
   font-size: 16px;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.navLink};
 `;
 

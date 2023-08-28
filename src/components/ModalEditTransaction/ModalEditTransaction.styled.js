@@ -6,15 +6,21 @@ export const FormikForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   row-gap: 40px;
   padding: 32px 20px;
-  /* box-shadow: 0 0 50px 50px gray; */
   background: radial-gradient(rgb(63, 46, 150), rgb(95, 71, 140));
-  border-radius: 8px;
-  width: 540px;
-  height: 580px;
-  padding: 40px 73px;
+  width: 320px;
+  height: 600px;
+  margin-top: 60px;
+  /* border-radius: 8px; */
+  @media screen and (min-width: 768px) {
+    border-radius: 8px;
+    width: 540px;
+    height: 580px;
+    padding: 40px 73px;
+    justify-content: center;
+  }
 `;
 
 export const StyledButtonPerple = styled.button`
@@ -69,8 +75,31 @@ export const Input = styled.input`
   color: #fbfbfb;
   background-color: transparent;
   max-width: 100%;
+  padding-bottom: 8px;
+  width: 280px;
+  padding-left: 20px;
+  padding-right: 20px;
   @media screen and (min-width: 768px) {
     width: 181px;
+    text-align: center;
+    padding-left: 0px;
+  }
+`;
+export const InputText = styled.input`
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.33;
+  color: #fbfbfb;
+  background-color: transparent;
+  max-width: 100%;
+  padding-bottom: 8px;
+  width: 280px;
+  padding: 0 20px;
+  @media screen and (min-width: 768px) {
+    width: 420px;
     text-align: center;
     padding-left: 0px;
   }
@@ -78,11 +107,14 @@ export const Input = styled.input`
 
 export const InputWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 32px;
   /* max-width: 180px; */
   width: 100%;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const StyledTransaction = styled.h2`
@@ -134,6 +166,8 @@ export const StyledCloseIconEdit = styled.div`
     top: 20px;
     right: 20px;
   }
+  @media screen and (min-width: 768px) {
+  }
 `;
 
 export const StyledCategory = styled.div`
@@ -142,6 +176,10 @@ export const StyledCategory = styled.div`
   max-width: 100%;
   margin-bottom: 10px;
   width: 394px;
+  font-family: Poppins-Regular;
+  font-size: 18px;
+  line-height: 1.5;
+  padding-left: 20px;
 `;
 
 export const StyledP = styled.p`
