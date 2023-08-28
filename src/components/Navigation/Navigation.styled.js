@@ -32,10 +32,10 @@ export const NavLinkWrapperStyled = styled.div`
   gap: 20px;
   &:hover {
     ${NavIconStyled} {
-      svg{
-      background-color: rgba(255, 255, 255, 1);
-      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
-        fill: #4a56e2;
+      svg {
+        background-color: rgba(255, 255, 255, 1);
+        filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+        fill: #734aef;
         fill-opacity: 1;
         border-radius: 5px;
       }
@@ -52,13 +52,13 @@ export const NavLinkStyled = styled(NavLink)`
   line-height: normal;
   cursor: pointer;
   text-decoration: none; /*  нужно убрать стили для тега а */
-  
+
   &.hover {
     font-weight: 700px;
     ${NavIconStyled} {
-      svg{
-      background-color: rgba(255, 255, 255, 1);
-      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+      svg {
+        background-color: rgba(255, 255, 255, 1);
+        filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
         fill: #4a56e2;
         fill-opacity: 1;
         border-radius: 5px;
@@ -68,9 +68,9 @@ export const NavLinkStyled = styled(NavLink)`
   &.active {
     font-weight: 700;
     ${NavIconStyled} {
-      svg{
-      background-color: rgba(255, 255, 255, 1);
-      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+      svg {
+        background-color: rgba(255, 255, 255, 1);
+        filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
         fill: #4a56e2;
         fill-opacity: 1;
         border-radius: 5px;
@@ -80,10 +80,10 @@ export const NavLinkStyled = styled(NavLink)`
 `;
 
 export const NavWrapperStyledTablet = styled(NavWrapperStyled)`
-flex-direction: column;
-`
+  flex-direction: column;
+`;
 
 export const NavLinkStyledTablet = styled(NavLinkStyled)`
-display: flex;
-gap: 20px;
-`
+  display: flex;
+  gap: 20px;
+`;
