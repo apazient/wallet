@@ -82,7 +82,7 @@ export const CurrencyImgStyled = styled.div`
   @media screen and (min-width: 767px) {
     width: 336px;
   }
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 1280px) {
     width: 480px;
   }
 `;
