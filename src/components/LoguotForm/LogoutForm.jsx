@@ -26,9 +26,9 @@ export const LogoutForm = () => {
     dispatch(logoutThunk())
       .unwrap()
       .then(() => {
+        toast.success(`Goobye ${username || ''}!`);
         dispatch(closeModal());
         navigate('/login');
-        toast.success(`Goobye, ${username}!`);
       });
   };
 

@@ -13,7 +13,8 @@ import {
   StyledDivItems,
   StyledDivSpriteSvgIcons,
   StyledDivSpriteSvgLogo,
-  StyledErrorMessages,
+  StyledErrorMessageEmail,
+  StyledErrorMessagePassword,
   StyledH2,
   StyledInput,
   StyledLabels,
@@ -28,6 +29,7 @@ import { SpriteSVG } from 'pictures/SpriteSVG';
 import * as Yup from 'yup';
 import { getIsLoading } from 'redux/Auth/selectors';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -44,8 +46,12 @@ export const LoginForm = () => {
     dispatch(loginThunk(value))
       .unwrap()
       .then(() => navigate(location.state?.from || '/'))
-      .catch(err => {
-        //  toast.error('Try another data!!');
+      .catch(error => {
+        console.log(error);
+        const { message } = error.response.data;
+        if (message.length > 5) {
+          toast.error(message);
+        } else message.forEach(el => toast.error(el));
       });
   };
 
@@ -72,7 +78,7 @@ export const LoginForm = () => {
                 <StyledInput name="email" placeholder="E-email" type="email" />
               </StyledLabels>
             </StyledDivInputEmail>
-            <StyledErrorMessages name="email" component="h1" />
+            <StyledErrorMessageEmail name="email" component="h1" />
             <StyledDivInputPassword>
               <StyledLabels>
                 <StyledDivSpriteSvgIcons>
@@ -85,7 +91,7 @@ export const LoginForm = () => {
                 />
               </StyledLabels>
             </StyledDivInputPassword>
-            <StyledErrorMessages name="password" component="h1" />
+            <StyledErrorMessagePassword name="password" component="h1" />
             <StyledButtonLog type="submit" disabled={isLoading}>
               Log In
             </StyledButtonLog>

@@ -13,23 +13,27 @@ import { styled } from 'styled-components';
 
 import {
   FormikLoginForm,
-  StyledDiv,
   StyledDivInputEmail,
   StyledDivInputPassword,
   StyledDivItems,
   StyledDivSpriteSvgIcons,
   StyledDivSpriteSvgLogo,
-  StyledErrorMessages,
   StyledH2,
   StyledInput,
   StyledLabels,
   StyledSectionForm,
 } from 'components/LoginForm/LoginForm.styled';
 import {
+  DivContainer,
+  StyledErrorMessageEmail,
+  StyledErrorMessagePassword,
+  StyledErrorMessagePwd,
+  StyledErrorMessageFirstName,
   ButtonReg,
   LinkLog,
   SpanStrengthMeter,
 } from './RegisrationForm.styled';
+import { toast } from 'react-toastify';
 
 const RegisrationForm = () => {
   const isLoading = useSelector(getIsLoading);
@@ -42,8 +46,11 @@ const RegisrationForm = () => {
     dispatch(register(credentials))
       .unwrap()
       .then(() => navigate(location.state?.from || '/'))
-      .catch(err => {
-        //  toast.error('Try another data!!');
+      .catch(error => {
+        const { message } = error.response.data;
+        if (message.length > 8) {
+          toast.error(message);
+        } else message.forEach(el => toast.error(el));
       });
   };
 
@@ -56,7 +63,7 @@ const RegisrationForm = () => {
 
   return (
     <StyledSectionForm>
-      <StyledDiv>
+      <DivContainer>
         <StyledDivItems>
           <StyledDivSpriteSvgLogo>
             <SpriteSVG name={'logo'} />
@@ -111,7 +118,7 @@ const RegisrationForm = () => {
                     />
                   </StyledLabels>
                 </StyledDivInputEmail>
-                <StyledErrorMessages name="email" component="h1" />
+                <StyledErrorMessageEmail name="email" component="h1" />
 
                 <StyledDivInputPassword>
                   <StyledLabels>
@@ -126,7 +133,7 @@ const RegisrationForm = () => {
                     />
                   </StyledLabels>
                 </StyledDivInputPassword>
-                <StyledErrorMessages name="password" component="h1" />
+                <StyledErrorMessagePassword name="password" component="h1" />
 
                 <StyledDivInputPassword>
                   <StyledLabels>
@@ -146,7 +153,7 @@ const RegisrationForm = () => {
                     </SpanContainer>
                   </StyledLabels>
                 </StyledDivInputPassword>
-                <StyledErrorMessages name="pwd" component="h1" />
+                <StyledErrorMessagePwd name="pwd" component="h1" />
 
                 <StyledDivInputPassword>
                   <StyledLabels>
@@ -161,7 +168,7 @@ const RegisrationForm = () => {
                     />
                   </StyledLabels>
                 </StyledDivInputPassword>
-                <StyledErrorMessages name="firstName" component="h1" />
+                <StyledErrorMessageFirstName name="firstName" component="h1" />
 
                 <ButtonReg type="submit" disabled={isLoading}>
                   Register
@@ -171,7 +178,7 @@ const RegisrationForm = () => {
           }}
         </Formik>
         <LinkLog to="/login">Log in</LinkLog>
-      </StyledDiv>
+      </DivContainer>
     </StyledSectionForm>
   );
 };
@@ -181,5 +188,4 @@ export default RegisrationForm;
 const SpanContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
 `;

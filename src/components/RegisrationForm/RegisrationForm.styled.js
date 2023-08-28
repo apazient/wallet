@@ -1,5 +1,17 @@
 import { styled } from 'styled-components';
 import { StyledButton, StyledLink } from 'styles/Button';
+import { ErrorMessage } from 'formik';
+
+export const DivContainer = styled.div`
+  box-sizing: border-box;
+  padding: 23px 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    padding: 60px 62px;
+  }
+`;
 
 export const ButtonReg = styled(StyledButton)`
   margin-top: 40px;
@@ -20,7 +32,7 @@ export const SpanStrengthMeter = styled.span`
         return `${props.$size * 8}%`;
       } else return '280px';
     }};
-    transition: all 0.5s ease;
+    transition: width 0.5s ease-in-out, background-color 0.25s;
     border-radius: 2px;
     height: 4px;
     background-color: ${props => {
@@ -39,5 +51,45 @@ export const SpanStrengthMeter = styled.span`
         } else return '409px';
       }};
     }
+  }
+`;
+
+export const StyledErrorMessageEmail = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
+  position: absolute;
+  top: 162px;
+  @media screen and (min-width: 768px) {
+    top: 225px;
+  }
+`;
+
+export const StyledErrorMessagePassword = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
+  position: absolute;
+  top: 229px;
+  @media screen and (min-width: 768px) {
+    top: 295px;
+  }
+`;
+
+export const StyledErrorMessagePwd = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
+  position: absolute;
+  top: 310px;
+  @media screen and (min-width: 768px) {
+    top: 370px;
+  }
+`;
+
+export const StyledErrorMessageFirstName = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
+  position: absolute;
+  top: 377px;
+  @media screen and (min-width: 768px) {
+    top: 440px;
   }
 `;
