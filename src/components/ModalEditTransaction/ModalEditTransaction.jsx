@@ -10,6 +10,7 @@ import {
   StyledCategory,
   StyledCloseIconEdit,
   StyledIncomeExpences,
+  StyledP,
   StyledTransaction,
 } from './ModalEditTransaction.styled';
 import * as Yup from 'yup';
@@ -20,9 +21,13 @@ import { updateTransaction } from 'redux/TransactionsList/operations';
 import { selectAllCategories } from 'redux/TransactionCategories/selectors';
 import { feachCategories } from 'redux/TransactionCategories/operations';
 import {
+  StyledCalendarSvg,
   StyledCloseIcon,
+  StyledDatatimeWrapper,
+  StyledDatetime,
   StyledToggleTextExp,
   StyledToggleTextIncome,
+  StyledToggleWrapper,
 } from 'components/ModalAddTransaction/ModalAddTransaction.styled';
 import { SelectExpenses } from 'components/ModalAddTransaction/Select';
 
@@ -92,7 +97,7 @@ export const ModalEditTransaction = () => {
         <StyledToggleTextIncome style={isExpense ? { color: 'white' } : null}>
           Income
         </StyledToggleTextIncome>
-        <span>/</span>
+        <StyledP>/</StyledP>
         <StyledToggleTextIncome style={!isExpense ? { color: 'white' } : null}>
           Expense
         </StyledToggleTextIncome>
@@ -110,14 +115,30 @@ export const ModalEditTransaction = () => {
         {formik.touched.amount && formik.errors.amount ? (
           <div>{formik.errors.amount}</div>
         ) : null}
-        <Input
+        {/* <Input
           name="transactionDate"
           placeholder="2025-08-23"
           type="date"
           value={formik.values.transactionDate}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-        />
+        /> */}
+        <StyledDatatimeWrapper>
+          <StyledDatetime
+            name="transactionDate"
+            type="date"
+            dateFormat="DD.MM.YYYY"
+            timeFormat={false}
+            value={formik.values.transactionDate}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            // closeOnSelect={true}
+          ></StyledDatetime>
+          <StyledCalendarSvg>
+            <SpriteSVG name={'calendar'} />
+          </StyledCalendarSvg>
+        </StyledDatatimeWrapper>
+
         {formik.touched.transactionDate && formik.errors.transactionDate ? (
           <div>{formik.errors.transactionDate}</div>
         ) : null}
