@@ -4,8 +4,7 @@ export const GlobalStyles = createGlobalStyle`
 
 body{
   height: 100vh;
-  color: ${({ theme }) => theme.colors.colorText};
-  background: radialGradient(220deg, #6D54EB 3.47%, #652392 90.06%);
+  color: ${({ theme }) => theme.colors.colorText}; 
   background-color: #101010;
   font-family: Poppins-Regular, sans-serif;
   font-size: 14px;

@@ -20,7 +20,6 @@ export const App = () => {
   useEffect(() => {
     dispatch(currentUser());
   }, [dispatch]);
-  console.log(isLoggedIn);
 
   return (
     <Routes>
