@@ -11,18 +11,14 @@ import { useMediaQuery } from 'react-responsive';
 // import styled from 'styled-components';
 import Balance from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
+import { ISDESKTOP, ISMOBILE, ISTABLET } from 'styles/const ';
 // import HomeTab from 'components/HomeTab/HomeTab';
 
 const Layout = () => {
-  const isMobile = useMediaQuery({
-    minWidth: 300,
-    maxWidth: 767.99,
-  });
-  const isTablet = useMediaQuery({
-    minWidth: 768,
-    maxWidth: 1279.99,
-  });
-  const isDesktop = useMediaQuery({ minWidth: 1280 });
+  const isMobile = useMediaQuery(ISMOBILE);
+  const isTablet = useMediaQuery(ISTABLET);
+  const isDesctop = useMediaQuery(ISDESKTOP);
+
   const isLoading = useSelector(getIsLoading);
 
   return (
@@ -63,7 +59,7 @@ const Layout = () => {
             </div>
           </div>
         )}
-        {isDesktop && (
+        {isDesctop && (
           <div style={{ display: 'flex' }}>
             <div
               style={{
