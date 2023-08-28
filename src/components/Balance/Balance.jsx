@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
+  BalanceBoxStyled,
   BalanceContainerStyled,
   BalanceStyled,
   BalanceTitleStyled,
@@ -20,10 +21,12 @@ export const Balance = () => {
 
   return (
     <BalanceContainerStyled>
-      <BalanceTitleStyled>Your balance</BalanceTitleStyled>
-      <BalanceStyled>
-        <span>&#8372;</span> {balanseTotal}
-      </BalanceStyled>
+      <BalanceBoxStyled>
+        <BalanceTitleStyled>Your balance</BalanceTitleStyled>
+        <BalanceStyled>
+          <span>&#8372;</span> {balanseTotal}
+        </BalanceStyled>
+      </BalanceBoxStyled>
     </BalanceContainerStyled>
   );
 };
