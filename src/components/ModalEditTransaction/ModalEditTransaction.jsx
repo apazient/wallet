@@ -83,6 +83,15 @@ export const ModalEditTransaction = () => {
     }),
   });
 
+  const handleDatetimeChange = (name, value) => {
+    formik.handleChange({
+      target: {
+        name,
+        value,
+      },
+    });
+  };
+
   return (
     <FormikForm onSubmit={formik.handleSubmit}>
       <StyledCloseIconEdit
@@ -115,14 +124,14 @@ export const ModalEditTransaction = () => {
         {formik.touched.amount && formik.errors.amount ? (
           <div>{formik.errors.amount}</div>
         ) : null}
-        {/* <Input
+        <Input
           name="transactionDate"
           placeholder="2025-08-23"
           type="date"
           value={formik.values.transactionDate}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-        /> */}
+        />
         <StyledDatatimeWrapper>
           <StyledDatetime
             name="transactionDate"
@@ -130,7 +139,8 @@ export const ModalEditTransaction = () => {
             dateFormat="DD.MM.YYYY"
             timeFormat={false}
             value={formik.values.transactionDate}
-            onChange={formik.handleChange}
+            // onChange={formik.handleChange}
+            onChange={value => handleDatetimeChange('transactionDate', value)}
             onBlur={formik.handleBlur}
             // closeOnSelect={true}
           ></StyledDatetime>
