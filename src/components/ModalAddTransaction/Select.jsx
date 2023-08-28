@@ -1,7 +1,9 @@
-import { StyledSelect } from 'components/DiagramTab/DiagramTab.styled';
+import { SpriteSVG } from 'pictures/SpriteSVG';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectChoosenCategorie } from 'redux/TransactionCategories/selectors';
+import { StyledSelect } from './Select.styled';
+import { StyledIconDiagram } from 'components/DiagramTab/DiagramTab.styled';
 
 export const SelectExpenses = ({ handleCategoriId, values }) => {
   const categories = useSelector(selectChoosenCategorie);
@@ -16,10 +18,19 @@ export const SelectExpenses = ({ handleCategoriId, values }) => {
 
   return (
     <StyledSelect
+      placeholder="Select a category"
       options={normalized}
       defaultValue={initialValue}
       value={initialValue}
+      classNamePrefix="react-select"
       onChange={e => handleCategoriId(e)}
+      components={{
+        DropdownIndicator: props => (
+          <StyledIconDiagram {...props}>
+            <SpriteSVG name={'select'} />
+          </StyledIconDiagram>
+        ),
+      }}
     ></StyledSelect>
   );
 };
