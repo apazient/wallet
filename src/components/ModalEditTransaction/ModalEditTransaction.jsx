@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
+import { SpriteSVG } from 'pictures/SpriteSVG';
 import {
   FormikForm,
   Input,
   InputWrapper,
   StyledButtonPerple,
   StyledButtonWhite,
+  StyledCloseIconEdit,
   StyledIncomeExpences,
   StyledTransaction,
 } from './ModalEditTransaction.styled';
@@ -16,6 +18,11 @@ import { closeModal } from 'redux/Global/globalSlice';
 import { updateTransaction } from 'redux/TransactionsList/operations';
 import { selectAllCategories } from 'redux/TransactionCategories/selectors';
 import { feachCategories } from 'redux/TransactionCategories/operations';
+import {
+  StyledCloseIcon,
+  StyledToggleTextExp,
+  StyledToggleTextIncome,
+} from 'components/ModalAddTransaction/ModalAddTransaction.styled';
 
 export const ModalEditTransaction = () => {
   const dispatch = useDispatch();
@@ -71,11 +78,22 @@ export const ModalEditTransaction = () => {
 
   return (
     <FormikForm onSubmit={formik.handleSubmit}>
-      <StyledTransaction>Edit transaction (income)</StyledTransaction>
+      <StyledCloseIconEdit
+        onClick={() => {
+          dispatch(closeModal());
+        }}
+      >
+        <SpriteSVG name={'close'} />
+      </StyledCloseIconEdit>
+      <StyledTransaction>Edit transaction</StyledTransaction>
       <StyledIncomeExpences>
-        <span style={!isExpense ? { color: 'red' } : null}>Income</span>
+        <StyledToggleTextIncome style={isExpense ? { color: 'white' } : null}>
+          Income
+        </StyledToggleTextIncome>
         <span>/</span>
-        <span style={isExpense ? { color: 'red' } : null}>Expense</span>
+        <StyledToggleTextIncome style={!isExpense ? { color: 'white' } : null}>
+          Expense
+        </StyledToggleTextIncome>
       </StyledIncomeExpences>
       {isExpense && <div>{getCategoriName()}</div>}
       <InputWrapper>
