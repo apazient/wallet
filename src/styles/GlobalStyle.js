@@ -1,6 +1,3 @@
-import { StyledHeader } from 'components/Header/Header.styled';
-import { NavWrapperStyled } from 'components/Navigation/Navigation.styled';
-import { DashboardContainerStyled } from 'pages/DashboardPage/DashboardPage.styled';
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
@@ -39,74 +36,27 @@ ul {
 a {
   text-decoration: none;
 }
-
- /* @media screen and (min-width: 768px) {
-  body {
-   display: grid;
-    grid-template-areas:
-      'StyledHeader StyledHeader'
-      'NavWrapperStyled DashboardContainerStyled'
-      'cont-section  cont-section'
-      'tui-pagination tui-pagination';
-    justify-content: center;
-  }
-
-  ${StyledHeader} {
-    grid-area: StyledHeader;
-  }
-  ${NavWrapperStyled} {
-    grid-area: NavWrapperStyled;
-    width: 50%;
-  }
-  ${DashboardContainerStyled} {
-    grid-area: DashboardContainerStyled;
-      width: 50%;
-  }
-  .cont-section {
-    grid-area: cont-section;
-  }
-  .tui-pagination {
-    grid-area: tui-pagination;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  body {
-    display: grid;
-    grid-template-areas:
-      'header header'
-      'aside-section cont-section'
-      'support cont-section'
-      '. cont-section'
-      '. cont-section'
-      'tui-pagination tui-pagination';
-  }
-  .header {
-    grid-area: header;
-  }
-  .aside-section {
-    grid-area: aside-section;
-  }
-  .support {
-    grid-area: support;
-  }
-  .cont-section {
-    grid-area: cont-section;
-    min-width: 996px;
-  }
-  .tui-pagination {
-    grid-area: tui-pagination;
-  }
-}  */
-
-  /* ${DashboardContainerStyled} {
-   display: flex;
-   flex-direction: column;
-   width:30%
-  } */
-  
 `;
 
-export const Container = styled.div`
+export const GlobalStyledMain = styled.main`
   display: flex;
+  flex-direction: column;
+  height: 100vh;
+`;
+
+export const GlobalStyledContainer = styled.div`
+  width: 100%;
+  min-width: 320px;
+  margin: 0px auto;
+  padding: 0 20px;
+
+  @media screen and (min-width: 768px) {
+    min-width: 768px;
+    padding: 0 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 1280px;
+    padding: 0 16px;
+  }
 `;
