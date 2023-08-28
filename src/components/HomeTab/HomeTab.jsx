@@ -6,12 +6,13 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 import { isAddTransaction } from 'redux/Global/selectors';
+import { Warapper } from './HomeTab.styled';
 
 const HomeTab = () => {
   const isAddTrans = useSelector(isAddTransaction);
 
   return (
-    <div>
+    <Warapper>
       <h1>HomeTab</h1>
       <TransactionsList />
       <ButtonAddTransactions />
@@ -20,7 +21,7 @@ const HomeTab = () => {
           <ModalAddTransaction />
         </Modal>
       )}
-    </div>
+    </Warapper>
   );
 };
 
