@@ -129,6 +129,45 @@ export const StyledButtonCancel = styled(StyledButton)`
 export const StyledDatatimeWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  .rdtPicker {
+    width: 280px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(
+      360deg,
+      rgba(83, 61, 186, 1) 0%,
+      rgba(80, 48, 154, 1) 35.94%,
+      rgba(106, 70, 165, 1) 61.04%,
+      rgba(133, 93, 175, 1) 100%
+    );
+    @media screen and (min-width: 768px) {
+      width: 250px;
+    }
+  }
+  .rdtPicker td.rdtActive,
+  .rdtPicker td.rdtActive:hover {
+    background-color: ${({ theme }) => theme.colors.hover};
+    border-radius: 20px;
+  }
+  .rdtPicker td.rdtActive::before {
+    display: none;
+  }
+  .rdtPicker td:hover {
+    background: linear-gradient(
+      96.76deg,
+      #ffc727 -16.42%,
+      #9e40ba 97.04%,
+      #7000ff 150.71%
+    );
+    text-shadow: 0 -1px 0 rgba (0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
+
+  element.style {
+  }
+  .rdtPicker thead tr:first-of-type th:hover {
+    background: transparent;
+  }
 `;
 export const StyledDatetime = styled(Datetime)`
   input {
@@ -149,6 +188,9 @@ export const StyledDatetime = styled(Datetime)`
     &:focus {
       outline: none;
     }
+    &::placeholder {
+      background-color: transparent;
+    }
   }
 `;
 //Styled SVG
@@ -164,5 +206,19 @@ export const StyledCalendarSvg = styled.div`
   @media screen and (min-width: 768px) {
     right: 15%;
     transform: translateX(-15%);
+  }
+`;
+
+export const StyledCloseIcon = styled.div`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    stroke: ${({ theme }) => theme.colors.colorText};
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 `;

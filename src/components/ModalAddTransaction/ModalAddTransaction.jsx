@@ -16,6 +16,7 @@ import {
   StyledDatetime,
   StyledInputWrapTab,
   StyledDatatimeWrapper,
+  StyledCloseIcon,
 } from './ModalAddTransaction.styled';
 import * as yup from 'yup';
 import { SpriteSVG } from 'pictures/SpriteSVG';
@@ -87,11 +88,22 @@ const ModalAddTransaction = () => {
         setFieldValue,
       }) => (
         <StyledForm>
+          <StyledCloseIcon
+            onClick={() => {
+              dispatch(closeModal());
+            }}
+          >
+            <SpriteSVG name={'close'} />
+          </StyledCloseIcon>
           <StyledTitle>Add transaction</StyledTitle>
           <StyledToggleWrapper>
-            <StyledToggleTextIncome>Income</StyledToggleTextIncome>
+            <StyledToggleTextIncome isChecked={isExpense}>
+              Income
+            </StyledToggleTextIncome>
             <Switcher />
-            <StyledToggleTextExp>Expense</StyledToggleTextExp>
+            <StyledToggleTextExp isChecked={isExpense}>
+              Expense
+            </StyledToggleTextExp>
           </StyledToggleWrapper>
           {isExpense && (
             <SelectExpenses handleCategoriId={setCategory} values={category} />
