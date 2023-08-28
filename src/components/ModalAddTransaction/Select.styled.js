@@ -89,4 +89,8 @@ export const StyledSelect = styled(Select)`
   .react-select__indicator-separator {
     display: none;
   }
+  .react-select__control.react-select__control--menu-is-open
+    .react-select__indicators {
+    transform: rotate(-180deg);
+  }
 `;
