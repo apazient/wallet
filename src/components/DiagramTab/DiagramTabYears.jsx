@@ -34,8 +34,8 @@ export const DiagramTabYears = () => {
         isSearchable={false}
         classNamePrefix="react-select"
         components={{
-          DropdownIndicator: props => (
-            <StyledIconDiagram {...props}>
+          DropdownIndicator: () => (
+            <StyledIconDiagram>
               <SpriteSVG name={'select'} />
             </StyledIconDiagram>
           ),
