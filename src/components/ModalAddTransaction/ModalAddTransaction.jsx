@@ -17,6 +17,8 @@ import {
   StyledInputWrapTab,
   StyledDatatimeWrapper,
   StyledCloseIcon,
+  OverlayGradient,
+  StyledToggleText,
 } from './ModalAddTransaction.styled';
 import * as yup from 'yup';
 import { SpriteSVG } from 'pictures/SpriteSVG';
@@ -32,6 +34,7 @@ import { addTransaction } from 'redux/TransactionsList/operations';
 import { feachCategories } from 'redux/TransactionCategories/operations';
 import { closeModal } from 'redux/Global/globalSlice';
 import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
+import { toast } from 'react-toastify';
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
@@ -66,6 +69,12 @@ const ModalAddTransaction = () => {
     dispatch(closeModal());
     dispatch(showSelect(false));
   };
+  const isValidDate = currentDate => {
+    return (
+      currentDate.isBefore(StyledDatetime.moment()) ||
+      currentDate.isSame(StyledDatetime.moment(), 'minute')
+    );
+  };
 
   return (
     <Formik
@@ -88,6 +97,7 @@ const ModalAddTransaction = () => {
         setFieldValue,
       }) => (
         <StyledForm>
+          <OverlayGradient />
           <StyledCloseIcon
             onClick={() => {
               dispatch(closeModal());
@@ -97,13 +107,13 @@ const ModalAddTransaction = () => {
           </StyledCloseIcon>
           <StyledTitle>Add transaction</StyledTitle>
           <StyledToggleWrapper>
-            <StyledToggleTextIncome isChecked={isExpense}>
+            <StyledToggleText style={!isExpense ? { color: '#FFB627' } : null}>
               Income
-            </StyledToggleTextIncome>
+            </StyledToggleText>
             <Switcher />
-            <StyledToggleTextExp isChecked={isExpense}>
+            <StyledToggleText style={isExpense ? { color: '#FF868D' } : null}>
               Expense
-            </StyledToggleTextExp>
+            </StyledToggleText>
           </StyledToggleWrapper>
           {isExpense && (
             <SelectExpenses handleCategoriId={setCategory} values={category} />
@@ -127,6 +137,7 @@ const ModalAddTransaction = () => {
                   setDate(e);
                 }}
                 closeOnSelect={true}
+                isValidDate={isValidDate}
               ></StyledDatetime>
               <StyledCalendarSvg>
                 <SpriteSVG name={'calendar'} />

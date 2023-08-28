@@ -5,6 +5,7 @@ import 'react-datetime/css/react-datetime.css';
 import { Field, Form } from 'formik';
 
 export const StyledForm = styled(Form)`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,17 +41,8 @@ export const StyledToggleWrapper = styled.div`
   gap: ${({ theme }) => theme.spacing(5)};
 `;
 export const StyledToggleText = styled.p`
-  font-family: ‘Poppins-SemiBold’;
+  font-family: Poppins-SemiBold;
   font-size: 16px;
-  line-height: 1.5;
-  color: ${({ theme }) => theme.colors.yellow};
-`;
-
-export const StyledToggleTextIncome = styled(StyledToggleText)`
-  color: ${({ theme }) => theme.colors.yellow};
-`;
-
-export const StyledToggleTextExp = styled(StyledToggleText)`
   color: ${({ theme }) => theme.colors.navLink};
 `;
 
@@ -85,10 +77,17 @@ export const StyledInput = styled(Field)`
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   color: ${({ theme }) => theme.colors.colorText};
   background-color: transparent;
+  overflow: hidden;
   &:focus {
     outline: none;
   }
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.colorText};
+  }
 `;
+
 export const StyledInputValue = styled(StyledInput)`
   font-weight: 600;
   @media screen and (min-width: 768px) {
@@ -97,13 +96,27 @@ export const StyledInputValue = styled(StyledInput)`
     padding-left: 0px;
   }
 `;
-export const StyledInputComment = styled(StyledInput)`
-  padding-bottom: 52px;
-  @media screen and (min-width: 768px) {
-    min-width: 394px;
+export const StyledInputComment = styled.textarea`
+  padding: 0;
+  padding-left: ${({ theme }) => theme.spacing(5)};
+  width: 280px;
+  min-height: 76px;
+  font-family: Poppins-Regular;
+  font-size: 18px;
+  resize: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: ${({ theme }) => theme.colors.colorText};
+  background-color: transparent;
+  &:focus {
+    outline: none;
   }
   &::placeholder {
     background-color: transparent;
+  }
+  @media screen and (min-width: 768px) {
+    width: 394px;
+    padding-left: ${({ theme }) => theme.spacing(2)};
   }
 `;
 
@@ -149,7 +162,10 @@ export const StyledDatatimeWrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.hover};
     border-radius: 20px;
   }
-  .rdtPicker td.rdtActive::before {
+  .rdtPicker td.rdtToday:before {
+    display: none;
+  }
+  td.rdtActive.rdtToday:before {
     display: none;
   }
   .rdtPicker td:hover {
@@ -221,4 +237,18 @@ export const StyledCloseIcon = styled.div`
     top: 20px;
     right: 20px;
   }
+`;
+
+//Overlay Gradient
+export const OverlayGradient = styled.div`
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  width: 454px;
+  height: 454px;
+  border-radius: 454px;
+  top: 74px;
+  bottom: 61px;
+  background: rgba(47, 21, 176, 0.73);
+  filter: blur(100px);
 `;
