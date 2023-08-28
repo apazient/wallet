@@ -25,8 +25,8 @@ export const SelectExpenses = ({ handleCategoriId, values }) => {
       classNamePrefix="react-select"
       onChange={e => handleCategoriId(e)}
       components={{
-        DropdownIndicator: props => (
-          <StyledIconDiagram {...props}>
+        DropdownIndicator: () => (
+          <StyledIconDiagram>
             <SpriteSVG name={'select'} />
           </StyledIconDiagram>
         ),
