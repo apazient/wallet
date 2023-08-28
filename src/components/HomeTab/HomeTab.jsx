@@ -13,7 +13,6 @@ const HomeTab = () => {
 
   return (
     <Warapper>
-      <h1>HomeTab</h1>
       <TransactionsList />
       <ButtonAddTransactions />
       {isAddTrans && (
