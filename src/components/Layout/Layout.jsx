@@ -16,11 +16,11 @@ import { Currency } from 'components/Currency/Currency';
 const Layout = () => {
   const isMobile = useMediaQuery({
     minWidth: 300,
-    maxWidth: 767,
+    maxWidth: 767.99,
   });
   const isTablet = useMediaQuery({
     minWidth: 768,
-    maxWidth: 1200,
+    maxWidth: 1279.99,
   });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isLoading = useSelector(getIsLoading);
