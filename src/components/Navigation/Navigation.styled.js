@@ -36,7 +36,7 @@ export const NavLinkWrapperStyled = styled.div`
         background-color: rgba(255, 255, 255, 1);
         filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
         fill: #734aef;
-        fill-opacity: 1;
+        fillopacity: 1;
         border-radius: 5px;
       }
     }
@@ -60,7 +60,7 @@ export const NavLinkStyled = styled(NavLink)`
         background-color: rgba(255, 255, 255, 1);
         filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
         fill: #4a56e2;
-        fill-opacity: 1;
+        fillopacity: 1;
         border-radius: 5px;
       }
     }
@@ -72,7 +72,7 @@ export const NavLinkStyled = styled(NavLink)`
         background-color: rgba(255, 255, 255, 1);
         filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
         fill: #4a56e2;
-        fill-opacity: 1;
+        fillopacity: 1;
         border-radius: 5px;
       }
     }
