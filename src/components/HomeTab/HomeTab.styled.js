@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
 export const Warapper = styled.div`
-  position: relative;
+  height: 100%;
+  //   position: relative;
 `;

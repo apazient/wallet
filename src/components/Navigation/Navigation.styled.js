@@ -7,15 +7,8 @@ export const NavWrapperStyled = styled.ul`
   gap: 12px;
   list-style: none;
   padding: 0;
-  padding-left: 19px;
-  padding-top: 42px;
+  padding-top: 40px;
   padding-bottom: 28px;
-
-  background: linear-gradient(
-    220deg,
-    rgba(109, 84, 235, 0.6) 3.47%,
-    rgba(101, 35, 146, 0.6) 90.06%
-  );
 `;
 
 export const NavIconStyled = styled.div`

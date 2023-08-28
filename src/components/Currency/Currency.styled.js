@@ -156,8 +156,6 @@ export const EllipseImgStyled2 = styled.div`
 `;
 export const LineImgStyled = styled.div`
   position: absolute;
-  /* bottom: 20px; */
-  width: 480px;
   height: 100.356px;
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
