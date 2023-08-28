@@ -12,6 +12,7 @@ Money Guard - це командний проект, спрямований на 
 
 ТімЛід: Наталія Аманжаєва (https://github.com/apazient)
 Скрам Майстер: Владислав Коровін (https://github.com/VlCore) 
+
 Ірина Дідківська (https://github.com/IrynaDidkivska)
 Олег Андрійчук (https://github.com/OAndrijchuk)
 Олексій Берківський (https://github.com/BerkovskiiAlex)
