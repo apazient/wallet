@@ -30,11 +30,11 @@ export const StyledInput = styled(Field)`
   font-family: Poppins-Regular;
   font-size: 18px;
   width: 210px;
-  /* &:-webkit-autofill,
+  &:-webkit-autofill,
   &:-webkit-autofill:focus {
-    box-shadow: 0 0 0 1000px green inset;
-    -webkit-text-fill-color: ${({ theme }) => theme.colors.colorText};
-  } */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.navLink};
+  }
   @media screen and (min-width: 768px) {
     width: 335px;
   }
