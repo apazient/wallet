@@ -74,19 +74,19 @@ export const Currency = () => {
       <CurrencyImgStyled>
         <EllipseImgStyled>
           <EuroImgStyled>{euroBuy}</EuroImgStyled>
-          <MediaQuery maxWidth={1024}>
+          <MediaQuery maxWidth={1280}>
             <SpriteSVG name={'currencyEllipse320768'} />
           </MediaQuery>
-          <MediaQuery minWidth={1025}>
+          <MediaQuery minWidth={1280}>
             <SpriteSVG name={'currencyEllipse'} />
           </MediaQuery>
         </EllipseImgStyled>
         <EllipseImgStyled2>
           <UsdImgStyled>{usdBuy}</UsdImgStyled>
-          <MediaQuery maxWidth={1024}>
+          <MediaQuery maxWidth={1280}>
             <SpriteSVG name={'currencyEllipse320768'} />
           </MediaQuery>
-          <MediaQuery minWidth={1025}>
+          <MediaQuery minWidth={1280}>
             <SpriteSVG name={'currencyEllipse'} />
           </MediaQuery>
         </EllipseImgStyled2>
@@ -94,10 +94,10 @@ export const Currency = () => {
           <MediaQuery maxWidth={768}>
             <SpriteSVG name={'currencyLine320'} />
           </MediaQuery>
-          <MediaQuery minWidth={769} maxWidth={1280}>
+          <MediaQuery minWidth={769} maxWidth={1279}>
             <SpriteSVG name={'currencyLine768'} />
           </MediaQuery>
-          <MediaQuery minWidth={1281}>
+          <MediaQuery minWidth={1280}>
             <SpriteSVG name={'currencyLine'} />
           </MediaQuery>
         </LineImgStyled>
@@ -105,10 +105,10 @@ export const Currency = () => {
           <MediaQuery maxWidth={768}>
             <SpriteSVG name={'currencyWave320'} />
           </MediaQuery>
-          <MediaQuery minWidth={769} maxWidth={1280}>
+          <MediaQuery minWidth={769} maxWidth={1279}>
             <SpriteSVG name={'currencyWave767'} />
           </MediaQuery>
-          <MediaQuery minWidth={1281}>
+          <MediaQuery minWidth={1280}>
             <SpriteSVG name={'currencyWave'} />
           </MediaQuery>
         </WaveImgStyled>
