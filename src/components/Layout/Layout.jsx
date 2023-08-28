@@ -6,13 +6,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router';
 import { getIsLoading } from 'redux/Auth/selectors';
-import { GlobalStyledMain } from 'styles/GlobalStyle';
 import { useMediaQuery } from 'react-responsive';
 // import styled from 'styled-components';
 import Balance from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
 import { ISDESKTOP, ISMOBILE, ISTABLET } from 'styles/const ';
-// import HomeTab from 'components/HomeTab/HomeTab';
+import { Main } from 'components/Main/Main';
 
 const Layout = () => {
   const isMobile = useMediaQuery(ISMOBILE);
@@ -25,7 +24,7 @@ const Layout = () => {
     <>
       {isLoading ? <Loader /> : null}
       <Header />
-      <GlobalStyledMain>
+      <Main>
         {isMobile && (
           <>
             <Navigation />
@@ -78,7 +77,7 @@ const Layout = () => {
             </div>
           </div>
         )}
-      </GlobalStyledMain>
+      </Main>
     </>
   );
 };

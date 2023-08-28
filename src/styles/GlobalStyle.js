@@ -6,6 +6,7 @@ body{
   height: 100vh;
   color: ${({ theme }) => theme.colors.colorText};
   background: radialGradient(220deg, #6D54EB 3.47%, #652392 90.06%);
+  background-color: #101010;
   font-family: Poppins-Regular, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -36,12 +37,6 @@ ul {
 a {
   text-decoration: none;
 }
-`;
-
-export const GlobalStyledMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
 `;
 
 export const GlobalStyledContainer = styled.div`
