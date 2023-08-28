@@ -9,6 +9,9 @@ import {
   SummaryPageContStyled,
   SummaryPageStyled,
   SummaryTitleStyled,
+  OverlayGradient1,
+  OverlayGradient2,
+  OverlayGradient3,
 } from './SummaryPage.styled';
 
 const SummaryPage = () => {
@@ -32,6 +35,9 @@ const SummaryPage = () => {
             <DiagramTab />
             <Table />
           </div>
+          <OverlayGradient1></OverlayGradient1>
+          <OverlayGradient2></OverlayGradient2>
+          <OverlayGradient3></OverlayGradient3>
         </SummaryPageContStyled>
       </SummaryPageStyled>
     </>
