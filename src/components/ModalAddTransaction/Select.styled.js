@@ -3,9 +3,9 @@ import Select from 'react-select';
 export const StyledSelect = styled(Select)`
   position: relative;
   width: 280px;
-  height: 50px;
-  background: transparent;
 
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   @media screen and (min-width: 768px) {
     width: 394px;
   }
@@ -20,15 +20,17 @@ export const StyledSelect = styled(Select)`
     padding: 0;
   }
   .react-select__control {
+    height: 32px;
     background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 0px;
-
-    padding: 0 20px 8px 20px;
+    padding: 0 20px 0 20px;
     cursor: pointer;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
     @media screen and (min-width: 768px) {
       padding-left: ${({ theme }) => theme.spacing(2)};
+      padding-right: ${({ theme }) => theme.spacing(2)};
     }
   }
 
