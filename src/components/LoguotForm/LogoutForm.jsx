@@ -17,7 +17,7 @@ import { SpriteSVG } from 'pictures/SpriteSVG';
 
 export const LogoutForm = () => {
   const dispatch = useDispatch();
-  const { username } = useSelector(getUser);
+  const { name } = useSelector(getUser);
   const navigate = useNavigate();
 
   const isLoading = useSelector(getIsLoading);
@@ -26,7 +26,7 @@ export const LogoutForm = () => {
     dispatch(logoutThunk())
       .unwrap()
       .then(() => {
-        toast.success(`Goobye ${username || ''}!`);
+        toast.success(`Goobye ${name || ''}!`);
         dispatch(closeModal());
         navigate('/login');
       });
