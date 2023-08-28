@@ -9,6 +9,7 @@ export const Main = styled.main`
 export const Overlay16 = styled.div`
   position: fixed;
   pointer-events: none;
+  z-index: -1;
   width: 362.381px;
   height: 362.381px;
   border-radius: 362.381px;
@@ -38,35 +39,44 @@ export const Overlay16 = styled.div`
 export const Overlay18 = styled.div`
   position: fixed;
   pointer-events: none;
-  width: 330px;
-  height: 333px;
-  border-radius: 333px;
-  bottom: -309px;
-  right: 271px;
+  z-index: -1;
+  width: 134px;
+  height: 134px;
+  border-radius: 134px;
+  bottom: -36px;
+  right: 51px;
+  filter: blur(91px);
   background: #6d1c77;
-  background-size: 595px;
-  filter: blur(150px);
 
   @media screen and (min-width: 768px) {
+    width: 330px;
+    height: 333px;
+    border-radius: 333px;
     bottom: -204px;
     right: 39px;
+    filter: blur(150px);
+  }
+  @media screen and (min-width: 1280px) {
+    bottom: -309px;
+    right: 271px;
   }
 `;
 
 export const Overlay14 = styled.div`
   position: fixed;
   pointer-events: none;
-  width: 434.249px;
-  height: 434.249px;
-  border-radius: 434.249px;
+  z-index: -1;
+  width: 434px;
+  height: 434px;
+  border-radius: 434px;
   left: -281px;
-  top: -150.29px;
+  top: -150px;
   background: linear-gradient(
     220deg,
     rgba(109, 84, 235, 0.73) 3.47%,
     rgba(101, 35, 146, 0.73) 90.06%
   );
-  filter: blur(121.80889129638672px);
+  filter: blur(122px);
 
   @media screen and (min-width: 768px) {
     width: 739px;
@@ -74,6 +84,7 @@ export const Overlay14 = styled.div`
     border-radius: 745px;
     bottom: 245px;
     left: -503px;
+    filter: blur(200px);
   }
 
   @media screen and (min-width: 1280px) {
@@ -85,19 +96,26 @@ export const Overlay14 = styled.div`
 export const Overlay17 = styled.div`
   position: fixed;
   pointer-events: none;
+  z-index: -1;
   background: #302e8e;
   filter: blur(150px);
-
+  width: 172px;
+  height: 172px;
+  border-radius: 172px;
+  bottom: 153px;
+  right: -137px;
+  filter: blur(91px);
   @media screen and (min-width: 768px) {
     width: 363px;
-    height: 366.105px;
-    border-radius: 366.105px;
-    bottom: 385.89px;
+    height: 366px;
+    border-radius: 366px;
+    bottom: 385px;
     right: -306px;
+    filter: blur(150px);
   }
 
   @media screen and (min-width: 1280px) {
-    top: 151.43px;
+    top: 151px;
     right: -212px;
   }
 `;
@@ -105,6 +123,7 @@ export const Overlay17 = styled.div`
 export const Overlay19 = styled.div`
   position: fixed;
   pointer-events: none;
+  z-index: -1;
   width: 760px;
   height: 766px;
   border-radius: 766px;
@@ -114,27 +133,55 @@ export const Overlay19 = styled.div`
   filter: blur(200px);
 
   @media screen and (min-width: 768px) {
+    width: 819px;
+    height: 825px;
+    border-radius: 825px;
     bottom: -410px;
     left: -328px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 760px;
+    height: 766px;
+    border-radius: 766px;
+    bottom: -314px;
+    left: -194px;
   }
 `;
 
 export const Overlay20 = styled.div`
   position: fixed;
   pointer-events: none;
-  width: 434.249px;
-  height: 434.249px;
-  border-radius: 434.249px;
-  bottom: -204.25px;
-  left: -118;
-  background: linear-gradient(211deg, #652392 48.96%, #341fa0 86.46%);
-  filter: blur(150px);
-
+  z-index: -1;
+  width: 434px;
+  height: 434px;
+  border-radius: 434px;
+  bottom: -204px;
+  right: -118px;
+  background: linear-gradient(
+    220deg,
+    rgba(109, 84, 235, 0.73) 3.47%,
+    rgba(101, 35, 146, 0.73) 90.06%
+  );
+  filter: blur(122px);
   @media screen and (min-width: 768px) {
     width: 549px;
     height: 554px;
     border-radius: 554px;
     right: -127px;
     top: -166;
+    background: linear-gradient(211deg, #652392 48.96%, #341fa0 86.46%);
+    filter: blur(150px);
+  }
+  @media screen and (min-width: 1280px) {
+    position: fixed;
+    pointer-events: none;
+    z-index: -1;
+    width: 434.249px;
+    height: 434.249px;
+    border-radius: 434.249px;
+    bottom: -204.25px;
+    left: -118;
+    background: linear-gradient(211deg, #652392 48.96%, #341fa0 86.46%);
+    filter: blur(150px);
   }
 `;
