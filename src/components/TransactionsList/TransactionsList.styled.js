@@ -10,13 +10,8 @@ export const TableStyled = styled.table`
   border-collapse: collapse;
 `;
 export const MainTrStyled = styled.tr`
-  background-image: linear-gradient(
-    219.62deg,
-    rgba(109, 84, 235, 0.6) 28.31%,
-    rgba(101, 35, 146, 0.6) 66.76%
-  );
+  background: rgba(82, 59, 126, 0.6);
   height: 56px;
-  padding: 16px 20px;
   border-radius: 8px;
 `;
 export const TrInfoStyled = styled.tr`
@@ -24,9 +19,14 @@ export const TrInfoStyled = styled.tr`
   position: relative;
   font-family: Poppins-Regular;
   color: ${({ theme }) => theme.colors.colorText};
-  &:after {
+  background: linear-gradient(
+    219.62deg,
+    rgba(109, 84, 235, 0.6) 28.31%,
+    rgba(101, 35, 146, 0.6) 66.76%
+  );
+  &:not(:last-child):after {
     position: absolute;
-    content: ‘’;
+    content: '';
     left: 20px;
     bottom: 0;
     width: calc(100% - 20px);
@@ -42,12 +42,15 @@ export const IconBtnWrapperStyled = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 6px;
 `;
 export const EditIconStyled = styled.div`
   width: 14px;
   height: 14px;
-  fill: rgba(255, 255, 255, 0.6);
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
 `;
 
 export const EditTabBtn = styled.button`
@@ -79,6 +82,8 @@ export const DeleteTabBtn = styled.button`
 export const ThStyled = styled.th`
   font-family: Poppins-SemiBold;
   color: ${({ theme }) => theme.colors.colorText};
+  text-align: left;
+  padding-left: 20px;
   &:first-child {
     border-radius: 8px 0 0 8px;
   }
@@ -86,28 +91,47 @@ export const ThStyled = styled.th`
     border-radius: 0 8px 8px 0;
   }
 `;
+
+export const ThDateStyled = styled.th`
+  text-align: start;
+  padding-left: 20px;
+`;
+export const ThSumStyled = styled.th`
+  text-align: end;
+`;
 export const TdCommentStyled = styled.td`
-  text-align: center;
-  max-width: 118px;
+  text-align: left;
+  width: 25%;
+  padding-left: 20px;
 `;
 export const TdDateStyled = styled.td`
   text-align: left;
-  max-width: 52px;
+  width: 15%;
+  padding-left: 25px;
+  @media screen and (min-width: 768px) {
+    width: 20%;
+  }
 `;
 export const TdTypeStyled = styled.td`
   text-align: center;
-  max-width: 40px;
+  width: 10%;
 `;
 export const TdCatagoryStyled = styled.td`
-  text-align: center;
-  max-width: 106px;
+  text-align: left;
+  width: 25%;
+  padding-left: 20px;
+  @media screen and (min-width: 768px) {
+    width: 20%;
+  }
 `;
 export const TdSumStyled = styled.td`
-  text-align: center;
-  max-width: 70px;
+  width: 15%;
   font-family: Poppins-SemiBold;
+  text-align: end;
+  padding-left: 20px;
 `;
 export const TdActionStyled = styled.td`
-  text-align: right;
-  max-width: 52px;
+  text-align: left;
+  width: 10%;
+  padding-left: 32px;
 `;
