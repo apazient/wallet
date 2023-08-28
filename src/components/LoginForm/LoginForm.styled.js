@@ -10,6 +10,7 @@ export const StyledSectionForm = styled.section`
   z-index: 100;
   @media screen and (min-width: 768px) {
     width: 533px;
+    border-radius: 8px;
   }
 `;
 
@@ -24,16 +25,39 @@ export const FormikLoginForm = styled(Form)`
 export const StyledInput = styled(Field)`
   border: none;
   outline: none;
-  background-color: inherit;
+  background-color: transparent;
   color: ${({ theme }) => theme.colors.navLink};
   font-family: Poppins-Regular;
   font-size: 18px;
+  width: 210px;
+  /* &:-webkit-autofill,
+  &:-webkit-autofill:focus {
+    box-shadow: 0 0 0 1000px green inset;
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.colorText};
+  } */
+  @media screen and (min-width: 768px) {
+    width: 335px;
+  }
 `;
 
-export const StyledErrorMessages = styled(ErrorMessage)`
+export const StyledErrorMessageEmail = styled(ErrorMessage)`
   font-size: 12px;
   color: orange;
-  margin-top: 15px;
+  position: absolute;
+  top: 240px;
+  @media screen and (min-width: 768px) {
+    top: 245px;
+  }
+`;
+
+export const StyledErrorMessagePassword = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
+  position: absolute;
+  top: 310px;
+  @media screen and (min-width: 768px) {
+    top: 315px;
+  }
 `;
 
 export const StyledDiv = styled.div`
@@ -127,12 +151,22 @@ export const StyledDivInputPassword = styled.div`
 
 export const StyledButtonLog = styled(StyledButton)`
   margin-top: 45px;
+  transition: transform 0.2s ease;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
   @media screen and (min-width: 768px) {
     margin-top: 60px;
   }
 `;
 
 export const StyledLinkReg = styled(StyledLink)`
+  transition: transform 0.2s ease;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
   margin-top: 20px;
 `;
 

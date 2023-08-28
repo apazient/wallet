@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const API = axios.create({
   baseURL: 'https://wallet.goit.ua',
@@ -19,10 +20,10 @@ export const register = createAsyncThunk(
     try {
       const res = await API.post('/api/auth/sign-up', credentials);
       setToken(res.data.token);
-
+      toast.success(`Hello ${res.data.user.username}`);
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -36,7 +37,7 @@ export const loginThunk = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
