@@ -29,7 +29,7 @@ const persistCurrency = {
   key: 'currency',
   version: 1,
   storage,
-  whitelist: ['data'],
+  whitelist: ['data', 'lastRequestDate'],
 };
 
 export const store = configureStore({
