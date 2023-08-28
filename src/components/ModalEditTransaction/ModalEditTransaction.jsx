@@ -25,6 +25,7 @@ import {
   StyledCloseIcon,
   StyledDatatimeWrapper,
   StyledDatetime,
+  StyledToggleText,
   StyledToggleTextExp,
   StyledToggleTextIncome,
   StyledToggleWrapper,
@@ -103,13 +104,13 @@ export const ModalEditTransaction = () => {
       </StyledCloseIconEdit>
       <StyledTransaction>Edit transaction</StyledTransaction>
       <StyledIncomeExpences>
-        <StyledToggleTextIncome style={isExpense ? { color: 'white' } : null}>
+        <StyledToggleText style={isExpense ? { color: 'white' } : null}>
           Income
-        </StyledToggleTextIncome>
+        </StyledToggleText>
         <StyledP>/</StyledP>
-        <StyledToggleTextIncome style={!isExpense ? { color: 'white' } : null}>
+        <StyledToggleText style={!isExpense ? { color: 'white' } : null}>
           Expense
-        </StyledToggleTextIncome>
+        </StyledToggleText>
       </StyledIncomeExpences>
       {isExpense && <StyledCategory>{getCategoriName()}</StyledCategory>}
       <InputWrapper>
