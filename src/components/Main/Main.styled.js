@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
-export const Main = styled.main`
+export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  padding: 0 20px;
+  @media screen and (min-width: 768px) {
+    padding: 0 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 0 16px 0 0;
+  }
 `;
 
 export const Overlay16 = styled.div`

@@ -7,10 +7,11 @@ import {
   Overlay19,
   Overlay20,
 } from './Main.styled';
+import { MainContainer } from './Main.styled';
 
 export const Main = ({ children }) => {
   return (
-    <main>
+    <MainContainer>
       <Overlay16 />
       <Overlay18 />
       <Overlay14 />
@@ -18,6 +19,6 @@ export const Main = ({ children }) => {
       <Overlay17 />
       <Overlay20 />
       {children}
-    </main>
+    </MainContainer>
   );
 };

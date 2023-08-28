@@ -3,13 +3,18 @@ import styled from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
 
 body{
-  height: 100vh;
+  margin: 0; 
+  height: 100%;   
   color: ${({ theme }) => theme.colors.colorText}; 
   background-color: #101010;
   font-family: Poppins-Regular, sans-serif;
   font-size: 14px;
   font-style: normal;
   line-height: 1.5;  
+   @media screen and (min-width: 768px) {
+    overflow: hidden;
+  }
+  
 }
 
 p,

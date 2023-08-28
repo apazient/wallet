@@ -140,6 +140,7 @@ export const LineImgStyled = styled.div`
   top: 200px;
   @media screen and (min-width: 767px) {
     top: 195px;
+
   }
   @media screen and (min-width: 1280px) {
     /* bottom: 20px; */
