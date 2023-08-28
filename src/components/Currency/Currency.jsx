@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import MediaQuery from 'react-responsive';
 import {
   CurrencyContainerStyled,
   CurrencyImgStyled,
@@ -53,6 +54,7 @@ export const Currency = () => {
             <ThCurrencyStyled>Sale</ThCurrencyStyled>
           </TrCurrencyStyled>
         </TheadCurrencyStyled>
+        <></>
         <TbodyCurrencyStyled>
           {isLoading ? (
             <tr>
@@ -72,17 +74,43 @@ export const Currency = () => {
       <CurrencyImgStyled>
         <EllipseImgStyled>
           <EuroImgStyled>{euroBuy}</EuroImgStyled>
-          <SpriteSVG name={'currencyEllipse'} />
+          <MediaQuery maxWidth={1024}>
+            <SpriteSVG name={'currencyEllipse320768'} />
+          </MediaQuery>
+          <MediaQuery minWidth={1025}>
+            <SpriteSVG name={'currencyEllipse'} />
+          </MediaQuery>
         </EllipseImgStyled>
         <EllipseImgStyled2>
           <UsdImgStyled>{usdBuy}</UsdImgStyled>
-          <SpriteSVG name={'currencyEllipse'} />
+          <MediaQuery maxWidth={1024}>
+            <SpriteSVG name={'currencyEllipse320768'} />
+          </MediaQuery>
+          <MediaQuery minWidth={1025}>
+            <SpriteSVG name={'currencyEllipse'} />
+          </MediaQuery>
         </EllipseImgStyled2>
         <LineImgStyled>
-          <SpriteSVG name={'currencyLine'} />
+          <MediaQuery maxWidth={768}>
+            <SpriteSVG name={'currencyLine320'} />
+          </MediaQuery>
+          <MediaQuery minWidth={769} maxWidth={1280}>
+            <SpriteSVG name={'currencyLine768'} />
+          </MediaQuery>
+          <MediaQuery minWidth={1281}>
+            <SpriteSVG name={'currencyLine'} />
+          </MediaQuery>
         </LineImgStyled>
         <WaveImgStyled>
-          <SpriteSVG name={'currencyWave'} />
+          <MediaQuery maxWidth={768}>
+            <SpriteSVG name={'currencyWave320'} />
+          </MediaQuery>
+          <MediaQuery minWidth={769} maxWidth={1280}>
+            <SpriteSVG name={'currencyWave767'} />
+          </MediaQuery>
+          <MediaQuery minWidth={1281}>
+            <SpriteSVG name={'currencyWave'} />
+          </MediaQuery>
         </WaveImgStyled>
       </CurrencyImgStyled>
     </CurrencyContainerStyled>

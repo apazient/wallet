@@ -5,7 +5,7 @@ const initialState = {
   data: [
     { currency: 'usd', buy: null, sell: null },
     {
-      currency: 'euro',
+      currency: 'eur',
       buy: null,
       sell: null,
     },
