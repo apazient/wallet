@@ -7,6 +7,7 @@ import {
   InputWrapper,
   StyledButtonPerple,
   StyledButtonWhite,
+  StyledCategory,
   StyledCloseIconEdit,
   StyledIncomeExpences,
   StyledTransaction,
@@ -23,6 +24,7 @@ import {
   StyledToggleTextExp,
   StyledToggleTextIncome,
 } from 'components/ModalAddTransaction/ModalAddTransaction.styled';
+import { SelectExpenses } from 'components/ModalAddTransaction/Select';
 
 export const ModalEditTransaction = () => {
   const dispatch = useDispatch();
@@ -95,7 +97,7 @@ export const ModalEditTransaction = () => {
           Expense
         </StyledToggleTextIncome>
       </StyledIncomeExpences>
-      {isExpense && <div>{getCategoriName()}</div>}
+      {isExpense && <StyledCategory>{getCategoriName()}</StyledCategory>}
       <InputWrapper>
         <Input
           name="amount"

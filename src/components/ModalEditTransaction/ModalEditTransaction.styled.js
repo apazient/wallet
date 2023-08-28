@@ -128,3 +128,11 @@ export const StyledCloseIconEdit = styled.div`
     right: 20px;
   }
 `;
+
+export const StyledCategory = styled.div`
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  max-width: 100%;
+  margin-bottom: 10px;
+  width: 280px;
+`;
