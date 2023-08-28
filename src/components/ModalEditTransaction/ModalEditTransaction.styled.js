@@ -2,14 +2,19 @@ import Datetime from 'react-datetime';
 import { styled } from 'styled-components';
 
 export const FormikForm = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   row-gap: 40px;
   padding: 32px 20px;
-  box-shadow: 0 0 50px 50px gray;
+  /* box-shadow: 0 0 50px 50px gray; */
   background: radial-gradient(rgb(63, 46, 150), rgb(95, 71, 140));
+  border-radius: 8px;
+  width: 540px;
+  height: 580px;
+  padding: 40px 73px;
 `;
 
 export const StyledButtonPerple = styled.button`
@@ -64,31 +69,36 @@ export const Input = styled.input`
   color: #fbfbfb;
   background-color: transparent;
   max-width: 100%;
-  margin-bottom: 10px;
-  width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 181px;
+    text-align: center;
+    padding-left: 0px;
+  }
 `;
 
 export const InputWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-direction: row;
+  gap: 32px;
+  /* max-width: 180px; */
   width: 100%;
   align-items: center;
 `;
 
 export const StyledTransaction = styled.h2`
   display: flex;
-  width: 381px;
-  height: 40px;
+  /* width: 381px; */
+  /* height: 40px; */
   justify-content: center;
   flex-shrink: 0;
   color: #fbfbfb;
-  text-align: center;
-  font-family: Poppins;
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  text-align: center;
+  font-family: Poppins-Regular;
+  line-height: 1.5;
+  color: #fbfbfb;
 `;
 
 export const StyledIncomeExpences = styled.div`
@@ -110,4 +120,30 @@ export const StyledDatetime = styled(Datetime)`
   padding: 10px;
   border-radius: 4px;
   font-size: 16px;
+`;
+
+export const StyledCloseIconEdit = styled.div`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    stroke: ${({ theme }) => theme.colors.colorText};
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+`;
+
+export const StyledCategory = styled.div`
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  max-width: 100%;
+  margin-bottom: 10px;
+  width: 394px;
+`;
+
+export const StyledP = styled.p`
+  margin: 10px;
 `;

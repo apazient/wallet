@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
+import { SpriteSVG } from 'pictures/SpriteSVG';
 import {
   FormikForm,
   Input,
   InputWrapper,
   StyledButtonPerple,
   StyledButtonWhite,
+  StyledCategory,
+  StyledCloseIconEdit,
   StyledIncomeExpences,
+  StyledP,
   StyledTransaction,
 } from './ModalEditTransaction.styled';
 import * as Yup from 'yup';
@@ -16,6 +20,16 @@ import { closeModal } from 'redux/Global/globalSlice';
 import { updateTransaction } from 'redux/TransactionsList/operations';
 import { selectAllCategories } from 'redux/TransactionCategories/selectors';
 import { feachCategories } from 'redux/TransactionCategories/operations';
+import {
+  StyledCalendarSvg,
+  StyledCloseIcon,
+  StyledDatatimeWrapper,
+  StyledDatetime,
+  StyledToggleTextExp,
+  StyledToggleTextIncome,
+  StyledToggleWrapper,
+} from 'components/ModalAddTransaction/ModalAddTransaction.styled';
+import { SelectExpenses } from 'components/ModalAddTransaction/Select';
 
 export const ModalEditTransaction = () => {
   const dispatch = useDispatch();
@@ -69,15 +83,35 @@ export const ModalEditTransaction = () => {
     }),
   });
 
+  const handleDatetimeChange = (name, value) => {
+    formik.handleChange({
+      target: {
+        name,
+        value,
+      },
+    });
+  };
+
   return (
     <FormikForm onSubmit={formik.handleSubmit}>
-      <StyledTransaction>Edit transaction (income)</StyledTransaction>
+      <StyledCloseIconEdit
+        onClick={() => {
+          dispatch(closeModal());
+        }}
+      >
+        <SpriteSVG name={'close'} />
+      </StyledCloseIconEdit>
+      <StyledTransaction>Edit transaction</StyledTransaction>
       <StyledIncomeExpences>
-        <span style={!isExpense ? { color: 'red' } : null}>Income</span>
-        <span>/</span>
-        <span style={isExpense ? { color: 'red' } : null}>Expense</span>
+        <StyledToggleTextIncome style={isExpense ? { color: 'white' } : null}>
+          Income
+        </StyledToggleTextIncome>
+        <StyledP>/</StyledP>
+        <StyledToggleTextIncome style={!isExpense ? { color: 'white' } : null}>
+          Expense
+        </StyledToggleTextIncome>
       </StyledIncomeExpences>
-      {isExpense && <div>{getCategoriName()}</div>}
+      {isExpense && <StyledCategory>{getCategoriName()}</StyledCategory>}
       <InputWrapper>
         <Input
           name="amount"
@@ -98,6 +132,23 @@ export const ModalEditTransaction = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
+        <StyledDatatimeWrapper>
+          <StyledDatetime
+            name="transactionDate"
+            type="date"
+            dateFormat="DD.MM.YYYY"
+            timeFormat={false}
+            value={formik.values.transactionDate}
+            // onChange={formik.handleChange}
+            onChange={value => handleDatetimeChange('transactionDate', value)}
+            onBlur={formik.handleBlur}
+            // closeOnSelect={true}
+          ></StyledDatetime>
+          <StyledCalendarSvg>
+            <SpriteSVG name={'calendar'} />
+          </StyledCalendarSvg>
+        </StyledDatatimeWrapper>
+
         {formik.touched.transactionDate && formik.errors.transactionDate ? (
           <div>{formik.errors.transactionDate}</div>
         ) : null}
