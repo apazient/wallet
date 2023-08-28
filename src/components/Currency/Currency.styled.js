@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CurrencyContainerStyled = styled.div`
   justify-content: center;
   align-items: center;
-  width: 480px;
+  // width: 480px;
   height: 395px;
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -78,11 +78,13 @@ export const TdCurrencyStyled = styled.td`
 `;
 export const CurrencyImgStyled = styled.div`
   background-color: #523b7e;
-  /* @media screen and (max-width: 767px) {
+  width: 320px;
+  @media screen and (min-width: 767px) {
+    width: 336px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    background-color: #523b7e;
-  } */
+  @media screen and (min-width: 767px) {
+    width: 480px;
+  }
 `;
 export const EuroImgStyled = styled.span`
   color: var(--dashboard-text, #ff868d);
