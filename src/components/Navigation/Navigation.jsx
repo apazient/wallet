@@ -14,7 +14,7 @@ const Navigation = () => {
   const { useMediaQuery } = require('react-responsive');
 
   //brackpoints
-  const isMobile = useMediaQuery({ minWidth: 220, maxWidth: 767 });
+  const isMobile = useMediaQuery({ minWidth: 220, maxWidth: 767.99 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1200 });
   const isDesctop = useMediaQuery({ minWidth: 1200 });
   return (
