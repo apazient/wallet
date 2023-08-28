@@ -1,10 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { LoaderOverlay, LoaderSVG } from './Loader.styled';
-import { getIsLoading } from 'redux/Auth/selectors';
-const Loader = () => {
-  const isLoading = useSelector(getIsLoading);
 
+const Loader = () => {
   return (
     <LoaderOverlay>
       <LoaderSVG
@@ -30,10 +27,10 @@ const Loader = () => {
           r="82"
           fill="none"
           stroke="url(#pl-grad1)"
-          stroke-width="36"
-          stroke-dasharray="0 257 1 257"
-          stroke-dashoffset="0.01"
-          stroke-linecap="round"
+          strokeWidth="36"
+          strokeDasharray="0 257 1 257"
+          strokeDashoffset="0.01"
+          strokeLinecap="round"
           transform="rotate(-90,100,100)"
         />
         <line
@@ -43,9 +40,9 @@ const Loader = () => {
           y1="18"
           x2="100.01"
           y2="182"
-          stroke-width="36"
-          stroke-dasharray="1 165"
-          stroke-linecap="round"
+          strokeWidth="36"
+          strokeDasharray="1 165"
+          strokeLinecap="round"
         />
       </LoaderSVG>
     </LoaderOverlay>

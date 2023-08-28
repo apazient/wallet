@@ -5,7 +5,7 @@ const initialState = {
   user: {
     email: '',
     password: '',
-    name: '',
+    username: '',
   },
   isAuth: false,
   isLoading: false,

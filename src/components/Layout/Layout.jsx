@@ -21,7 +21,7 @@ const Layout = () => {
   const isLoading = useSelector(getIsLoading);
 
   return (
-    <div>
+    <>
       {isLoading ? <Loader /> : null}
       <Header />
       <Main>
@@ -78,7 +78,7 @@ const Layout = () => {
           </div>
         )}
       </Main>
-    </div>
+    </>
   );
 };
 
