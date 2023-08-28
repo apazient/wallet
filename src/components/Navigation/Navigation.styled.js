@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const NavWrapperStyled = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 12px;
   list-style: none;
   padding: 0;
@@ -30,21 +30,60 @@ export const NavLinkWrapperStyled = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+  &:hover {
+    ${NavIconStyled} {
+      svg{
+      background-color: rgba(255, 255, 255, 1);
+      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+        fill: #4a56e2;
+        fill-opacity: 1;
+        border-radius: 5px;
+      }
+    }
+  }
 `;
 
 export const NavLinkStyled = styled(NavLink)`
   color: ${({ theme }) => theme.colors.colorText};
-  font-family: Poppins; /*  нужно поменять шрифт */
+  font-family: Poppins-Regular; /*  нужно поменять шрифт */
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
   text-decoration: none; /*  нужно убрать стили для тега а */
+  
   &.hover {
     font-weight: 700px;
+    ${NavIconStyled} {
+      svg{
+      background-color: rgba(255, 255, 255, 1);
+      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+        fill: #4a56e2;
+        fill-opacity: 1;
+        border-radius: 5px;
+      }
+    }
   }
   &.active {
     font-weight: 700;
+    ${NavIconStyled} {
+      svg{
+      background-color: rgba(255, 255, 255, 1);
+      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+        fill: #4a56e2;
+        fill-opacity: 1;
+        border-radius: 5px;
+      }
+    }
   }
 `;
+
+export const NavWrapperStyledTablet = styled(NavWrapperStyled)`
+flex-direction: column;
+`
+
+export const NavLinkStyledTablet = styled(NavLinkStyled)`
+display: flex;
+gap: 20px;
+`

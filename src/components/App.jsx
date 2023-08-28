@@ -10,6 +10,7 @@ import { PrivateRoute } from 'HOC/PrivateRoute/PrivateRoute';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { currentUser } from 'redux/Auth/operations';
+import { Currency } from './Currency/Currency';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,14 @@ export const App = () => {
               <SummaryPage />
             </PrivateRoute>
           }
+        />
+        <Route 
+        path="currency"
+        element={
+          <PrivateRoute>
+            <Currency/>
+          </PrivateRoute>
+        }
         />
         <Route
           path="register"

@@ -5,6 +5,8 @@ import {
   NavLinkStyled,
   NavLinkWrapperStyled,
   NavWrapperStyled,
+  NavWrapperStyledTablet,
+  NavLinkStyledTablet,
 } from './Navigation.styled';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 
@@ -12,7 +14,7 @@ const Navigation = () => {
   const { useMediaQuery } = require('react-responsive');
 
   //brackpoints
-  const isMobile = useMediaQuery({ minWidth: 220, maxWidth: 767 });
+  const isMobile = useMediaQuery({ minWidth: 220, maxWidth: 767.99 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1200 });
   const isDesctop = useMediaQuery({ minWidth: 1200 });
   return (
@@ -20,58 +22,67 @@ const Navigation = () => {
       {isMobile && (
         <NavWrapperStyled>
           <NavLinkWrapperStyled>
-            <NavIconStyled>
+            <NavLinkStyled to="/">
+              <NavIconStyled>
               <SpriteSVG name={'home-page'} />
             </NavIconStyled>
-
-            <NavLinkStyled to="/">Home</NavLinkStyled>
+            </NavLinkStyled>
           </NavLinkWrapperStyled>
           <NavLinkWrapperStyled>
-            <NavIconStyled>
+            <NavLinkStyled to="/summary">
+              <NavIconStyled>
               <SpriteSVG name={'statistic'} />
             </NavIconStyled>
-
-            <NavLinkStyled to="/summary">Statistics</NavLinkStyled>
+            </NavLinkStyled>
           </NavLinkWrapperStyled>
           <NavLinkWrapperStyled>
-            <NavIconStyled>
+            <NavLinkStyled to="/currency">
+              <NavIconStyled>
               <SpriteSVG name={'currency'} />
             </NavIconStyled>
-            <NavLinkStyled to="/currency">Currency</NavLinkStyled>
+            </NavLinkStyled>
           </NavLinkWrapperStyled>
         </NavWrapperStyled>
       )}
       {isTablet && (
-        <NavWrapperStyled>
+        <NavWrapperStyledTablet>
           <NavLinkWrapperStyled>
-            <NavIconStyled>
+            <NavLinkStyledTablet to="/">
+              <NavIconStyled>
               <SpriteSVG name={'home-page'} />
             </NavIconStyled>
-            <NavLinkStyled to="/">Home</NavLinkStyled>
+            Home
+            </NavLinkStyledTablet>
           </NavLinkWrapperStyled>
           <NavLinkWrapperStyled>
-            <NavIconStyled>
+            <NavLinkStyledTablet to="/summary">
+              <NavIconStyled>
               <SpriteSVG name={'statistic'} />
             </NavIconStyled>
-            <NavLinkStyled to="/summary">Statistics</NavLinkStyled>
+              Statistics
+              </NavLinkStyledTablet>
           </NavLinkWrapperStyled>
-        </NavWrapperStyled>
+        </NavWrapperStyledTablet>
       )}
       {isDesctop && (
         <NavWrapperStyled>
-          <NavLinkWrapperStyled>
+        <NavLinkWrapperStyled>
+          <NavLinkStyledTablet to="/">
             <NavIconStyled>
-              <SpriteSVG name={'home-page'} />
-            </NavIconStyled>
-            <NavLinkStyled to="/">Home</NavLinkStyled>
-          </NavLinkWrapperStyled>
-          <NavLinkWrapperStyled>
+            <SpriteSVG name={'home-page'} />
+          </NavIconStyled>
+          Home
+          </NavLinkStyledTablet>
+        </NavLinkWrapperStyled>
+        <NavLinkWrapperStyled>
+          <NavLinkStyledTablet to="/summary">
             <NavIconStyled>
-              <SpriteSVG name={'statistic'} />
-            </NavIconStyled>
-            <NavLinkStyled to="/summary">Statistics</NavLinkStyled>
-          </NavLinkWrapperStyled>
-        </NavWrapperStyled>
+            <SpriteSVG name={'statistic'} />
+          </NavIconStyled>
+            Statistics
+            </NavLinkStyledTablet>
+        </NavLinkWrapperStyled>
+      </NavWrapperStyled>
       )}
     </>
   );
