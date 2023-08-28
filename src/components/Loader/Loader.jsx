@@ -21,7 +21,7 @@ const Loader = () => {
           </linearGradient>
         </defs>
         <circle
-          class="pl__ring"
+          className="pl__ring"
           cx="100"
           cy="100"
           r="82"
@@ -34,7 +34,7 @@ const Loader = () => {
           transform="rotate(-90,100,100)"
         />
         <line
-          class="pl__ball"
+          className="pl__ball"
           stroke="url(#pl-grad2)"
           x1="100"
           y1="18"
