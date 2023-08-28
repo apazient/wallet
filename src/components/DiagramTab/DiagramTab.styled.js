@@ -76,6 +76,11 @@ export const StyledSelect = styled(Select)`
     }
   }
 
+  .react-select__control.react-select__control--menu-is-open
+    .react-select__indicators {
+    transform: rotate(-180deg);
+  }
+
   .react-select__menu {
     border-radius: 8px;
     background: linear-gradient(
@@ -114,11 +119,6 @@ export const StyledIconDiagram = styled.div`
   align-items: center;
   transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
   cursor: pointer;
-
-  svg {
-    transform: ${props =>
-      props.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
-  }
 `;
 
 export const StyledDiagramTab = styled.div`
