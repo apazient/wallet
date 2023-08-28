@@ -9,7 +9,6 @@ export const StyledButton = styled.button`
   letter-spacing: 1.8px;
   text-transform: uppercase;
   text-align: center;
-
   border: none;
   border-radius: 20px;
   outline: none;
@@ -38,6 +37,7 @@ export const StyledLink = styled(Link)`
   border: none;
   border-radius: 20px;
   outline: none;
+  line-height: 1.15;
   cursor: pointer;
   color: #623f8b;
   background: ${({ theme }) => theme.colors.whiteBtn};
