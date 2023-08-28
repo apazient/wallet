@@ -11,11 +11,13 @@ export const Container = styled.div`
 `;
 
 export const WrapperNavBalCur = styled.div`
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
   gap: 32px;
   margin-bottom: 20px;
 `;
 export const WrapperNavCur = styled.div`
-  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
