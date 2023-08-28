@@ -26,6 +26,8 @@ import {
   TdTypeStyled,
   ThStyled,
   TrInfoStyled,
+  ThDateStyled,
+  ThSumStyled,
 } from './TransactionsList.styled';
 import { selectAllCategories } from 'redux/TransactionCategories/selectors';
 import { getCategoriName } from 'helpers/helpers';
@@ -55,11 +57,11 @@ const TransactionsList = () => {
     <TableStyled>
       <thead>
         <MainTrStyled>
-          <ThStyled>Date</ThStyled>
+          <ThDateStyled>Date</ThDateStyled>
           <ThStyled>Type</ThStyled>
           <ThStyled>Category</ThStyled>
           <ThStyled>Comment</ThStyled>
-          <ThStyled>Sum</ThStyled>
+          <ThSumStyled>Sum</ThSumStyled>
           <ThStyled>&nbsp;</ThStyled>
         </MainTrStyled>
       </thead>
