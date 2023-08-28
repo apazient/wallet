@@ -6,7 +6,7 @@ export const StyledSelect = styled(Select)`
   background: rgba(74, 86, 226, 0.1);
   /* Стили для выбранного значения */
   .react-select__single-value {
-    color: var(--white, #fbfbfb);
+    color: #fbfbfb;
     font-size: 16px;
     font-weight: 400;
     padding: 12px 20px 14px 20px;
@@ -21,7 +21,7 @@ export const StyledSelect = styled(Select)`
     border: 1px solid var(--white-60, rgba(255, 255, 255, 0.6));
     background: rgba(74, 86, 226, 0.1);
     margin-bottom: 0;
-    color: var(--white, #fbfbfb);
+    color: #fbfbfb;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
@@ -58,17 +58,17 @@ export const StyledSelect = styled(Select)`
   }
   /* Стили для опций (вариантов) */
   .react-select__option {
-    color: var(--white, #fbfbfb);
+    color: #fbfbfb;
     font-family: Poppins-Regular;
     font-size: 16px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s, color 0.3s;
     margin-top: 0;
     cursor: pointer;
     &:hover,
     &.react-select__option--is-focused,
     &.react-select__option--is-selected {
       background: rgba(255, 255, 255, 0.1);
-      color: var(--dashboard-text, #ff868d);
+      color: #ff868d;
       font-family: Poppins-Regular;
       font-size: 16px;
       font-weight: 400;
@@ -78,15 +78,12 @@ export const StyledSelect = styled(Select)`
 
   .react-select__menu {
     border-radius: 8px;
-    background: var(
-      --small-form-color,
-      linear-gradient(
-        360deg,
-        rgba(83, 61, 186, 1) 0%,
-        rgba(80, 48, 154, 1) 35.94%,
-        rgba(106, 70, 165, 1) 61.04%,
-        rgba(133, 93, 175, 1) 100%
-      )
+    background: linear-gradient(
+      360deg,
+      rgba(83, 61, 186, 1) 0%,
+      rgba(80, 48, 154, 1) 35.94%,
+      rgba(106, 70, 165, 1) 61.04%,
+      rgba(133, 93, 175, 1) 100%
     );
     max-height: 182px;
     overflow: hidden;
@@ -97,16 +94,10 @@ export const StyledSelect = styled(Select)`
     overflow-x: hidden; /* Скрываем горизонтальную полосу прокрутки */
   }
   .react-select__placeholder {
-    color: var(--white, #fbfbfb);
+    color: #fbfbfb;
     font-size: 16px;
     font-weight: 400;
     font-family: Poppins-Regular;
-  }
-  .react-select__dropdown-indicator {
-    background-image: url('../../pictures/SpriteSVG.jsx={'select'}'); /* замените на путь к вашей SVG иконке */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
   }
   @media screen and (min-width: 768px) {
     width: 160px;
