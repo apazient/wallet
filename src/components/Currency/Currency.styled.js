@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const CurrencyContainerStyled = styled.div`
-  justify-content: center;
-  align-items: center;
   @media screen and (min-width: 767px) {
   }
   @media screen and (min-width: 1280px) {
@@ -24,6 +22,7 @@ export const TableCurrencyStyled = styled.table`
   @media screen and (min-width: 1280px) {
     max-width: 480px;
     height: 56px;
+    width: 100%;
   }
 `;
 
@@ -40,6 +39,7 @@ export const TbodyCurrencyStyled = styled.tbody`
   @media screen and (min-width: 767px) {
   }
   @media screen and (min-width: 1280px) {
+    width: 100%;
   }
 `;
 
@@ -75,6 +75,7 @@ export const EuroImgStyled = styled.span`
     display: none;
   }
   @media screen and (min-width: 1280px) {
+    display: block;
     color: var(--dashboard-text, #ff868d);
     font-family: Poppins-Regular;
     font-size: 12px;
@@ -106,6 +107,7 @@ export const UsdImgStyled = styled.span`
     display: none;
   }
   @media screen and (min-width: 1280px) {
+    display: block;
     color: var(--dashboard-text, #ff868d);
     font-family: Poppins-Regular;
     font-size: 12px;
@@ -137,12 +139,12 @@ export const LineImgStyled = styled.div`
   position: absolute;
   width: 320px;
   height: 70px;
-  top: 200px;
+  top: 267px;
   @media screen and (min-width: 767px) {
     top: 195px;
   }
   @media screen and (min-width: 1280px) {
-    /* bottom: 20px; */
+    top: 440px;
     width: 480px;
     height: 100.356px;
   }
@@ -151,6 +153,7 @@ export const WaveImgStyled = styled.div`
   position: relative;
   width: 320px;
   height: 88px;
+  top: -38px;
   fill: linear-gradient(
       0deg,
       rgba(57, 0, 150, 0.2) 0%,
@@ -166,7 +169,7 @@ export const WaveImgStyled = styled.div`
     );
 
   @media screen and (min-width: 767px) {
-    /* width: 336px; */
+    top: -36px;
   }
   @media screen and (min-width: 1280px) {
     top: 40px;
