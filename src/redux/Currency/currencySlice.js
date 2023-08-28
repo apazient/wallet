@@ -11,11 +11,17 @@ const initialState = {
     },
   ],
   loading: false,
+  lastRequestDate: 0,
 };
 
 const currencySlice = createSlice({
   name: 'currency',
   initialState,
+  reducers: {
+    setLastRequestDate: (state, { payload }) => {
+      state.lastRequestDate = payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchCurrencyData.fulfilled, (state, { payload }) => {
@@ -36,3 +42,4 @@ const currencySlice = createSlice({
 });
 
 export const currencyReducer = currencySlice.reducer;
+export const { setLastRequestDate } = currencySlice.actions;
