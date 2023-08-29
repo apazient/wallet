@@ -57,14 +57,14 @@ export const Table = () => {
           <li>
             <p className="total-item">Expenses:</p>
             <p className="total-sum-exp">
-              {formatNumber(Math.round(Math.abs(expenseSummary)))}
+              {formatNumber(expenseSummary.toFixed(2))}
             </p>
           </li>
 
           <li>
             <p className="total-item">Income:</p>
             <p className="total-sum-inc">
-              {formatNumber(Math.round(Math.abs(incomeSummary)))}
+              {formatNumber(incomeSummary.toFixed(2))}
             </p>
           </li>
         </StyledStatisticsTotal>
