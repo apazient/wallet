@@ -46,7 +46,7 @@ export const Table = () => {
                   className="category-color"
                 ></div>
                 <p className="category-item">{name}</p>
-                <p className="category-sum">{total}</p>
+                <p className="category-sum">{Math.abs(total)}</p>
               </li>
               <div className="gradient"></div>
             </div>
@@ -55,12 +55,12 @@ export const Table = () => {
         <StyledStatisticsTotal>
           <li>
             <p className="total-item">Expenses:</p>
-            <p className="total-sum-exp">{expenseSummary}</p>
+            <p className="total-sum-exp">{Math.abs(expenseSummary)}</p>
           </li>
 
           <li>
             <p className="total-item">Income:</p>
-            <p className="total-sum-inc">{incomeSummary}</p>
+            <p className="total-sum-inc">{Math.abs(incomeSummary)}</p>
           </li>
         </StyledStatisticsTotal>
       </StyledStatisticsList>

@@ -50,7 +50,6 @@ export const ModalEditTransaction = () => {
   const getCategoriName = () => {
     if (isExpense && categories.length) {
       const categ = categories.find(e => e.id === dataItem.categoryId);
-      console.log(categ.name);
       return categ.name;
     }
   };
@@ -64,7 +63,7 @@ export const ModalEditTransaction = () => {
       type: dataItem.type,
     },
     onSubmit: values => {
-      if (isExpense) {
+      if (values.amount > 0) {
         values.amount = 0 - values.amount;
       }
       const transactionData = {
