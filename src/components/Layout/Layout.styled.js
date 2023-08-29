@@ -18,6 +18,7 @@ export const WrapperNavBalCur = styled.div`
 
   @media screen and (min-width: 1280px) {
     gap: 69px;
+    height: inherit;
   }
 `;
 
