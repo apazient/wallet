@@ -9,15 +9,15 @@ import {
   NavLinkStyledTablet,
 } from './Navigation.styled';
 import { SpriteSVG } from 'pictures/SpriteSVG';
-import { ISDESKTOP, ISMOBILE, ISTABLET } from 'styles/const ';
+import { IS_DESKTOP, IS_MOBILE, IS_TABLET } from 'styles/const ';
 
 const Navigation = () => {
   const { useMediaQuery } = require('react-responsive');
 
   //brackpoints
-  const isMobile = useMediaQuery(ISMOBILE);
-  const isTablet = useMediaQuery(ISTABLET);
-  const isDesctop = useMediaQuery(ISDESKTOP);
+  const isMobile = useMediaQuery(IS_MOBILE);
+  const isTablet = useMediaQuery(IS_TABLET);
+  const isDesktop = useMediaQuery(IS_DESKTOP);
   return (
     <>
       {isMobile && (
@@ -65,7 +65,7 @@ const Navigation = () => {
           </NavLinkWrapperStyled>
         </NavWrapperStyledTablet>
       )}
-      {isDesctop && (
+      {isDesktop && (
         <NavWrapperStyled>
           <NavLinkWrapperStyled>
             <NavLinkStyledTablet to="/">

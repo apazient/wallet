@@ -104,7 +104,7 @@ export const EllipseImgStyled = styled.div`
   position: relative;
   left: 242px;
   top: -16px;
-  z-index: 1;
+  // z-index: 1;
   @media screen and (min-width: 767px) {
     left: 254px;
   }
@@ -137,7 +137,7 @@ export const EllipseImgStyled2 = styled.div`
   position: relative;
   left: 38px;
   top: -14px;
-  z-index: 1;
+  // z-index: 1;
   @media screen and (min-width: 767px) {
     left: 40px;
     /* top: 16px; */
@@ -156,7 +156,6 @@ export const LineImgStyled = styled.div`
   top: 267px;
   @media screen and (min-width: 767px) {
     top: 195px;
-
   }
   @media screen and (min-width: 1280px) {
     top: 474px;

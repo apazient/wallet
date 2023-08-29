@@ -2,7 +2,7 @@ import React from 'react';
 import { RegistrOverlay } from './RegistrationPage.styled';
 import RegistrationForm from '../../components/RegisrationForm/RegisrationForm';
 import { useMediaQuery } from 'react-responsive';
-import { ISDESKTOP, ISMOBILE, ISTABLET } from 'styles/const ';
+import { IS_DESKTOP, IS_MOBILE, IS_TABLET } from 'styles/const ';
 import {
   Overlay14,
   Overlay16,
@@ -13,9 +13,9 @@ import {
 } from 'components/Main/Main.styled';
 
 const RegistrationPage = () => {
-  const isMobile = useMediaQuery(ISMOBILE);
-  const isTablet = useMediaQuery(ISTABLET);
-  const isDesctop = useMediaQuery(ISDESKTOP);
+  const isMobile = useMediaQuery(IS_MOBILE);
+  const isTablet = useMediaQuery(IS_TABLET);
+  const isDesktop = useMediaQuery(IS_DESKTOP);
   return (
     <>
       {isMobile && (
@@ -30,7 +30,7 @@ const RegistrationPage = () => {
         </>
       )}
 
-      {(isTablet || isDesctop) && (
+      {(isTablet || isDesktop) && (
         <RegistrOverlay>
           <RegistrationForm />
           <Overlay16 />

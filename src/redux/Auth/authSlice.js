@@ -59,7 +59,7 @@ export const authSlice = createSlice({
       })
       .addCase(currentUser.fulfilled, (state, { payload }) => {
         state.user.email = payload.email;
-        state.user.name = payload.username;
+        state.user.username = payload.username;
         state.isAuth = true;
       })
       .addCase(currentUser.rejected, (state, { payload }) => {
