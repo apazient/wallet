@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const CurrencyContainerStyled = styled.div`
-  padding-top: 24px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -91,6 +90,7 @@ export const CurrencyImgStyled = styled.div`
   height: 88px;
   border-radius: 0px 0px 8px 8px;
   background: rgba(74, 86, 226, 0.1);
+  position: relative;
   @media screen and (min-width: 767px) {
     width: 336px;
   }
@@ -120,7 +120,7 @@ export const EllipseImgStyled = styled.div`
   position: relative;
   left: 242px;
   top: -14px;
-  z-index: 1;
+
   @media screen and (min-width: 767px) {
     left: 254px;
     top: -13px;
@@ -154,7 +154,7 @@ export const EllipseImgStyled2 = styled.div`
   position: relative;
   left: 38px;
   top: -10px;
-  z-index: 1;
+
   @media screen and (min-width: 767px) {
     left: 40px;
     /* top: 16px; */
@@ -175,9 +175,7 @@ export const LineImgStyled = styled.div`
     top: 138px;
   }
   @media screen and (min-width: 1280px) {
-    top: 632px;
-    width: 480px;
-    height: 100.356px;
+    top: 45px;
   }
 `;
 export const WaveImgStyled = styled.div`

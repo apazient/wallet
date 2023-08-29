@@ -25,13 +25,11 @@ export const WrapperNavBalCur = styled.div`
 export const WrapperNavCur = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
   position: relative;
 
   @media screen and (min-width: 1280px) {
-    justify-content: center;
-    width: 480px;
-
+    width: inherit;
     &::after {
       display: block;
       content: '';
