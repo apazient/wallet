@@ -62,7 +62,11 @@ const ModalAddTransaction = () => {
       type: isExpense ? 'EXPENSE' : 'INCOME',
       categoryId: isExpense ? category.value : categories.id,
       comment: values.text,
-      amount: isExpense ? 0 - values.number : values.number,
+      amount: isExpense
+        ? values.number > 0
+          ? 0 - values.number
+          : values.number
+        : Math.abs(values.number),
     };
 
     dispatch(addTransaction(newTransaction));
