@@ -17,7 +17,6 @@ export const TheadCurrencyStyled = styled.thead`
   background: rgba(255, 255, 255, 0.2);
 `;
 export const TableCurrencyStyled = styled.table`
-  table-layout: fixed;
   padding: 13px 20px;
   width: 320px;
   border-collapse: collapse;
@@ -170,7 +169,7 @@ export const LineImgStyled = styled.div`
   position: absolute;
   width: 320px;
   height: 70px;
-  top: 268px;
+  top: -3px;
   @media screen and (min-width: 767px) {
     top: 138px;
   }

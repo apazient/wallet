@@ -206,8 +206,10 @@ export const StyledUlTransList = styled.ul`
   //   176,
   //   0.73
   // ); // нужно поменять цвет фона на rgba(255, 255, 255, 1)
+  background: rgba(82, 59, 126, 0.6);
   border-radius: 18px;
   position: relative;
+  overflow: hidden;
   &:not(:last-child) {
     margin-bottom: 8px;
   }
@@ -239,7 +241,10 @@ export const StyledLiTransList = styled.li`
   line-height: 1.5;
   font-family: Poppins-Regular;
   position: relative;
-
+ &:not(:last-child){
+      border-bottom: 1px solid rgba(255,255,255,0.41);
+}
+}
   &:not(:last-child)::after {
     content: '';
     position: absolute;

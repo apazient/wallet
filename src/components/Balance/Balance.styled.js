@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const BalanceContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 32px;
 
   @media screen and (min-width: 1280px) {
     margin-bottom: 24px;
@@ -37,11 +38,11 @@ export const BalanceTitleStyled = styled.h2`
   color: var(--white-40, rgba(255, 255, 255, 0.4));
   font-family: Poppins-Regular;
   font-size: 12px;
-  font-style: normal;
+  padding-top: 8px;
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 `;
 export const BalanceStyled = styled.span`
   color: var(--white, #fbfbfb);
