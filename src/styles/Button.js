@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const StyledButton = styled.button`
-  padding: 13px 0 13px 0;
+  line-height: 1.33;
+  padding: 13px 0;
   min-width: 280px;
   font-family: Poppins-Regular;
   font-size: 18px;
@@ -32,6 +33,7 @@ export const StyledButtonWhite = styled(StyledButton)`
 `;
 
 export const StyledLink = styled(Link)`
+  line-height: 1.33;
   padding: 13px 0 13px 0;
   min-width: 280px;
   font-family: Poppins-Regular;
@@ -42,7 +44,6 @@ export const StyledLink = styled(Link)`
   border: none;
   border-radius: 20px;
   outline: none;
-  line-height: 1.15;
   cursor: pointer;
   color: #623f8b;
   background: ${({ theme }) => theme.colors.whiteBtn};
