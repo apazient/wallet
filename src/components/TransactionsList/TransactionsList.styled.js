@@ -10,6 +10,22 @@ export const TableScrollBody = styled.table`
   height: 350px;
   display: block;
   width: 100%;
+  font-family: Poppins-Regular;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(82, 59, 126, 0.6);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.082) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+
+    border-radius: 4px;
+  }
 `;
 
 export const TableHeader = styled.thead`
@@ -85,38 +101,64 @@ export const DeleteTabBtn = styled.button`
   line-height: 1.5;
   padding: 4px 12px;
 `;
-export const ThStyled = styled.th`
+export const TrStyled = styled.tr`
   font-family: Poppins-SemiBold;
   color: ${({ theme }) => theme.colors.colorText};
-  text-align: left;
-  padding-left: 20px;
-  &:first-child {
-    border-radius: 8px 0 0 8px;
-  }
-  &:last-child {
-    border-radius: 0 8px 8px 0;
-  }
 `;
 export const TableBody = styled.tbody`
-  height: 200px;
+  font-family: Poppins-Regular;
 `;
+
+//стилі для <th>
 
 export const ThDateStyled = styled.th`
   text-align: start;
   padding-left: 20px;
+  &:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+  width: 15%;
+`;
+
+export const ThTypeStyled = styled.th`
+  text-align: center;
+  width: 14%;
+`;
+export const ThCategoryStyled = styled.th`
+  text-align: left;
+  width: 18%;
 `;
 export const ThSumStyled = styled.th`
+  width: 15%;
   text-align: end;
 `;
+
+export const ThCommentStyled = styled.th`
+  text-align: left;
+  width: 19%;
+`;
+
+export const ThActionStyled = styled.th`
+  text-align: left;
+  width: 19%;
+
+  &:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+`;
+
+//стилі для <td>
 export const TdCommentStyled = styled.td`
   text-align: left;
   width: 25%;
   padding-left: 20px;
+  font-family: Poppins-Regular;
 `;
 export const TdDateStyled = styled.td`
   text-align: left;
   width: 15%;
-  padding-left: 25px;
+  padding-left: 20px;
+  font-family: Poppins-Regular;
   @media screen and (min-width: 768px) {
     width: 20%;
   }
