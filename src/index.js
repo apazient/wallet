@@ -18,11 +18,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <BrowserRouter basename="/wallet">
         <ThemeProvider theme={theme}>
-          <React.StrictMode>
-            <GlobalStyles />
-            <App />
-            <ToastContainer autoClose={3000} />
-          </React.StrictMode>
+          <GlobalStyles />
+          <App />
+          <ToastContainer autoClose={3000} />
         </ThemeProvider>
       </BrowserRouter>
     </Provider>

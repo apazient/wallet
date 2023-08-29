@@ -9,6 +9,7 @@ const initialState = {
   },
   isAuth: false,
   isLoading: false,
+  isRefresh: false,
   error: '',
   token: '',
 };
@@ -61,9 +62,14 @@ export const authSlice = createSlice({
         state.user.email = payload.email;
         state.user.username = payload.username;
         state.isAuth = true;
+        state.isRefresh = false;
+      })
+      .addCase(currentUser.pending, (state, { payload }) => {
+        state.isRefresh = true;
       })
       .addCase(currentUser.rejected, (state, { payload }) => {
         state.error = payload;
+        state.isRefresh = false;
       });
   },
 });

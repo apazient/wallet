@@ -11,10 +11,10 @@ export const DiagramTabYears = () => {
 
   // Временая функция генерации годjd
   const currentYear = new Date().getFullYear();
-  const years = Array.from({ length: 20 }, (_, index) => ({
-    value: currentYear - 20 + index + 1,
-    label: (currentYear - 20 + index + 1).toString(),
-  }));
+  const years = Array.from({ length: 5 }, (_, index) => ({
+    value: currentYear - 5 + index + 1,
+    label: (currentYear - 5 + index + 1).toString(),
+  })).reverse();
 
   const dispatch = useDispatch();
   const year = useSelector(selectYear);
