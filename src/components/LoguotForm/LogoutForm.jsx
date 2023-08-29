@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 
 import { OverlayCenterLogout } from 'styles/GradientCycle';
-
+import { editString } from 'helpers/helpers';
 
 export const LogoutForm = () => {
   const dispatch = useDispatch();
