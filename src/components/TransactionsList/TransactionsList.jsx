@@ -25,10 +25,20 @@ const TransactionsList = () => {
 
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
-  const dataList = useSelector(selectTransaction);
+  const preDataList = useSelector(selectTransaction);
   const allCategories = useSelector(selectAllCategories);
-
   const isEditTrans = useSelector(isEditTransaction);
+
+  let dataList = [];
+  if (preDataList.length) {
+    const newdataList = preDataList.slice();
+    newdataList.sort((a, b) => {
+      const pre = new Date(a.transactionDate).getTime();
+      const next = new Date(b.transactionDate).getTime();
+      return next - pre;
+    });
+    dataList = newdataList;
+  }
 
   useEffect(() => {
     dispatch(fetchTransactions(token));
