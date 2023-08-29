@@ -3,7 +3,7 @@ import { StyledButton, StyledButtonWhite } from 'styles/Button';
 
 export const StyledDivLogout = styled.div`
   border-radius: 8px;
-  background: rgb(41 31 54);
+  background: rgb(50 35 70);
   backdrop-filter: blur(50px);
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   @media screen and (min-width: 768px) {
