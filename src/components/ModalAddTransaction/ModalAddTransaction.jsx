@@ -34,10 +34,8 @@ import { closeModal } from 'redux/Global/globalSlice';
 import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
 
 const validationSchema = yup.object().shape({
-  number: yup
-    .string()
-    .required('Requited')
-    .matches('/^[^0-9]+$/g', 'Name is not valid'),
+  number: yup.string().required('Requited'),
+  // .matches('^[0-9]+(.[0-9]+)?)$', 'Name is not valid'),
   text: yup.string(),
 });
 
