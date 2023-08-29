@@ -1,7 +1,15 @@
 import React from 'react';
+import { StyledDiagramTab } from './DiagramTab.styled';
+import { DiagramTabMonthes } from './DiagramTabMonthes';
+import { DiagramTabYears } from './DiagramTabYears.jsx';
 
-const DiagramTab = () => {
-  return <div>DiagramTab</div>;
+export const DiagramTab = () => {
+  return (
+    <div>
+      <StyledDiagramTab>
+        <DiagramTabMonthes />
+        <DiagramTabYears />
+      </StyledDiagramTab>
+    </div>
+  );
 };
-
-export default DiagramTab;
