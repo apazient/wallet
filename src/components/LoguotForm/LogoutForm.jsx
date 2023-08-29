@@ -15,6 +15,7 @@ import { toast } from 'react-toastify';
 import { getIsLoading, getUser } from 'redux/Auth/selectors';
 import { useNavigate } from 'react-router-dom';
 import { SpriteSVG } from 'pictures/SpriteSVG';
+import { OverlayCenterLogout } from 'styles/GradientCycle';
 
 export const LogoutForm = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ export const LogoutForm = () => {
 
   return (
     <StyledDivLogout>
+      <OverlayCenterLogout />
       <StyledSectionLogout>
         <StyledDivSpriteSvgLogout>
           <SpriteSVG name="logo" />
