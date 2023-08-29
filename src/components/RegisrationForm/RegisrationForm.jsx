@@ -129,7 +129,7 @@ const RegisrationForm = () => {
                       // onChange={handleChange}
                       type="password"
                       name="password"
-                      placeholder="Password"
+                      placeholder="Password (6 + characters)"
                     />
                   </StyledLabels>
                 </StyledDivInputPassword>
