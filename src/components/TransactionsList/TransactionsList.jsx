@@ -1,5 +1,6 @@
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import React, { useEffect } from 'react';
+import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteTransaction,
@@ -82,7 +83,7 @@ const TransactionsList = () => {
             <StyledUlTransList key={id}>
               <StyledLiTransList>
                 <StyledNameTranList>Date</StyledNameTranList>
-                <div>{transactionDate}</div>
+                <div>{moment(transactionDate).format('DD.MM.YY')}</div>
               </StyledLiTransList>
               <StyledLiTransList>
                 <StyledNameTranList>Type</StyledNameTranList>
