@@ -47,10 +47,6 @@ export const StyledStatisticsList = styled.ul`
     justify-content: start;
     width: 280px;
     padding: 16px;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
   }
   .category-color {
     width: 24px;
@@ -101,40 +97,23 @@ export const StyledStatisticsTotal = styled.ul`
     justify-content: start;
     width: 280px;
     padding: 16px 16px 0;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-weight: 600;
   }
   .total-sum-exp {
     margin-left: auto;
-
     color: #ff868d;
     text-align: right;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
   }
   .total-sum-inc {
     margin-left: auto;
-
     color: #ffb627;
     text-align: right;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
   }
   .total-item {
     color: #fbfbfb;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
   }
   @media only screen and (min-width: 768px) {
     & li {

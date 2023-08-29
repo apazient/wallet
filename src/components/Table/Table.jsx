@@ -25,9 +25,9 @@ export const Table = () => {
   const category = useSelector(selectCategory);
   const { expenseSummary, incomeSummary } = useSelector(selectSummaryAll);
 
-  if (!category.length) {
-    return <h1>Ssory you do not have transactions on this time!</h1>;
-  }
+  // if (!category.length) {
+  //   return <h1>Ssory you do not have transactions on this time!</h1>;
+  // }
 
   return (
     <StyledStatisticsTable>
