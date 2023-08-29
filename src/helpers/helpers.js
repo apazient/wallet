@@ -12,3 +12,10 @@ export const editString = name => {
   const res = arrFromStr.map(el => el[0].toUpperCase() + el.slice(1));
   return res.join(' ');
 };
+
+export const formatNumber = number => {
+  const parts = number.toString().split('.');
+  const integerPart = parts[0].replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+  const formattedNumber = integerPart + (parts[1] ? '.' + parts[1] : '');
+  return formattedNumber;
+};
