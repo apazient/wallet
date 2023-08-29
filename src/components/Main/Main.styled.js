@@ -13,6 +13,7 @@ export const MainContainer = styled.main`
   @media screen and (min-width: 1280px) {
     min-width: 1280px;
     padding: 0 16px;
+    overflow-y: hidden;
   }
 `;
 export const GlobalStyledContainer = styled.div`
