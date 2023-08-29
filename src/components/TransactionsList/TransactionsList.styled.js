@@ -35,11 +35,6 @@ export const TableHeader = styled.thead`
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
 `;
-// export const MainTrStyled = styled.tr`
-//   background: rgba(82, 59, 126, 0.6);
-//   height: 56px;
-//   border-radius: 8px;
-// `;
 export const TrInfoStyled = styled.tr`
   height: 53px;
   position: relative;
@@ -66,13 +61,18 @@ export const IconBtnWrapperStyled = styled.div`
   align-items: center;
   justify-content: flex-end;
   padding-right: 6px;
+  cursor: pointer;
 `;
 export const EditIconStyled = styled.div`
   width: 14px;
   height: 14px;
   fill: none;
   stroke: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    stroke: rgba(251, 251, 251, 1);
+    transform: scale(1.1);
+  }
 `;
 
 export const EditTabBtn = styled.button`
@@ -100,6 +100,17 @@ export const DeleteTabBtn = styled.button`
   cursor: pointer;
   line-height: 1.5;
   padding: 4px 12px;
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    background: linear-gradient(
+      167deg,
+      #ffc727 0%,
+      #9e40ba 61.46%,
+      #7000ff 90.54%
+    );
+    transform: scale(1.1);
+  }
 `;
 export const TrStyled = styled.tr`
   font-family: Poppins-SemiBold;

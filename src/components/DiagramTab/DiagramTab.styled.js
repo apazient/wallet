@@ -97,6 +97,7 @@ export const StyledSelect = styled(Select)`
   .react-select__menu-list {
     overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
     overflow-x: hidden;
+    overflow: auto;
     &::-webkit-scrollbar {
       width: 4px;
     }
