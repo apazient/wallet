@@ -17,7 +17,7 @@ export const WrapperNavBalCur = styled.div`
   margin-bottom: 20px;
 
   @media screen and (min-width: 1280px) {
-    gap: 69px;
+    gap: 49px;
     height: inherit;
   }
 `;
