@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { StyledButton } from 'styles/Button';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
-import { Field, Form } from 'formik';
+import { ErrorMessage, Field, Form } from 'formik';
 
 export const StyledForm = styled(Form)`
   position: relative;
@@ -50,6 +50,7 @@ export const StyledToggleText = styled.p`
 
 // Styles for input
 export const StyledInputWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -251,4 +252,22 @@ export const OverlayGradient = styled.div`
   bottom: 61px;
   background: rgba(47, 21, 176, 0.73);
   filter: blur(100px);
+`;
+//Error
+
+export const StyledErrorMessage = styled(ErrorMessage)`
+  width: 100%;
+  text-align: center;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.yellow};
+  position: absolute;
+  bottom: 50%;
+  right: 30%;
+  transform: translate(50%, 50%);
+  @media screen and (min-width: 768px) {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, 0%);
+  }
 `;

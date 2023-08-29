@@ -17,8 +17,9 @@ import {
   StyledCloseIcon,
   OverlayGradient,
   StyledToggleText,
+  StyledErrorMessage,
 } from './ModalAddTransaction.styled';
-import * as yup from 'yup';
+import * as Yup from 'yup';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import { Switcher } from './Switcher';
 import 'react-datetime/css/react-datetime.css';
@@ -33,10 +34,9 @@ import { feachCategories } from 'redux/TransactionCategories/operations';
 import { closeModal } from 'redux/Global/globalSlice';
 import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
 
-const validationSchema = yup.object().shape({
-  number: yup.string().required('Requited'),
-  // .matches('^[0-9]+(.[0-9]+)?)$', 'Name is not valid'),
-  text: yup.string(),
+const validationSchema = Yup.object().shape({
+  number: Yup.number().positive('Only possitive value').required('Required!'),
+  text: Yup.string(),
 });
 
 const ModalAddTransaction = () => {
@@ -74,7 +74,7 @@ const ModalAddTransaction = () => {
   const isValidDate = currentDate => {
     return (
       currentDate.isBefore(StyledDatetime.moment()) ||
-      currentDate.isSame(StyledDatetime.moment(), 'minute')
+      currentDate.isSame(StyledDatetime.moment(), 'day')
     );
   };
 
@@ -127,6 +127,7 @@ const ModalAddTransaction = () => {
                 placeholder="0.00"
                 type="string"
               />
+              <StyledErrorMessage name="number" component="h1" />
             </StyledInputWrapper>
             <StyledDatatimeWrapper>
               <StyledDatetime
