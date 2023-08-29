@@ -13,6 +13,7 @@ export const StyledSectionForm = styled.section`
   @media screen and (min-width: 768px) {
     width: 533px;
     border-radius: 8px;
+    height: 570px;
   }
 `;
 
