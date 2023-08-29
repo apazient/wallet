@@ -59,7 +59,10 @@ export const StyledUserWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: ${({ theme }) => theme.spacing(2)};
-
+  transition: all 300ms ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
   @media screen and (min-width: 768px) {
     border-left: 1px solid ${({ theme }) => theme.colors.navLink};
     padding-left: ${({ theme }) => theme.spacing(3)};
@@ -76,6 +79,11 @@ export const StyledHeaderBtn = styled.button`
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.navLink};
   cursor: pointer;
+  transition: all 300ms ease-in-out;
+  &:hover {
+    color: green;
+    transform: scale(1.1);
+  }
   @media screen and (min-width: 768px) {
     display: block;
   }
@@ -86,6 +94,11 @@ export const StyledExitSvg = styled.div`
   height: 18px;
   fill: ${({ theme }) => theme.colors.navLink};
   cursor: pointer;
+  transition: all 300ms ease-in-out;
+  &:hover {
+    fill: green;
+    transform: scale(1.1);
+  }
 `;
 export const StyledLogoLink = styled(Link)`
   display: flex;
