@@ -8,6 +8,8 @@ export const DivContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
+  justify-content: center;
   @media screen and (min-width: 768px) {
     padding: 60px 62px;
   }

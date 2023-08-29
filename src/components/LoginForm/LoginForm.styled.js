@@ -7,7 +7,10 @@ export const StyledSectionForm = styled.section`
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
-  z-index: 100;
+  height: 100vh;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
   @media screen and (min-width: 768px) {
     width: 533px;
     border-radius: 8px;
