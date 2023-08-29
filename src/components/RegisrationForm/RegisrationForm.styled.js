@@ -23,6 +23,46 @@ export const LinkLog = styled(StyledLink)`
   margin-top: 20px;
 `;
 
+export const StyledErrorMessageEmail = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
+  position: absolute;
+  top: 275px;
+  @media screen and (min-width: 768px) {
+    top: 185px;
+  }
+`;
+
+export const StyledErrorMessagePassword = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
+  position: absolute;
+  top: 345px;
+  @media screen and (min-width: 768px) {
+    top: 255px;
+  }
+`;
+
+export const StyledErrorMessagePwd = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
+  position: absolute;
+  top: 425px;
+  @media screen and (min-width: 768px) {
+    top: 335px;
+  }
+`;
+
+export const StyledErrorMessageFirstName = styled(ErrorMessage)`
+  font-size: 12px;
+  color: orange;
+  position: absolute;
+  top: 490px;
+  @media screen and (min-width: 768px) {
+    top: 400px;
+  }
+`;
+
 // Полоса надёжности пароля
 export const SpanStrengthMeter = styled.span`
   position: relative;
@@ -31,7 +71,7 @@ export const SpanStrengthMeter = styled.span`
     position: absolute;
     width: ${props => {
       if (props.$size <= 12) {
-        return `${props.$size * 10.2}%`;
+        return `${props.$size * 11.1}%`;
       } else return '280px';
     }};
     transition: width 0.5s ease-in-out, background-color 0.25s;
@@ -54,45 +94,5 @@ export const SpanStrengthMeter = styled.span`
         } else return '409px';
       }};
     }
-  }
-`;
-
-export const StyledErrorMessageEmail = styled(ErrorMessage)`
-  font-size: 12px;
-  color: orange;
-  position: absolute;
-  top: 162px;
-  @media screen and (min-width: 768px) {
-    top: 225px;
-  }
-`;
-
-export const StyledErrorMessagePassword = styled(ErrorMessage)`
-  font-size: 12px;
-  color: orange;
-  position: absolute;
-  top: 229px;
-  @media screen and (min-width: 768px) {
-    top: 295px;
-  }
-`;
-
-export const StyledErrorMessagePwd = styled(ErrorMessage)`
-  font-size: 12px;
-  color: orange;
-  position: absolute;
-  top: 310px;
-  @media screen and (min-width: 768px) {
-    top: 370px;
-  }
-`;
-
-export const StyledErrorMessageFirstName = styled(ErrorMessage)`
-  font-size: 12px;
-  color: orange;
-  position: absolute;
-  top: 377px;
-  @media screen and (min-width: 768px) {
-    top: 440px;
   }
 `;
