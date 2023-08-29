@@ -15,9 +15,38 @@ export const WrapperNavBalCur = styled.div`
   display: flex;
   gap: 32px;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 1280px) {
+    gap: 69px;
+  }
 `;
+
 export const WrapperNavCur = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+
+  @media screen and (min-width: 1280px) {
+    justify-content: center;
+    width: 480px;
+
+    &::after {
+      display: block;
+      content: '';
+      height: 100%;
+      width: 1px;
+      background-color: #fbfbfb;
+
+      position: absolute;
+      right: -1px;
+    }
+  }
+`;
+
+export const WrapperOutlet = styled.div`
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+    margin-top: 46px;
+  }
 `;
