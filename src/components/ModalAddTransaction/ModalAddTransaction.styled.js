@@ -14,7 +14,6 @@ export const StyledForm = styled(Form)`
   padding: 28px 20px;
   border-radius: ${({ theme }) => theme.spacing(2)};
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(50px);
   background: radial-gradient(rgb(63, 46, 150), rgb(95, 71, 140));
   @media screen and (min-width: 768px) {
     padding: 40px 72px;

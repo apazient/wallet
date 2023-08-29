@@ -60,8 +60,10 @@ const transactionsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
+
       .addCase(logoutThunk.fulfilled, (state, action) => {
         state.transactions = [];
+
       })
       .addMatcher(
         isAnyOf(

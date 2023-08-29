@@ -12,8 +12,6 @@ import {
   StyledLogoLink,
 } from './Header.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { getUser } from 'redux/Auth/selectors';
 import { setIsModalLogoutOpen } from 'redux/Global/globalSlice';
 import { LogoutForm } from 'components/LoguotForm/LogoutForm';
@@ -22,8 +20,6 @@ import { isModalLogoutOpen } from 'redux/Global/selectors';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const { username } = useSelector(getUser);
   const isLogoutOpen = useSelector(isModalLogoutOpen);

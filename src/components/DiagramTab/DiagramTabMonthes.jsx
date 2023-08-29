@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  StyledDropdownIndicator,
-  StyledIconDiagram,
-  StyledSelect,
-} from './DiagramTab.styled';
+import { StyledIconDiagram, StyledSelect } from './DiagramTab.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMonth } from 'redux/SummaryPage/summarySlice';
 import { selectMonth } from 'redux/SummaryPage/selectors';

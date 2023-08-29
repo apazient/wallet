@@ -10,12 +10,12 @@ import {
   Overlay20,
 } from 'components/Main/Main.styled';
 import { useMediaQuery } from 'react-responsive';
-import { ISDESKTOP, ISMOBILE, ISTABLET } from 'styles/const ';
+import { IS_DESKTOP, IS_MOBILE, IS_TABLET } from 'styles/const ';
 
 const LoginPage = () => {
-  const isMobile = useMediaQuery(ISMOBILE);
-  const isTablet = useMediaQuery(ISTABLET);
-  const isDesctop = useMediaQuery(ISDESKTOP);
+  const isMobile = useMediaQuery(IS_MOBILE);
+  const isTablet = useMediaQuery(IS_TABLET);
+  const isDesktop = useMediaQuery(IS_DESKTOP);
   return (
     <>
       {isMobile && (
@@ -30,7 +30,7 @@ const LoginPage = () => {
         </>
       )}
 
-      {(isTablet || isDesctop) && (
+      {(isTablet || isDesktop) && (
         <Overlay>
           <LoginForm />
           <Overlay16 />

@@ -90,7 +90,7 @@ export const StyledSelect = styled(Select)`
       rgba(106, 70, 165, 1) 61.04%,
       rgba(133, 93, 175, 1) 100%
     );
-    max-height: 182px;
+
     overflow: hidden;
     margin: 0;
   }

@@ -2,28 +2,33 @@ import { styled } from 'styled-components';
 export const TableStyled = styled.table`
   width: 100%;
   border-radius: 8px;
-  background: linear-gradient(
-    219.62deg,
-    rgba(109, 84, 235, 0.6) 28.31%,
-    rgba(101, 35, 146, 0.6) 66.76%
-  );
   border-collapse: collapse;
 `;
-export const MainTrStyled = styled.tr`
-  background: rgba(82, 59, 126, 0.6);
-  height: 56px;
-  border-radius: 8px;
+export const TableScrollBody = styled.table`
+  overflow-y: scroll;
+  height: 350px;
+  display: block;
+  width: 100%;
 `;
+
+export const TableHeader = styled.thead`
+  border-radius: 8px;
+  height: 56px;
+  background: rgba(82, 59, 126, 0.6);
+  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(50px);
+`;
+// export const MainTrStyled = styled.tr`
+//   background: rgba(82, 59, 126, 0.6);
+//   height: 56px;
+//   border-radius: 8px;
+// `;
 export const TrInfoStyled = styled.tr`
   height: 53px;
   position: relative;
   font-family: Poppins-Regular;
   color: ${({ theme }) => theme.colors.colorText};
-  background: linear-gradient(
-    219.62deg,
-    rgba(109, 84, 235, 0.6) 28.31%,
-    rgba(101, 35, 146, 0.6) 66.76%
-  );
+
   &:not(:last-child):after {
     position: absolute;
     content: '';
@@ -91,6 +96,9 @@ export const ThStyled = styled.th`
     border-radius: 0 8px 8px 0;
   }
 `;
+export const TableBody = styled.tbody`
+  height: 200px;
+`;
 
 export const ThDateStyled = styled.th`
   text-align: start;
@@ -138,15 +146,15 @@ export const TdActionStyled = styled.td`
 //styled mobile List
 
 export const StyledUlTransList = styled.ul`
-  background: rgba(
-    47,
-    21,
-    176,
-    0.73
-  ); // нужно поменять цвет фона на rgba(255, 255, 255, 1)
+  // background: rgba(
+  //   47,
+  //   21,
+  //   176,
+  //   0.73
+  // ); // нужно поменять цвет фона на rgba(255, 255, 255, 1)
   border-radius: 18px;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
 
   &::before {
     content: '';
@@ -178,11 +186,6 @@ export const StyledLiTransList = styled.li`
     left: 0;
     width: 100%;
     height: 1px;
-    background-image: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.082) 0%,
-      rgba(255, 255, 255, 0.2) 100%
-    );
   }
 `;
 

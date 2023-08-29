@@ -28,13 +28,16 @@ import {
   TrInfoStyled,
   ThDateStyled,
   ThSumStyled,
+  TableHeader,
+  TableBody,
+  TableScrollBody,
 } from './TransactionsList.styled';
 import { selectAllCategories } from 'redux/TransactionCategories/selectors';
 import { getCategoriName } from 'helpers/helpers';
 import { feachCategories } from 'redux/TransactionCategories/operations';
 import { setIsModalEditTransaction } from 'redux/Global/globalSlice';
 import { useMediaQuery } from 'react-responsive';
-import { ISDESKTOP, ISMOBILE, ISTABLET } from 'styles/const ';
+import { IS_DESKTOP, IS_MOBILE, IS_TABLET } from 'styles/const ';
 import {
   CommentMobTrans,
   DeletBtnMobTrans,
@@ -46,9 +49,9 @@ import {
 } from './TransactionsList.styled';
 
 const TransactionsList = () => {
-  const isMobile = useMediaQuery(ISMOBILE);
-  const isTablet = useMediaQuery(ISTABLET);
-  const isDesctop = useMediaQuery(ISDESKTOP);
+  const isMobile = useMediaQuery(IS_MOBILE);
+  const isTablet = useMediaQuery(IS_TABLET);
+  const isDesktop = useMediaQuery(IS_DESKTOP);
 
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
@@ -116,54 +119,65 @@ const TransactionsList = () => {
             </StyledUlTransList>
           )
         )}
-      {(isTablet || isDesctop) && (
-        <TableStyled>
-          <thead>
-            <MainTrStyled>
-              <ThDateStyled>Date</ThDateStyled>
-              <ThStyled>Type</ThStyled>
-              <ThStyled>Category</ThStyled>
-              <ThStyled>Comment</ThStyled>
-              <ThSumStyled>Sum</ThSumStyled>
-              <ThStyled>&nbsp;</ThStyled>
-            </MainTrStyled>
-          </thead>
-          <tbody>
-            {dataList?.map(
-              ({ id, transactionDate, type, categoryId, comment, amount }) => (
-                <TrInfoStyled key={id}>
-                  <TdDateStyled>{transactionDate}</TdDateStyled>
-                  <TdTypeStyled>{type === 'INCOME' ? '+' : '-'}</TdTypeStyled>
-                  <TdCatagoryStyled>
-                    {dataList.length !== 0
-                      ? getCategoriName(allCategories, categoryId)
-                      : 'notNull'}
-                  </TdCatagoryStyled>
-                  <TdCommentStyled>{comment}</TdCommentStyled>
-                  <TdSumStyled>{Math.abs(amount)}</TdSumStyled>
-                  <TdActionStyled>
-                    <IconBtnWrapperStyled>
-                      <div
-                        onClick={() => {
-                          dispatch(
-                            setIsModalEditTransaction({ id, flag: true })
-                          );
-                        }}
-                      >
-                        <EditIconStyled>
-                          <SpriteSVG name={`edit`} />
-                        </EditIconStyled>
-                      </div>
-                      <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
-                        Delete
-                      </DeleteTabBtn>
-                    </IconBtnWrapperStyled>
-                  </TdActionStyled>
-                </TrInfoStyled>
-              )
-            )}
-          </tbody>
-        </TableStyled>
+      {(isTablet || isDesktop) && (
+        <>
+          <TableStyled>
+            <TableHeader>
+              <tr>
+                <ThDateStyled>Date</ThDateStyled>
+                <ThStyled>Type</ThStyled>
+                <ThStyled>Category</ThStyled>
+                <ThStyled>Comment</ThStyled>
+                <ThSumStyled>Sum</ThSumStyled>
+                <ThStyled>&nbsp;</ThStyled>
+              </tr>
+            </TableHeader>
+          </TableStyled>
+          <TableScrollBody>
+            <TableBody>
+              {dataList?.map(
+                ({
+                  id,
+                  transactionDate,
+                  type,
+                  categoryId,
+                  comment,
+                  amount,
+                }) => (
+                  <TrInfoStyled key={id}>
+                    <TdDateStyled>{transactionDate}</TdDateStyled>
+                    <TdTypeStyled>{type === 'INCOME' ? '+' : '-'}</TdTypeStyled>
+                    <TdCatagoryStyled>
+                      {dataList.length !== 0
+                        ? getCategoriName(allCategories, categoryId)
+                        : 'notNull'}
+                    </TdCatagoryStyled>
+                    <TdCommentStyled>{comment}</TdCommentStyled>
+                    <TdSumStyled>{Math.abs(amount)}</TdSumStyled>
+                    <TdActionStyled>
+                      <IconBtnWrapperStyled>
+                        <div
+                          onClick={() => {
+                            dispatch(
+                              setIsModalEditTransaction({ id, flag: true })
+                            );
+                          }}
+                        >
+                          <EditIconStyled>
+                            <SpriteSVG name={`edit`} />
+                          </EditIconStyled>
+                        </div>
+                        <DeleteTabBtn onClick={() => handleDeleteClick(id)}>
+                          Delete
+                        </DeleteTabBtn>
+                      </IconBtnWrapperStyled>
+                    </TdActionStyled>
+                  </TrInfoStyled>
+                )
+              )}
+            </TableBody>
+          </TableScrollBody>
+        </>
       )}
 
       {isEditTrans && (
