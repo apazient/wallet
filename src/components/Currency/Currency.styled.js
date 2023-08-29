@@ -10,17 +10,12 @@ export const CurrencyContainerStyled = styled.div`
   @media screen and (min-width: 767px) {
     display: block;
   }
-  @media screen and (min-width: 1280px) {
-  }
 `;
 export const TheadCurrencyStyled = styled.thead`
   margin-top: 0;
   width: 320px;
   height: 50px;
   background: rgba(255, 255, 255, 0.2);
-
-  @media screen and (min-width: 1280px) {
-  }
 `;
 export const TableCurrencyStyled = styled.table`
   table-layout: fixed;
@@ -73,21 +68,19 @@ export const TdCurrencyStyled = styled.td`
   text-align: center;
   text-transform: uppercase;
 
-  &:first-child {
-    text-align-last: left;
-    padding: 22px 0 0 84px;
-  }
-  &:last-child {
-    text-align-last: right;
-    padding: 24px 200px 0 0;
-  }
-  &:nth-child(2) {
-    text-align-last: center;
-    padding: 22px 62px 0 0;
-  }
+  // &:first-child {
+  //   text-align-last: left;
+  //   padding: 22px 0 0 84px;
+  // }
+  // &:last-child {
+  //   text-align-last: right;
+  //   padding: 24px 200px 0 0;
+  // }
+  // &:nth-child(2) {
+  //   text-align-last: center;
+  //   padding: 22px 62px 0 0;
+  // }
 
-  @media screen and (min-width: 767px) {
-  }
   @media screen and (min-width: 1280px) {
     padding-top: 24px;
   }
