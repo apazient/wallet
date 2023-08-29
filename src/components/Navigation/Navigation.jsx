@@ -3,7 +3,6 @@ import React from 'react';
 import {
   NavIconStyled,
   NavLinkStyled,
-  NavLinkWrapperStyled,
   NavWrapperStyled,
   NavWrapperStyledTablet,
   NavLinkStyledTablet,
@@ -22,68 +21,68 @@ const Navigation = () => {
     <>
       {isMobile && (
         <NavWrapperStyled>
-          <NavLinkWrapperStyled>
+          <li>
             <NavLinkStyled to="/">
               <NavIconStyled>
                 <SpriteSVG name={'home-page'} />
               </NavIconStyled>
             </NavLinkStyled>
-          </NavLinkWrapperStyled>
-          <NavLinkWrapperStyled>
+          </li>
+          <li>
             <NavLinkStyled to="/summary">
               <NavIconStyled>
                 <SpriteSVG name={'statistic'} />
               </NavIconStyled>
             </NavLinkStyled>
-          </NavLinkWrapperStyled>
-          <NavLinkWrapperStyled>
+          </li>
+          <li>
             <NavLinkStyled to="/currency">
               <NavIconStyled>
                 <SpriteSVG name={'currency'} />
               </NavIconStyled>
             </NavLinkStyled>
-          </NavLinkWrapperStyled>
+          </li>
         </NavWrapperStyled>
       )}
       {isTablet && (
         <NavWrapperStyledTablet>
-          <NavLinkWrapperStyled>
+          <li>
             <NavLinkStyledTablet to="/">
               <NavIconStyled>
                 <SpriteSVG name={'home-page'} />
               </NavIconStyled>
-              Home
+              <span>Home</span>
             </NavLinkStyledTablet>
-          </NavLinkWrapperStyled>
-          <NavLinkWrapperStyled>
+          </li>
+          <li>
             <NavLinkStyledTablet to="/summary">
               <NavIconStyled>
                 <SpriteSVG name={'statistic'} />
               </NavIconStyled>
-              Statistics
+              <span>Statistics</span>
             </NavLinkStyledTablet>
-          </NavLinkWrapperStyled>
+          </li>
         </NavWrapperStyledTablet>
       )}
       {isDesktop && (
-        <NavWrapperStyled>
-          <NavLinkWrapperStyled>
+        <NavWrapperStyledTablet>
+          <li>
             <NavLinkStyledTablet to="/">
               <NavIconStyled>
                 <SpriteSVG name={'home-page'} />
               </NavIconStyled>
-              Home
+              <span>Home</span>
             </NavLinkStyledTablet>
-          </NavLinkWrapperStyled>
-          <NavLinkWrapperStyled>
+          </li>
+          <li>
             <NavLinkStyledTablet to="/summary">
               <NavIconStyled>
                 <SpriteSVG name={'statistic'} />
               </NavIconStyled>
-              Statistics
+              <span>Statistics</span>
             </NavLinkStyledTablet>
-          </NavLinkWrapperStyled>
-        </NavWrapperStyled>
+          </li>
+        </NavWrapperStyledTablet>
       )}
     </>
   );
