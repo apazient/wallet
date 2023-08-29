@@ -7,13 +7,14 @@ export const StyledLink = styled(Link)`
   justify-content: center;
   gap: ${({ theme }) => theme.spacing(1)};
   padding: 5px;
-
-  font-family: ‘Poppins-SemiBold’;
-  color: #000000;
+  font-family: Poppins-SemiBold;
+  font-size: 24px;
+  color: ${({ theme }) => theme.colors.navLink};
+  cursor: pointer;
 
   transition: all 300ms ease-in-out;
   &:hover {
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.colorText};
   }
 `;
 export const StyledThumb = styled.div`
@@ -29,6 +30,16 @@ export const StyledThumb = styled.div`
     rgba(101, 35, 146, 0.6) 90.06%
   );
 `;
+export const StyledTitle = styled.h2`
+  color: ${({ theme }) => theme.colors.navLink};
+`;
 export const StyledTextErr = styled.p`
+  font-family: Poppins-Bold;
   font-size: 100px;
+  color: ${({ theme }) => theme.colors.navLink};
+`;
+export const StyledText = styled.p`
+  font-family: Poppins-SemiBold;
+  font-size: 18px;
+  color: ${({ theme }) => theme.colors.navLink};
 `;
