@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const SummaryPageStyled = styled.div`
-  background-color: ${({ theme }) => theme.colors.mainBackground};
-`;
+export const SummaryPageStyled = styled.div``;
 export const SummaryPageContStyled = styled.div`
   background-color: transparent;
   margin: 0 auto;
@@ -22,7 +20,6 @@ export const SummaryPageContStyled = styled.div`
   }
 `;
 export const SummaryTitleStyled = styled.div`
-  /* background-color: ${({ theme }) => theme.colors.mainBackground}; */
   background-color: transparent;
   color: ${({ theme }) => theme.colors.colorText};
   font-family: Poppins-Regular;

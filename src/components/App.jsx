@@ -13,15 +13,21 @@ import { currentUser } from 'redux/Auth/operations';
 import { Currency } from './Currency/Currency';
 import { getIsAuth } from 'redux/Auth/selectors';
 import { Navigate } from 'react-router';
+import Loader from './Loader/Loader';
+import { feachTransactionSummary } from 'redux/SummaryPage/operations';
 
 export const App = () => {
+  const isRefresh = useSelector(state => state.user.isRefresh);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsAuth);
   useEffect(() => {
     dispatch(currentUser());
+    dispatch(feachTransactionSummary());
   }, [dispatch]);
 
-  return (
+  return isRefresh ? (
+    <Loader />
+  ) : (
     <Routes>
       <Route
         path="/"

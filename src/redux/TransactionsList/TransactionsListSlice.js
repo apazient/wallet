@@ -6,6 +6,7 @@ import {
   updateTransaction,
 } from './operations';
 import { setIsModalAddTransactionOpen } from 'redux/Global/globalSlice';
+import { logoutThunk } from 'redux/Auth/operations';
 const pending = (state, action) => {
   state.loading = true;
   state.error = '';
@@ -58,6 +59,9 @@ const transactionsSlice = createSlice({
       .addCase(deleteTransaction.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(logoutThunk.fulfilled, (state, action) => {
+        state.transactions = [];
       })
       .addMatcher(
         isAnyOf(

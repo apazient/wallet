@@ -13,10 +13,6 @@ import { selectPeriodTotal } from 'redux/SummaryPage/selectors';
 export const Balance = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(feachTransactionSummary());
-  }, [dispatch]);
-
   const balanseTotal = useSelector(selectPeriodTotal);
 
   return (
