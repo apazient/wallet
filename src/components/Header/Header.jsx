@@ -17,6 +17,7 @@ import { setIsModalLogoutOpen } from 'redux/Global/globalSlice';
 import { LogoutForm } from 'components/LoguotForm/LogoutForm';
 import Modal from 'components/Modal/Modal';
 import { isModalLogoutOpen } from 'redux/Global/selectors';
+import { editString } from 'helpers/helpers';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const Header = () => {
         </StyledLogoThumb>
 
         <StyledUserThumb>
-          <StyledHeaderText>{username}</StyledHeaderText>
+          <StyledHeaderText>{editString(username)}</StyledHeaderText>
           <StyledUserWrapper>
             <StyledExitSvg onClick={handleLogout}>
               <SpriteSVG name={'exit'} />

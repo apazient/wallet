@@ -14,6 +14,7 @@ import { toast } from 'react-toastify';
 import { getIsLoading, getUser } from 'redux/Auth/selectors';
 import { useNavigate } from 'react-router-dom';
 import { SpriteSVG } from 'pictures/SpriteSVG';
+import { editString } from 'helpers/helpers';
 
 export const LogoutForm = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export const LogoutForm = () => {
     dispatch(logoutThunk())
       .unwrap()
       .then(() => {
-        toast.success(`Goobye ${username || ''}!`);
+        toast.success(`Goobye ${editString(username) || ''}!`);
         dispatch(closeModal());
         navigate('/login');
       });
