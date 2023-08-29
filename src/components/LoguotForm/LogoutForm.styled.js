@@ -1,6 +1,14 @@
 import { styled } from 'styled-components';
 import { StyledButton, StyledButtonWhite } from 'styles/Button';
 
+export const StyledDivLogout = styled.div`
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3.5px);
+  @media screen and (min-width: 768px) {
+  }
+`;
+
 export const StyledSectionLogout = styled.section`
   width: 320px;
   background: rgba(255, 255, 255, 0.1);
@@ -10,8 +18,10 @@ export const StyledSectionLogout = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 238px 0;
+  padding: 238px 20px;
   @media screen and (min-width: 768px) {
+    border-radius: 8px;
+    padding: 60px 116px;
     width: 533px;
   }
 `;
@@ -46,13 +56,16 @@ export const StyledLogoutP = styled.p`
   line-height: normal;
   width: 214px;
   @media screen and (min-width: 768px) {
-    width: 299px;
+    width: 300px;
     margin-top: 52px;
   }
 `;
 
 export const StyledButtonLogout = styled(StyledButton)`
   margin-top: 40px;
+  @media screen and (min-width: 768px) {
+    margin-top: 52px;
+  }
 `;
 
 export const StyledButtonCancel = styled(StyledButtonWhite)`

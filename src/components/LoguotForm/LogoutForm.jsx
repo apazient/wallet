@@ -4,6 +4,7 @@ import { closeModal } from 'redux/Global/globalSlice';
 import {
   StyledButtonCancel,
   StyledButtonLogout,
+  StyledDivLogout,
   StyledDivSpriteSvgLogout,
   StyledLogoutH2,
   StyledLogoutP,
@@ -33,18 +34,20 @@ export const LogoutForm = () => {
   };
 
   return (
-    <StyledSectionLogout>
-      <StyledDivSpriteSvgLogout>
-        <SpriteSVG name="logo" />
-      </StyledDivSpriteSvgLogout>
-      <StyledLogoutH2>Money Guard</StyledLogoutH2>
-      <StyledLogoutP>Are you sure you want to log out?</StyledLogoutP>
-      <StyledButtonLogout onClick={handleLogout} disabled={isLoading}>
-        Logout
-      </StyledButtonLogout>
-      <StyledButtonCancel onClick={e => dispatch(closeModal())}>
-        Cancel
-      </StyledButtonCancel>
-    </StyledSectionLogout>
+    <StyledDivLogout>
+      <StyledSectionLogout>
+        <StyledDivSpriteSvgLogout>
+          <SpriteSVG name="logo" />
+        </StyledDivSpriteSvgLogout>
+        <StyledLogoutH2>Money Guard</StyledLogoutH2>
+        <StyledLogoutP>Are you sure you want to log out?</StyledLogoutP>
+        <StyledButtonLogout onClick={handleLogout} disabled={isLoading}>
+          Logout
+        </StyledButtonLogout>
+        <StyledButtonCancel onClick={e => dispatch(closeModal())}>
+          Cancel
+        </StyledButtonCancel>
+      </StyledSectionLogout>
+    </StyledDivLogout>
   );
 };
