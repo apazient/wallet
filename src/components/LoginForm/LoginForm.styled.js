@@ -47,9 +47,9 @@ export const StyledErrorMessageEmail = styled(ErrorMessage)`
   font-size: 12px;
   color: orange;
   position: absolute;
-  top: 240px;
+  top: 368px;
   @media screen and (min-width: 768px) {
-    top: 245px;
+    top: 248px;
   }
 `;
 
@@ -57,9 +57,9 @@ export const StyledErrorMessagePassword = styled(ErrorMessage)`
   font-size: 12px;
   color: orange;
   position: absolute;
-  top: 310px;
+  top: 436px;
   @media screen and (min-width: 768px) {
-    top: 315px;
+    top: 320px;
   }
 `;
 
