@@ -5,7 +5,7 @@ export const TableStyled = styled.table`
   border-collapse: collapse;
 `;
 export const TableScrollBody = styled.table`
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: none;
   height: 350px;
   display: block;
@@ -197,6 +197,9 @@ export const StyledUlTransList = styled.ul`
   // ); // нужно поменять цвет фона на rgba(255, 255, 255, 1)
   border-radius: 18px;
   position: relative;
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
   // overflow: hidden;
 
   &::before {
@@ -206,7 +209,11 @@ export const StyledUlTransList = styled.ul`
     left: 0;
     width: 5px;
     height: 100%;
-    background-color: rgba(255, 134, 141, 1); // Цвет полоски
+    /* background-color: rgba(255, 134, 141, 1); // Цвет полоски */
+    background-color: ${props =>
+      props.$type === 'INCOME'
+        ? 'rgba(255, 182, 39, 1)'
+        : 'rgba(255, 134, 141, 1)'};
     border-radius: 18px 0 0 18px;
   }
 `;
