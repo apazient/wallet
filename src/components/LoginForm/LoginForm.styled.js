@@ -151,22 +151,13 @@ export const StyledDivInputPassword = styled.div`
 
 export const StyledButtonLog = styled(StyledButton)`
   margin-top: 45px;
-  transition: transform 0.2s ease;
-  &:hover,
-  &:focus {
-    transform: scale(1.05);
-  }
+
   @media screen and (min-width: 768px) {
     margin-top: 60px;
   }
 `;
 
 export const StyledLinkReg = styled(StyledLink)`
-  transition: transform 0.2s ease;
-  &:hover,
-  &:focus {
-    transform: scale(1.05);
-  }
   margin-top: 20px;
 `;
 

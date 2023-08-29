@@ -16,6 +16,11 @@ export const StyledButton = styled.button`
   color: ${({ theme }) => theme.colors.colorText};
   background: ${({ theme }) => theme.colors.coloredBtn};
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
   @media screen and (min-width: 768px) {
     min-width: 300px;
   }
@@ -42,6 +47,11 @@ export const StyledLink = styled(Link)`
   color: #623f8b;
   background: ${({ theme }) => theme.colors.whiteBtn};
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
   @media screen and (min-width: 768px) {
     min-width: 300px;
   }
