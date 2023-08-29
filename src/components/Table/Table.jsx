@@ -6,6 +6,7 @@ import {
 } from './Table.styled';
 import { useSelector } from 'react-redux';
 import { selectCategory, selectSummaryAll } from 'redux/SummaryPage/selectors';
+import { formatNumber } from 'helpers/helpers';
 
 const colors = [
   'rgba(254, 208, 87, 1)',
@@ -55,12 +56,12 @@ export const Table = () => {
         <StyledStatisticsTotal>
           <li>
             <p className="total-item">Expenses:</p>
-            <p className="total-sum-exp">{expenseSummary}</p>
+            <p className="total-sum-exp">{formatNumber(expenseSummary)}</p>
           </li>
 
           <li>
             <p className="total-item">Income:</p>
-            <p className="total-sum-inc">{incomeSummary}</p>
+            <p className="total-sum-inc">{formatNumber(incomeSummary)}</p>
           </li>
         </StyledStatisticsTotal>
       </StyledStatisticsList>

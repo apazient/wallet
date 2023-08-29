@@ -9,6 +9,7 @@ import {
 } from './Balance.styled';
 
 import { selectPeriodTotal } from 'redux/SummaryPage/selectors';
+import { formatNumber } from 'helpers/helpers';
 
 export const Balance = () => {
   const balanseTotal = useSelector(selectPeriodTotal);
@@ -18,7 +19,7 @@ export const Balance = () => {
       <BalanceBoxStyled>
         <BalanceTitleStyled>Your balance</BalanceTitleStyled>
         <BalanceStyled>
-          <span>&#8372;</span> {balanseTotal}
+          <span>&#8372;</span> {formatNumber(balanseTotal)}
         </BalanceStyled>
       </BalanceBoxStyled>
     </BalanceContainerStyled>
