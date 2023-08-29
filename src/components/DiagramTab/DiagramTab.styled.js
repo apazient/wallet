@@ -137,3 +137,14 @@ export const StyledDiagramTab = styled.div`
     gap: 32px;
   }
 `;
+export const WrapperDiagramTab = styled.div`
+  width: 280px;
+  height: 50px;
+  flexshrink: 0;
+  @media screen and (min-width: 768px) {
+    width: 160px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 182px;
+  }
+`;

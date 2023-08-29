@@ -1,5 +1,9 @@
 import React from 'react';
-import { StyledIconDiagram, StyledSelect } from './DiagramTab.styled';
+import {
+  StyledIconDiagram,
+  StyledSelect,
+  WrapperDiagramTab,
+} from './DiagramTab.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMonth } from 'redux/SummaryPage/summarySlice';
 import { selectMonth } from 'redux/SummaryPage/selectors';
@@ -33,7 +37,7 @@ export const DiagramTabMonthes = () => {
   };
 
   return (
-    <div>
+    <WrapperDiagramTab>
       <StyledSelect
         options={months}
         value={newMonth(months)}
@@ -49,6 +53,6 @@ export const DiagramTabMonthes = () => {
           ),
         }}
       />
-    </div>
+    </WrapperDiagramTab>
   );
 };

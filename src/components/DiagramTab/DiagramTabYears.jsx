@@ -1,5 +1,9 @@
 import React from 'react';
-import { StyledIconDiagram, StyledSelect } from './DiagramTab.styled';
+import {
+  StyledIconDiagram,
+  StyledSelect,
+  WrapperDiagramTab,
+} from './DiagramTab.styled';
 // import { useState } from 'react';
 import { selectYear } from 'redux/SummaryPage/selectors';
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,7 +29,7 @@ export const DiagramTabYears = () => {
   };
 
   return (
-    <div>
+    <WrapperDiagramTab>
       <StyledSelect
         options={years}
         value={newValue}
@@ -41,6 +45,6 @@ export const DiagramTabYears = () => {
           ),
         }}
       />
-    </div>
+    </WrapperDiagramTab>
   );
 };
