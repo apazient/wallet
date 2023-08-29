@@ -96,7 +96,17 @@ export const StyledSelect = styled(Select)`
   }
   .react-select__menu-list {
     overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
-    overflow-x: hidden; /* Скрываем горизонтальную полосу прокрутки */
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(82, 59, 126, 0.6);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 4px;
+    } /* Скрываем горизонтальную полосу прокрутки */
   }
   .react-select__placeholder {
     color: #fbfbfb;
