@@ -9,8 +9,6 @@ import {
   StyledInputComment,
   StyledInputValue,
   StyledTitle,
-  StyledToggleTextExp,
-  StyledToggleTextIncome,
   StyledCalendarSvg,
   StyledButtonWrapper,
   StyledDatetime,
@@ -34,7 +32,6 @@ import { addTransaction } from 'redux/TransactionsList/operations';
 import { feachCategories } from 'redux/TransactionCategories/operations';
 import { closeModal } from 'redux/Global/globalSlice';
 import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
-import { toast } from 'react-toastify';
 
 const validationSchema = yup.object().shape({
   number: yup.number().required('Requited'),
