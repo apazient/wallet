@@ -19,8 +19,3 @@ export const formatNumber = number => {
   const formattedNumber = integerPart + (parts[1] ? '.' + parts[1] : '');
   return formattedNumber;
 };
-
-const expenseSummary = 23456534.3455;
-
-const sum = formatNumber(expenseSummary.toFixed(2));
-console.log(sum);
