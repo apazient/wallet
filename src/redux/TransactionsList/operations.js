@@ -32,13 +32,14 @@ export const addTransaction = createAsyncThunk(
 
 export const updateTransaction = createAsyncThunk(
   'transactions/updateTransaction',
-  async (transactionUpdate, { rejectWithValue }) => {
+  async (transactionUpdate, { rejectWithValue, dispatch }) => {
     try {
       const { transactionId, updateData } = transactionUpdate;
       const { data } = await API.patch(
         `/api/transactions/${transactionId}`,
         updateData
       );
+      dispatch(fetchTransactions());
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
