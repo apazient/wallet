@@ -32,7 +32,7 @@ const Modal = ({ children }) => {
         }
       }}
     >
-      <LogoutForm />
+      {children}
     </ModalOverlay>,
     modalRoot
   );
