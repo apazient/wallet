@@ -7,15 +7,12 @@ export const SummaryPageContStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 0 20px;
   width: 320px;
   @media screen and (min-width: 768px) {
-    padding: 20px 32px;
     width: 768px;
     flex-direction: row;
   }
   @media screen and (min-width: 1280px) {
-    padding: 32px 16px 0 69px;
     width: 800px;
   }
 `;

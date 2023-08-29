@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { editString } from 'helpers/helpers';
 import { toast } from 'react-toastify';
 
 export const API = axios.create({
@@ -20,7 +21,7 @@ export const register = createAsyncThunk(
     try {
       const res = await API.post('/api/auth/sign-up', credentials);
       setToken(res.data.token);
-      toast.success(`Hello ${res.data.user.username}`);
+      toast.success(`Hello ${editString(res.data.user.username) || ''} !`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

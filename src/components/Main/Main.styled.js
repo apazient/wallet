@@ -1,17 +1,37 @@
 import styled from 'styled-components';
 
 export const MainContainer = styled.main`
-  display: flex;
-  flex-direction: column;
+  margin: 0px auto;
+  overflow-x: hidden;
+  max-width: 320px;
   height: 100vh;
   padding: 0 20px;
   @media screen and (min-width: 768px) {
+    max-width: 768px;
     padding: 0 32px;
   }
   @media screen and (min-width: 1280px) {
-    padding: 0 16px 0 0;
+    max-width: 1280px;
+    padding: 0 16px;
+    overflow-y: hidden;
   }
 `;
+// export const GlobalStyledContainer = styled.div`
+//   width: 100%;
+//   min-width: 320px;
+//   margin: 0px auto;
+//   padding: 0 20px;
+
+//   @media screen and (min-width: 768px) {
+//     min-width: 768px;
+//     padding: 0 32px;
+//   }
+
+//   @media screen and (min-width: 1280px) {
+//     min-width: 1280px;
+//     padding: 0 16px;
+//   }
+// `;
 
 export const Overlay16 = styled.div`
   position: fixed;
@@ -175,7 +195,7 @@ export const Overlay20 = styled.div`
     height: 554px;
     border-radius: 554px;
     right: -127px;
-    top: -166;
+    top: -166px;
     background: linear-gradient(211deg, #652392 48.96%, #341fa0 86.46%);
     filter: blur(150px);
   }

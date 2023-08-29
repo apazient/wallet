@@ -48,7 +48,6 @@ export const LoginForm = () => {
       .unwrap()
       .then(() => navigate(location.state?.from || '/'))
       .catch(error => {
-        console.log(error);
         const { message } = error.response.data;
         if (message.length > 5) {
           toast.error(message);

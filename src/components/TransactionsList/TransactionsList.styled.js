@@ -6,6 +6,7 @@ export const TableStyled = styled.table`
 `;
 export const TableScrollBody = styled.table`
   overflow-y: scroll;
+  overflow-x: none;
   height: 350px;
   display: block;
   width: 100%;
