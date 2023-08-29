@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 export const CurrencyContainerStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   @media screen and (min-width: 767px) {
+    display: block;
   }
   @media screen and (min-width: 1280px) {
   }
@@ -15,6 +20,8 @@ export const TheadCurrencyStyled = styled.thead`
 export const TableCurrencyStyled = styled.table`
   width: 320px;
   border-collapse: collapse;
+  border-radius: 0px 0px 8px 8px;
+  background: rgba(74, 86, 226, 0.1);
   @media screen and (min-width: 767px) {
     width: 336px;
     height: 80px;
@@ -33,6 +40,8 @@ export const TrCurrencyStyled = styled.tr`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const ThCurrencyStyled = styled.th``;
 export const TbodyCurrencyStyled = styled.tbody`
@@ -57,16 +66,21 @@ export const TdCurrencyStyled = styled.td`
   @media screen and (min-width: 767px) {
   }
   @media screen and (min-width: 1280px) {
+    padding-top: 24px;
   }
 `;
 
 export const CurrencyImgStyled = styled.div`
   width: 320px;
+  height: 88px;
+  border-radius: 0px 0px 8px 8px;
+  background: rgba(74, 86, 226, 0.1);
   @media screen and (min-width: 767px) {
     width: 336px;
   }
   @media screen and (min-width: 1280px) {
     width: 480px;
+    height: 235px;
   }
 `;
 export const EuroImgStyled = styled.span`
@@ -89,7 +103,7 @@ export const EuroImgStyled = styled.span`
 export const EllipseImgStyled = styled.div`
   position: relative;
   left: 242px;
-  top: -14px;
+  top: -16px;
   z-index: 1;
   @media screen and (min-width: 767px) {
     left: 254px;
@@ -122,7 +136,7 @@ export const UsdImgStyled = styled.span`
 export const EllipseImgStyled2 = styled.div`
   position: relative;
   left: 38px;
-  top: -12px;
+  top: -14px;
   z-index: 1;
   @media screen and (min-width: 767px) {
     left: 40px;
@@ -130,7 +144,7 @@ export const EllipseImgStyled2 = styled.div`
   }
   @media screen and (min-width: 1280px) {
     left: 58px;
-    top: 60px;
+    top: 58px;
     width: 9px;
     height: 9px;
   }
@@ -144,7 +158,7 @@ export const LineImgStyled = styled.div`
     top: 195px;
   }
   @media screen and (min-width: 1280px) {
-    top: 440px;
+    top: 474px;
     width: 480px;
     height: 100.356px;
   }
