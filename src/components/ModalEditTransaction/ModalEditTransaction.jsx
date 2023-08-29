@@ -4,6 +4,7 @@ import { SpriteSVG } from 'pictures/SpriteSVG';
 import {
   FormikForm,
   Input,
+  InputText,
   InputWrapper,
   StyledButtonPerple,
   StyledButtonWhite,
@@ -22,15 +23,15 @@ import { selectAllCategories } from 'redux/TransactionCategories/selectors';
 import { feachCategories } from 'redux/TransactionCategories/operations';
 import {
   StyledCalendarSvg,
-  StyledCloseIcon,
+  // StyledCloseIcon,
   StyledDatatimeWrapper,
   StyledDatetime,
   StyledToggleText,
-  StyledToggleTextExp,
-  StyledToggleTextIncome,
-  StyledToggleWrapper,
+  // StyledToggleTextExp,
+  // StyledToggleTextIncome,
+  // StyledToggleWrapper,
 } from 'components/ModalAddTransaction/ModalAddTransaction.styled';
-import { SelectExpenses } from 'components/ModalAddTransaction/Select';
+// import { SelectExpenses } from 'components/ModalAddTransaction/Select';
 
 export const ModalEditTransaction = () => {
   const dispatch = useDispatch();
@@ -74,12 +75,10 @@ export const ModalEditTransaction = () => {
       dispatch(closeModal());
     },
     validationSchema: Yup.object().shape({
-      amount: Yup.number()
-        .required('Required field!')
-        .positive('The number must be positive!'),
-      transactionDate: Yup.date()
-        .required('Required field!')
-        .max(new Date(), 'Date must be in the past!'),
+      amount: Yup.number().required('Required field!'),
+      // .positive('The number must be positive!'),
+      transactionDate: Yup.date().required('Required field!'),
+      // .max(new Date(), 'Date must be in the past!'),
       comment: Yup.string(),
     }),
   });
@@ -88,7 +87,7 @@ export const ModalEditTransaction = () => {
     formik.handleChange({
       target: {
         name,
-        value,
+        value: value.format('YYYY-MM-DD'),
       },
     });
   };
@@ -104,11 +103,11 @@ export const ModalEditTransaction = () => {
       </StyledCloseIconEdit>
       <StyledTransaction>Edit transaction</StyledTransaction>
       <StyledIncomeExpences>
-        <StyledToggleText style={isExpense ? { color: 'white' } : null}>
+        <StyledToggleText style={!isExpense ? { color: '#FF868D' } : null}>
           Income
         </StyledToggleText>
         <StyledP>/</StyledP>
-        <StyledToggleText style={!isExpense ? { color: 'white' } : null}>
+        <StyledToggleText style={isExpense ? { color: '#FF868D' } : null}>
           Expense
         </StyledToggleText>
       </StyledIncomeExpences>
@@ -125,14 +124,14 @@ export const ModalEditTransaction = () => {
         {formik.touched.amount && formik.errors.amount ? (
           <div>{formik.errors.amount}</div>
         ) : null}
-        <Input
+        {/* <Input
           name="transactionDate"
           placeholder="2025-08-23"
           type="date"
           value={formik.values.transactionDate}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-        />
+        /> */}
         <StyledDatatimeWrapper>
           <StyledDatetime
             name="transactionDate"
@@ -155,7 +154,7 @@ export const ModalEditTransaction = () => {
         ) : null}
       </InputWrapper>
       <InputWrapper>
-        <Input
+        <InputText
           name="comment"
           placeholder="Comment"
           type="text"
