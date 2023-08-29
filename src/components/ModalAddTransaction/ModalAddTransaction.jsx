@@ -34,7 +34,10 @@ import { closeModal } from 'redux/Global/globalSlice';
 import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
 
 const validationSchema = yup.object().shape({
-  number: yup.number().positive('only positive number').required('Requited'),
+  number: yup
+    .string()
+    .required('Requited')
+    .matches('/^[^0-9]+$/g', 'Name is not valid'),
   text: yup.string(),
 });
 
@@ -120,7 +123,7 @@ const ModalAddTransaction = () => {
               <StyledInputValue
                 name="number"
                 placeholder="0.00"
-                type="number"
+                type="string"
               />
             </StyledInputWrapper>
             <StyledDatatimeWrapper>
