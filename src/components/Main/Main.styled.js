@@ -4,7 +4,7 @@ export const MainContainer = styled.main`
   margin: 0px auto;
   overflow-x: hidden;
   max-width: 320px;
-  height: 100vh;
+  /* height: 100vh; */
   padding: 0 20px;
   @media screen and (min-width: 768px) {
     max-width: 768px;
@@ -16,22 +16,6 @@ export const MainContainer = styled.main`
     overflow-y: hidden;
   }
 `;
-// export const GlobalStyledContainer = styled.div`
-//   width: 100%;
-//   min-width: 320px;
-//   margin: 0px auto;
-//   padding: 0 20px;
-
-//   @media screen and (min-width: 768px) {
-//     min-width: 768px;
-//     padding: 0 32px;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-//     min-width: 1280px;
-//     padding: 0 16px;
-//   }
-// `;
 
 export const Overlay16 = styled.div`
   position: fixed;

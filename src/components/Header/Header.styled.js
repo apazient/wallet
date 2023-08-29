@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-export const StyledHeader = styled.div`
-  display: flex;
+export const StyledHeader = styled.header`
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   padding: 12px 20px;
   background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25),
@@ -13,10 +13,29 @@ export const StyledHeader = styled.div`
     padding: 16px 32px;
   }
 `;
-export const StyledLogoThumb = styled.div`
+
+export const HeaderInner = styled.div`
+  margin: 0 auto;
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 320px;
+  padding: 0 20px;
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding: 0 16px;
+    /* overflow-y: hidden; */
+  }
+`;
+
+export const StyledLogoThumb = styled.div`
+  /* display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
 `;
 
 export const StyledLogoSvg = styled.div`
