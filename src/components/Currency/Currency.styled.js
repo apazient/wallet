@@ -6,6 +6,7 @@ export const CurrencyContainerStyled = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
   @media screen and (min-width: 767px) {
     display: block;
   }
@@ -17,6 +18,9 @@ export const TheadCurrencyStyled = styled.thead`
   width: 320px;
   height: 50px;
   background: rgba(255, 255, 255, 0.2);
+
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const TableCurrencyStyled = styled.table`
   table-layout: fixed;
@@ -25,13 +29,14 @@ export const TableCurrencyStyled = styled.table`
   border-collapse: collapse;
   border-radius: 0px 0px 8px 8px;
   background: rgba(74, 86, 226, 0.1);
+
   @media screen and (min-width: 767px) {
     width: 336px;
     height: 80px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 480px;
-    height: 56px;
+    height: 88px;
     width: 100%;
   }
 `;
@@ -43,7 +48,9 @@ export const TrCurrencyStyled = styled.tr`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+
   @media screen and (min-width: 1280px) {
+    padding-left: 60px;
   }
 `;
 export const ThCurrencyStyled = styled.th``;
@@ -68,7 +75,15 @@ export const TdCurrencyStyled = styled.td`
 
   &:first-child {
     text-align-last: left;
-    padding: 0 0 0 20px;
+    padding: 22px 0 0 84px;
+  }
+  &:last-child {
+    text-align-last: right;
+    padding: 24px 200px 0 0;
+  }
+  &:nth-child(2) {
+    text-align-last: center;
+    padding: 22px 62px 0 0;
   }
 
   @media screen and (min-width: 767px) {
@@ -111,10 +126,11 @@ export const EuroImgStyled = styled.span`
 export const EllipseImgStyled = styled.div`
   position: relative;
   left: 242px;
-  top: -16px;
-  // z-index: 1;
+  top: -14px;
+  z-index: 1;
   @media screen and (min-width: 767px) {
     left: 254px;
+    top: -13px;
   }
   @media screen and (min-width: 1280px) {
     left: 362px;
@@ -144,8 +160,8 @@ export const UsdImgStyled = styled.span`
 export const EllipseImgStyled2 = styled.div`
   position: relative;
   left: 38px;
-  top: -14px;
-  // z-index: 1;
+  top: -10px;
+  z-index: 1;
   @media screen and (min-width: 767px) {
     left: 40px;
     /* top: 16px; */
@@ -161,12 +177,12 @@ export const LineImgStyled = styled.div`
   position: absolute;
   width: 320px;
   height: 70px;
-  top: 370px;
+  top: 268px;
   @media screen and (min-width: 767px) {
-    top: 195px;
+    top: 138px;
   }
   @media screen and (min-width: 1280px) {
-    top: 474px;
+    top: 632px;
     width: 480px;
     height: 100.356px;
   }
@@ -175,7 +191,7 @@ export const WaveImgStyled = styled.div`
   position: relative;
   width: 320px;
   height: 88px;
-  top: -14px;
+  top: -38px;
   fill: linear-gradient(
       0deg,
       rgba(57, 0, 150, 0.2) 0%,
