@@ -4,10 +4,8 @@ import { register } from 'redux/Auth/operations';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useSelector } from 'react-redux';
 import { getIsLoading } from 'redux/Auth/selectors';
-import { useDispatch } from 'react-redux';
-// import { register } from 'redux/Auth/operations';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { styled } from 'styled-components';
 
@@ -34,6 +32,7 @@ import {
   SpanStrengthMeter,
 } from './RegisrationForm.styled';
 import { toast } from 'react-toastify';
+import { OverlayCenterMobile } from 'styles/GradientCycle';
 
 const RegisrationForm = () => {
   const isLoading = useSelector(getIsLoading);
@@ -54,15 +53,9 @@ const RegisrationForm = () => {
       });
   };
 
-  // const reset = () => {
-  //   setEmail('');
-  //   setPassword('');
-  //   setPwd('');
-  //   setFirstName('');
-  // };
-
   return (
     <StyledSectionForm>
+      <OverlayCenterMobile />
       <DivContainer>
         <StyledDivItems>
           <StyledDivSpriteSvgLogo>
@@ -101,7 +94,6 @@ const RegisrationForm = () => {
           })}
         >
           {formik => {
-            // console.log(Object.keys(formik.values.email.errors).length);
             return (
               <FormikLoginForm>
                 <StyledDivInputEmail>
@@ -110,7 +102,6 @@ const RegisrationForm = () => {
                       <SpriteSVG name={'email'} />
                     </StyledDivSpriteSvgIcons>
                     <StyledInput
-                      // onChange={handleChange}
                       type="email"
                       name="email"
                       placeholder="E-mail"
@@ -126,7 +117,6 @@ const RegisrationForm = () => {
                       <SpriteSVG name={'password'} />
                     </StyledDivSpriteSvgIcons>
                     <StyledInput
-                      // onChange={handleChange}
                       type="password"
                       name="password"
                       placeholder="Password (6 + characters)"
@@ -142,7 +132,6 @@ const RegisrationForm = () => {
                     </StyledDivSpriteSvgIcons>
                     <SpanContainer>
                       <StyledInput
-                        // onChange={handleChange}
                         type="password"
                         name="pwd"
                         placeholder="Confirm password"
@@ -161,7 +150,6 @@ const RegisrationForm = () => {
                       <SpriteSVG name={'user'} />
                     </StyledDivSpriteSvgIcons>
                     <StyledInput
-                      // onChange={handleChange}
                       type="text"
                       name="firstName"
                       placeholder="First name"
