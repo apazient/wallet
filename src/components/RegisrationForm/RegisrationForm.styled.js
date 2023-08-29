@@ -31,16 +31,17 @@ export const SpanStrengthMeter = styled.span`
     position: absolute;
     width: ${props => {
       if (props.$size <= 12) {
-        return `${props.$size * 8}%`;
+        return `${props.$size * 10.2}%`;
       } else return '280px';
     }};
     transition: width 0.5s ease-in-out, background-color 0.25s;
     border-radius: 2px;
     height: 4px;
     background-color: ${props => {
-      if (props.$size < 6) return 'darkred';
-      else if (props.$size >= 6 && props.$size < 9) return 'yellow';
-      else if (props.$size >= 9 && props.$size < 13) return 'green';
+      if (props.$size <= 3) return 'darkred';
+      else if (props.$size <= 5) return 'orangered';
+      else if (props.$size <= 9) return 'orange';
+      else if (props.$size <= 12) return 'green';
       else if (props.$size >= 13) return 'red';
     }};
     filter: drop-shadow(0px 1px 8px rgba(255, 182, 39, 0.5));
@@ -49,7 +50,7 @@ export const SpanStrengthMeter = styled.span`
     @media screen and (min-width: 768px) {
       width: ${props => {
         if (props.$size <= 12) {
-          return `${props.$size * 8}%`;
+          return `${props.$size * 10.2}%`;
         } else return '409px';
       }};
     }
