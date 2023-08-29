@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CurrencyContainerStyled = styled.div`
+  padding-top: 24px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -18,6 +19,8 @@ export const TheadCurrencyStyled = styled.thead`
   background: rgba(255, 255, 255, 0.2);
 `;
 export const TableCurrencyStyled = styled.table`
+  table-layout: fixed;
+  padding: 13px 20px;
   width: 320px;
   border-collapse: collapse;
   border-radius: 0px 0px 8px 8px;
@@ -62,6 +65,11 @@ export const TdCurrencyStyled = styled.td`
   line-height: normal;
   text-align: center;
   text-transform: uppercase;
+
+  &:first-child {
+    text-align-last: left;
+    padding: 0 0 0 20px;
+  }
 
   @media screen and (min-width: 767px) {
   }
@@ -153,7 +161,7 @@ export const LineImgStyled = styled.div`
   position: absolute;
   width: 320px;
   height: 70px;
-  top: 267px;
+  top: 370px;
   @media screen and (min-width: 767px) {
     top: 195px;
   }
@@ -167,7 +175,7 @@ export const WaveImgStyled = styled.div`
   position: relative;
   width: 320px;
   height: 88px;
-  top: -38px;
+  top: -14px;
   fill: linear-gradient(
       0deg,
       rgba(57, 0, 150, 0.2) 0%,
