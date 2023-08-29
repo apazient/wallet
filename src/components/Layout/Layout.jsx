@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router';
 import { getIsLoading } from 'redux/Auth/selectors';
 import { useMediaQuery } from 'react-responsive';
-// import styled from 'styled-components';
 import Balance from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
 import { IS_DESKTOP, IS_MOBILE, IS_TABLET } from 'styles/const ';
