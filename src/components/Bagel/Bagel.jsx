@@ -4,6 +4,8 @@ import { BagelStyled } from './Bagel.styled';
 import { useSelector } from 'react-redux';
 import { selectSummaryAll } from 'redux/SummaryPage/selectors';
 import { formatNumber } from 'helpers/helpers';
+import { useMediaQuery } from 'react-responsive';
+import { IS_DESKTOP, IS_MOBILE, IS_TABLET } from 'styles/const ';
 
 // npm install --save chart.js@^3.9.1 react-chartjs-2@^4.3.1
 // npm install --save chart.js react-chartjs-2
@@ -12,6 +14,10 @@ import { formatNumber } from 'helpers/helpers';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const Bagel = () => {
+  const isMobile = useMediaQuery(IS_MOBILE);
+  const isTablet = useMediaQuery(IS_TABLET);
+  const isDesktop = useMediaQuery(IS_DESKTOP);
+
   const { categoriesSummary, periodTotal } = useSelector(selectSummaryAll);
   if (!categoriesSummary.length || !periodTotal) {
     return;
@@ -40,10 +46,20 @@ export const Bagel = () => {
     ],
   };
 
-  const options = {
+  const optionsDesk = {
     cutout: '70%',
     width: '288px',
     height: '288px',
+  };
+  const optionsTab = {
+    cutout: '70%',
+    width: '336px',
+    height: '336px',
+  };
+  const optionsMobil = {
+    cutout: '70%',
+    width: '280px',
+    height: '280px',
   };
 
   const textCenter = {
@@ -64,8 +80,17 @@ export const Bagel = () => {
   };
 
   return (
-    <BagelStyled style={{ width: '288px', height: '288px' }}>
-      <Doughnut data={data} options={options} plugins={[textCenter]} />
+    <BagelStyled>
+      <Doughnut
+        data={data}
+        options={
+          (isMobile && optionsMobil) ||
+          (isTablet && optionsTab) ||
+          (isDesktop && optionsDesk)
+        }
+        plugins={[textCenter]}
+      />
     </BagelStyled>
   );
 };
+// style={{ width: '288px', height: '288px' }}
