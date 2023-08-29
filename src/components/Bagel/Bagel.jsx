@@ -3,6 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { BagelStyled } from './Bagel.styled';
 import { useSelector } from 'react-redux';
 import { selectSummaryAll } from 'redux/SummaryPage/selectors';
+import { formatNumber } from 'helpers/helpers';
 
 // npm install --save chart.js@^3.9.1 react-chartjs-2@^4.3.1
 // npm install --save chart.js react-chartjs-2
@@ -55,7 +56,7 @@ export const Bagel = () => {
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(
-        `₴ ${periodTotal}`,
+        `₴ ${formatNumber(Math.abs(periodTotal).toFixed(2))}`,
         chart.getDatasetMeta(0).data[0].x,
         chart.getDatasetMeta(0).data[0].y
       );

@@ -19,7 +19,7 @@ export const Balance = () => {
       <BalanceBoxStyled>
         <BalanceTitleStyled>Your balance</BalanceTitleStyled>
         <BalanceStyled>
-          <span>&#8372;</span> {formatNumber(balanseTotal)}
+          <span>&#8372;</span> {formatNumber(Math.abs(balanseTotal).toFixed(2))}
         </BalanceStyled>
       </BalanceBoxStyled>
     </BalanceContainerStyled>
