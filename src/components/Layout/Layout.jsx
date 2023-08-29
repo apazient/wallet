@@ -12,7 +12,11 @@ import Balance from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
 import { IS_DESKTOP, IS_MOBILE, IS_TABLET } from 'styles/const ';
 import { Main } from 'components/Main/Main';
-import { WrapperNavBalCur, WrapperNavCur } from './Layout.styled';
+import {
+  WrapperNavBalCur,
+  WrapperNavCur,
+  WrapperOutlet,
+} from './Layout.styled';
 
 const Layout = () => {
   const isMobile = useMediaQuery(IS_MOBILE);
@@ -50,23 +54,16 @@ const Layout = () => {
           </>
         )}
         {isDesktop && (
-          <div style={{ display: 'flex' }}>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: '480px',
-                marginRight: '1px',
-              }}
-            >
+          <WrapperNavBalCur>
+            <WrapperNavCur>
               <Navigation />
               <Balance />
               <Currency />
-            </div>
-            <div style={{ width: '100%' }}>
+            </WrapperNavCur>
+            <WrapperOutlet>
               <Outlet />
-            </div>
-          </div>
+            </WrapperOutlet>
+          </WrapperNavBalCur>
         )}
       </Main>
     </>
