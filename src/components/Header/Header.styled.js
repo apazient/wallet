@@ -51,7 +51,6 @@ export const StyledUserThumb = styled.div`
 export const StyledHeaderText = styled.p`
   font-family: Poppins-Regular;
   font-size: 16px;
-  line-height: 1.5;
   color: ${({ theme }) => theme.colors.navLink};
 `;
 export const StyledUserWrapper = styled.div`
