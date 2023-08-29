@@ -1,24 +1,47 @@
 import React from 'react';
-import {
-  Overlay,
-  OverlayGradient1,
-  OverlayGradient2,
-  OverlayGradient3,
-  OverlayGradient4,
-  OverlayGradient5,
-} from './LoginPage.styled';
+import { Overlay } from './LoginPage.styled';
 import { LoginForm } from 'components/LoginForm/LoginForm';
+import {
+  Overlay14,
+  Overlay16,
+  Overlay17,
+  Overlay18,
+  Overlay19,
+  Overlay20,
+} from 'components/Main/Main.styled';
+import { useMediaQuery } from 'react-responsive';
+import { ISDESKTOP, ISMOBILE, ISTABLET } from 'styles/const ';
 
 const LoginPage = () => {
+  const isMobile = useMediaQuery(ISMOBILE);
+  const isTablet = useMediaQuery(ISTABLET);
+  const isDesctop = useMediaQuery(ISDESKTOP);
   return (
-    <Overlay>
-      <LoginForm />
-      <OverlayGradient1></OverlayGradient1>
-      <OverlayGradient2></OverlayGradient2>
-      <OverlayGradient3></OverlayGradient3>
-      <OverlayGradient4></OverlayGradient4>
-      <OverlayGradient5></OverlayGradient5>
-    </Overlay>
+    <>
+      {isMobile && (
+        <>
+          <LoginForm />
+          <Overlay16 />
+          <Overlay18 />
+          <Overlay14 />
+          <Overlay19 />
+          <Overlay17 />
+          <Overlay20 />
+        </>
+      )}
+
+      {(isTablet || isDesctop) && (
+        <Overlay>
+          <LoginForm />
+          <Overlay16 />
+          <Overlay18 />
+          <Overlay14 />
+          <Overlay19 />
+          <Overlay17 />
+          <Overlay20 />
+        </Overlay>
+      )}
+    </>
   );
 };
 
