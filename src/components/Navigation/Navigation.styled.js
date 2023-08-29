@@ -4,79 +4,68 @@ import styled from 'styled-components';
 export const NavWrapperStyled = styled.ul`
   display: flex;
   flex-direction: row;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-  padding-top: 40px;
-  padding-bottom: 28px;
+  justify-content: center;
+  gap: 35px;
+  padding: 12px 0 12px 0;
+  @media screen and (min-width: 768px) {
+    gap: ${({ theme }) => theme.spacing(5)};
+  }
 `;
-
 export const NavIconStyled = styled.div`
-  display: flex;
-  fill: rgba(255, 255, 255, 0.4);
-  flex-direction: column;
-  width: 24px;
-  height: 24px;
+  width: 38px;
+  height: 38px;
+  border-radius: 7px;
+  transition: all 250ms ease-in-out;
+  fill: ${({ theme }) => theme.colors.navLink};
+  &:hover,
+  &:active {
+    fill: #734aef;
+    filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+    background-color: ${({ theme }) => theme.colors.colorText};
+  }
+  //Медіаправила
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
-
-export const NavLinkWrapperStyled = styled.div`
+export const NavLinkStyled = styled(NavLink)`
   display: flex;
   align-items: center;
-  gap: 20px;
-  &:hover {
-    ${NavIconStyled} {
-      svg {
-        background-color: rgba(255, 255, 255, 1);
-        filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
-        fill: #734aef;
-        fillopacity: 1;
-        border-radius: 5px;
-      }
-    }
-  }
-`;
-
-export const NavLinkStyled = styled(NavLink)`
-  color: ${({ theme }) => theme.colors.colorText};
-  font-family: Poppins-Regular; /*  нужно поменять шрифт */
+  justify-content: center;
+  flex-direction: column;
+  width: 44px;
+  height: 44px;
+  font-family: Poppins-Regular;
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   cursor: pointer;
-  text-decoration: none; /*  нужно убрать стили для тега а */
+  transition: all 250ms ease-in-out;
+  color: ${({ theme }) => theme.colors.navLink};
 
-  &.hover {
-    font-weight: 700px;
-    ${NavIconStyled} {
-      svg {
-        background-color: rgba(255, 255, 255, 1);
-        filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
-        fill: #4a56e2;
-        fillopacity: 1;
-        border-radius: 5px;
-      }
-    }
-  }
+  //Ховер і Актів
+  &.hover,
   &.active {
-    font-weight: 700;
+    font-family: Poppins-Bold;
+    color: ${({ theme }) => theme.colors.colorText};
+
     ${NavIconStyled} {
-      svg {
-        background-color: rgba(255, 255, 255, 1);
-        filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
-        fill: #4a56e2;
-        fillopacity: 1;
-        border-radius: 5px;
-      }
+      fill: #734aef;
+      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+      background-color: ${({ theme }) => theme.colors.colorText};
     }
   }
-`;
-
-export const NavWrapperStyledTablet = styled(NavWrapperStyled)`
-  flex-direction: column;
 `;
 
 export const NavLinkStyledTablet = styled(NavLinkStyled)`
-  display: flex;
-  gap: 20px;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  gap: ${({ theme }) => theme.spacing(5)};
+`;
+
+export const NavWrapperStyledTablet = styled(NavWrapperStyled)`
+  padding: 40px 0 28px 0;
+  flex-direction: column;
+  align-items: flex-start;
 `;
