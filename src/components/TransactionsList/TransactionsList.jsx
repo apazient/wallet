@@ -149,7 +149,9 @@ const TransactionsList = () => {
                   amount,
                 }) => (
                   <TrInfoStyled key={id}>
-                    <TdDateStyled>{transactionDate}</TdDateStyled>
+                    <TdDateStyled>
+                      {moment(transactionDate).format('DD.MM.YY')}
+                    </TdDateStyled>
                     <TdTypeStyled>{type === 'INCOME' ? '+' : '-'}</TdTypeStyled>
                     <TdCatagoryStyled>
                       {dataList.length !== 0
