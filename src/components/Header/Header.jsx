@@ -10,6 +10,7 @@ import {
   StyledLogoSvg,
   StyledUserWrapper,
   StyledLogoLink,
+  HeaderInner,
 } from './Header.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from 'redux/Auth/selectors';
@@ -31,26 +32,28 @@ const Header = () => {
   return (
     <>
       <StyledHeader>
-        <StyledLogoThumb>
-          <StyledLogoLink to="/">
-            <StyledLogoSvg>
-              <SpriteSVG name={'logo'} />
-            </StyledLogoSvg>
-            Money Guard
-          </StyledLogoLink>
-        </StyledLogoThumb>
+        <HeaderInner>
+          <StyledLogoThumb>
+            <StyledLogoLink to="/">
+              <StyledLogoSvg>
+                <SpriteSVG name={'logo'} />
+              </StyledLogoSvg>
+              Money Guard
+            </StyledLogoLink>
+          </StyledLogoThumb>
 
-        <StyledUserThumb>
-          <StyledHeaderText>{editString(username)}</StyledHeaderText>
-          <StyledUserWrapper>
-            <StyledExitSvg onClick={handleLogout}>
-              <SpriteSVG name={'exit'} />
-            </StyledExitSvg>
-            <StyledHeaderBtn type="button" onClick={handleLogout}>
-              Exit
-            </StyledHeaderBtn>
-          </StyledUserWrapper>
-        </StyledUserThumb>
+          <StyledUserThumb>
+            <StyledHeaderText>{editString(username)}</StyledHeaderText>
+            <StyledUserWrapper>
+              <StyledExitSvg onClick={handleLogout}>
+                <SpriteSVG name={'exit'} />
+              </StyledExitSvg>
+              <StyledHeaderBtn type="button" onClick={handleLogout}>
+                Exit
+              </StyledHeaderBtn>
+            </StyledUserWrapper>
+          </StyledUserThumb>
+        </HeaderInner>
       </StyledHeader>
       {isLogoutOpen && (
         <Modal>

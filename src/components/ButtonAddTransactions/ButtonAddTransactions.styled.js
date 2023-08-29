@@ -1,14 +1,14 @@
 import { styled } from 'styled-components';
 
 export const StyledAdd = styled.button`
-  position: absolute;
-  right: 40px;
-  bottom: 40px;
+  position: fixed;
+  right: 47px;
+  bottom: 20px;
   height: 44px;
   width: 44px;
   border: none;
   border-radius: 50%;
-  margin-left: auto;
+  /* margin-left: auto; */
   padding: 12px;
   outline: none;
   cursor: pointer;
@@ -22,6 +22,7 @@ export const StyledAdd = styled.button`
   );
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 `;
+
 export const StyledPlusAddSvg = styled.div`
   width: 20px;
   height: 20px;
