@@ -4,7 +4,6 @@ import { ModalOverlay } from './Modal.styled';
 import { useDispatch } from 'react-redux';
 import { closeModal } from 'redux/Global/globalSlice';
 import { showSelect } from 'redux/TransactionCategories/categoriesSlice';
-import { LogoutForm } from 'components/LoguotForm/LogoutForm';
 
 const modalRoot = document.querySelector('#modal-root');
 

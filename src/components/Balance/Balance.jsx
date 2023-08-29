@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import {
   BalanceBoxStyled,
@@ -7,12 +7,10 @@ import {
   BalanceStyled,
   BalanceTitleStyled,
 } from './Balance.styled';
-import { feachTransactionSummary } from 'redux/SummaryPage/operations';
+
 import { selectPeriodTotal } from 'redux/SummaryPage/selectors';
 
 export const Balance = () => {
-  const dispatch = useDispatch();
-
   const balanseTotal = useSelector(selectPeriodTotal);
 
   return (

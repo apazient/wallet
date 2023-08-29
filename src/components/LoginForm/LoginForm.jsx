@@ -1,9 +1,4 @@
 import React from 'react';
-
-// AlexeyW
-// AlexeyW@mail.com
-// AlexW.com
-
 import {
   FormikLoginForm,
   StyledButtonLog,

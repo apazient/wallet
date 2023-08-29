@@ -16,7 +16,6 @@ import {
   DeleteTabBtn,
   EditIconStyled,
   IconBtnWrapperStyled,
-  MainTrStyled,
   TableStyled,
   TdActionStyled,
   TdCatagoryStyled,

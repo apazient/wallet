@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
+
 export const GlobalStyles = createGlobalStyle`
 
 body{
@@ -42,20 +42,3 @@ a {
   text-decoration: none;
 }
 `;
-
-// export const GlobalStyledContainer = styled.div`
-//   width: 100%;
-//   min-width: 320px;
-//   margin: 0px auto;
-//   padding: 0 20px;
-
-//   @media screen and (min-width: 768px) {
-//     min-width: 768px;
-//     padding: 0 32px;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-//     min-width: 1280px;
-//     padding: 0 16px;
-//   }
-// `;
