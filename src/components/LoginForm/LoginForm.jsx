@@ -30,6 +30,7 @@ import * as Yup from 'yup';
 import { getIsLoading } from 'redux/Auth/selectors';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { OverlayCenterMobile } from 'styles/GradientCycle';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -56,6 +57,7 @@ export const LoginForm = () => {
 
   return (
     <StyledSectionForm>
+      <OverlayCenterMobile />
       <StyledDiv>
         <StyledDivItems>
           <StyledDivSpriteSvgLogo>
