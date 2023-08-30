@@ -43,7 +43,7 @@ function MobileList({ dataList, allCategories, handleDeleteClick }) {
             </StyledLiTransList>
             <StyledLiTransList>
               <StyledNameTranList>Sum</StyledNameTranList>
-              <div>{Math.abs(amount)}</div>
+              <div>{Math.abs(amount).toFixed(2)}</div>
             </StyledLiTransList>
             <StyledLiTransList>
               <DeletBtnMobTrans onClick={() => handleDeleteClick(id)}>
