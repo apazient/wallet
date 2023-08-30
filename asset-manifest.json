@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/wallet/static/css/main.ec927866.css",
-    "main.js": "/wallet/static/js/main.9df26618.js",
+    "main.js": "/wallet/static/js/main.95a0c1b7.js",
     "static/media/RegDollarsRight.png": "/wallet/static/media/RegDollarsRight.4bf12f73e8dcae887449.png",
     "static/media/RegDollarsLeft.png": "/wallet/static/media/RegDollarsLeft.cbe0397bda1dc67c6857.png",
     "static/media/Circe-Bold.woff2": "/wallet/static/media/Circe-Bold.50a8ea43c4436dea4daa.woff2",
@@ -18,10 +18,10 @@
     "static/media/Poppins-Bold.woff2": "/wallet/static/media/Poppins-Bold.02d30d49f061087e6275.woff2",
     "index.html": "/wallet/index.html",
     "main.ec927866.css.map": "/wallet/static/css/main.ec927866.css.map",
-    "main.9df26618.js.map": "/wallet/static/js/main.9df26618.js.map"
+    "main.95a0c1b7.js.map": "/wallet/static/js/main.95a0c1b7.js.map"
   },
   "entrypoints": [
     "static/css/main.ec927866.css",
-    "static/js/main.9df26618.js"
+    "static/js/main.95a0c1b7.js"
   ]
 }
