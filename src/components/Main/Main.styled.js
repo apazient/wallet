@@ -4,8 +4,23 @@ export const MainContainer = styled.main`
   margin: 0px auto;
   overflow-x: hidden;
   max-width: 320px;
-  /* height: 100vh; */
+  height: 90vh;
   padding: 0 20px;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(82, 59, 126, 0.6);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.082) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+
+    border-radius: 4px;
+  }
   @media screen and (min-width: 768px) {
     max-width: 768px;
     padding: 0 32px;
