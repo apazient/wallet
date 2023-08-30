@@ -7,19 +7,21 @@ import {
   BalanceStyled,
   BalanceTitleStyled,
 } from './Balance.styled';
-
-import { selectPeriodTotal } from 'redux/SummaryPage/selectors';
 import { formatNumber } from 'helpers/helpers';
+import { selectTransaction } from 'redux/TransactionsList/selectors';
 
 export const Balance = () => {
-  const balanseTotal = useSelector(selectPeriodTotal);
+  const allTranzaction = useSelector(selectTransaction);
+  const balans = allTranzaction.reduce((rez, e) => {
+    return (rez += e.amount);
+  }, 0);
 
   return (
     <BalanceContainerStyled>
       <BalanceBoxStyled>
         <BalanceTitleStyled>Your balance</BalanceTitleStyled>
         <BalanceStyled>
-          <span>&#8372;</span> {formatNumber(Math.abs(balanseTotal).toFixed(2))}
+          <span>&#8372;</span> {formatNumber(Math.abs(balans).toFixed(2))}
         </BalanceStyled>
       </BalanceBoxStyled>
     </BalanceContainerStyled>
