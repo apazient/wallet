@@ -66,7 +66,7 @@ function TabletAndDesctopList({ dataList, allCategories, handleDeleteClick }) {
                       : { color: 'rgba(255, 134, 141, 1)' }
                   }
                 >
-                  {Math.abs(amount)}
+                  {Math.abs(amount).toFixed(2)}
                 </TdSumStyled>
                 <TdActionStyled>
                   <IconBtnWrapperStyled>

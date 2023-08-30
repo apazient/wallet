@@ -6,8 +6,7 @@ import {
   Input,
   InputText,
   InputWrapper,
-  StyledButtonPerple,
-  StyledButtonWhite,
+  StyledErrorMessage,
   StyledCategory,
   StyledCloseIconEdit,
   StyledIncomeExpences,
@@ -22,16 +21,15 @@ import { updateTransaction } from 'redux/TransactionsList/operations';
 import { selectAllCategories } from 'redux/TransactionCategories/selectors';
 import { feachCategories } from 'redux/TransactionCategories/operations';
 import {
+  StyledButtonAdd,
+  StyledButtonCancel,
   StyledCalendarSvg,
-  // StyledCloseIcon,
   StyledDatatimeWrapper,
   StyledDatetime,
+  StyledInputWrapper,
   StyledToggleText,
-  // StyledToggleTextExp,
-  // StyledToggleTextIncome,
-  // StyledToggleWrapper,
 } from 'components/ModalAddTransaction/ModalAddTransaction.styled';
-// import { SelectExpenses } from 'components/ModalAddTransaction/Select';
+import { toast } from 'react-toastify';
 
 export const ModalEditTransaction = () => {
   const dispatch = useDispatch();
@@ -50,7 +48,6 @@ export const ModalEditTransaction = () => {
   const getCategoriName = () => {
     if (isExpense && categories.length) {
       const categ = categories.find(e => e.id === dataItem.categoryId);
-      console.log(categ.name);
       return categ.name;
     }
   };
@@ -58,15 +55,13 @@ export const ModalEditTransaction = () => {
   const formik = useFormik({
     initialValues: {
       transactionDate: dataItem.transactionDate,
-      amount: dataItem.amount,
+      amount: Math.abs(dataItem.amount).toFixed(2),
       comment: dataItem.comment,
       categoryId: dataItem.categoryId,
       type: dataItem.type,
     },
     onSubmit: values => {
-      if (isExpense) {
-        values.amount = 0 - values.amount;
-      }
+      isExpense && (values.amount = 0 - values.amount);
       const transactionData = {
         updateData: values,
         transactionId: dataItem.id,
@@ -75,10 +70,10 @@ export const ModalEditTransaction = () => {
       dispatch(closeModal());
     },
     validationSchema: Yup.object().shape({
-      amount: Yup.number().required('Required field!'),
-      // .positive('The number must be positive!'),
+      amount: Yup.number()
+        .positive('Only possitive value')
+        .required('Required field!'),
       transactionDate: Yup.date().required('Required field!'),
-      // .max(new Date(), 'Date must be in the past!'),
       comment: Yup.string(),
     }),
   });
@@ -112,26 +107,21 @@ export const ModalEditTransaction = () => {
         </StyledToggleText>
       </StyledIncomeExpences>
       {isExpense && <StyledCategory>{getCategoriName()}</StyledCategory>}
+
       <InputWrapper>
-        <Input
-          name="amount"
-          placeholder="0.00"
-          type="number"
-          value={formik.values.amount}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
+        <StyledInputWrapper>
+          <Input
+            name="amount"
+            type="number"
+            value={formik.values.amount}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        </StyledInputWrapper>
+
         {formik.touched.amount && formik.errors.amount ? (
-          <div>{formik.errors.amount}</div>
+          <div> {toast.error(formik.errors.amount)} </div>
         ) : null}
-        {/* <Input
-          name="transactionDate"
-          placeholder="2025-08-23"
-          type="date"
-          value={formik.values.transactionDate}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        /> */}
         <StyledDatatimeWrapper>
           <StyledDatetime
             name="transactionDate"
@@ -139,10 +129,8 @@ export const ModalEditTransaction = () => {
             dateFormat="DD.MM.YYYY"
             timeFormat={false}
             value={formik.values.transactionDate}
-            // onChange={formik.handleChange}
             onChange={value => handleDatetimeChange('transactionDate', value)}
             onBlur={formik.handleBlur}
-            // closeOnSelect={true}
           ></StyledDatetime>
           <StyledCalendarSvg>
             <SpriteSVG name={'calendar'} />
@@ -150,7 +138,9 @@ export const ModalEditTransaction = () => {
         </StyledDatatimeWrapper>
 
         {formik.touched.transactionDate && formik.errors.transactionDate ? (
-          <div>{formik.errors.transactionDate}</div>
+          <StyledErrorMessage>
+            {formik.errors.transactionDate}
+          </StyledErrorMessage>
         ) : null}
       </InputWrapper>
       <InputWrapper>
@@ -162,14 +152,14 @@ export const ModalEditTransaction = () => {
           onChange={formik.handleChange}
         />
       </InputWrapper>
-      <StyledButtonPerple type="submit">Save</StyledButtonPerple>
-      <StyledButtonWhite
+      <StyledButtonAdd type="submit">Save</StyledButtonAdd>
+      <StyledButtonCancel
         onClick={() => {
           dispatch(closeModal());
         }}
       >
         Cancel
-      </StyledButtonWhite>
+      </StyledButtonCancel>
     </FormikForm>
   );
 };
