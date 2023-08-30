@@ -5,9 +5,9 @@ export const MainContainer = styled.main`
   overflow-x: hidden;
   max-width: 320px;
   height: 90vh;
-  padding: 0 20px;
+  padding: 0 15px;
   &::-webkit-scrollbar {
-    width: 4px;
+    width: 2px;
   }
   &::-webkit-scrollbar-track {
     background: rgba(82, 59, 126, 0.6);
