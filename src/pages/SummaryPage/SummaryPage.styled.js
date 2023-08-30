@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const SummaryPageStyled = styled.div``;
+export const SummaryPageStyled = styled.div`
+  overflow: hidden;
+`;
+
 export const SummaryPageContStyled = styled.div`
   background-color: transparent;
   margin: 0 auto;

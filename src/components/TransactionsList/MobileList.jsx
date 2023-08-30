@@ -17,7 +17,7 @@ import { SpriteSVG } from 'pictures/SpriteSVG';
 function MobileList({ dataList, allCategories, handleDeleteClick }) {
   const dispatch = useDispatch();
   return (
-    <>
+    <div>
       {dataList?.map(
         ({ id, transactionDate, type, categoryId, comment, amount }) => (
           <StyledUlTransList $type={type} key={id}>
@@ -63,7 +63,7 @@ function MobileList({ dataList, allCategories, handleDeleteClick }) {
           </StyledUlTransList>
         )
       )}
-    </>
+    </div>
   );
 }
 
