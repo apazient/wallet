@@ -185,3 +185,19 @@ export const StyledCategory = styled.div`
 export const StyledP = styled.p`
   margin: 10px;
 `;
+export const StyledErrorMessage = styled.div`
+  width: 100%;
+  text-align: center;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.yellow};
+  position: absolute;
+  bottom: 50%;
+  right: 30%;
+  transform: translate(50%, 50%);
+  @media screen and (min-width: 768px) {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, 0%);
+  }
+`;
