@@ -29,7 +29,7 @@ export const BalanceBoxStyled = styled.div`
     width: 480px;
     background: rgba(82, 59, 126, 0.6);
     box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
-    padding-top: 8px;
+    /* padding-top: 8px; */
     padding-bottom: 11px;
     padding-left: 56px;
   }

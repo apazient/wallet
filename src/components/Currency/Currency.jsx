@@ -54,7 +54,6 @@ export const Currency = () => {
             <ThCurrencyStyled>Sale</ThCurrencyStyled>
           </TrCurrencyStyled>
         </TheadCurrencyStyled>
-        <></>
         <TbodyCurrencyStyled>
           {isLoading ? (
             <tr>
@@ -77,18 +76,26 @@ export const Currency = () => {
           <MediaQuery maxWidth={1280}>
             <SpriteSVG name={'currencyEllipse320768'} />
           </MediaQuery>
+          <MediaQuery minWidth={1279}>
+            <SpriteSVG name={'currencyEllipse'} />
+          </MediaQuery>
         </EllipseImgStyled>
         <EllipseImgStyled2>
           <UsdImgStyled>{usdBuy}</UsdImgStyled>
           <MediaQuery maxWidth={1280}>
             <SpriteSVG name={'currencyEllipse320768'} />
           </MediaQuery>
+          <MediaQuery minWidth={1279}>
+            <SpriteSVG name={'currencyEllipse'} />
+          </MediaQuery>
         </EllipseImgStyled2>
         <LineImgStyled>
           <MediaQuery maxWidth={768}>
             <SpriteSVG name={'currencyLine320'} />
           </MediaQuery>
-
+          <MediaQuery minWidth={769} maxWidth={1279}>
+            <SpriteSVG name={'currencyLine768'} />
+          </MediaQuery>
           <MediaQuery minWidth={1280}>
             <SpriteSVG name={'currencyLine'} />
           </MediaQuery>

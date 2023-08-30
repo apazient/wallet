@@ -171,10 +171,10 @@ export const LineImgStyled = styled.div`
   height: 70px;
   top: -3px;
   @media screen and (min-width: 767px) {
-    top: 138px;
+    top: -1px;
   }
   @media screen and (min-width: 1280px) {
-    top: 45px;
+    top: 43px;
   }
 `;
 export const WaveImgStyled = styled.div`
