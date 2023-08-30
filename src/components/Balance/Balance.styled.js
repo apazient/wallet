@@ -42,7 +42,7 @@ export const BalanceTitleStyled = styled.h2`
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 `;
 export const BalanceStyled = styled.span`
   color: var(--white, #fbfbfb);
