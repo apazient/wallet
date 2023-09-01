@@ -4,15 +4,12 @@ import {
   StyledSelect,
   WrapperDiagramTab,
 } from './DiagramTab.styled';
-// import { useState } from 'react';
 import { selectYear } from 'redux/SummaryPage/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { setYear } from 'redux/SummaryPage/summarySlice';
 import { SpriteSVG } from 'pictures/SpriteSVG';
 
 export const DiagramTabYears = () => {
-  // const [selectedYear, setSelectedYear] = useState(null);
-
   // Временая функция генерации годjd
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 5 }, (_, index) => ({
