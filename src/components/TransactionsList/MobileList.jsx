@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import {
   CommentMobTrans,
+  ContainerTableListMob,
   DeletBtnMobTrans,
   EditBtnMobTrans,
   EditIconMobTrans,
@@ -17,7 +18,7 @@ import { SpriteSVG } from 'pictures/SpriteSVG';
 function MobileList({ dataList, allCategories, handleDeleteClick }) {
   const dispatch = useDispatch();
   return (
-    <div>
+    <ContainerTableListMob>
       {dataList?.map(
         ({ id, transactionDate, type, categoryId, comment, amount }) => (
           <StyledUlTransList $type={type} key={id}>
@@ -63,7 +64,7 @@ function MobileList({ dataList, allCategories, handleDeleteClick }) {
           </StyledUlTransList>
         )
       )}
-    </div>
+    </ContainerTableListMob>
   );
 }
 

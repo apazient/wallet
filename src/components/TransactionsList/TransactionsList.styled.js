@@ -200,20 +200,14 @@ export const TdActionStyled = styled.td`
 //styled mobile List
 
 export const StyledUlTransList = styled.ul`
-  // background: rgba(
-  //   47,
-  //   21,
-  //   176,
-  //   0.73
-  // ); // нужно поменять цвет фона на rgba(255, 255, 255, 1)
   background: rgba(82, 59, 126, 0.6);
   border-radius: 18px;
   position: relative;
   overflow: hidden;
+
   &:not(:last-child) {
     margin-bottom: 8px;
   }
-  // overflow: hidden;
 
   &::before {
     content: '';
@@ -292,4 +286,10 @@ export const EditIconMobTrans = styled.div`
 
 export const CommentMobTrans = styled.div`
   max-width: 130px;
+`;
+export const ContainerTableListMob = styled.div`
+  padding: 0 0 20px 0;
+  @media screen and (min-width: 768px) {
+    padding: 0;
+  }
 `;

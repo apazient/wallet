@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const SummaryPageStyled = styled.div`
-  overflow: hidden;
-  min-height: 80vh;
+  // overflow: hidden;
+  // min-height: 80vh;
 `;
 
 export const SummaryPageContStyled = styled.div`

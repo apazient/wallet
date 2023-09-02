@@ -46,6 +46,7 @@ export const Bagel = () => {
           '#00AD84',
         ],
         borderWidth: 0,
+        text: periodTotal.toFixed(2),
       },
     ],
   };
@@ -69,14 +70,15 @@ export const Bagel = () => {
   const textCenter = {
     id: 'textCenter',
     beforeDatasetsDraw(chart, args, pluginOptions) {
-      const { ctx } = chart;
+      const { ctx, data } = chart;
+      const text = data.datasets[0].text;
       ctx.save();
       ctx.font = '600 18px Poppins, sans-serif';
       ctx.fillStyle = '#FBFBFB';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(
-        `₴ ${formatNumber(newBalans(allTranzaction).toFixed(2))}`,
+        `₴ ${text}`,
         chart.getDatasetMeta(0).data[0].x,
         chart.getDatasetMeta(0).data[0].y
       );
