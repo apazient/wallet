@@ -5,7 +5,7 @@ import {
   fetchTransactions,
   updateTransaction,
 } from './operations';
-import { setIsModalAddTransactionOpen } from 'redux/Global/globalSlice';
+// import { setIsModalAddTransactionOpen } from 'redux/Global/globalSlice';
 import { logoutThunk } from 'redux/Auth/operations';
 const pending = (state, action) => {
   state.loading = true;
