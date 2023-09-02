@@ -8,9 +8,11 @@ export const getCategoriName = (list, categoryId) => {
 };
 
 export const editString = name => {
-  const arrFromStr = name.split(' ');
-  const res = arrFromStr.map(el => el[0].toUpperCase() + el.slice(1));
-  return res.join(' ');
+  if (name) {
+    const arrFromStr = name.split(' ');
+    const res = arrFromStr.map(el => el[0].toUpperCase() + el.slice(1));
+    return res.join(' ');
+  }
 };
 
 export const formatNumber = number => {
@@ -18,4 +20,9 @@ export const formatNumber = number => {
   const integerPart = parts[0].replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
   const formattedNumber = integerPart + (parts[1] ? '.' + parts[1] : '');
   return formattedNumber;
+};
+export const newBalans = allTranzaction => {
+  return allTranzaction.reduce((rez, e) => {
+    return (rez += e.amount);
+  }, 0);
 };

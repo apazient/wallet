@@ -17,6 +17,7 @@ import { useMediaQuery } from 'react-responsive';
 import { IS_DESKTOP, IS_MOBILE, IS_TABLET } from 'styles/const ';
 import MobileList from './MobileList';
 import TabletAndDesctopList from './TabletAndDesctopList';
+import { feachTransactionSummary } from 'redux/SummaryPage/operations';
 
 const TransactionsList = () => {
   const isMobile = useMediaQuery(IS_MOBILE);
@@ -44,6 +45,7 @@ const TransactionsList = () => {
     dispatch(fetchTransactions(token));
   }, [dispatch, token]);
   useEffect(() => {
+    dispatch(feachTransactionSummary());
     dispatch(feachCategories());
   }, [dispatch]);
 
