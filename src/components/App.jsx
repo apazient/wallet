@@ -12,16 +12,19 @@ import { useEffect } from 'react';
 import { currentUser } from 'redux/Auth/operations';
 import { Currency } from './Currency/Currency';
 import Loader from './Loader/Loader';
-// import { feachTransactionSummary } from 'redux/SummaryPage/operations';
+import { Navigate } from 'react-router-dom';
+
 import { fetchTransactions } from 'redux/TransactionsList/operations';
+import { getIsAuth } from 'redux/Auth/selectors';
 
 export const App = () => {
   const isRefresh = useSelector(state => state.user.isRefresh);
+  const isLoggedIn = useSelector(getIsAuth);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(currentUser());
-    // dispatch(feachTransactionSummary());
+
     dispatch(fetchTransactions());
   }, [dispatch]);
 
@@ -31,8 +34,7 @@ export const App = () => {
     <Routes>
       <Route
         path="/"
-        element={<Layout />}
-        // element={isLoggedIn ? <Layout /> : <Navigate to="/login" />}
+        element={isLoggedIn ? <Layout /> : <Navigate to="/login" />}
       >
         <Route
           index
