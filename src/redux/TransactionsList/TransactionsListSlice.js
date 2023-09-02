@@ -30,40 +30,39 @@ const transactionsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(addTransaction.fulfilled, (state, action) => {
-        state.transactions.push(action.payload);
-        setIsModalAddTransactionOpen(state, { payload: false });
-      })
-      .addCase(addTransaction.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(updateTransaction.fulfilled, (state, action) => {
-        const updatedTransaction = action.payload;
-        const index = state.transactions.findIndex(
-          transaction => transaction.id === updatedTransaction.id
-        );
-        if (index !== -1) {
-          state.transactions[index] = updatedTransaction;
-        }
-      })
-      .addCase(updateTransaction.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(deleteTransaction.fulfilled, (state, action) => {
-        state.transactions = state.transactions.filter(
-          transaction => transaction.id !== action.payload
-        );
-      })
-      .addCase(deleteTransaction.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
+      // .addCase(addTransaction.fulfilled, (state, action) => {
+      //   state.transactions.push(action.payload);
+      //   setIsModalAddTransactionOpen(state, { payload: false });
+      // })
+      // .addCase(addTransaction.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
+      // })
+      // .addCase(updateTransaction.fulfilled, (state, action) => {
+      //   const updatedTransaction = action.payload;
+      //   const index = state.transactions.findIndex(
+      //     transaction => transaction.id === updatedTransaction.id
+      //   );
+      //   if (index !== -1) {
+      //     state.transactions[index] = updatedTransaction;
+      //   }
+      // })
+      // .addCase(updateTransaction.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
+      // })
+      // .addCase(deleteTransaction.fulfilled, (state, action) => {
+      //   state.transactions = state.transactions.filter(
+      //     transaction => transaction.id !== action.payload
+      //   );
+      // })
+      // .addCase(deleteTransaction.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
+      // })
 
       .addCase(logoutThunk.fulfilled, (state, action) => {
         state.transactions = [];
-
       })
       .addMatcher(
         isAnyOf(

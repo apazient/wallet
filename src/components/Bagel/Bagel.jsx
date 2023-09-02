@@ -22,7 +22,7 @@ export const Bagel = () => {
   const { categoriesSummary, periodTotal } = useSelector(selectSummaryAll);
   const allTranzaction = useSelector(selectTransaction);
 
-  if (!categoriesSummary.length || !periodTotal) {
+  if (!categoriesSummary.length) {
     return;
   }
   const categoriesSum = categoriesSummary.length

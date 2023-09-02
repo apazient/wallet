@@ -47,7 +47,7 @@ export const Table = () => {
                   className="category-color"
                 ></div>
                 <p className="category-item">{name}</p>
-                <p className="category-sum">{Math.abs(total)}</p>
+                <p className="category-sum">{Math.abs(total).toFixed(2)}</p>
               </li>
               <div className="gradient"></div>
             </div>
@@ -57,7 +57,7 @@ export const Table = () => {
           <li>
             <p className="total-item">Expenses:</p>
             <p className="total-sum-exp">
-              {formatNumber(Math.abs(expenseSummary).toFixed(2))}
+              {formatNumber(expenseSummary.toFixed(2))}
             </p>
           </li>
 
